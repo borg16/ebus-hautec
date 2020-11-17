@@ -1,0 +1,71 @@
+#
+#r,rem1,Anlaufzaehler_WP1,Gesamt Anlaufzähler 1 lesen WP,,90,0304,,anlaufzaehler,m,HCD:3,,,,number,m,UCH,,,
+#r,ctrl,Anlaufzaehler_WP2,Gesamt Anlaufzähler 2 lesen WP,10,91,0304,,anlaufzaehler,m,HCD:3,,,,number,m,UCH,,,
+# [anlauftyp2=1]r,ehp,anlaufzaehler_HS2,Gesamt Anlaufzähler 2 lesen HS,10,91,0304,,anlaufzaehler,m,HCD:3,,,,number,m,UCH,,,
+r,ctrl,Betriebsstunden_1,Gesamt Betriebsstunden 1 Stufe 1 lesen,10,90,0305,,betriebsstunden,m,Betriebsstunden
+r,ctrl,Betriebsstunden_2,Gesamt Betriebsstunden 2 Stufe 1 lesen,10,91,0305,,betriebsstunden,m,Betriebsstunden
+#bw,ctrl,ToFA1,Betriebsdaten des Reglers an den Feuerungsautomaten 1,10,03,0501,,betriebsdaten,,BetriebsdatenRegler
+#bw,ctrl,ToFA2,Betriebsdaten des Reglers an den Feuerungsautomaten 2,10,13,0501,,betriebsdaten,,BetriebsdatenRegler
+bw,ctrl,AnfRegler2FA1,Betriebsdatenanforderung des Reglers an den Feuerungsautomaten 1,10,03,0502,,blocknummer,,Blocknummer
+bw,ctrl,AnfRegler2FA2,Betriebsdatenanforderung des Reglers an den Feuerungsautomaten 2,10,13,0502,,blocknummer,,Blocknummer
+bw,FA1,ToRegler,Betriebsdaten des Feuerungsautomaten 1 an den Regler,03,10,0503,01,betriebsdaten,,BetriebsdatenAutomat
+bw,FA2,ToRegler,Betriebsdaten des Feuerungsautomaten 2 an den Regler,13,10,0503,01,betriebsdaten,,BetriebsdatenAutomat
+bw,ctrl,ConfAnfToFA1,Konfigurationsdatenanforderung des Reglers an den Feuerungsautomaten 1,10,03,050a,
+bw,ctrl,ConfAnfToFA2,Konfigurationsdatenanforderung des Reglers an den Feuerungsautomaten 2,10,13,050a,
+bw,ctrl,ConfAnfToS1,Konfigurationsdatenanforderung des Reglers an Slave 1,10,90,050a,
+bw,ctrl,ConfAnfToS2,Konfigurationsdatenanforderung des Reglers an Slave 2,10,91,050a,
+r,ctrl,idx,identification,10,08,0704,,manufacturer,,UCH,0x06=Dungs;0x0f=FH Ostfalia;0x10=TEM;0x11=Lamberti;0x14=CEB;0x15=Landis-Staefa;0x16=FERRO;0x17=MONDIAL;0x18=Wikon;0x19=Wolf;0x20=RAWE;0x30=Satronic;0x40=ENCON;0x50=Kromschröder;0x60=Eberle;0x65=EBV;0x75=Grässlin;0x85=ebm-papst;0x95=SIG;0xa5=Theben;0xa7=Thermowatt;0xb5=Vaillant;0xc0=Toby;0xc5=Weishaupt;0xfd=ebusd.eu,,device manufacturer,id,,UCH,,,device id
+
+r,ctrl,statx1,,,90,100a,0004,data,s,statx
+r,ctrl,statx2,,,91,100a,0004,data,s,statx
+
+r,ctrl,staty1,,,90,100a,0005,data,s,statx
+r,ctrl,staty2,,,91,100a,0005,data,s,statx
+
+r,ctrl,HaveDataQuery1,Have Data Q1,,90,100a,d0,DataQ,m,DataQuery,,,,Answer,s,DQAnswer
+r,ctrl,HaveDataQuery2,Have Data Q2,,91,100a,d0,DataQ,m,DataQuery,,,,Answer,s,DQAnswer
+
+r,ctrl,Read0a_1,aus 1. Bedienteil,,90,100a,200a,data1,s,ReadDateTime
+r,ctrl,Read0a_2,aus 2. Bedienteil,,91,100a,200a,data2,s,ReadDateTime
+
+r,ctrl,Read0b1_1,,,90,100a,210b,data,s,ReadE3Z
+r,ctrl,Read0b1_2,,,91,100a,210b,data,s,ReadE3Z
+
+r,ctrl,Read0b2_1,aus 1. Bedienteil,,90,100a,200b,data,s,ReadMiscData
+r,ctrl,Read0b2_2,aus 1. Bedienteil,,91,100a,200b,data,s,ReadMiscData
+
+r,ctrl,Read0c1_1,,,90,100a,210c,data,s,ReadMoreData
+r,ctrl,Read0c1_2,,,91,100a,210c,data,s,ReadMoreData
+
+r,ctrl,Read0c2_1,,,90,100a,200c,data,s,ReadE3Y
+r,ctrl,Read0c2_2,,,91,100a,200c,data,s,ReadE3Y
+
+r,ctrl,Read0D1_1,,,90,100a,210d,data,s,ReadE3X
+r,ctrl,Read0D1_2,,,91,100a,210d,data,s,ReadE3X
+
+r,ctrl,Read0D2_1,,,90,100a,200d,data,s,ReadE3
+r,ctrl,Read0D2_2,,,91,100a,200d,data,s,ReadE3
+
+r,ctrl,TimeStatus1,,,90,100a,3000,data,m,TimeStatus
+r,ctrl,TimeStatus2,,,91,100a,3000,data,m,TimeStatus
+
+r,ctrl,Read3101_1,,,90,100a,3101,data,m,Read3101,,,,
+r,ctrl,Read3101_2,,,91,100a,3101,data,m,Read3101,,,,
+r,ctrl,CheckData1,,,90,100a,3001,data,m,CheckData,,,,
+r,ctrl,CheckData2,,,91,100a,3001,data,m,CheckData,,,,
+
+r,ctrl,Read3102_1,,,90,100a,3102,data,m,Read3102
+r,ctrl,Read3102_2,,,91,100a,3102,data,m,Read3102
+r,ctrl,Read3002_1,,,90,100a,3002,data,m,Read3002
+r,ctrl,Read3002_2,,,91,100a,3002,data,m,Read3002
+
+r,ctrl,Read3103_1,,,90,100a,3103,data,m,Read3103
+r,ctrl,Read3103_2,,,91,100a,3103,data,m,Read3103
+r,ctrl,Read3003_1,,,90,100a,3003,data,m,Read3003
+r,ctrl,Read3003_2,,,91,100a,3003,data,m,Read3003
+
+r,ctrl,Read_d114_1,,,90,100a,d114,data,m,unknownx
+r,ctrl,Read_d114_2,,,91,100a,d114,data,m,unknownx
+
+r,ctrl,Read_d115_1,,,90,100a,d115,data,m,unknownx
+r,ctrl,Read_d115_2,,,91,100a,d115,data,m,unknownx

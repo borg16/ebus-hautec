@@ -1,0 +1,26 @@
+# type (r[1-9];w;u),class,name,comment,QQ,ZZ,PBSB,ID,field,part (m/s),type / templates,divider / values,unit,comment,field,part (m/s),type / templates,divider / values,unit,comment,field,part (m/s),type / templates,divider / values,unit,comment,field,part (m/s),type / templates,divider / values,unit,comment
+*r,broadcast,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*b,broadcast,,,,FE,,,,,,,,,,,,,,,,,,,,,,,,,,
+*w,broadcast,,,,FE,,,,,,,,,,,,,,,,,,,,,,,,,,
+b,,datetime,date/time,,,0700,,outsidetemp,,D2B,,,°C,time,,BTI,,,,date,,BDA,,,,,,,,,
+#r;b,,id,identification,,,0704,,manufacturer,,UCH,0x06=Dungs;0x0f=FH Ostfalia;0x10=TEM;0x11=Lamberti;0x14=CEB;0x15=Landis-Staefa;0x16=FERRO;0x17=MONDIAL;0x18=Wikon;0x19=Wolf;0x20=RAWE;0x30=Satronic;0x40=ENCON;0x50=Kromschröder;0x60=Eberle;0x65=EBV;0x75=Grässlin;0x85=ebm-papst;0x95=SIG;0xa5=Theben;0xa7=Thermowatt;0xb5=Vaillant;0xc0=Toby;0xc5=Weishaupt;0xfd=ebusd.eu,,device manufacturer,id,,STR:5,,,device id,software,,PIN,,,software version,hardware,,PIN,,,hardware versionr
+r;b,,id,identification,,,0704,,manufacturer,,UCH,0x06=Dungs;0x0f=FH Ostfalia;0x10=TEM;0x11=Lamberti;0x14=CEB;0x15=Landis-Staefa;0x16=FERRO;0x17=MONDIAL;0x18=Wikon;0x19=Wolf;0x20=RAWE;0x30=Satronic;0x40=ENCON;0x50=Kromschröder;0x60=Eberle;0x65=EBV;0x75=Grässlin;0x85=ebm-papst;0x95=SIG;0xa5=Theben;0xa7=Thermowatt;0xb5=Vaillant;0xc0=Toby;0xc5=Weishaupt;0xfd=ebusd.eu,,device manufacturer,id,,UCH,,,device id
+w,,id,identification,,FE,0704,,,,,,,,,,,,,,,,,,,,,,,,,
+w,,queryexistence,Inquiry of existence,,FE,07FE,,,,,,,,,,,,,,,,,,,,,,,,,
+b,,signoflife,sign of life,,,07FF,,,,,,,,,,,,,,,,,,,,,,,,,
+b,,error,error message,,,FE01,,error,,STR:10,,,,,,,,,,,,,,,,,,,,,
+b,,netresetstate,reset network start,,,FF00,,,,,,,,,,,,,,,,,,,,,,,,,
+b,,netresetcfg,reset network configuration,,,FF01,,,,,,,,,,,,,,,,,,,,,,,,,
+b,,netloss,network loss,,,FF02,,,,,,,,,,,,,,,,,,,,,,,,,
+#
+b,ctrl,ToFAxSub,Betriebsdaten des Reglers an den Feuerungsautomaten 1,,,050d,,daten,,ReglerToFA
+b,ctrl,ToCtrl,Betriebsdaten des Reglers an andere Regler,,,0801,,Kessel_Isttemp,,D2B,,°C,,Brauchwasser_Ist,,D2B,,°C,,Emisssionstest,,UCH,,,,BWR_Aktiv,,BI1,,,,PumpenFreigabeSperre,,BI1,,,,Kessel1InBetrieb,,BI1,,,,Kessel2InBetrieb,,BI1,,,,Ladepumpe,,BI1,,,,BW_Ladung,,BI1,,,,TBF_Connect,,BI1,,,,Rücklauftemperatr,,D2B,,°C,
+b,ctrl,ToSlaveCtrl,Master-Regler an Slave-Regler,,,0802,,TK_Soll,,D2B,,°C,Kesselsollwert,TB_Soll,,D2B,,°C,Brauchwasser-Sollwert,L_erw,,D1B,,%,erw. Leistungsabname,FA_no_Err,,UCH,,,No. des FA,Err,,UCH,,,herstellerspezifischer Errorcode
+b,,Status0a,xxx,,,100a,1100,TAussen,,Temp,,,,B,,Zwei,,,,C,,Zwei,,,,D,,Zwei,,,,
+b,,Status0b,xxx,,,100a,1000,WZulauf,,Temp,,,,TZulauf,,Temp,,,,WZulauf,,Temp,,,,D,,Zwei,,,,T_Wasser,,Temp
+b,,Status1a,xxx,,,100a,1101,TAussen2,,Temp,,,,FlagRest,,BI0:5,,,,Flag,,BI6,,,,Flag0,,BI7,,,,B,,HEX,,,,C,,Zwei,,,,D,,Zwei,,,,
+b,,Status1b,xxx,,,100a,1001,WZulauf,,Temp,,,,B,,Zehntel,,,,TRuecklauf,,Temp,,,,D,,Zehntel,,,,T_Wasser,,Temp,,,,
+b,,Status2a,xxx,,,100a,1102,A,,Zwei,,,,Mins,,Zwei,,,,C,,Zwei,,,,D,,Zwei,,,,
+b,,Status2b,xxx,,,100a,1002,A,,Temp,,,,B,,Zehntel,,,,C,,Zehntel,,,,D,,Zehntel,,,,W_Soll,,Temp,,,,
+b,,Status3a,xxx,,,100a,1103,A,,Zwei,,,,Mins,,UIN,,,Minutes since Tuesday 00:00,C,,Temp,,,,D,,Zwei,,,,
+b,,Status3b,xxx,,,100a,1003,A,,Zehntel,,,,B,,Zehntel,,,,TZulauf_Soll,,Temp,,,,D,,Zehntel,,,,W_Soll,,Temp,,,,

@@ -1,0 +1,115 @@
+#
+
+Zweistellen,UCH,,,
+
+#0304
+Anlaufzaehler,Zweistellen;Zweistellen;Zweistellen;Zweistellen
+
+Minuten,UCH,,min,
+Stunden,HCD:3,,h,
+HeizungsTyp,UCH,0=WP;1=HS,,
+
+#0305
+Betriebsstunden,Minuten;Stunden;HeizungsTyp
+
+Blocknummer,UCH,0=Übertragung beenden;1=Block Nr. 1 zyklisch senden;2=Block Nr. 2 einmalig senden,,
+
+Statusanzeige,UCH,,,Bei Fehler herstellerspezifischer Melde- oder Störcode,
+LDW,BI7,,,
+GDW,BI6,,,
+WS,BI5,,,
+Flamme,BI4,,,
+Ventil1,BI3,,,
+Ventil2,BI2,,,
+UWP,BI1,,,
+Alarm,BI0,,,
+Stellgrad,UCH,,%,Stellgrad zwischen minimaler und maximaler Kesselleistung
+Kesseltemperatur,D1C,,°C,
+Rücklauftemperatur,UCH,,°C,
+Boilertemperatur,UCH,,°C,
+Außentemperatur,SCH,,°C,
+
+StatusWaermeAnforderung:Status,UCH,0x00=Brennerabschalten;0x55=Brauchwasserbereitung;0xaa=Heizbetrieb;0xcc=Emissionskontrolle;0xdd=TÜV-Funktion;0xee=Reglerstop-Funktion,,
+KesselSollT,UCH,,°C,Kesselsollwert
+BrauchSollT,UCH,,°C,Brauchwasser Sollwert TK
+TAussenIst,SCH,,°C,Aussentemp. Istwert
+
+#0501
+BetriebsdatenRegler,StatusWaermeAnforderung;KesselSollT;BrauchSollT;TAussenIst;Stellgrad
+
+#0503
+BetriebsdatenAutomat,Statusanzeige;LDW;GDW;WS;Flamme;Ventil1;Ventil2;UWP;Alarm;Stellgrad;Kesseltemperatur;Rücklauftemperatur;Boilertemperatur;Außentemperatur
+
+#050d
+RaumTSoll,D1C,,°C,Raumtemperatur Soll
+RaumTIst,D2C,,°C,Raumtemperatur Soll
+Ignore6,IGN:6,,,
+
+ReglerToFA,RaumTSoll;RaumTIst;Ignore6
+
+Four,HEX:4,,,
+Six,HEX:6,,,
+
+#100a02
+Eins,HEX,,,
+Three,HEX:3,,,
+Temp,UIN,10,°C,
+CommandCode,HEX:2,,,,
+MinutenSeit,UIN,,min,Minuten seit ...
+DaysInEpoch,UIN,,days,Tage seit 1.1.1900
+Key,HEX:2,,,
+MyAddress,HEX,,,
+ReadDateTime,CommandCode;MinutenSeit;DaysInEpoch;Temp:WaterTemp;Four;Key
+
+ReadMiscData,CommandCode;Temp:DayTemp;Temp:NightTemp;Temp:WaterTemp;Four;Key
+
+TimeStatus,CommandCode;MinutenSeit;DaysInEpoch;Six;Key
+
+DataQuery,HEX;Key;Key;Key;Key;HEX;HEX;HEX
+DataUnchanged,BI7,,,Is the previous data still valid
+Unknown4,HEX,,,
+DQAnswer,DataUnchanged;Unknown4
+
+Zehntel,UIN,10,,
+Zwei,HEX:2,,,
+
+#100a 210c
+Steilheit,UIN,,,
+Hgr,SIN,10,K,
+ReadMoreData,CommandCode;Temp:X;Hgr;Zehntel:A;Zehntel:B;Zehntel:C;Key
+
+#100a 200d
+ChangeCounter,UCH,,,
+ReadE3,CommandCode;Zwei;Zehntel:Heizgrenze;Zehntel:HeizGrAbs;Zehntel:StartVorhaltezeit;Zehntel:VerstRaumeinfluss;Key
+
+Zehn,HEX:10
+ReadE3X,CommandCode;Temp:RaumSchutz;Zehn
+
+Steil,UCH,,,
+Sieben,HEX:7
+ReadE3Y,CommandCode;Steil;Sieben;Temp:Fusspunkt;Key
+
+
+ReadE3Z,CommandCode;Zehntel:VorhaltX;Zehntel:Kuehl;Zwei:A;Zehntel:B;Zehntel:C;Zehntel:D
+
+statx,CommandCode;Zehntel:A;Zwei:B
+
+unknownx,Hex:12,,,
+
+#100a 3101
+Read3101,Zwei;Temp;Four;Four
+
+#100a 3001
+CheckData,Temp:DayTemp;Temp:NightTemp;Temp:WaterTemp;Four;Key
+
+#100a 3102
+Read3102,Temp;SIN;Zehntel;Zwei;Zehntel;Zehntel
+
+#100a 3002
+Read3002,Four;Temp;Zwei;Temp;Key
+
+#100a 3103 0e
+Read3103,Zehntel;Zehn
+
+#100a 3003
+Read3003,Zehn;Key
