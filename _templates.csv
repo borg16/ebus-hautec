@@ -1,6 +1,7 @@
 #
 
 Zweistellen,UCH,,,
+Byte,UCH,,,
 
 #0304
 Anlaufzaehler,Zweistellen;Zweistellen;Zweistellen;Zweistellen
@@ -25,9 +26,9 @@ UWP,BI1,,,
 Alarm,BI0,,,
 Stellgrad,UCH,,%,Stellgrad zwischen minimaler und maximaler Kesselleistung
 Kesseltemperatur,D1C,,°C,
-Rücklauftemperatur,UCH,,°C,
+Ruecklauftemperatur,UCH,,°C,
 Boilertemperatur,UCH,,°C,
-Außentemperatur,SCH,,°C,
+Aussentemperatur,SCH,,°C,
 
 StatusWaermeAnforderung:Status,UCH,0x00=Brennerabschalten;0x55=Brauchwasserbereitung;0xaa=Heizbetrieb;0xcc=Emissionskontrolle;0xdd=TÜV-Funktion;0xee=Reglerstop-Funktion,,
 KesselSollT,UCH,,°C,Kesselsollwert
@@ -38,14 +39,13 @@ TAussenIst,SCH,,°C,Aussentemp. Istwert
 BetriebsdatenRegler,StatusWaermeAnforderung;KesselSollT;BrauchSollT;TAussenIst;Stellgrad
 
 #0503
-BetriebsdatenAutomat,Statusanzeige;LDW;GDW;WS;Flamme;Ventil1;Ventil2;UWP;Alarm;Stellgrad;Kesseltemperatur;Rücklauftemperatur;Boilertemperatur;Außentemperatur
+BetriebsdatenAutomat,Statusanzeige;LDW;GDW;WS;Flamme;Ventil1;Ventil2;UWP;Alarm;Stellgrad;Kesseltemperatur;Ruecklauftemperatur;Boilertemperatur;Aussentemperatur
 
 #050d
-RaumTSoll,D1C,,°C,Raumtemperatur Soll
-RaumTIst,D2C,,°C,Raumtemperatur Soll
-Ignore6,IGN:6,,,
+T_Room_target,D1C,,°C,Raumtemperatur Soll
+T_Room,D2C,,°C,Raumtemperatur Soll
 
-ReglerToFA,RaumTSoll;RaumTIst;Ignore6
+ReglerToFA,T_Room_target;T_Room;Byte:B1;Byte:B2;Byte:B3;Byte:B4;Byte:B5;Byte:B6
 
 Four,HEX:4,,,
 Six,HEX:6,,,
@@ -58,6 +58,12 @@ CommandCode,HEX:2,,,,
 MinutenSeit,UIN,,min,Minuten seit ...
 DaysInEpoch,UIN,,days,Tage seit 1.1.1900
 Key,HEX:2,,,
+Key1,HEX:2,,,
+Key2,HEX:2,,,
+Key3,HEX:2,,,
+Val1,HEX,,,
+Val2,HEX,,,
+Val3,HEX,,,
 MyAddress,HEX,,,
 ReadDateTime,CommandCode;MinutenSeit;DaysInEpoch;Temp:WaterTemp;Four;Key
 
@@ -65,7 +71,7 @@ ReadMiscData,CommandCode;Temp:DayTemp;Temp:NightTemp;Temp:WaterTemp;Four;Key
 
 TimeStatus,CommandCode;MinutenSeit;DaysInEpoch;Six;Key
 
-DataQuery,HEX;Key;Key;Key;Key;HEX;HEX;HEX
+DataQuery,HEX;Key;Key1;Key2;Key3;Val1;Val2;Val3
 DataUnchanged,BI7,,,Is the previous data still valid
 Unknown4,HEX,,,
 DQAnswer,DataUnchanged;Unknown4
@@ -92,7 +98,7 @@ ReadE3Y,CommandCode;Steil;Sieben;Temp:Fusspunkt;Key
 
 ReadE3Z,CommandCode;Zehntel:VorhaltX;Zehntel:Kuehl;Zwei:A;Zehntel:B;Zehntel:C;Zehntel:D
 
-statx,CommandCode;Zehntel:A;Zwei:B
+statx,CommandCode;Zehntel:T_Room;Byte:B1;Byte:B2
 
 unknownx,Hex:12,,,
 
