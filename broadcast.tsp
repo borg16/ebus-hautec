@@ -24,10 +24,11 @@ model b {
 model w {
 }
 
-/** date/time */
+/** Date/Time Broadcast (eBUS service 07 00) */
 @passive 
+@zz(BROADCAST)
 @id(0x7, 0)
-model Datetime {
+model DateTimeBroadcast {
 /** Outside temperature */
 @unit("°C")
 
@@ -41,10 +42,10 @@ date: BDA,
 }
 // r;b,id,identification,0704,manufacturer,UCH,0x06=Dungs;0x0f=FH Ostfalia;0x10=TEM;0x11=Lamberti;0x14=CEB;0x15=Landis-Staefa;0x16=FERRO;0x17=MONDIAL;0x18=Wikon;0x19=Wolf;0x20=RAWE;0x30=Satronic;0x40=ENCON;0x50=Kromschröder;0x60=Eberle;0x65=EBV;0x75=Grässlin;0x85=ebm-papst;0x95=SIG;0xa5=Theben;0xa7=Thermowatt;0xb5=Vaillant;0xc0=Toby;0xc5=Weishaupt;0xfd=ebusd.eu,device manufacturer,id,STR:5,device id,software,PIN,software version,hardware,PIN,hardware versionr
 
-/** identification */
+/** Identification (eBUS service 07 04) */
 @inherit(r, b)
 @ext(0x7, 0x4)
-model Id {
+model Identification {
 /** device manufacturer */
 @values(Values_manufacturer)
 
@@ -54,67 +55,74 @@ manufacturer: UCH,
 id: UCH,
 }
 
-/** identification */
+/** Identification, write direction (eBUS service 07 04) */
 @write 
 @zz(BROADCAST)
 @id(0x7, 0x4)
-model IdWrite {
+model IdentificationWrite {
 }
 
-/** Inquiry of existence */
+/** Inquiry of Existence (eBUS service 07 FE) */
 @write 
 @zz(BROADCAST)
 @id(0x7, 0xfe)
-model Queryexistence {
+model InquiryOfExistence {
 }
 
-/** sign of life */
+/** Sign of Life (eBUS service 07 FF) */
 @passive 
+@zz(BROADCAST)
 @id(0x7, 0xff)
-model Signoflife {
+model SignOfLife {
 }
 
-/** error message */
+/** Error Message (eBUS service FE 01) */
 @passive 
+@zz(BROADCAST)
 @id(0xfe, 1)
-model Error {
+model ErrorMessage {
 
 @maxLength(10) 
 
 error: STR,
 }
 
-/** reset network start */
+/** Reset Status NM (eBUS service FF 00) */
 @passive 
+@zz(BROADCAST)
 @id(0xff, 0)
-model Netresetstate {
+model ResetStatusNM {
 }
 
-/** reset network configuration */
+/** Reset Target Configuration NM (eBUS service FF 01) */
 @passive 
+@zz(BROADCAST)
 @id(0xff, 1)
-model Netresetcfg {
+model ResetTargetConfigurationNM {
 }
 
-/** network loss */
+/** Failure Message NM (eBUS service FF 02) */
 @passive 
+@zz(BROADCAST)
 @id(0xff, 0x2)
-model Netloss {
+model FailureMessageNM {
 }
 
 /** Betriebsdaten des Reglers an den Feuerungsautomaten 1 */
 @passive 
+@zz(BROADCAST)
 @id(0x5, 0xd)
 model ToFAxSub {
 
 
-daten: ReglerToFA,
+  daten: RaumtemperaturdatenReglerAnFeuerungsautomat,
 }
 
-/** Betriebsdaten des Reglers an andere Regler */
+/** Operational Data: Betriebsdaten des Reglers an andere Regler (eBUS service 08 01) */
 @passive 
+@zz(BROADCAST)
 @id(0x8, 1)
-model ToCtrl {
+model OperationalData {
 
 @unit("°C")
 
@@ -153,10 +161,11 @@ TBF_Connect: BI6,
 tr_hp2: D2B,
 }
 
-/** Master-Regler an Slave-Regler */
+/** Control Commands: Master-Regler an Slave-Regler (eBUS service 08 02) */
 @passive 
+@zz(BROADCAST)
 @id(0x8, 0x2)
-model ToSlaveCtrl {
+model ControlCommands {
 
 
 Bit0: BI0,
@@ -209,6 +218,7 @@ Bit15: BI7,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0)
 model Status0a {
 
@@ -263,6 +273,7 @@ Bit14: BI6,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 0)
 model Status0b {
 /** Heat pump flow temperature */
@@ -290,6 +301,7 @@ tb: Temp,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 1)
 model Status1a {
 
@@ -340,6 +352,7 @@ b5: Byte,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 1)
 model Status1b {
 /** Heat pump flow temperature */
@@ -363,6 +376,7 @@ tb: Temp,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0x2)
 model Status2a {
 
@@ -390,6 +404,7 @@ b6: Byte,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 0x2)
 model Status2b {
 
@@ -444,6 +459,7 @@ Bit15: BI7,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0x3)
 model Status3a {
 
@@ -471,6 +487,7 @@ b4: Byte,
 
 /** xxx */
 @passive 
+@zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 0x3)
 model Status3b {
 
@@ -519,4 +536,3 @@ enum Values_manufacturer {
   ebusd_eu: 0xfd,
 }
 }
-

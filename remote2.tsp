@@ -4,15 +4,15 @@ using Ebus;
 using Ebus.Num;
 using Ebus.Dtm;
 using Ebus.Str;
-namespace hautec.tem;
+namespace hautec;
 
-// @zz(0x90)
-namespace Remote1 {
+@zz(0x91)
+namespace Remote2 {
 
 /** Gesamt Anlaufzähler 1 lesen WP */
-@zz(0x90)
+@zz(0x91)
 @id(0x3, 0x4)
-model Anlaufzaehler_WP1 {
+model Anlaufzaehler_WP2 {
 
 @out
 

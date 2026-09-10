@@ -1,8 +1,6 @@
 import "@ebusd/ebus-typespec";
-import "./_templates.tsp";
 using Ebus;
 using Ebus.Num;
-using Ebus.Dtm;
 using Ebus.Str;
 
 namespace hautec;
@@ -17,7 +15,6 @@ scalar Byte extends UCH;
 
 
 @unit("°C")
-
 scalar Temp1Byte extends D1C;
 // 0304
 
@@ -47,8 +44,11 @@ scalar HeizungsTyp extends UCH;
 
 
 model Betriebsstunden {
+  @out
   Minuten: Minuten,
+  @out
   Stunden: Stunden,
+  @out
   HeizungsTyp: HeizungsTyp,
 }
 
@@ -153,20 +153,25 @@ model BetriebsdatenRegler {
 
 
 model BetriebsdatenAutomat {
-  Statusanzeige: Statusanzeige,
-  ldw: LDW,
-  gdw: GDW,
-  ws: WS,
-  Flamme: Flamme,
-  Ventil: Ventil1,
-  Ventil_1: Ventil2,
-  uwp: UWP,
-  Alarm: Alarm,
-  tf_hp: Temp1Byte,
-  Kesseltemperatur: Temp1Byte,
-  Ruecklauftemperatur: Ruecklauftemperatur,
-  Boilertemperatur: Boilertemperatur,
-  Aussentemperatur: Aussentemperatur,
+  Statusanzeige: UCH,
+  ldw: BI0,
+  gdw: BI1,
+  ws: BI2,
+  flame: BI3,
+  valve1: BI4,
+  valve2: BI5,
+  uwp: BI6,
+  Alarm: BI7,
+  @unit("%")
+  SettingLevel: UCH,
+  @unit("°C")
+  BoilerTemperature: D1C,
+  @unit("°C")
+  ReturnWaterTemperature: UCH,
+  @unit("°C")
+  BoilerTemperature2: UCH,
+  @unit("°C")
+  OutsideTemperature: UCH,
 }
 // 050d
 
@@ -181,7 +186,7 @@ scalar T_Room_target extends D1C;
 scalar T_Room extends D2C;
 
 
-model ReglerToFA {
+model RaumtemperaturdatenReglerAnFeuerungsautomat {
   T_Room_target: T_Room_target,
   T_Room: T_Room,
   b: Byte,
@@ -270,7 +275,8 @@ scalar Val3 extends HEX;
 scalar MyAddress extends HEX;
 
 
-model ReadDateTime {
+/** Zeitangaben und Warmwassertemperatur aus Menü 0A */
+model ZeitUndWarmwassertemperatur {
   CommandCode: CommandCode,
   MinutenSeit: MinutenSeit,
   DaysInEpoch: DaysInEpoch,
@@ -280,7 +286,8 @@ model ReadDateTime {
 }
 
 
-model ReadMiscData {
+/** Tag-, Nacht- und Warmwasser-Solltemperatur aus Menü 0B */
+model TemperaturSollwerte {
   CommandCode: CommandCode,
   DayTemp: Temp,
   NightTemp: Temp,
@@ -290,24 +297,31 @@ model ReadMiscData {
 }
 
 
-model TimeStatus {
+/** Zeitstatusdaten */
+model Zeitstatusdaten {
+  @out
   CommandCode: CommandCode,
+  @out
   MinutenSeit: MinutenSeit,
+  @out
   DaysInEpoch: DaysInEpoch,
+  @out
   Six: Six,
+  @out
   Key: Key,
 }
 
 
-model DataQuery {
+/** Abfrage, ob ein Bedienteil geänderte Daten bereitstellt */
+model DatenAenderungsabfrage {
+  @out
   hex: HEX,
-  Key: Key,
-  Key_1: Key1,
-  Key_2: Key2,
-  Key_3: Key3,
-  Val: Val1,
-  Val_1: Val2,
-  Val_2: Val3,
+  @out
+  @maxLength(3)
+  Key: HEX,
+  @out
+  @maxLength(9)
+  Key_1: HEX
 }
 
 /** Is the previous data still valid */
@@ -319,16 +333,20 @@ scalar DataUnchanged extends BI7;
 scalar Unknown4 extends HEX;
 
 
-model DQAnswer {
+/** Antwort auf eine Datenänderungsabfrage */
+model DatenAenderungsantwort {
+  @in
   DataUnchanged: DataUnchanged,
-  Unknown: Unknown4,
+  @in
+  Block: BCD,
 }
 
 
 @divisor(10)
-
 scalar Zehntel extends UIN;
 
+@divisor(10) @unit("°C")
+scalar Temp10 extends Num.SIN;
 
 @maxLength(2) 
 
@@ -346,7 +364,8 @@ scalar Steilheit extends UIN;
 scalar Hgr extends SIN;
 
 
-model ReadMoreData {
+/** Teilweise entschlüsselte Parameterdaten aus Block 21 0C */
+model Parameterdaten210C {
   CommandCode: CommandCode,
   x: Temp,
   Hgr: Hgr,
@@ -362,7 +381,8 @@ model ReadMoreData {
 scalar ChangeCounter extends UCH;
 
 
-model ReadE3 {
+/** Heizgrenzen- und Raumeinflussparameter aus Block 20 0D */
+model HeizgrenzenParameter200D {
   CommandCode: CommandCode,
   Zwei: Zwei,
   Heizgrenze: Zehntel,
@@ -378,7 +398,8 @@ model ReadE3 {
 scalar Zehn extends HEX;
 
 
-model ReadE3X {
+/** Teilweise entschlüsselte Raumschutzparameter aus Block 21 0D */
+model RaumschutzParameter210D {
   CommandCode: CommandCode,
   RaumSchutz: Temp,
   Zehn: Zehn,
@@ -394,7 +415,8 @@ scalar Steil extends UCH;
 scalar Sieben extends HEX;
 
 
-model ReadE3Y {
+/** Teilweise entschlüsselte Heizkennlinienparameter aus Block 20 0C */
+model HeizkennlinienParameter200C {
   CommandCode: CommandCode,
   Steil: Steil,
   Sieben: Sieben,
@@ -403,7 +425,8 @@ model ReadE3Y {
 }
 
 
-model ReadE3Z {
+/** Teilweise entschlüsselte Kühlparameter aus Block 21 0B */
+model KuehlParameter210B {
   CommandCode: CommandCode,
   VorhaltX: Zehntel,
   Kuehl: Zehntel,
@@ -413,8 +436,66 @@ model ReadE3Z {
   d: Zehntel,
 }
 
+/** Anlagenschema / Applikationsnummer (Fachmann-Menü 09) */
+@values(Values_Anlagenschema)
 
-model statx {
+scalar Anlagenschema extends UCH;
+
+/** Freigabe Zusatzerzeuger / Abluft-Waermepumpe im Heizkreis */
+
+scalar ZusatzerzeugerFreigabe extends UCH;
+
+/** reservierte/inaktive Funktionsbits, z.B. Ebene 09-03 bis 09-10 bei Menü 09 (Byte-Bedeutung je Menü ggf. abweichend) */
+@maxLength(16) 
+
+scalar Reserviert8 extends HEX;
+
+/** Kaskaden- oder Priorisierungswert */
+
+scalar Kaskadenwert extends UCH;
+
+// 100a 2009, siehe Protocol-Analysis.md Abschnitt 3 "Ebene 09"; letztes Byte bislang unbekannt/nicht dokumentiert
+model Konfigurationsmatrix {
+  Anlagenschema: Anlagenschema,
+  ZusatzerzeugerFreigabe: ZusatzerzeugerFreigabe,
+  Reserviert: Reserviert8,
+  Kaskadenwert: Kaskadenwert,
+  Reserved: Byte,
+}
+
+/** generische Fachmann-Konfiguration mit gleichem Byte-Layout wie Menü 09, Bedeutung der einzelnen Bytes je Menü noch nicht dokumentiert (Menüs 07, 08, 15, 17, 18, 19) */
+model FachmannMatrix {
+  b1: Byte,
+  b2: Byte,
+  Reserviert: Reserviert8,
+  b13: Byte,
+  b14: Byte,
+}
+
+@maxLength(12) 
+
+scalar Reserviert6 extends HEX;
+
+/** Basis-Temperaturen: Raum-Soll Tag/Nacht, Warmwasser-Soll (Menü 01), siehe Protocol-Analysis.md Abschnitt 3 "Ebene 03" */
+model BasisTemperaturen {
+  RaumSollTag: Temp,
+  RaumSollNacht: Temp,
+  WarmwasserSoll: Temp,
+  Reserviert: Reserviert6,
+}
+
+@maxLength(24) 
+
+scalar Roh12 extends HEX;
+
+/** Heizkurven-Offset / Fusspunkt (Menü 03), Byte-Bedeutung noch nicht vollständig entschlüsselt, siehe Protocol-Analysis.md Abschnitt 3 */
+model Heizgrenzen03Rohdaten {
+  Rohdaten: Roh12,
+}
+
+
+/** Teilweise entschlüsselter Statusblock (Kennung 00 04 bzw. 00 05) */
+model Statusblock {
   CommandCode: CommandCode,
   T_Room: Zehntel,
   b: Byte,
@@ -423,72 +504,110 @@ model statx {
 
 
 
-model unknownx {
+/** Noch nicht entschlüsselter Steuerblock */
+model UnbekannterSteuerblock {
+  @out
   hex_0: HEX,
+  @out
   hex_1: HEX,
+  @out
   hex_2: HEX,
+  @out
   hex_3: HEX,
+  @out
   hex_4: HEX,
+  @out
   hex_5: HEX,
+  @out
   hex_6: HEX,
+  @out
   hex_7: HEX,
+  @out
   hex_8: HEX,
+  @out
   hex_9: HEX,
+  @out
   hex_10: HEX,
+  @out
   hex_11: HEX,
 }
 // 100a 3101
 
 
-model Read3101 {
+model Parameterdaten3101 {
+  @out
   Zwei: Zwei,
+  @out
   Temp: Temp,
+  @out
   Four: Four,
+  @out
   Four_1: Four,
 }
 // 100a 3001
 
 
-model CheckData {
+/** Tag-, Nacht- und Warmwasser-Solltemperatur aus Block 30 01 */
+model TemperaturSollwerte3001 {
+  @out
   DayTemp: Temp,
+  @out
   NightTemp: Temp,
+  @out
   WaterTemp: Temp,
+  @out
   Four: Four,
+  @out
   Key: Key,
 }
 // 100a 3102
 
 
-model Read3102 {
+model Parameterdaten3102 {
+  @out
   Temp: Temp,
+  @out
   sin: SIN,
+  @out
   Zehntel: Zehntel,
+  @out
   Zwei: Zwei,
+  @out
   Zehntel_1: Zehntel,
+  @out
   Zehntel_2: Zehntel,
 }
 // 100a 3002
 
 
-model Read3002 {
+model Parameterdaten3002 {
+  @out
   Four: Four,
+  @out
   Temp: Temp,
+  @out
   Zwei: Zwei,
+  @out
   Temp_1: Temp,
+  @out
   Key: Key,
 }
 // 100a 3103 0e
 
 
-model Read3103 {
+model Parameterdaten3103 {
+  @out
   Zehntel: Zehntel,
+  @out
   Zehn: Zehn,
 }
 // 100a 3003
 
 
-model Read3003 {
+model Parameterdaten3003 {
+  @out
   Zehn: Zehn,
+  @out
   Key: Key,
 }
 
@@ -512,3 +631,7 @@ enum Values_StatusWaermeAnforderung {
   Reglerstop_Funktion: 0xee,
 }
 
+enum Values_Anlagenschema {
+  Standard_Heizkreis_WW: 0,
+  Kuehlbetrieb: 4,
+}

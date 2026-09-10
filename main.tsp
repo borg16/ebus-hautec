@@ -1,8 +1,7 @@
-import "./03.burner1.tsp";
-import "./13.burner2.tsp";
-import "./90.remote1.tsp";
-import "./91.remote2.tsp";
+import "./burner1.tsp";
+import "./burner2.tsp";
+import "./remote1.tsp";
+import "./remote2.tsp";
+import "./controller.tsp";
 import "./broadcast.tsp";
-import "./hautec.tsp";
 import "./signals.tsp";
-

@@ -1,0 +1,26 @@
+{
+  "name": "ebus-hautec",
+  "version": "1.0.0",
+  "description": "This is a configuration to read some data from the TEM SE 6000 WPC controller. This configuration does not support sending commands to the controller.",
+  "main": "index.js",
+  "scripts": {
+    "build:csv": "tsp compile main.tsp --emit @ebusd/ebus-typespec --output-dir ./csv-output",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/borg16/ebus-hautec.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/borg16/ebus-hautec/issues"
+  },
+  "homepage": "https://github.com/borg16/ebus-hautec#readme",
+  "devDependencies": {
+    "@ebusd/ebus-typespec": "^0.30.0",
+    "@typespec/compiler": "^1.15.0"
+  }
+}

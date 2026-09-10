@@ -1,0 +1,13 @@
+Old name (old topic segment)	New name (new topic segment)
+
+Datetime	DateTimeBroadcast
+Id	Identification
+IdWrite	IdentificationWrite
+Queryexistence	InquiryOfExistence
+Signoflife	SignOfLife
+Error	ErrorMessage
+Netresetstate	ResetStatusNM
+Netresetcfg	ResetTargetConfigurationNM
+Netloss	FailureMessageNM
+ToCtrl	OperationalData
+ToSlaveCtrl	ControlCommands

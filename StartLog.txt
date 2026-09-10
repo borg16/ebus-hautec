@@ -1,0 +1,124 @@
+2026-09-08 14:12:20.689 [bus notice] scan 15: ;TEM;17385;0106;0100
+2026-09-08 14:12:20.689 [update notice] store broadcast ident: done
+2026-09-08 14:12:20.689 [update notice] received update-read Broadcast Identification QQ=10: TEM;49
+2026-09-08 14:12:21.287 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:12:22.237 [mqtt error] decode Signals ToRegler1: ERR: argument value out of valid range
+2026-09-08 14:12:24.389 [update notice] received update-write Signals AnfRegler2FA1: Block_Nr_1_zyklisch_senden
+2026-09-08 14:12:24.952 [update notice] received update-write Signals AnfRegler2FA2: Block_Nr_1_zyklisch_senden
+2026-09-08 14:12:25.544 [update notice] received update-read Broadcast DateTimeBroadcast QQ=10: 26.301;14:08:08;08.09.2026
+2026-09-08 14:12:26.662 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;21;-;63
+2026-09-08 14:12:27.647 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:12:29.049 [update notice] received update-read Broadcast ErrorMessage QQ=10: 5710ERR OK
+2026-09-08 14:12:30.719 [update notice] received read Signals Read_d114_1 QQ=10: 03;ff;04;90;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:31.365 [update notice] received read Signals HaveDataQuery1 QQ=10: 14;26 90 99;90 1f 90 25 90 03 ff ef ef;0;0
+2026-09-08 14:12:32.009 [update error] unable to parse read Signals TimeStatus1 from 1090100a0e3000f008c0b4efefefefefef2690 / 00: ERR: invalid position
+2026-09-08 14:12:32.657 [update notice] received read Signals Read_d114_1 QQ=10: 03;ff;04;90;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:33.303 [update notice] received read Signals HaveDataQuery1 QQ=10: 14;26 90 99;90 1f 90 25 90 03 ff ef ef;0;1
+2026-09-08 14:12:33.950 [update notice] received read Signals Read3101_1 QQ=10: 00 00;22.0;00 00 3c 00;00 00 00 00
+2026-09-08 14:12:34.590 [update notice] received read Signals CheckData1 QQ=10: 20.0;18.0;50.0;01 00 00 00;99 90
+2026-09-08 14:12:35.235 [update notice] received read Signals Read_d114_1 QQ=10: 03;ff;04;90;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:35.882 [update notice] received read Signals HaveDataQuery1 QQ=10: 14;26 90 99;90 1f 90 25 90 03 ff ef ef;0;2
+2026-09-08 14:12:36.490 [update notice] received update-write Burner1 Betriebsdaten1 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:12:37.100 [update notice] received update-write Burner2 Betriebsdaten2 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:12:37.381 [mqtt error] decode Signals TimeStatus1: ERR: invalid position
+2026-09-08 14:12:37.709 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;21;-;63
+2026-09-08 14:12:38.306 [update notice] received update-read Broadcast OperationalData QQ=10: 21.602;46.898;0;0;0;0;0;0;0;0;21.602
+2026-09-08 14:12:38.912 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:12:39.560 [update notice] received read Signals Read3102_1 QQ=10: 20.0;-100;15.0;02 00;15.0;65.0
+2026-09-08 14:12:40.200 [update notice] received read Signals Read3002_1 QQ=10: 1e 00 00 00;55.0;00 00;22.0;1f 90
+2026-09-08 14:12:40.840 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:41.490 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500a: ERR: argument value out of valid range
+2026-09-08 14:12:42.134 [update notice] received unknown MS cmd: 1091100a0e300af008c0b4efefefefefef0503 / 00
+2026-09-08 14:12:42.778 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:43.428 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500b: ERR: argument value out of valid range
+2026-09-08 14:12:44.037 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;21;-;63
+2026-09-08 14:12:44.647 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:12:45.294 [update notice] received unknown MS cmd: 1091100a0e310b0000dc000300640000000000 / 00
+2026-09-08 14:12:45.934 [update notice] received unknown MS cmd: 1091100a0e300bc800af00f401010000000991 / 00
+2026-09-08 14:12:46.575 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:47.226 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500c: ERR: argument value out of valid range
+2026-09-08 14:12:47.477 [mqtt error] decode Signals HaveDataQuery2: ERR: argument value out of valid range
+2026-09-08 14:12:47.792 [update notice] received update-write Signals ConfAnfToFA1:
+2026-09-08 14:12:48.354 [update notice] received update-write Signals ConfAnfToFA2:
+2026-09-08 14:12:48.946 [update notice] received update-read Broadcast ControlCommands QQ=10: 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+2026-09-08 14:12:49.591 [update notice] received unknown MS cmd: 1091100a0e310cc8009cff9600000096008a02 / 00
+2026-09-08 14:12:50.231 [update notice] received unknown MS cmd: 1091100a0e300c1e000000c2011e00dc001d91 / 00
+2026-09-08 14:12:50.871 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:51.523 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500d: ERR: argument value out of valid range
+2026-09-08 14:12:52.131 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;21;-;63
+2026-09-08 14:12:52.741 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:12:53.388 [update notice] received unknown MS cmd: 1091100a0e310d32001400000000000000c001 / 00
+2026-09-08 14:12:54.028 [update notice] received unknown MS cmd: 1091100a0e300d00ffa000b400b00400002e91 / 00
+2026-09-08 14:12:54.668 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:12:55.321 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500e: ERR: argument value out of valid range
+2026-09-08 14:12:55.928 [update notice] received update-write Burner1 Betriebsdaten1 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:12:56.538 [update notice] received update-write Burner2 Betriebsdaten2 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:12:57.138 [update notice] received update-read Broadcast DateTimeBroadcast QQ=10: 26.301;14:08:40;08.09.2026
+2026-09-08 14:12:57.531 [mqtt error] decode Signals HaveDataQuery2: ERR: argument value out of valid range
+2026-09-08 14:12:57.779 [update notice] received unknown MS cmd: 1091100a0e320e000000000000000000000000 / 00
+2026-09-08 14:12:58.419 [update notice] received unknown MS cmd: 1091100a0e310e000000000000000000000000 / 00
+2026-09-08 14:12:59.058 [update notice] received unknown MS cmd: 1091100a0e300e000000000000efefefef03ff / 00
+2026-09-08 14:12:59.700 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:13:00.353 [update error] unable to parse read Signals HaveDataQuery2 from 1091100a0ed015050309911d912e9103ffefef / 02500f: ERR: argument value out of valid range
+2026-09-08 14:13:00.959 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;21;-;63
+2026-09-08 14:13:01.569 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:13:02.216 [update notice] received unknown MS cmd: 1091100a0e370f000000000000000000000000 / 00
+2026-09-08 14:13:02.577 [mqtt error] decode Signals HaveDataQuery2: ERR: argument value out of valid range
+2026-09-08 14:13:02.857 [update notice] received unknown MS cmd: 1091100a0e360f000000000000000000000000 / 00
+2026-09-08 14:13:03.497 [update notice] received unknown MS cmd: 1091100a0e350f000000000000000000000000 / 00
+2026-09-08 14:13:04.138 [update notice] received unknown MS cmd: 1091100a0e340f000000000000000000000000 / 00
+2026-09-08 14:13:04.779 [update notice] received unknown MS cmd: 1091100a0e330f000000000000000000000000 / 00
+2026-09-08 14:13:05.419 [update notice] received unknown MS cmd: 1091100a0e320f000000f0ffffffffffffff0f / 00
+2026-09-08 14:13:06.060 [update notice] received unknown MS cmd: 1091100a0e310f000000ffffffffffffffff00 / 00
+2026-09-08 14:13:06.700 [update notice] received unknown MS cmd: 1091100a0e300f0102000000000001010003ff / 00
+2026-09-08 14:13:07.340 [update notice] received read Signals Read_d115_2 QQ=10: 03;ff;03;ff;03;ff;03;ff;03;ff;03;ff
+2026-09-08 14:13:07.994 [update notice] received read Signals HaveDataQuery2 QQ=10: 15;05 03 09;91 1d 91 2e 91 03 ff ef ef;0;10
+2026-09-08 14:13:09.337 [update notice] received update-read Broadcast OperationalData QQ=10: 22.000;46.898;0;0;0;0;0;0;0;0;22.000
+2026-09-08 14:13:09.944 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;23.0;22;-;63
+2026-09-08 14:13:10.554 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;1;0;0;23.0;120;-;63
+2026-09-08 14:13:11.201 [update notice] received unknown MS cmd: 1091100a0e3710000000000000000000000000 / 00
+2026-09-08 14:13:11.841 [update notice] received unknown MS cmd: 1091100a0e3610000000000000000000000000 / 00
+2026-09-08 14:13:12.482 [update notice] received unknown MS cmd: 1091100a0e3510000000000000000000000000 / 00
+2026-09-08 14:13:13.122 [update notice] received unknown MS cmd: 1091100a0e3410000000f0ffffffffffffff00 / 00
+2026-09-08 14:13:13.763 [update notice] received unknown MS cmd: 1091100a0e3310000000f0ffffffffffffff0f / 00
+2026-09-08 14:13:14.404 [update notice] received unknown MS cmd: 1091100a0e3210000000ff000000c0ffffff0f / 00
+2026-09-08 14:13:15.044 [update notice] received unknown MS cmd: 1091100a0e3110000000ff000000c0ffffff00 / 00
+2026-09-08 14:13:15.684 [update notice] received unknown MS cmd: 1091100a0e30100301000000000102030003ff / 00
+2026-09-08 14:13:16.288 [update notice] received update-write Burner1 Betriebsdaten1 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:13:16.897 [update notice] received update-write Burner2 Betriebsdaten2 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:13:17.507 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;23.0;22;-;63
+2026-09-08 14:13:18.103 [update notice] received update-read Broadcast ControlCommands QQ=10: 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+2026-09-08 14:13:18.710 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;23.0;120;-;63
+2026-09-08 14:13:20.542 [update notice] received update-read Broadcast Status2a QQ=10: -;-;2289;1;1;0;17
+2026-09-08 14:13:21.160 [update notice] received update-read Broadcast Status2b QQ=10: 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+2026-09-08 14:13:22.663 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;23.0;22;-;63
+2026-09-08 14:13:23.647 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:13:24.393 [update notice] received update-read Broadcast ToFAxSub QQ=10: 20.0;-;0;0;128;0;128;-
+2026-09-08 14:13:25.170 [update notice] received update-read Broadcast DateTimeBroadcast QQ=10: 26.301;14:09:08;08.09.2026
+2026-09-08 14:13:30.558 [update notice] received update-read Broadcast Status3a QQ=10: 0;0;2289;1;1;0;17
+2026-09-08 14:13:31.176 [update notice] received update-read Broadcast Status3b QQ=10: 0.0;0.0;22.0;0.0;50.0
+2026-09-08 14:13:31.788 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;22.5;22;-;63
+2026-09-08 14:13:32.398 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:13:34.413 [update notice] received update-write Burner1 Betriebsdaten1 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:13:35.022 [update notice] received update-write Burner2 Betriebsdaten2 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:13:35.619 [update notice] received update-read Broadcast OperationalData QQ=10: 22.199;46.898;0;0;0;0;0;0;0;0;22.199
+2026-09-08 14:13:38.663 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;22.5;22;-;63
+2026-09-08 14:13:39.647 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:13:40.551 [update notice] received read Signals Statx1 QQ=10: 10 04;23.7;1;0
+2026-09-08 14:13:44.359 [update notice] received update-write Signals AnfRegler2FA1: Block_Nr_1_zyklisch_senden
+2026-09-08 14:13:44.921 [update notice] received update-write Signals AnfRegler2FA2: Block_Nr_1_zyklisch_senden
+2026-09-08 14:13:45.510 [update notice] received update-read Broadcast ControlCommands QQ=10: 0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+2026-09-08 14:13:46.679 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;22.5;22;-;63
+2026-09-08 14:13:47.663 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:13:50.536 [update notice] received read Signals Staty2 QQ=10: 10 05;23.2;1;0
+2026-09-08 14:13:54.429 [update notice] received update-write Burner1 Betriebsdaten1 QQ=10: Brennerabschalten;12;50;26;0
+2026-09-08 14:13:55.038 [update notice] received update-write Burner2 Betriebsdaten2 QQ=10: Brennerabschalten;0;50;26;0
+2026-09-08 14:13:55.648 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;0;0;0;22.5;22;-;63
+2026-09-08 14:13:56.248 [update notice] received update-read Broadcast DateTimeBroadcast QQ=10: 26.301;14:09:39;08.09.2026
+2026-09-08 14:13:56.851 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:14:00.652 [update notice] received update-read Broadcast Status0a QQ=10: 26.3;0;0;0;1;0;0;0;1;0;1;0;0;0;0;0
+2026-09-08 14:14:01.270 [update notice] received update-read Broadcast Status0b QQ=10: 22.9;22.2;22.9;0;0;46.9
+2026-09-08 14:14:02.679 [update notice] received update-write Signals ToRegler1: 0;0;0;0;0;0;0;1;0;0;22.5;22;-;63
+2026-09-08 14:14:03.663 [update notice] received update-write Signals ToRegler2: 0;0;0;0;0;0;0;0;0;0;22.5;120;-;63
+2026-09-08 14:14:04.371 [update notice] received update-write Signals ConfAnfToFA1:
+2026-09-08 14:14:04.933 [update notice] received update-write Signals ConfAnfToFA2:
