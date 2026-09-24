@@ -1,241 +1,357 @@
-name	service	request	tem_id	label	response_model	encoding	response_length	first_line	last_line	observations	sample_response
-Menueblock_00	0620	00		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1208	10174	7	038b018b00000000
-Menueblock_01	0620	01		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1225	10190	7	8f98028783010181
-Menueblock_02	0620	02		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1226	10191	7	0100000000000000
-Menueblock_03	0620	03		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1227	10192	7	0000000000000000
-Menueblock_04	0620	04		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1240	10204	7	0090008c00000000
-Menueblock_05	0620	05		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1241	10205	7	0002020000000000
-Menueblock_06	0620	06		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1242	10206	7	0000000000000000
-Menueblock_07	0620	07		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1243	10207	7	0000000000000000
-Menueblock_08	0620	08		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1244	10208	7	0000000000000000
-Menueblock_09	0620	09		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1245	10209	7	0000000000000000
-Menueblock_0A	0620	0a		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1246	10210	7	0000000000000000
-Menueblock_0B	0620	0b		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1247	10211	7	0000000000000000
-Menueblock_0C	0620	0c		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1248	10212	7	0000008207090987
-Menueblock_0D	0620	0d		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1250	10213	7	000b070808080808
-Menueblock_0E	0620	0e		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1251	10214	7	0808080000000000
-Menueblock_0F	0620	0f		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1252	10215	7	0000000000000000
-Menueblock_10	0620	10		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1253	10217	7	0000000000000000
-Menueblock_11	0620	11		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1254	10218	7	0000000000000000
-Menueblock_12	0620	12		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1255	10219	7	0000000000000000
-Menueblock_13	0620	13		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1256	10221	7	0000000000000000
-Menueblock_14	0620	14		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1257	10222	7	00000084080b0b88
-Menueblock_15	0620	15		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1258	10223	7	05260f0808080808
-Menueblock_16	0620	16		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1259	10224	7	0808080000000000
-Menueblock_17	0620	17		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1260	10225	7	0000000000000000
-Menueblock_18	0620	18		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1261	10226	7	0000000000000000
-Menueblock_19	0620	19		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1262	10227	7	0000000000000000
-Menueblock_1A	0620	1a		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1263	10228	7	0000000000000000
-Menueblock_1B	0620	1b		8 Byte Menue-/Strukturmetadaten roh	Roh8	8 Byte Menue-/Strukturmetadaten roh	8	1266	10229	7	0000000000000000
-P04_043_0001	0621	0001	04-43	TEM 04-43; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2469	9835	14	2b820000ff0000000100
-P03_050_0100	0621	0100	03-50	Betriebswahl Heizung und Brauchwasser	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	1209	10175	262	b2410000070000000100
-P00_000_0101	0621	0101	00-00	TEM 00-00; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1210	10176	256	00000d02f4010cfe6b00
-P03_058_0102	0621	0102	03-58	Behaglichkeit	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	1211	10177	260	ba414d041e00e2ff0000
-P02_003_0103	0621	0103	02-03	TEM 02-03; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1212	10178	250	03811d00050002410000
-P02_002_0104	0621	0104	02-02	TEM 02-02; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1213	10179	247	02811d000000928a0000
-P02_000_0105	0621	0105	02-00	TEM 02-00; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1216	10181	243	00811d000b00ffff0000
-P02_010_0106	0621	0106	02-10	TEM 02-10; Bezeichnung nicht im STE-Katalog	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	1218	10183	240	0a01800cb40000000000
-NichtVorhanden_0107	0621	0107		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1219	10184	21	ff1f0000000000000000
-P02_071_0108	0621	0108	02-71	TEM 02-71; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Wochenminuten>	UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h	10	1220	10275	288	4741042a60270000560d
-P02_012_0109	0621	0109	02-12	TEM 02-12; Bezeichnung nicht im STE-Katalog	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	1221	10186	274	0c811e000500
-NichtVorhanden_010A	0621	010a		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1224	10189	21	ff1f0000000000000000
-P03_050_01801000	0621	01801000	03-50	Betriebswahl Heizung und Brauchwasser	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	1968	9958	49	b2410000070000000100
-NichtVorhanden_01811000	0621	01811000		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1969	9933	15	ff1f0000000000000000
-P03_058_01821000	0621	01821000	03-58	Behaglichkeit	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	1970	9960	42	ba414d041e00e2ff0000
-P02_003_01831000	0621	01831000	02-03	TEM 02-03; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1971	9937	36	03811d00050000410000
-P02_002_01841000	0621	01841000	02-02	TEM 02-02; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1972	9939	35	02811d000000908a0000
-P02_000_01851000	0621	01851000	02-00	TEM 02-00; Bezeichnung nicht im STE-Katalog	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	1974	9940	33	00811d000b00ffff0000
-P02_010_01861000	0621	01861000	02-10	TEM 02-10; Bezeichnung nicht im STE-Katalog	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	1975	9942	32	0a01800cb40000000000
-NichtVorhanden_01871000	0621	01871000		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1977	9943	14	ff1f0000000000000000
-P02_071_01881000	0621	01881000	02-71	TEM 02-71; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Wochenminuten>	UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h	10	1978	10304	63	4741042a60270000600d
-P02_012_01891000	0621	01891000	02-12	TEM 02-12; Bezeichnung nicht im STE-Katalog	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	1981	9954	52	0c811e000500
-NichtVorhanden_018A1000	0621	018a1000		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1984	9951	14	ff1f0000000000000000
-P00_000_0800	0621	0800	00-00	TEM 00-00; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1355	10277	45	00000d02f4010cfe6c00
-P00_001_0801	0621	0801	00-01	TEM 00-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1356	10278	46	01000d02f4010000d500
-P00_002_0802	0621	0802	00-02	TEM 00-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1360	3491	18	02000d02e80300007801
-P00_004_0803	0621	0803	00-04	TEM 00-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1366	3499	17	04000d02e80300008801
-P00_007_0804	0621	0804	00-07	TEM 00-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1376	3495	9	07000d02e80300007801
-P00_008_0805	0621	0805	00-08	TEM 00-08; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1391	3497	22	08000d02e8030000ce00
-P00_070_0806	0621	0806	00-70	TEM 00-70; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1397	3498	71	46000d02e80300006901
-P00_071_0807	0621	0807	00-71	TEM 00-71; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1407	1937	69	47000d02e803000006ff
-P00_072_0808	0621	0808	00-72	TEM 00-72; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1425	1899	57	48000d02e8030000cd00
-P00_073_0809	0621	0809	00-73	TEM 00-73; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1460	1492	7	49000d02e8030000cc00
-P00_074_080A	0621	080a	00-74	TEM 00-74; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1466	1491	6	4a000d02e803000006ff
-P00_075_080B	0621	080b	00-75	TEM 00-75; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1472	1500	6	4b000d02e803000006ff
-P00_081_080C	0621	080c	00-81	TEM 00-81; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1494	1505	3	51000d02e8030000b004
-P00_095_080D	0621	080d	00-95	TEM 00-95; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	1496	1511	4	5f000002640000000000
-P00_096_080E	0621	080e	00-96	TEM 00-96; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1503	3436	4	60000d02e8030000ce00
-P00_000_08801000	0621	08801000	00-00	TEM 00-00; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2003	10279	15	00000d02f4010cfe7000
-P00_001_08811000	0621	08811000	00-01	TEM 00-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2007	9904	11	01000d02f4010000d000
-P00_002_08821000	0621	08821000	00-02	TEM 00-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2008	5811	6	02000d02e80300000000
-P00_004_08831000	0621	08831000	00-04	TEM 00-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2009	3917	5	04000d02e80300008501
-P00_007_08841000	0621	08841000	00-07	TEM 00-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2013	3919	6	07000d02e80300008201
-P00_008_08851000	0621	08851000	00-08	TEM 00-08; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2016	3920	4	08000d02e8030000ce00
-P00_070_08861000	0621	08861000	00-70	TEM 00-70; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2023	2029	2	46000d02e80300006901
-P00_071_08871000	0621	08871000	00-71	TEM 00-71; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2024	2024	1	47000d02e803000006ff
-P00_072_08881000	0621	08881000	00-72	TEM 00-72; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2027	2027	1	48000d02e8030000cd00
-P00_073_08891000	0621	08891000	00-73	TEM 00-73; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2028	2031	2	49000d02e8030000cc00
-P00_074_088A1000	0621	088a1000	00-74	TEM 00-74; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2032	2032	1	4a000d02e803000006ff
-P00_096_088E1000	0621	088e1000	00-96	TEM 00-96; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	10281	10281	1	60000d02e8030000da00
-P00_000_0900	0621	0900	00-00	TEM 00-00; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2931	5747	4	00000d02f4010cfe7a00
-P02_020_0901	0621	0901	02-20	TEM 02-20; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5748	5748	1	14410d02f4010cfe9000
-P00_001_0902	0621	0902	00-01	TEM 00-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2932	5749	4	01000d02f40100000000
-P01_001_0903	0621	0903	01-01	TEM 01-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2934	5751	8	81000d02e8030000dc00
-P00_002_0904	0621	0904	00-02	TEM 00-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2937	5762	9	02000d02e80300007b01
-P01_002_0905	0621	0905	01-02	TEM 01-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2939	5765	11	82000d02e80300001701
-P00_004_0906	0621	0906	00-04	TEM 00-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2946	5764	13	04000d02e80300008b01
-P01_004_0907	0621	0907	01-04	TEM 01-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2979	5766	8	84000d02e8030000b801
-P00_007_0908	0621	0908	00-07	TEM 00-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2980	5769	9	07000d02e80300004a01
-P01_007_0909	0621	0909	01-07	TEM 01-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	3007	5770	8	87000d02e80300007201
-P00_008_090A	0621	090a	00-08	TEM 00-08; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	3020	5771	25	08000d02e8030000ce00
-P00_070_090B	0621	090b	00-70	TEM 00-70; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	3025	5772	23	46000d02e80300006901
-P00_071_090C	0621	090c	00-71	TEM 00-71; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	3028	5773	22	47000d02e803000006ff
-P00_072_090D	0621	090d	00-72	TEM 00-72; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	3072	5775	3	48000d02e8030000cb00
-P00_073_090E	0621	090e	00-73	TEM 00-73; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5722	5776	3	49000d02e8030000cd00
-P00_074_090F	0621	090f	00-74	TEM 00-74; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5724	5777	3	4a000d02e803000006ff
-P00_075_0910	0621	0910	00-75	TEM 00-75; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5729	5779	4	4b000d02e803000006ff
-P00_081_0911	0621	0911	00-81	TEM 00-81; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5730	5781	4	51000d02e8030000b004
-P00_095_0912	0621	0912	00-95	TEM 00-95; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	5731	5782	4	5f000002640000000000
-P00_096_0913	0621	0913	00-96	TEM 00-96; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5741	5785	2	60000d02e8030000d200
-P01_096_0914	0621	0914	01-96	TEM 01-96; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5742	5784	2	e0000d02e8030000cc01
-P01_097_0915	0621	0915	01-97	TEM 01-97; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	5743	5787	2	e1000102640000000000
-P02_040_0916	0621	0916	02-40	TEM 02-40; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	5745	5789	2	28410d10e70319fce803
-P02_041_0917	0621	0917	02-41	TEM 02-41; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	5746	5746	1	29410d10e70319fc18fc
-P02_020_09811000	0621	09811000	02-20	TEM 02-20; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4520	4520	1	14410d02f4010cfe7c00
-P00_001_09821000	0621	09821000	00-01	TEM 00-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4521	4521	1	01000d02f4010000cf00
-P01_001_09831000	0621	09831000	01-01	TEM 01-01; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4522	5812	2	81000d02e80300000000
-P00_002_09841000	0621	09841000	00-02	TEM 00-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4524	5815	2	02000d02e80300000000
-P01_002_09851000	0621	09851000	01-02	TEM 01-02; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4526	5816	2	82000d02e80300000000
-P00_004_09861000	0621	09861000	00-04	TEM 00-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4527	5826	4	04000d02e80300008d01
-P01_004_09871000	0621	09871000	01-04	TEM 01-04; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4528	5827	4	84000d02e80300002c01
-P00_007_09881000	0621	09881000	00-07	TEM 00-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4531	5828	4	07000d02e8030000ea00
-P01_007_09891000	0621	09891000	01-07	TEM 01-07; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4532	5829	3	87000d02e8030000d601
-P00_008_098A1000	0621	098a1000	00-08	TEM 00-08; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4533	5831	2	08000d02e8030000d200
-P00_070_098B1000	0621	098b1000	00-70	TEM 00-70; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5832	5832	1	46000d02e80300006a01
-P00_071_098C1000	0621	098c1000	00-71	TEM 00-71; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5833	5840	2	47000d02e803000006ff
-P00_072_098D1000	0621	098d1000	00-72	TEM 00-72; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5834	5837	2	48000d02e8030000cc00
-P00_073_098E1000	0621	098e1000	00-73	TEM 00-73; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5836	5841	2	49000d02e8030000cd00
-P02_071_0A00	0621	0a00	02-71	TEM 02-71; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Wochenminuten>	UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h	10	1228	10193	15	4741042a60270000560d
-P02_070_0A01	0621	0a01	02-70	TEM 02-70; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<DAY>	DAY: Tage seit 1900; Datum des Reglers, nicht Log-Zeitstempel	10	1229	10194	14	46410428ffff0000cfb4
-P03_051_0B00	0621	0b00	03-51	Sollwert Raumtemperatur Heizen Tag normal	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1230	10273	16	b3414d022c016400dc00
-NichtVorhanden_0B01	0621	0b01		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	1232	10268	16	ff1f0000000000000000
-P03_053_0B02	0621	0b02	03-53	Sollwert Raumteperatur Heizen Nacht	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1235	10260	18	b5414d02c8003200b400
-P05_051_0B03	0621	0b03	05-51	Sollwert Warmwassertemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1236	10258	27	b3428d02bc0264000802
-P03_010_0B04	0621	0b04	03-10	Steilheit Kennlinie	Zahlenantwort<Steilheit100>	SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet	10	1237	10256	23	8a410408f40100002800
-P07_008_0B05	0621	0b05	07-08	Vorlauf Maximaltemperatur TV	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1238	10255	15	88438d0284032c012602
-P03_021_0B06	0621	0b06	03-21	Heizgrenze bei Tagbetrieb	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	1239	10254	22	95414d022c010000b400
-P03_051_0B801000	0621	0b801000	03-51	Sollwert Raumtemperatur Heizen Tag normal	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	10298	10302	2	b3414d022c0164002c01
-NichtVorhanden_0B811000	0621	0b811000		FF1F: in dieser Sitzung nicht vorhanden	Roh10	FF1F: in dieser Sitzung nicht vorhanden	10	10299	10299	1	ff1f0000000000000000
-P03_053_0B821000	0621	0b821000	03-53	Sollwert Raumteperatur Heizen Nacht	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2064	10297	3	b5414d02c80032006400
-P05_051_0B831000	0621	0b831000	05-51	Sollwert Warmwassertemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2062	10286	4	b3428d02bc0264000802
-P03_010_0B841000	0621	0b841000	03-10	Steilheit Kennlinie	Zahlenantwort<Steilheit100>	SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet	10	2061	10293	6	8a410408f40100002800
-P07_008_0B851000	0621	0b851000	07-08	Vorlauf Maximaltemperatur TV	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2060	10290	4	88438d0284032c012602
-P03_021_0B861000	0621	0b861000	03-21	Heizgrenze bei Tagbetrieb	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2059	10283	4	95414d022c010000c800
-P03_078_0F00	0621	0f00	03-78	TEM 03-78; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2461	9826	10	ce01042863ffceb4ceb4
-P03_078_0F801000	0621	0f801000	03-78	TEM 03-78; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	9159	9159	1	ce01042863ffceb4ceb4
-P01_020_2100	0621	2100	01-20	TEM 01-20; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5453	7270	6	94000200010000000100
-P01_021_2101	0621	2101	01-21	TEM 01-21; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	5454	7265	7	9500c10864009c000000
-P01_022_2102	0621	2102	01-22	TEM 01-22; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5498	5603	5	96000200010000000100
-P01_040_2103	0621	2103	01-40	TEM 01-40; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5499	5600	9	a8000200010000000000
-P01_053_2104	0621	2104	01-53	TEM 01-53; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5513	5599	14	b5000200010000000000
-P01_054_2105	0621	2105	01-54	TEM 01-54; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5527	5601	13	b6000200010000000000
-P01_063_2106	0621	2106	01-63	TEM 01-63; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5539	5571	9	bf000200010000000000
-P01_099_210F	0621	210f	01-99	TEM 01-99; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	5608	7271	2	e3000200010000000000
-P01_020_21801000	0621	21801000	01-20	TEM 01-20; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	7267	7285	6	94000200010000000000
-P01_099_218F1000	0621	218f1000	01-99	TEM 01-99; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	7269	7286	6	e3000200010000000000
-P03_000_2300	0621	2300	03-00	Raumschutztemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5610	5610	1	80418d0296001e006400
-P03_001_2301	0621	2301	03-01	Fusspunkttemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	5611	5611	1	81418d0290016400dc00
-P03_011_A300	0621	a300	03-11	Fusspunkt Vorlaufkennlinie: TA	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2473	9843	4	8b418d022c019cffc800
-P03_020_A301	0621	a301	03-20	Zeitkonstante für Aussentemperaturmittelung	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	2474	9845	2	94418d0ac80000006400
-P03_023_A302	0621	a302	03-23	Frostgrenze	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2532	2532	1	97414d02c8009cff1400
-P03_030_A303	0621	a303	03-30	Nachstellzeit Raumregler	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	2541	2541	1	9e418d0cd00700000000
-P04_000_A400	0621	a400	04-00	Fühlerkonfiguration speichern	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2554	2587	2	00020200010000000000
-P04_002_A401	0621	a401	04-02	Funktion Sollwerteingang	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2556	2556	1	02420400040000000000
-P04_008_A402	0621	a402	04-08	Handbetrieb Konfiguration	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2565	2565	1	08420400020001000200
-P04_020_A403	0621	a403	04-20	Anlage-Hauptregler / Folgeregler	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2567	2567	1	144209003d001e000200
-P04_030_A404	0621	a404	04-30	Multifunktionsusgang 1	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2570	2570	1	1e420200010000000000
-P04_031_A405	0621	a405	04-31	Multifunktionsusgang 2	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2574	2574	1	1f420200010000000000
-P04_036_A406	0621	a406	04-36	eBUS Speisung Abschaltung	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2576	2576	1	24420200010000000100
-P04_040_A407	0621	a407	04-40	Service Passwort	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2581	2581	1	28420022ff0000000000
-P05_000_A500	0621	a500	05-00	Schaltdifferenz Brauchwasserbereitung	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2596	8596	4	80424d04c80014003200
-P05_001_A501	0621	a501	05-01	Temperaturüberhoehung Brauchwasserbereitung	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2597	8528	2	81424d042c0114003c00
-P05_002_A502	0621	a502	05-02	Brauchwasser-Vorrang	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	2600	8529	2	82420d0a640000000100
-P05_003_A503	0621	a503	05-03	Nachlaufzeit Brauchwasserbereitung	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	2604	8531	2	83424d0c2c0100000a00
-P05_004_A504	0621	a504	05-04	Legionellenschutztemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2607	8534	2	84428d02200358025802
-P05_005_A505	0621	a505	05-05	Funktionsweise Ladepumpennachlauf	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2610	8538	3	85420400020000000200
-P05_006_A506	0621	a506	05-06	Zirkulationspumpe aktiv	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2613	8540	2	86420200010000000100
-P05_007_A507	0621	a507	05-07	Stellglied Brauchwasserbereitung	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	2673	8541	2	87420200010000000100
-P05_013_A508	0621	a508	05-13	Reduktion Sollwert TBO	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2677	8544	2	8d428d04c80000000000
-P05_040_A509	0621	a509	05-40	Min. Fehlerdauer fuer Brauchwasser Störmeldung	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	2685	8590	2	a8428d0ac80000000000
-P15_023_A50A	0621	a50a	15-23	Frostschutztemperatur TVD	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2692	8593	2	97474d02c80038ff2800
-P06_000_A600	0621	a600	06-00	Brauchwasser Ladeleistung	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	2714	2771	3	00438d1006270000e803
-P06_001_A601	0621	a601	06-01	Puffer, Heiz-  Ladeleistung	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	2715	2759	2	01438d1006270000e803
-P06_002_A602	0621	a602	06-02	Kühlleistung	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	2719	2760	2	02434d10e8030000e803
-P06_004_A603	0621	a603	06-04	WEZ Überhöhung	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2721	2761	2	04434d04c80000006400
-P06_005_A604	0621	a604	06-05	Puffer Offset TPM aus	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2723	2762	2	05434d042c019cff0000
-P06_008_A605	0621	a605	06-08	TBVsoll Überhöhung	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2726	2763	2	08434d04c80000006400
-P06_010_A606	0621	a606	06-10	Xp WEZ Manager	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2727	2765	2	0a434d04e80314001e00
-P06_011_A607	0621	a607	06-11	Tn WEZ Manager	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	2731	2766	2	0b438d0ce8030000c800
-P06_012_A608	0621	a608	06-12	Tv WEZ Manager	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	2737	2768	2	0c438d0ce80300000000
-P06_013_A609	0621	a609	06-13	Reduktion Sollwert TKX	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2742	2769	2	0d438d04fa0000003200
-P06_020_A60A	0621	a60a	06-20	Sequenzwechsel Flag	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2746	2770	2	14430400080000000000
-P07_000_A700	0621	a700	07-00	Proportional-Bereich Mischer	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2773	8737	6	80438d042c0132009600
-P07_001_A701	0621	a701	07-01	Überhöhung WE-Temperatur	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2776	8700	4	81438d042c0100000000
-P07_002_A702	0621	a702	07-02	Minimale Vorlauftemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	2779	8701	4	82438d02900100000000
-P07_003_A703	0621	a703	07-03	Pumpennachlauf Heizkreis	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	2787	9879	6	83438d0c2c0100009600
-P07_005_A704	0621	a704	07-05	Heizkreistyp	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2788	9876	7	85430400030000000200
-P07_006_A705	0621	a705	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	2798	9249	5	86430d0ac80000001400
-P07_014_A706	0621	a706	07-14	Heizkreisfunktion im Kühlbetrieb	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2800	9248	5	8e430400030000000000
-P07_031_A707	0621	a707	07-31	Heizkreisüberhöhung Niedertarif	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	2807	8728	3	9f434d042c0100000000
-P07_000_A7801000	0621	a7801000	07-00	Proportional-Bereich Mischer	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	9170	9851	2	80438d042c0132009600
-P07_001_A7811000	0621	a7811000	07-01	Überhöhung WE-Temperatur	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	9171	9852	2	81438d042c0100001e00
-P07_002_A7821000	0621	a7821000	07-02	Minimale Vorlauftemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	9173	9854	2	82438d02900100000000
-P07_003_A7831000	0621	a7831000	07-03	Pumpennachlauf Heizkreis	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	9174	9883	5	83438d0c2c0100009600
-P07_005_A7841000	0621	a7841000	07-05	Heizkreistyp	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	9175	9882	7	85430400030000000300
-P07_006_A7851000	0621	a7851000	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	9176	9859	5	86430d0ac80000000000
-P07_014_A7861000	0621	a7861000	07-14	Heizkreisfunktion im Kühlbetrieb	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	9221	9250	4	8e430400030000000000
-P07_031_A7871000	0621	a7871000	07-31	Heizkreisüberhöhung Niedertarif	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	9222	9222	1	9f434d042c0100000000
-P04_027_A900	0621	a900	04-27	eBUS Adresse WEZ	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	7567	7567	1	1b42090001f8c0010b00
-P09_000_A901	0621	a901	09-00	Nachlaufzeit Schutzfunktion	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	7569	7569	1	80444d0c900100000a00
-P09_004_A902	0621	a902	09-04	Vorlaufzeit Quellenpumpe	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	7579	7620	2	84444d0cb80b00000500
-P09_007_A903	0621	a903	09-07	WEZ Typ	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	7585	7641	3	87440400060000000500
-P09_011_A904	0621	a904	09-11	Bedingte WEZ Freigabe	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	7590	7618	2	8b4404000d0000000000
-P09_012_A905	0621	a905	09-12	Aussentemperatursperre TAW	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	7594	7642	2	8c444d02f4010cfe0cfe
-P09_013_A906	0621	a906	09-13	Energiezwang Funktion	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	7602	7649	2	8d440400030000000200
-P09_014_A907	0621	a907	09-14	Diff. Leistungszwang Tkmax	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	7609	7661	2	8e444d042c01d4fe0000
-P09_021_A908	0621	a908	09-21	WE Abschaltdifferenz	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	7665	7665	1	95444d042c0114001e00
-P09_023_A909	0621	a909	09-23	Minimale Stillstandszeit	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	7673	7710	2	97444d0ce80300007800
-P09_026_A90A	0621	a90a	09-26	Vorhaltezeit 2. Stufe	Zahlenantwort<Sekunden10>	SIN / 10; Einheit aus Antwort	10	7684	7716	4	9a448d0ee80300000000
-P09_031_A90B	0621	a90b	09-31	Minimale WE Laufzeit	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	7687	7687	1	9f444d0c900100005a00
-P09_034_A90C	0621	a90c	09-34	Einschaltverzögerung 2. Stufe	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	7701	7744	3	a2444d0c900100000000
-P09_035_A90D	0621	a90d	09-35	Schaltdifferenz 2. Stufe	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	7703	7751	4	a3444d04000038ff0000
-P10_031_A90E	0621	a90e	10-31	WE Maximaltemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	7745	7745	1	1f458d0220032c015802
-P15_010_A90F	0621	a90f	15-10	Heissgas Maximaltemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	7752	7752	1	8a478d02780500001405
-P15_011_A910	0621	a910	15-11	TWVmax Abschalthysterese	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	7766	7766	1	8b474d042c0114004600
-P04_027_AA00	0621	aa00	04-27	eBUS Adresse WEZ	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4235	7837	4	1b42090001f8c0010c00
-P09_000_AA01	0621	aa01	09-00	Nachlaufzeit Schutzfunktion	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	4237	7804	2	80444d0c900100000a00
-P09_004_AA02	0621	aa02	09-04	Einschaltverzögerung	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	4246	7806	2	84444d0cb80b00000500
-P09_007_AA03	0621	aa03	09-07	WEZ Typ	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4250	7809	3	87440400060000000100
-P09_011_AA04	0621	aa04	09-11	Bedingte WEZ Freigabe	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4257	7811	4	8b4404000d0000000c00
-P09_012_AA05	0621	aa05	09-12	Aussentemperatursperre TAW	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4261	7813	3	8c444d02f4010cfeceff
-P09_013_AA06	0621	aa06	09-13	Energiezwang Funktion	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4265	7816	3	8d440400030000000200
-P09_014_AA07	0621	aa07	09-14	Diff. Leistungszwang Tkmax	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	4266	7818	3	8e444d042c01d4fe0000
-P09_021_AA08	0621	aa08	09-21	WE Abschaltdifferenz	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	4269	7819	3	95444d042c0114001e00
-P09_023_AA09	0621	aa09	09-23	Minimale Stillstandszeit	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	4326	7821	2	97444d0ce80300005802
-P09_026_AA0A	0621	aa0a	09-26	Vorhaltezeit 2. Stufe	Zahlenantwort<Sekunden10>	SIN / 10; Einheit aus Antwort	10	4330	7824	2	9a448d0ee80300000000
-P09_031_AA0B	0621	aa0b	09-31	Minimale WE Laufzeit	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	4335	7833	2	9f444d0c900100000000
-P09_034_AA0C	0621	aa0c	09-34	Einschaltverzögerung 2. Stufe	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	4337	7834	2	a2444d0c900100000000
-P09_035_AA0D	0621	aa0d	09-35	Schaltdifferenz 2. Stufe	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	4342	7835	2	a3444d04000038ff0000
-P10_031_AA0E	0621	aa0e	10-31	WE Maximaltemperatur	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	4345	7836	2	1f458d0220032c01a802
-P00_009_AB00	0621	ab00	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	4353	7910	19	0980010864009c006400
-P01_009_AB01	0621	ab01	01-09	TEM 01-09; Bezeichnung nicht im STE-Katalog	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	4356	7876	17	89800d08e80318fce803
-P04_022_AB02	0621	ab02	04-22	WE 1 Zieladresse	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4371	7880	3	1642090001f8c0010b00
-P11_001_AB03	0621	ab03	11-01	WE Steuerbefehl	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4372	7881	2	81450000040001000200
-P11_002_AB04	0621	ab04	11-02	WE Nennleistung	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	4376	7886	2	82458d1006270000e803
-P11_003_AB05	0621	ab05	11-03	minimale WE-Leistung	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4381	7907	3	83450008640000006400
-P11_004_AB06	0621	ab06	11-04	Einschaltleistung Folge WE	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	4383	7892	2	84450008640000005000
-P11_005_AB07	0621	ab07	11-05	WE Folgewechsel	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	4385	7908	3	85450200010000000000
-Liste_01890000	0622	01890000		Listenblock roh; keine Schreiboperation	Roh10	Listenblock roh; keine Schreiboperation	10	1222	10187	271	000000ffffffffffffff
-Liste_01890100	0622	01890100		Listenblock roh; keine Schreiboperation	Roh2	Listenblock roh; keine Schreiboperation	2	1223	10188	270	ff00
-Liste_01891000	0622	01891000		Listenblock roh; keine Schreiboperation	Roh10	Listenblock roh; keine Schreiboperation	10	1982	9956	49	000000ffffffffffffff
-Liste_01891100	0622	01891100		Listenblock roh; keine Schreiboperation	Roh2	Listenblock roh; keine Schreiboperation	2	1983	9957	47	ff00
+name	service	request	tem_id	label	label_source	evidence	response_model	encoding	response_length	first_line	last_line	observations	sample_response
+Menueblock	0620	00		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1208	10174	7	038b018b00000000
+Menueblock	0620	01		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1225	10190	7	8f98028783010181
+Menueblock	0620	02		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1226	10191	7	0100000000000000
+Menueblock	0620	03		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1227	10192	7	0000000000000000
+Menueblock	0620	04		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1240	10204	7	0090008c00000000
+Menueblock	0620	05		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1241	10205	7	0002020000000000
+Menueblock	0620	06		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1242	10206	7	0000000000000000
+Menueblock	0620	07		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1243	10207	7	0000000000000000
+Menueblock	0620	08		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1244	10208	7	0000000000000000
+Menueblock	0620	09		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1245	10209	7	0000000000000000
+Menueblock	0620	0a		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1246	10210	7	0000000000000000
+Menueblock	0620	0b		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1247	10211	7	0000000000000000
+Menueblock	0620	0c		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1248	10212	7	0000008207090987
+Menueblock	0620	0d		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1250	10213	7	000b070808080808
+Menueblock	0620	0e		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1251	10214	7	0808080000000000
+Menueblock	0620	0f		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1252	10215	7	0000000000000000
+Menueblock	0620	10		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1253	10217	7	0000000000000000
+Menueblock	0620	11		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1254	10218	7	0000000000000000
+Menueblock	0620	12		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1255	10219	7	0000000000000000
+Menueblock	0620	13		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1256	10221	7	0000000000000000
+Menueblock	0620	14		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1257	10222	7	00000084080b0b88
+Menueblock	0620	15		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1258	10223	7	05260f0808080808
+Menueblock	0620	16		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1259	10224	7	0808080000000000
+Menueblock	0620	17		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1260	10225	7	0000000000000000
+Menueblock	0620	18		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1261	10226	7	0000000000000000
+Menueblock	0620	19		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1262	10227	7	0000000000000000
+Menueblock	0620	1a		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1263	10228	7	0000000000000000
+Menueblock	0620	1b		8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md			MenueAnzahl / MenueZusatzflag	8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md	8	1266	10229	7	0000000000000000
+P00_00_HK1	0621	0800	00-00	Aussentemperatur (Ist; TA)	soll_und_istwerte.md	commands.txt:41; input/complete.log:1355	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	41	41	1	00000d02f4010cfe8e00
+P00_00_HK2	0621	08801000	00-00	Aussentemperatur (Ist; TA)	soll_und_istwerte.md	commands.txt:56; input/complete.log:2003	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	56	56	1	00000d02f4010cfe8e00
+P00_01_HK1	0621	0801	00-01	Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2)	soll_und_istwerte.md	commands.txt:42; input/complete.log:1356	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	42	42	1	01000d02f4010000dd00
+P00_01_HK2	0621	08811000	00-01	Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2)	soll_und_istwerte.md	commands.txt:57; input/complete.log:2007	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	57	57	1	01000d02f4010000df00
+P00_02_HK1	0621	0802	00-02	Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2)	soll_und_istwerte.md	commands.txt:43; input/complete.log:1360	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	43	43	1	02000d02e8030000e500
+P00_02_HK2	0621	08821000	00-02	Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2)	soll_und_istwerte.md	commands.txt:58; input/complete.log:2008	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	58	58	1	02000d02e8030000df00
+P00_04_HK1	0621	0803	00-04	Warmwassertemperatur (Ist; TBO)	soll_und_istwerte.md	commands.txt:44; input/complete.log:1366	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	44	44	1	04000d02e8030000d401
+P00_04_HK2	0621	08831000	00-04	Warmwassertemperatur (Ist; TBO)	soll_und_istwerte.md	commands.txt:59; input/complete.log:2009	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	59	59	1	04000d02e8030000d401
+P00_07_HK1	0621	0804	00-07	WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV)	soll_und_istwerte.md	commands.txt:45; input/complete.log:1376	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	45	45	1	07000d02e8030000e500
+P00_07_HK2	0621	08841000	00-07	WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV)	soll_und_istwerte.md	commands.txt:60; input/complete.log:2013	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	60	60	1	07000d02e8030000e500
+P00_08_HK1	0621	0805	00-08	WP-Rücklauftemperatur (Ist; TWR)	soll_und_istwerte.md	commands.txt:46; input/complete.log:1391	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	46	46	1	08000d02e8030000db00
+P00_08_HK2	0621	08851000	00-08	WP-Rücklauftemperatur (Ist; TWR)	soll_und_istwerte.md	commands.txt:61; input/complete.log:2016	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	61	61	1	08000d02e8030000db00
+P00_09_WE1	0621	ab00	00-09	Wärmeleistung WE 1 (Ist; PWE1)	soll_und_istwerte.md	commands.txt:441; input/complete.log:4353	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	441	441	1	0980010864009c009c00
+P00_09_WE2	0621	ac00	00-09	Wärmeleistung WE 2 (Ist; PWE2)	soll_und_istwerte.md	commands.txt:449	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	449	449	1	0980010864009c009c00
+P00_09_WE3	0621	ad00	00-09	Wärmeleistung WE 3 (Ist; PWE3)	soll_und_istwerte.md	commands.txt:457	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	457	457	1	0980010864009c000000
+P00_09_WE4	0621	ae00	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:465	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	465	465	1	0980010864009c000000
+P00_09_WE5	0621	af00	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:473	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	473	473	1	0980010864009c000000
+P00_09_WE6	0621	b000	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:481	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	481	481	1	0980010864009c000000
+P00_09_WE7	0621	b100	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:489	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	489	489	1	0980010864009c000000
+P00_09_WE8	0621	b200	00-09	TEM 00-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:497	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	497	497	1	0980010864009c000000
+P00_70_HK1	0621	0806	00-70	Wärmequelle-Austrittstemperatur (Ist; TWA)	soll_und_istwerte.md	commands.txt:47; input/complete.log:1397	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	47	47	1	46000d02e80300006c01
+P00_70_HK2	0621	08861000	00-70	Wärmequelle-Austrittstemperatur (Ist; TWA)	soll_und_istwerte.md	commands.txt:62; input/complete.log:2023	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	62	62	1	46000d02e80300006c01
+P00_71_HK1	0621	0807	00-71	Wärmequelle-Eintrittstemperatur (Ist; TWE)	soll_und_istwerte.md	commands.txt:48; input/complete.log:1407	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	48	48	1	47000d02e803000006ff
+P00_71_HK2	0621	08871000	00-71	Wärmequelle-Eintrittstemperatur (Ist; TWE)	soll_und_istwerte.md	commands.txt:63; input/complete.log:2024	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	63	63	1	47000d02e803000006ff
+P00_72_HK1	0621	0808	00-72	Heissgastemperatur (Ist; THG)	soll_und_istwerte.md	commands.txt:49; input/complete.log:1425	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	49	49	1	48000d02e8030000d600
+P00_72_HK2	0621	08881000	00-72	Heissgastemperatur (Ist; THG)	soll_und_istwerte.md	commands.txt:64; input/complete.log:2027	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	64	64	1	48000d02e8030000d600
+P00_73_HK1	0621	0809	00-73	Kondensatortemperatur (Ist; TKA)	soll_und_istwerte.md	commands.txt:50; input/complete.log:1460	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	50	50	1	49000d02e8030000d800
+P00_73_HK2	0621	08891000	00-73	Kondensatortemperatur (Ist; TKA)	soll_und_istwerte.md	commands.txt:65; input/complete.log:2028	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	65	65	1	49000d02e8030000d800
+P00_74_HK1	0621	080a	00-74	Verdampfertemperatur (Ist; TVD)	soll_und_istwerte.md	commands.txt:51; input/complete.log:1466	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	51	51	1	4a000d02e803000006ff
+P00_74_HK2	0621	088a1000	00-74	Verdampfertemperatur (Ist; TVD)	soll_und_istwerte.md	commands.txt:66; input/complete.log:2032	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	66	66	1	4a000d02e803000006ff
+P00_75_HK1	0621	080b	00-75	Sauggastemperatur (Ist; TSG)	soll_und_istwerte.md	commands.txt:52; input/complete.log:1472	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	52	52	1	4b000d02e803000006ff
+P00_75_HK2	0621	088b1000	00-75	Sauggastemperatur (Ist; TSG)	soll_und_istwerte.md	commands.txt:67	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	67	67	1	4b000d02e803000006ff
+P00_81_HK1	0621	080c	00-81	Warmwasser WP Verdampfertemperatur (Ist; WW-TVD)	soll_und_istwerte.md	commands.txt:53; input/complete.log:1494	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	53	53	1	51000d02e8030000b004
+P00_81_HK2	0621	088c1000	00-81	Warmwasser WP Verdampfertemperatur (Ist; WW-TVD)	soll_und_istwerte.md	commands.txt:68	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	68	68	1	51000d02e8030000b004
+P00_95_HK1	0621	080d	00-95	Externer Sollwert 0-10V (Ist; SWin)	soll_und_istwerte.md	commands.txt:54; input/complete.log:1496	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	54	54	1	5f000002640000000000
+P00_95_HK2	0621	088d1000	00-95	Externer Sollwert 0-10V (Ist; SWin)	soll_und_istwerte.md	commands.txt:69	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	69	69	1	5f000002640000000000
+P00_96_HK1	0621	080e	00-96	Anlage Vorlaufsollwert (Ist; TKx/TWR)	soll_und_istwerte.md	commands.txt:55; input/complete.log:1503	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	55	55	1	60000d02e8030000db00
+P00_96_HK2	0621	088e1000	00-96	Anlage Vorlaufsollwert (Ist; TKx/TWR)	soll_und_istwerte.md	commands.txt:70; input/complete.log:10281	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	70	70	1	60000d02e8030000db00
+P01_01_HK1	0621	0903	01-01	Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2)	soll_und_istwerte.md	commands.txt:74; input/complete.log:2934	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	74	74	1	81000d02e8030000c800
+P01_01_HK2	0621	09831000	01-01	Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2)	soll_und_istwerte.md	commands.txt:98; input/complete.log:4522	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	98	98	1	81000d02e8030000dc00
+P01_02_HK1	0621	0905	01-02	Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2)	soll_und_istwerte.md	commands.txt:76; input/complete.log:2939	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	76	76	1	82000d02e8030000dc00
+P01_02_HK2	0621	09851000	01-02	Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2)	soll_und_istwerte.md	commands.txt:100; input/complete.log:4526	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	100	100	1	82000d02e80300000000
+P01_04_HK1	0621	0907	01-04	Warmwassertemperatur (Soll; TBO)	soll_und_istwerte.md	commands.txt:78; input/complete.log:2979	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	78	78	1	84000d02e8030000e001
+P01_04_HK2	0621	09871000	01-04	Warmwassertemperatur (Soll; TBO)	soll_und_istwerte.md	commands.txt:102; input/complete.log:4528	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	102	102	1	84000d02e8030000e001
+P01_07_HK1	0621	0909	01-07	WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV)	soll_und_istwerte.md	commands.txt:80; input/complete.log:3007	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	80	80	1	87000d02e80300000000
+P01_07_HK2	0621	09891000	01-07	WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV)	soll_und_istwerte.md	commands.txt:104; input/complete.log:4532	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	104	104	1	87000d02e80300000000
+P01_09_WE1	0621	ab01	01-09	Wärmeleistungsanforderung WE 1 (Soll; PSollWE1)	soll_und_istwerte.md	commands.txt:442; input/complete.log:4356	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	442	442	1	89800d08e80318fc0afb
+P01_09_WE2	0621	ac01	01-09	Wärmeleistungsanforderung WE 2 (Soll; PSollWE2)	soll_und_istwerte.md	commands.txt:450	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	450	450	1	89800d08e80318fc0afb
+P01_09_WE3	0621	ad01	01-09	Wärmeleistungsanforderung WE 3 (Soll; PSollWE3)	soll_und_istwerte.md	commands.txt:458	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	458	458	1	89800d08e80318fc0afb
+P01_09_WE4	0621	ae01	01-09	Wärmeleistungsanforderung WE 4 (Soll; PSollWE4)	soll_und_istwerte.md	commands.txt:466	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	466	466	1	89800d08e80318fc0afb
+P01_09_WE5	0621	af01	01-09	Wärmeleistungsanforderung WE 5 (Soll; PSollWE5)	soll_und_istwerte.md	commands.txt:474	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	474	474	1	89800d08e80318fc0afb
+P01_09_WE6	0621	b001	01-09	Wärmeleistungsanforderung WE 6 (Soll; PSollWE6)	soll_und_istwerte.md	commands.txt:482	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	482	482	1	89800d08e80318fc0afb
+P01_09_WE7	0621	b101	01-09	Wärmeleistungsanforderung WE 7 (Soll; PSollWE7)	soll_und_istwerte.md	commands.txt:490	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	490	490	1	89800d08e80318fc0afb
+P01_09_WE8	0621	b201	01-09	Wärmeleistungsanforderung WE 8 (Soll; PSollWE8)	soll_und_istwerte.md	commands.txt:498	Zahlenantwort<Prozent10>	SIN / 10; Einheit aus Antwort	10	498	498	1	89800d08e80318fc0afb
+P01_20_HK1	0621	2100	01-20	TEM 01-20; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:144; input/complete.log:5453	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	144	144	1	94000200010000000100
+P01_20_HK2	0621	21801000	01-20	TEM 01-20; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:160; input/complete.log:7267	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	160	160	1	94000200010000000000
+P01_21_HK1	0621	2101	01-21	TEM 01-21; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:145; input/complete.log:5454	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	145	145	1	9500c10864009c000000
+P01_21_HK2	0621	21811000	01-21	TEM 01-21; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:161	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	161	161	1	9500c10864009c000000
+P01_22_HK1	0621	2102	01-22	TEM 01-22; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:146; input/complete.log:5498	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	146	146	1	96000200010000000000
+P01_22_HK2	0621	21821000	01-22	TEM 01-22; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:162	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	162	162	1	96000200010000000000
+P01_40_HK1	0621	2103	01-40	TEM 01-40; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:147; input/complete.log:5499	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	147	147	1	a8000200010000000000
+P01_40_HK2	0621	21831000	01-40	TEM 01-40; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:163	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	163	163	1	a8000200010000000000
+P01_53_HK1	0621	2104	01-53	TEM 01-53; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:148; input/complete.log:5513	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	148	148	1	b5000200010000000000
+P01_53_HK2	0621	21841000	01-53	TEM 01-53; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:164	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	164	164	1	b5000200010000000000
+P01_54_HK1	0621	2105	01-54	TEM 01-54; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:149; input/complete.log:5527	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	149	149	1	b6000200010000000000
+P01_54_HK2	0621	21851000	01-54	TEM 01-54; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:165	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	165	165	1	b6000200010000000000
+P01_63_HK1	0621	2106	01-63	TEM 01-63; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:150; input/complete.log:5539	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	150	150	1	bf000200010000000100
+P01_63_HK2	0621	21861000	01-63	TEM 01-63; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:166	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	166	166	1	bf000200010000000100
+P01_64_HK1	0621	2107	01-64	TEM 01-64; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:151	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	151	151	1	c0000200010000000000
+P01_64_HK2	0621	21871000	01-64	TEM 01-64; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:167	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	167	167	1	c0000200010000000000
+P01_65_HK1	0621	2108	01-65	TEM 01-65; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:152	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	152	152	1	c1000200010000000100
+P01_65_HK2	0621	21881000	01-65	TEM 01-65; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:168	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	168	168	1	c1000200010000000100
+P01_66_HK1	0621	2109	01-66	TEM 01-66; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:153	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	153	153	1	c2000200010000000000
+P01_66_HK2	0621	21891000	01-66	TEM 01-66; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:169	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	169	169	1	c2000200010000000000
+P01_76_HK1	0621	210a	01-76	TEM 01-76; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:154	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	154	154	1	cc000000020000000000
+P01_76_HK2	0621	218a1000	01-76	TEM 01-76; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:170	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	170	170	1	cc000000020000000000
+P01_77_HK1	0621	210b	01-77	TEM 01-77; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:155	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	155	155	1	cd000200010000000000
+P01_77_HK2	0621	218b1000	01-77	TEM 01-77; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:171	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	171	171	1	cd000200010000000000
+P01_78_HK1	0621	210c	01-78	TEM 01-78; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:156	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	156	156	1	ce000200010000000000
+P01_78_HK2	0621	218c1000	01-78	TEM 01-78; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:172	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	172	172	1	ce000200010000000000
+P01_82_HK1	0621	210d	01-82	TEM 01-82; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:157	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	157	157	1	d2000200010000000000
+P01_82_HK2	0621	218d1000	01-82	TEM 01-82; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:173	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	173	173	1	d2000200010000000000
+P01_94_HK1	0621	210e	01-94	TEM 01-94; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:158	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	158	158	1	de000200010000000000
+P01_94_HK2	0621	218e1000	01-94	TEM 01-94; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:174	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	174	174	1	de000200010000000000
+P01_96_HK1	0621	0914	01-96	Anlage Vorlaufsollwert (Soll; TKx/TWR)	soll_und_istwerte.md	commands.txt:91; input/complete.log:5742	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	91	91	1	e0000d02e8030000dc00
+P01_96_HK2	0621	09941000	01-96	Anlage Vorlaufsollwert (Soll; TKx/TWR)	soll_und_istwerte.md	commands.txt:115	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	115	115	1	e0000d02e8030000dc00
+P01_97_HK1	0621	0915	01-97	Anlage Vorlaufsollwert (Soll; TBx)	soll_und_istwerte.md	commands.txt:92; input/complete.log:5743	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	92	92	1	e1000102640000000000
+P01_97_HK2	0621	09951000	01-97	Anlage Vorlaufsollwert (Soll; TBx)	soll_und_istwerte.md	commands.txt:116	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	116	116	1	e1000102640000000000
+P01_99_HK1	0621	210f	01-99	TEM 01-99; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:159; input/complete.log:5608	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	159	159	1	e3000200010000000000
+P01_99_HK2	0621	218f1000	01-99	TEM 01-99; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:175; input/complete.log:7269	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	175	175	1	e3000200010000000000
+P02_00_HK1	0621	0105	02-00	TEM 02-00; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:10; input/complete.log:1216	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	10	10	1	00811d000b00ffff0000
+P02_00_HK2	0621	01851000	02-00	TEM 02-00; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:18; input/complete.log:1974	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	18	18	1	00811d000b00ffff0000
+P02_02_HK1	0621	0104	02-02	TEM 02-02; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:9; input/complete.log:1213	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	9	9	1	02811d00000002800000
+P02_02_HK2	0621	01841000	02-02	TEM 02-02; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:17; input/complete.log:1972	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	17	17	1	02811d00000000800000
+P02_03_HK1	0621	0103	02-03	TEM 02-03; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:8; input/complete.log:1212	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	8	8	1	03811d00050002410000
+P02_03_HK2	0621	01831000	02-03	TEM 02-03; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:16; input/complete.log:1971	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	16	16	1	03811d00050002400000
+P02_10_HK1	0621	0106	02-10	TEM 02-10; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:11; input/complete.log:1218	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	11	11	1	0a01800cb40000000000
+P02_10_HK2	0621	01861000	02-10	TEM 02-10; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:19; input/complete.log:1975	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	19	19	1	0a01800cb40000000000
+P02_12_HK1	0621	0109	02-12	TEM 02-12; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:13; input/complete.log:1221	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	13	13	1	0c811e000500
+P02_12_HK2	0621	01891000	02-12	TEM 02-12; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:21; input/complete.log:1981	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	21	21	1	0c811e000500
+P02_20_HK1	0621	0901	02-20	Aussentemperatur Mittelwert (Soll; TAavg)	soll_und_istwerte.md	commands.txt:72; input/complete.log:5748	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	72	72	1	14410d02f4010cfebe00
+P02_20_HK2	0621	09811000	02-20	Aussentemperatur Mittelwert (Soll; TAavg)	soll_und_istwerte.md	commands.txt:96; input/complete.log:4520	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	96	96	1	14410d02f4010cfebe00
+P02_40_HK1	0621	0916	02-40	Wärmeleistung (Soll; PH)	soll_und_istwerte.md	commands.txt:93; input/complete.log:5745	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	93	93	1	28410d10e70319fcc4ff
+P02_40_HK2	0621	09961000	02-40	Wärmeleistung (Soll; PH)	soll_und_istwerte.md	commands.txt:117	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	117	117	1	28410d10e70319fcc4ff
+P02_41_HK1	0621	0917	02-41	Wärmeleistung (Soll; PBW)	soll_und_istwerte.md	commands.txt:94; input/complete.log:5746	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	94	94	1	29410d10e70319fc18fc
+P02_41_HK2	0621	09971000	02-41	Wärmeleistung (Soll; PBW)	soll_und_istwerte.md	commands.txt:118	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	118	118	1	29410d10e70319fc18fc
+P02_50_HK1	0621	0308	02-50	TEM 02-50; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:30	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	30	30	1	32c11d000c0000000000
+P02_50_HK2	0621	03881000	02-50	TEM 02-50; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:39	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	39	39	1	32c11d000c0000000000
+P02_70	0621	0a01	02-70	TEM 02-70; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:120; input/complete.log:1229	RohgrenzenAntwort<DAY>	DAY: Tage seit 1900; Datum des Reglers, nicht Log-Zeitstempel	10	120	120	1	46410428ffff0000d0b4
+P02_71_HK1	0621	0108	02-71	TEM 02-71; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:12; input/complete.log:1220	RohgrenzenAntwort<Wochenminuten>	UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h	10	12	12	1	4741042a60270000af15
+P02_71_HK2	0621	01881000	02-71	TEM 02-71; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:20; input/complete.log:1978	RohgrenzenAntwort<Wochenminuten>	UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h	10	20	20	1	4741042a60270000af15
+P02_80_Menue29	0621	2900	02-80	TEM 02-80; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:200	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	200	200	1	50c11d00010026000000
+P02_80_Menue2A	0621	2a00	02-80	TEM 02-80; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:202	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	202	202	1	50c11d00010006000000
+P02_81_Menue29	0621	2901	02-81	TEM 02-81; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:201	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	201	201	1	51c11d00010008400000
+P02_81_Menue2A	0621	2a01	02-81	TEM 02-81; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:203	Sonderantwort	Typ 1d: sechs Byte Nutzdaten roh (keine erfundenen Min/Max/Wert-Felder)	10	203	203	1	51c11d0001000b080000
+P03_00_HK1	0621	2300	03-00	Raumschutztemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:176; input/complete.log:5610	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	176	176	1	80418d0296001e006400
+P03_00_HK2	0621	23801000	03-00	Raumschutztemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:188	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	188	188	1	80418d0296001e006400
+P03_01_HK1	0621	2301	03-01	Fusspunkttemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:177; input/complete.log:5611	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	177	177	1	81418d0290016400dc00
+P03_01_HK2	0621	23811000	03-01	Fusspunkttemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:189	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	189	189	1	81418d0290016400dc00
+P03_02_HK1	0621	2302	03-02	Heizgrenze Absenkbetrieb	Checkliste_Regler_Programmierung.CSV	commands.txt:178	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	178	178	1	82414d02c8009cffaa00
+P03_02_HK2	0621	23821000	03-02	Heizgrenze Absenkbetrieb	Checkliste_Regler_Programmierung.CSV	commands.txt:190	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	190	190	1	82414d02c8009cffaa00
+P03_06_HK1	0621	2303	03-06	Startoptimierung Vorhaltezeit	Checkliste_Regler_Programmierung.CSV	commands.txt:179	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	179	179	1	86418d0c282300000000
+P03_06_HK2	0621	23831000	03-06	Startoptimierung Vorhaltezeit	Checkliste_Regler_Programmierung.CSV	commands.txt:191	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	191	191	1	86418d0c282300000000
+P03_07_HK1	0621	2304	03-07	Raumtemperatur - Kompensation	Checkliste_Regler_Programmierung.CSV	commands.txt:180	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	180	180	1	87410d06640000000000
+P03_07_HK2	0621	23841000	03-07	Raumtemperatur - Kompensation	Checkliste_Regler_Programmierung.CSV	commands.txt:192	Sonderantwort	unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh	10	192	192	1	87410d06640000000000
+P03_08_HK1	0621	2305	03-08	Vorlauf Sollwert Heizgrenze	Checkliste_Regler_Programmierung.CSV	commands.txt:181	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	181	181	1	88418d0464009cff9cff
+P03_08_HK2	0621	23851000	03-08	Vorlauf Sollwert Heizgrenze	Checkliste_Regler_Programmierung.CSV	commands.txt:193	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	193	193	1	88418d0464009cff9cff
+P03_10_HK1	0621	0b04	03-10	Steilheit Kennlinie	STE-Katalog	commands.txt:124; input/complete.log:1237	Zahlenantwort<Steilheit100>	SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet	10	124	124	1	8a410408f40100002800
+P03_10_HK2	0621	0b841000	03-10	Steilheit Kennlinie	STE-Katalog	commands.txt:130; input/complete.log:2061	Zahlenantwort<Steilheit100>	SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet	10	130	130	1	8a410408f40100002800
+P03_11_HK1	0621	a300	03-11	Fusspunkt Vorlaufkennlinie TA	Checkliste_Regler_Programmierung.CSV	commands.txt:329; input/complete.log:2473	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	329	329	1	8b418d022c019cffc800
+P03_11_HK2	0621	a3801000	03-11	Fusspunkt Vorlaufkennlinie TA	Checkliste_Regler_Programmierung.CSV	commands.txt:333	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	333	333	1	8b418d022c019cffc800
+P03_20_HK1	0621	a301	03-20	Zeitkonst. für Aussentemp.rmittelung	Checkliste_Regler_Programmierung.CSV	commands.txt:330; input/complete.log:2474	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	330	330	1	94418d0ac80000006400
+P03_20_HK2	0621	a3811000	03-20	Zeitkonst. für Aussentemp.rmittelung	Checkliste_Regler_Programmierung.CSV	commands.txt:334	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	334	334	1	94418d0ac80000006400
+P03_21_HK1	0621	0b06	03-21	Heizgrenze bei Tagbetrieb	STE-Katalog	commands.txt:126; input/complete.log:1239	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	126	126	1	95414d022c010000aa00
+P03_21_HK2	0621	0b861000	03-21	Heizgrenze bei Tagbetrieb	STE-Katalog	commands.txt:132; input/complete.log:2059	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	132	132	1	95414d022c010000aa00
+P03_23_HK1	0621	a302	03-23	Frostgrenze	Checkliste_Regler_Programmierung.CSV	commands.txt:331; input/complete.log:2532	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	331	331	1	97414d02c8009cff1400
+P03_23_HK2	0621	a3821000	03-23	Frostgrenze	Checkliste_Regler_Programmierung.CSV	commands.txt:335	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	335	335	1	97414d02c8009cff1400
+P03_30_HK1	0621	a303	03-30	Nachstellzeit Raumregler	Checkliste_Regler_Programmierung.CSV	commands.txt:332; input/complete.log:2541	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	332	332	1	9e418d0cd00700000000
+P03_30_HK2	0621	a3831000	03-30	Nachstellzeit Raumregler	Checkliste_Regler_Programmierung.CSV	commands.txt:336	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	336	336	1	9e418d0cd00700000000
+P03_35_HK1	0621	2306	03-35	Kühlgrenzenabstand	Checkliste_Regler_Programmierung.CSV	commands.txt:182	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	182	182	1	a3414d04640014003200
+P03_35_HK2	0621	23861000	03-35	Kühlgrenzenabstand	Checkliste_Regler_Programmierung.CSV	commands.txt:194	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	194	194	1	a3414d04640014003200
+P03_43_HK1	0621	2307	03-43	Kühltemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:183	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	183	183	1	ab414d022c016400dc00
+P03_43_HK2	0621	23871000	03-43	Kühltemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:195	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	195	195	1	ab414d022c016400dc00
+P03_50_HK1	0621	0100	03-50	Betriebswahl Heizung und Brauchwasser	STE-Katalog	commands.txt:5; input/complete.log:1209	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	5	5	1	b2410000070000000100
+P03_50_HK2	0621	01801000	03-50	Betriebswahl Heizung und Brauchwasser	STE-Katalog	commands.txt:14; input/complete.log:1968	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	14	14	1	b2410000070000000100
+P03_51_HK1	0621	0b00	03-51	Sollwert Raumtemperatur Heizen Tag normal	STE-Katalog	commands.txt:121; input/complete.log:1230	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	121	121	1	b3414d022c016400dc00
+P03_51_HK2	0621	0b801000	03-51	Sollwert Raumtemperatur Heizen Tag normal	STE-Katalog	commands.txt:127; input/complete.log:10298	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	127	127	1	b3414d022c016400dc00
+P03_53_HK1	0621	0b02	03-53	Sollwert Raumteperatur Heizen Nacht	STE-Katalog	commands.txt:122; input/complete.log:1235	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	122	122	1	b5414d02c8003200b400
+P03_53_HK2	0621	0b821000	03-53	Sollwert Raumteperatur Heizen Nacht	STE-Katalog	commands.txt:128; input/complete.log:2064	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	128	128	1	b5414d02c80032006400
+P03_58_HK1	0621	0102	03-58	Behaglichkeit	STE-Katalog	commands.txt:7; input/complete.log:1211	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	7	7	1	ba414d041e00e2ffecff
+P03_58_HK2	0621	01821000	03-58	Behaglichkeit	STE-Katalog	commands.txt:15; input/complete.log:1970	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	15	15	1	ba414d041e00e2ff0000
+P03_61_HK1	0621	0c00	03-61	TEM 03-61; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:133	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	133	133	1	bd011e000100
+P03_61_HK2	0621	0c801000	03-61	TEM 03-61; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:136	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	136	136	1	bd011e000100
+P03_62_HK1	0621	0c01	03-62	TEM 03-62; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:134	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	134	134	1	be011e000100
+P03_62_HK2	0621	0c811000	03-62	TEM 03-62; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:137	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	137	137	1	be011e000100
+P03_63_HK1	0621	0c02	03-63	TEM 03-63; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:135	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	135	135	1	bf011e000100
+P03_63_HK2	0621	0c821000	03-63	TEM 03-63; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:138	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	138	138	1	bf011e000100
+P03_78_HK1	0621	0f00	03-78	TEM 03-78; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:141; input/complete.log:2461	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	141	141	1	ce01042863ffcfb4cfb4
+P03_78_HK2	0621	0f801000	03-78	TEM 03-78; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:142; input/complete.log:9159	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	142	142	1	ce01042863ffcfb4cfb4
+P04_00	0621	a400	04-00	Fühlerkonfiguration speichern	Checkliste_Regler_Programmierung.CSV	commands.txt:337; input/complete.log:2554	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	337	337	1	00020200010000000000
+P04_02	0621	a401	04-02	Funktion Sollwerteingang	Checkliste_Regler_Programmierung.CSV	commands.txt:338; input/complete.log:2556	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	338	338	1	02420400040000000000
+P04_08	0621	a402	04-08	Handbetrieb Konfiguration	Checkliste_Regler_Programmierung.CSV	commands.txt:339; input/complete.log:2565	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	339	339	1	08420400020001000200
+P04_20	0621	a403	04-20	Anlage-Hauptregler / Folgeregler	Checkliste_Regler_Programmierung.CSV	commands.txt:340; input/complete.log:2567	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	340	340	1	144209003d001e000200
+P04_22_WE1	0621	ab02	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:443; input/complete.log:4371	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	443	443	1	1642090001f8c0010b00
+P04_22_WE2	0621	ac02	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:451	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	451	451	1	1642090001f8c0010c00
+P04_22_WE3	0621	ad02	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:459	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	459	459	1	1642090001f8c0010000
+P04_22_WE4	0621	ae02	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:467	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	467	467	1	1642090001f8c0010000
+P04_22_WE5	0621	af02	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:475	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	475	475	1	1642090001f8c0010000
+P04_22_WE6	0621	b002	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:483	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	483	483	1	1642090001f8c0010000
+P04_22_WE7	0621	b102	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:491	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	491	491	1	1642090001f8c0010000
+P04_22_WE8	0621	b202	04-22	WE 1 Zieladresse	STE-Katalog	commands.txt:499	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	499	499	1	1642090001f8c0010000
+P04_27_WP	0621	a900	04-27	eBUS Adresse WEZ	Checkliste_Regler_Programmierung.CSV	commands.txt:388; input/complete.log:7567	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	388	388	1	1b42090001f8c0010b00
+P04_27_EH	0621	aa00	04-27	eBUS Adresse WEZ	Checkliste_Regler_Programmierung.CSV	commands.txt:426; input/complete.log:4235	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	426	426	1	1b42090001f8c0010c00
+P04_30	0621	a404	04-30	Multifunktionsausgang 1	Checkliste_Regler_Programmierung.CSV	commands.txt:341; input/complete.log:2570	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	341	341	1	1e420200010000000100
+P04_31	0621	a405	04-31	Multifunktionsausgang 2	Checkliste_Regler_Programmierung.CSV	commands.txt:342; input/complete.log:2574	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	342	342	1	1f420200010000000000
+P04_36	0621	a406	04-36	eBUS Speisung Abschaltung	Checkliste_Regler_Programmierung.CSV	commands.txt:343; input/complete.log:2576	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	343	343	1	24420200010000000100
+P04_40	0621	a407	04-40	Service Passwort	Checkliste_Regler_Programmierung.CSV	commands.txt:344; input/complete.log:2581	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	344	344	1	28420022ff0000000000
+P04_42	0621	0000	04-42	TEM 04-42; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:2	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	2	2	1	2a020000ff0000000100
+P04_43	0621	0001	04-43	Expert-Modus	Benutzerbestaetigung	commands.txt:3; input/complete.log:2469	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	3	3	1	2b820000ff0000000100
+P04_45_HK1	0621	1000	04-45	Kommandobefehle	Checkliste_Regler_Programmierung.CSV	commands.txt:143	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	143	143	1	2d020900010220000000
+P04_45_HK2	0621	23881000	04-45	Kommandobefehle	Checkliste_Regler_Programmierung.CSV	commands.txt:196	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	196	196	1	2d020900010220000000
+P04_60_HK1	0621	2309	04-60	Mode Austrocknungsprogramm	Checkliste_Regler_Programmierung.CSV	commands.txt:185	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	185	185	1	3c420000020000000000
+P04_60_HK2	0621	23891000	04-60	Mode Austrocknungsprogramm	Checkliste_Regler_Programmierung.CSV	commands.txt:197	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	197	197	1	3c420000020000000000
+P05_00	0621	a500	05-00	Schaltdifferenz Brauchwasserbereitung	Checkliste_Regler_Programmierung.CSV	commands.txt:345; input/complete.log:2596	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	345	345	1	80424d04c80014003200
+P05_01	0621	a501	05-01	Temperaturüberhoehung Brauchwasserbereitung	Checkliste_Regler_Programmierung.CSV	commands.txt:346; input/complete.log:2597	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	346	346	1	81424d042c0114003c00
+P05_02	0621	a502	05-02	Brauchwasser-Vorrang	Checkliste_Regler_Programmierung.CSV	commands.txt:347; input/complete.log:2600	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	347	347	1	82420d0a640000000100
+P05_03	0621	a503	05-03	Nachlaufzeit Brauchwasserbereitung	Checkliste_Regler_Programmierung.CSV	commands.txt:348; input/complete.log:2604	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	348	348	1	83424d0c2c0100001e00
+P05_04	0621	a504	05-04	Legionellenschutztemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:349; input/complete.log:2607	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	349	349	1	84428d02200358025802
+P05_05	0621	a505	05-05	Funktionsweise Ladepumpennachlauf	Checkliste_Regler_Programmierung.CSV	commands.txt:350; input/complete.log:2610	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	350	350	1	85420400020000000000
+P05_06	0621	a506	05-06	Zirkulationspumpe aktiv	Checkliste_Regler_Programmierung.CSV	commands.txt:351; input/complete.log:2613	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	351	351	1	86420200010000000100
+P05_07	0621	a507	05-07	Stellglied Brauchwasserbereitung	Checkliste_Regler_Programmierung.CSV	commands.txt:352; input/complete.log:2673	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	352	352	1	87420200010000000100
+P05_13	0621	a508	05-13	Reduktion Sollwert TBO	Checkliste_Regler_Programmierung.CSV	commands.txt:353; input/complete.log:2677	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	353	353	1	8d428d04c80000009600
+P05_14_HK1	0621	230a	05-14	Legionellenschutzfunktion	Checkliste_Regler_Programmierung.CSV	commands.txt:186	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	186	186	1	8e420400080000000000
+P05_14_HK2	0621	238a1000	05-14	Legionellenschutzfunktion	Checkliste_Regler_Programmierung.CSV	commands.txt:198	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	198	198	1	8e420400080000000000
+P05_40	0621	a509	05-40	Min. Fehlerdauer fuer Brauchwasser Störmeldung	Checkliste_Regler_Programmierung.CSV	commands.txt:354; input/complete.log:2685	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	354	354	1	a8428d0ac80000000000
+P05_51_HK1	0621	0b03	05-51	Sollwert Warmwassertemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:123; input/complete.log:1236	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	123	123	1	b3428d02bc026400e001
+P05_51_HK2	0621	0b831000	05-51	Sollwert Warmwassertemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:129; input/complete.log:2062	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	129	129	1	b3428d02bc026400e001
+P05_61	0621	0d00	05-61	TEM 05-61; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:139	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	139	139	1	bd021e000300
+P05_64	0621	0e00	05-64	TEM 05-64; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:140	Kurzantwort	6-Byte-Sonderantwort; keine normale Wertstruktur	6	140	140	1	c0021e000300
+P06_00	0621	a600	06-00	Brauchwasser Ladeleistung	Checkliste_Regler_Programmierung.CSV	commands.txt:356; input/complete.log:2714	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	356	356	1	00438d1006270000e803
+P06_01	0621	a601	06-01	Puffer, Heiz- Ladeleistung	Checkliste_Regler_Programmierung.CSV	commands.txt:357; input/complete.log:2715	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	357	357	1	01438d1006270000e803
+P06_02	0621	a602	06-02	Kühlleistung	Checkliste_Regler_Programmierung.CSV	commands.txt:358; input/complete.log:2719	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	358	358	1	02434d10e8030000e803
+P06_04	0621	a603	06-04	WEZ Überhöhung	Checkliste_Regler_Programmierung.CSV	commands.txt:359; input/complete.log:2721	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	359	359	1	04434d04c80000006400
+P06_05	0621	a604	06-05	Puffer Offset TPM aus	Checkliste_Regler_Programmierung.CSV	commands.txt:360; input/complete.log:2723	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	360	360	1	05434d042c019cff0000
+P06_08	0621	a605	06-08	TBVsoll Überhöhung	Checkliste_Regler_Programmierung.CSV	commands.txt:361; input/complete.log:2726	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	361	361	1	08434d04c80000006400
+P06_10	0621	a606	06-10	Xp WEZ Manager	Checkliste_Regler_Programmierung.CSV	commands.txt:362; input/complete.log:2727	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	362	362	1	0a434d04e80314001e00
+P06_11	0621	a607	06-11	Tn WEZ Manager	Checkliste_Regler_Programmierung.CSV	commands.txt:363; input/complete.log:2731	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	363	363	1	0b438d0ce8030000c800
+P06_12	0621	a608	06-12	Tv WEZ Manager	Checkliste_Regler_Programmierung.CSV	commands.txt:364; input/complete.log:2737	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	364	364	1	0c438d0ce80300000000
+P06_13	0621	a609	06-13	Reduktion Sollwert TKX	Checkliste_Regler_Programmierung.CSV	commands.txt:365; input/complete.log:2742	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	365	365	1	0d438d04fa0000003200
+P06_20	0621	a60a	06-20	Sequenzwechsel Flag	Checkliste_Regler_Programmierung.CSV	commands.txt:366; input/complete.log:2746	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	366	366	1	14430400080000000000
+P07_00_HK1	0621	a700	07-00	Proportional-Bereich Mischer	Checkliste_Regler_Programmierung.CSV	commands.txt:367; input/complete.log:2773	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	367	367	1	80438d042c0132009600
+P07_00_HK2	0621	a7801000	07-00	Proportional-Bereich Mischer	Checkliste_Regler_Programmierung.CSV	commands.txt:375; input/complete.log:9170	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	375	375	1	80438d042c0132009600
+P07_01_HK1	0621	a701	07-01	Überhöhung WE-Temperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:368; input/complete.log:2776	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	368	368	1	81438d042c0100000000
+P07_01_HK2	0621	a7811000	07-01	Überhöhung WE-Temperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:376; input/complete.log:9171	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	376	376	1	81438d042c0100001e00
+P07_02_HK1	0621	a702	07-02	Minimale Vorlauftemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:369; input/complete.log:2779	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	369	369	1	82438d02900100000000
+P07_02_HK2	0621	a7821000	07-02	Minimale Vorlauftemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:377; input/complete.log:9173	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	377	377	1	82438d02900100000000
+P07_03_HK1	0621	a703	07-03	Pumpennachlauf Heizkreis	Checkliste_Regler_Programmierung.CSV	commands.txt:370; input/complete.log:2787	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	370	370	1	83438d0c2c0100009600
+P07_03_HK2	0621	a7831000	07-03	Pumpennachlauf Heizkreis	Checkliste_Regler_Programmierung.CSV	commands.txt:378; input/complete.log:9174	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	378	378	1	83438d0c2c0100009600
+P07_05_HK1	0621	a704	07-05	Heizkreistyp	Checkliste_Regler_Programmierung.CSV	commands.txt:371; input/complete.log:2788	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	371	371	1	85430400030000000200
+P07_05_HK2	0621	a7841000	07-05	Heizkreistyp	Checkliste_Regler_Programmierung.CSV	commands.txt:379; input/complete.log:9175	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	379	379	1	85430400030000000000
+P07_06_HK1	0621	a705	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Checkliste_Regler_Programmierung.CSV	commands.txt:372; input/complete.log:2798	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	372	372	1	86430d0ac80000001400
+P07_06_HK2	0621	a7851000	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Checkliste_Regler_Programmierung.CSV	commands.txt:380; input/complete.log:9176	Zahlenantwort<Stunden10>	SIN / 10; Einheit aus Antwort	10	380	380	1	86430d0ac80000000000
+P07_08_HK1	0621	0b05	07-08	Vorlauf Maximaltemperatur TV	STE-Katalog	commands.txt:125; input/complete.log:1238	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	125	125	1	88438d0284032c012602
+P07_08_HK2	0621	0b851000	07-08	Vorlauf Maximaltemperatur TV	STE-Katalog	commands.txt:131; input/complete.log:2060	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	131	131	1	88438d0284032c01c201
+P07_09	0621	0200	07-09	TEM 07-09; Bezeichnung nicht im STE-Katalog	unbekannt	commands.txt:22	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	22	22	1	89438d0284030000e001
+P07_14_HK1	0621	a706	07-14	Heizkreisfunktion im Kühlbetrieb	Checkliste_Regler_Programmierung.CSV	commands.txt:373; input/complete.log:2800	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	373	373	1	8e430400030000000200
+P07_14_HK2	0621	a7861000	07-14	Heizkreisfunktion im Kühlbetrieb	Checkliste_Regler_Programmierung.CSV	commands.txt:381; input/complete.log:9221	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	381	381	1	8e430400030000000000
+P07_31_HK1	0621	a707	07-31	Heizkreisüberhöhung Niedertarif	Checkliste_Regler_Programmierung.CSV	commands.txt:374; input/complete.log:2807	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	374	374	1	9f434d042c0100000000
+P07_31_HK2	0621	a7871000	07-31	Heizkreisüberhöhung Niedertarif	Checkliste_Regler_Programmierung.CSV	commands.txt:382; input/complete.log:9222	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	382	382	1	9f434d042c0100000000
+P08_55	0621	a800	08-55	Puffer aktiv	STE-Katalog	commands.txt:383	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	383	383	1	37440400030000000000
+P08_58	0621	a801	08-58	Puffer Minimaltemperatur	STE-Katalog	commands.txt:384	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	384	384	1	3a448d02200300000000
+P08_59	0621	a802	08-59	Puffer Maximaltemperatur	STE-Katalog	commands.txt:385	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	385	385	1	3b448d02e80358028403
+P08_72	0621	a803	08-72	Delta Puffer bei Solar aktiv	STE-Katalog	commands.txt:386	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	386	386	1	48448d04900100006400
+P08_79	0621	a804	08-79	WW Minimaltemperatur bei Solar aktiv	STE-Katalog	commands.txt:387	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	387	387	1	4f448d02580200009001
+P09_00_WP	0621	a901	09-00	Nachlaufzeit Schutzfunktion	Checkliste_Regler_Programmierung.CSV	commands.txt:389; input/complete.log:7569	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	389	389	1	80444d0c900100000a00
+P09_00_EH	0621	aa01	09-00	Nachlaufzeit Schutzfunktion	Checkliste_Regler_Programmierung.CSV	commands.txt:427; input/complete.log:4237	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	427	427	1	80444d0c900100000a00
+P09_04_WP	0621	a902	09-04	Vorlaufzeit Quellenpumpe	Checkliste_Regler_Programmierung.CSV	commands.txt:390; input/complete.log:7579	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	390	390	1	84444d0cb80b00000500
+P09_04_EH	0621	aa02	09-04	Vorlaufzeit Quellenpumpe	Checkliste_Regler_Programmierung.CSV	commands.txt:428; input/complete.log:4246	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	428	428	1	84444d0cb80b00000500
+P09_07_WP	0621	a903	09-07	WEZ Typ	Checkliste_Regler_Programmierung.CSV	commands.txt:391; input/complete.log:7585	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	391	391	1	87440400060000000500
+P09_07_EH	0621	aa03	09-07	WEZ Typ	Checkliste_Regler_Programmierung.CSV	commands.txt:429; input/complete.log:4250	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	429	429	1	87440400060000000100
+P09_08_HK1	0621	230b	09-08	Wärmeerzeuger Sperre	Checkliste_Regler_Programmierung.CSV	commands.txt:187	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	187	187	1	88440400030000000000
+P09_08_HK2	0621	238b1000	09-08	Wärmeerzeuger Sperre	Checkliste_Regler_Programmierung.CSV	commands.txt:199	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	199	199	1	88440400030000000000
+P09_11_WP	0621	a904	09-11	Bedingte WEZ Freigabe	Checkliste_Regler_Programmierung.CSV	commands.txt:392; input/complete.log:7590	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	392	392	1	8b4404000d0000000000
+P09_11_EH	0621	aa04	09-11	Bedingte WEZ Freigabe	Checkliste_Regler_Programmierung.CSV	commands.txt:430; input/complete.log:4257	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	430	430	1	8b4404000d0000000a00
+P09_12_WP	0621	a905	09-12	Aussentemperatursperre TAW	Checkliste_Regler_Programmierung.CSV	commands.txt:393; input/complete.log:7594	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	393	393	1	8c444d02f4010cfe0cfe
+P09_12_EH	0621	aa05	09-12	Aussentemperatursperre TAW	Checkliste_Regler_Programmierung.CSV	commands.txt:431; input/complete.log:4261	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	431	431	1	8c444d02f4010cfeceff
+P09_13_WP	0621	a906	09-13	Energiezweig Funktion	Checkliste_Regler_Programmierung.CSV	commands.txt:394; input/complete.log:7602	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	394	394	1	8d440400030000000200
+P09_13_EH	0621	aa06	09-13	Energiezweig Funktion	Checkliste_Regler_Programmierung.CSV	commands.txt:432; input/complete.log:4265	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	432	432	1	8d440400030000000200
+P09_14_WP	0621	a907	09-14	Diff. Leistungszwang Tkmax	Checkliste_Regler_Programmierung.CSV	commands.txt:395; input/complete.log:7609	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	395	395	1	8e444d042c01d4fe0000
+P09_14_EH	0621	aa07	09-14	Diff. Leistungszwang Tkmax	Checkliste_Regler_Programmierung.CSV	commands.txt:433; input/complete.log:4266	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	433	433	1	8e444d042c01d4fe0000
+P09_21_WP	0621	a908	09-21	WE Abschaltdifferenz	Checkliste_Regler_Programmierung.CSV	commands.txt:396; input/complete.log:7665	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	396	396	1	95444d042c0114003200
+P09_21_EH	0621	aa08	09-21	WE Abschaltdifferenz	Checkliste_Regler_Programmierung.CSV	commands.txt:434; input/complete.log:4269	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	434	434	1	95444d042c0114001e00
+P09_23_WP	0621	a909	09-23	Minimale Stillstandszeit	Checkliste_Regler_Programmierung.CSV	commands.txt:397; input/complete.log:7673	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	397	397	1	97444d0ce80300007800
+P09_23_EH	0621	aa09	09-23	Minimale Stillstandszeit	Checkliste_Regler_Programmierung.CSV	commands.txt:435; input/complete.log:4326	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	435	435	1	97444d0ce80300005802
+P09_26_WP	0621	a90a	09-26	Vorhaltezeit 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:398; input/complete.log:7684	Zahlenantwort<Sekunden10>	SIN / 10; Einheit aus Antwort	10	398	398	1	9a448d0ee80300006400
+P09_26_EH	0621	aa0a	09-26	Vorhaltezeit 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:436; input/complete.log:4330	Zahlenantwort<Sekunden10>	SIN / 10; Einheit aus Antwort	10	436	436	1	9a448d0ee80300000000
+P09_31_WP	0621	a90b	09-31	Minimale WE Laufzeit	Checkliste_Regler_Programmierung.CSV	commands.txt:399; input/complete.log:7687	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	399	399	1	9f444d0c900100005a00
+P09_31_EH	0621	aa0b	09-31	Minimale WE Laufzeit	Checkliste_Regler_Programmierung.CSV	commands.txt:437; input/complete.log:4335	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	437	437	1	9f444d0c900100000000
+P09_34_WP	0621	a90c	09-34	Einschaltverzögerung 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:400; input/complete.log:7701	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	400	400	1	a2444d0c900100005a00
+P09_34_EH	0621	aa0c	09-34	Einschaltverzögerung 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:438; input/complete.log:4337	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	438	438	1	a2444d0c900100000000
+P09_35_WP	0621	a90d	09-35	Schaltdifferenz 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:401; input/complete.log:7703	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	401	401	1	a3444d04000038ffe2ff
+P09_35_EH	0621	aa0d	09-35	Schaltdifferenz 2. Stufe	Checkliste_Regler_Programmierung.CSV	commands.txt:439; input/complete.log:4342	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	439	439	1	a3444d04000038ff0000
+P10_31_WP	0621	a90e	10-31	WE Maximaltemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:402; input/complete.log:7745	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	402	402	1	1f458d0220032c015802
+P10_31_EH	0621	aa0e	10-31	WE Maximaltemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:440; input/complete.log:4345	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	440	440	1	1f458d0220032c01a802
+P11_01_WE1	0621	ab03	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:444; input/complete.log:4372	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	444	444	1	81450000040001000200
+P11_01_WE2	0621	ac03	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:452	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	452	452	1	81450000040001000200
+P11_01_WE3	0621	ad03	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:460	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	460	460	1	81450000040001000200
+P11_01_WE4	0621	ae03	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:468	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	468	468	1	81450000040001000200
+P11_01_WE5	0621	af03	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:476	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	476	476	1	81450000040001000200
+P11_01_WE6	0621	b003	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:484	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	484	484	1	81450000040001000200
+P11_01_WE7	0621	b103	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:492	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	492	492	1	81450000040001000200
+P11_01_WE8	0621	b203	11-01	WE Steuerbefehl	STE-Katalog	commands.txt:500	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	500	500	1	81450000040001000200
+P11_02_WE1	0621	ab04	11-02	WE Nennleistung	STE-Katalog	commands.txt:445; input/complete.log:4376	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	445	445	1	82458d1006270000e803
+P11_02_WE2	0621	ac04	11-02	WE Nennleistung	STE-Katalog	commands.txt:453	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	453	453	1	82458d1006270000e803
+P11_02_WE3	0621	ad04	11-02	WE Nennleistung	STE-Katalog	commands.txt:461	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	461	461	1	82458d1006270000e803
+P11_02_WE4	0621	ae04	11-02	WE Nennleistung	STE-Katalog	commands.txt:469	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	469	469	1	82458d1006270000e803
+P11_02_WE5	0621	af04	11-02	WE Nennleistung	STE-Katalog	commands.txt:477	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	477	477	1	82458d1006270000e803
+P11_02_WE6	0621	b004	11-02	WE Nennleistung	STE-Katalog	commands.txt:485	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	485	485	1	82458d1006270000e803
+P11_02_WE7	0621	b104	11-02	WE Nennleistung	STE-Katalog	commands.txt:493	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	493	493	1	82458d1006270000e803
+P11_02_WE8	0621	b204	11-02	WE Nennleistung	STE-Katalog	commands.txt:501	Zahlenantwort<Kilowatt10>	SIN / 10; Einheit aus Antwort	10	501	501	1	82458d1006270000e803
+P11_03_WE1	0621	ab05	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:446; input/complete.log:4381	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	446	446	1	83450008640000004600
+P11_03_WE2	0621	ac05	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:454	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	454	454	1	83450008640000006400
+P11_03_WE3	0621	ad05	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:462	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	462	462	1	83450008640000006400
+P11_03_WE4	0621	ae05	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:470	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	470	470	1	83450008640000006400
+P11_03_WE5	0621	af05	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:478	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	478	478	1	83450008640000006400
+P11_03_WE6	0621	b005	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:486	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	486	486	1	83450008640000006400
+P11_03_WE7	0621	b105	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:494	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	494	494	1	83450008640000006400
+P11_03_WE8	0621	b205	11-03	minimale WE-Leistung	STE-Katalog	commands.txt:502	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	502	502	1	83450008640000006400
+P11_04_WE1	0621	ab06	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:447; input/complete.log:4383	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	447	447	1	84450008640000005000
+P11_04_WE2	0621	ac06	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:455	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	455	455	1	84450008640000005000
+P11_04_WE3	0621	ad06	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:463	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	463	463	1	84450008640000005000
+P11_04_WE4	0621	ae06	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:471	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	471	471	1	84450008640000005000
+P11_04_WE5	0621	af06	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:479	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	479	479	1	84450008640000005000
+P11_04_WE6	0621	b006	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:487	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	487	487	1	84450008640000005000
+P11_04_WE7	0621	b106	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:495	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	495	495	1	84450008640000005000
+P11_04_WE8	0621	b206	11-04	Einschaltleistung Folge WE	STE-Katalog	commands.txt:503	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	503	503	1	84450008640000005000
+P11_05_WE1	0621	ab07	11-05	WE Folgewechsel	STE-Katalog	commands.txt:448; input/complete.log:4385	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	448	448	1	85450200010000000000
+P11_05_WE2	0621	ac07	11-05	WE Folgewechsel	STE-Katalog	commands.txt:456	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	456	456	1	85450200010000000000
+P11_05_WE3	0621	ad07	11-05	WE Folgewechsel	STE-Katalog	commands.txt:464	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	464	464	1	85450200010000000000
+P11_05_WE4	0621	ae07	11-05	WE Folgewechsel	STE-Katalog	commands.txt:472	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	472	472	1	85450200010000000000
+P11_05_WE5	0621	af07	11-05	WE Folgewechsel	STE-Katalog	commands.txt:480	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	480	480	1	85450200010000000000
+P11_05_WE6	0621	b007	11-05	WE Folgewechsel	STE-Katalog	commands.txt:488	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	488	488	1	85450200010000000000
+P11_05_WE7	0621	b107	11-05	WE Folgewechsel	STE-Katalog	commands.txt:496	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	496	496	1	85450200010000000000
+P11_05_WE8	0621	b207	11-05	WE Folgewechsel	STE-Katalog	commands.txt:504	RohgrenzenAntwort<Schalter>	UIN: 0=Aus, 1=Ein	10	504	504	1	85450200010000000000
+P15_10_WP	0621	a90f	15-10	Heissgas Maximaltemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:403; input/complete.log:7752	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	403	403	1	8a478d02780500001405
+P15_11_WP	0621	a910	15-11	TWVmax Abschalthysterese	Checkliste_Regler_Programmierung.CSV	commands.txt:404; input/complete.log:7766	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	404	404	1	8b474d042c0114004600
+P15_12_WP	0621	a911	15-12	Kondensator Austritt Störung	Checkliste_Regler_Programmierung.CSV	commands.txt:405	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	405	405	1	8c478d02bc0238ffceff
+P15_13_WP	0621	a912	15-13	Kondensator Austritt Abschaltoffset	Checkliste_Regler_Programmierung.CSV	commands.txt:406	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	406	406	1	8d474d04640000001400
+P15_21_WP	0621	a913	15-21	Nachlaufzeit Quellenpumpe	Checkliste_Regler_Programmierung.CSV	commands.txt:407	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	407	407	1	95474d0c960000000500
+P15_22_WP	0621	a914	15-22	Wärmequelle Frostschutztemperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:408	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	408	408	1	96474d0264000cfe88ff
+P15_23	0621	a50a	15-23	Frostschutztemperatur TVD	STE-Katalog	commands.txt:355; input/complete.log:2692	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	355	355	1	97474d02c80038ff2800
+P15_24_WP	0621	a915	15-24	Wärmequelle Eintrittsschutztemperatur	STE-Katalog	commands.txt:409	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	409	409	1	98474d02f40100009001
+P15_25_WP	0621	a916	15-25	Abschaltoffset Frostschutz	Checkliste_Regler_Programmierung.CSV	commands.txt:410	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	410	410	1	99470d04640000001400
+P15_26_WP	0621	a917	15-26	TWE-Temp rpunkt TWVmax Reduktion	Checkliste_Regler_Programmierung.CSV	commands.txt:411	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	411	411	1	9a4701020a00ec00ec00
+P15_27_WP	0621	a918	15-27	TWVmax bei TWE Grenztenperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:412	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	412	412	1	9b4700023c0014002800
+P15_28_WP	0621	a919	15-28	TWE Grenztenperatur	Checkliste_Regler_Programmierung.CSV	commands.txt:413	RohgrenzenAntwort<ByteMitVorzeichen>	SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort	10	413	413	1	9c4701020a00e2ffe200
+P15_40_WP	0621	a91a	15-40	Abtautyp	Checkliste_Regler_Programmierung.CSV	commands.txt:414	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	414	414	1	a8470000020000000000
+P15_41_WP	0621	a91b	15-41	Abtaudifferenz (TWE - TVD)	Checkliste_Regler_Programmierung.CSV	commands.txt:415	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	415	415	1	a9474d042c011e006400
+P15_42_WP	0621	a91c	15-42	Freigabe Abtauung (TVD)	Checkliste_Regler_Programmierung.CSV	commands.txt:416	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	416	416	1	aa474d02c80038ffc4ff
+P15_43_WP	0621	a91d	15-43	Abtauendetemperatur (TVD)	Checkliste_Regler_Programmierung.CSV	commands.txt:417	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	417	417	1	ab474d02900100005a00
+P15_44_WP	0621	a91e	15-44	Abtaudauer	Checkliste_Regler_Programmierung.CSV	commands.txt:418	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	418	418	1	ac474d0c2c0100006400
+P15_45_WP	0621	a91f	15-45	Abtausperrzeit	STE-Katalog	commands.txt:419	Zahlenantwort<Minuten10>	SIN / 10; Einheit aus Antwort	10	419	419	1	ad474d0c58020000c201
+P15_46_WP	0621	a920	15-46	Verzögerung Niederdruck	STE-Katalog	commands.txt:420	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	420	420	1	ae47000efa000000fa00
+P15_47_WP	0621	a921	15-47	Abtropfzeit	STE-Katalog	commands.txt:421	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	421	421	1	af47000c640000090000
+P15_48_WP	0621	a922	15-48	Verzögerung Druckdifferenzeingang	STE-Katalog	commands.txt:422	RohgrenzenAntwort<UIN>	UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich)	10	422	422	1	b047000efa0000007800
+P15_49_WP	0621	a923	15-49	Abtau Frostschutzstörung	STE-Katalog	commands.txt:423	Zahlenantwort<Celsius10>	SIN / 10; Einheit aus Antwort	10	423	423	1	b1478d02c8001e007800
+P15_50_WP	0621	a924	15-50	Abtau Frostschutz Offset Zusatzheizung	STE-Katalog	commands.txt:424	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	424	424	1	b2474d04640000001400
+P15_60_WP	0621	a925	15-60	Anpassen TWA Messwert	STE-Katalog	commands.txt:425	Zahlenantwort<Kelvin10>	SIN / 10; Einheit aus Antwort	10	425	425	1	bc470d04320000000000

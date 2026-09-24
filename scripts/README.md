@@ -1,3 +1,78 @@
+# Menu-based parameter discovery
+
+Use `discover_parameters.py` to read the menu directory (`06 20`) and query
+only its advertised slots (`06 21`):
+
+```sh
+python3 scripts/discover_parameters.py
+python3 scripts/discover_parameters.py --server 192.168.87.46 > accessible-parameters.tsv
+```
+
+Requires Python 3 and `ebusctl`, with **`--enablehex` enabled on the ebusd daemon**.
+It uses `ebusctl hex` with the read services `06 20` and `06 21`, so generated
+CSV definitions are not required. CRC and escaping
+are handled by ebusd. After each valid directory-block reply, it enables expert
+mode **once before reading that block's parameters**, including its extended
+contexts, by sending `10 06 23 04 00 00 51 00`. No parameter settings are written.
+The master-directed write must return `done`; otherwise the block's parameters
+are skipped and an error is reported. An invalid directory reply skips the
+block without a write. Valid empty blocks also receive one enable command.
+There is no additional timed refresh within a block or automatic disable at
+the end. Long blocks can therefore still exceed the controller's session timeout.
+Accessible means that the controller returned a parameter in the current
+access state; it does not establish writability.
+
+`read -f -h` still requires a matching loaded message definition in ebusd.
+The earlier script version incorrectly used that command, causing
+`ERR: element not found` for unknown selectors before they reached the bus.
+This error did not establish that those controller parameters were unavailable.
+With the corrected script, disabled `hex` support aborts the scan immediately
+with an explanation. Add `--enablehex` to your existing ebusd startup options
+and restart the daemon if necessary; no daemon settings are changed by the script.
+
+The default block range is hexadecimal `00..1b`, as observed in the capture.
+For menus with the extra flag, the script also queries the observed context
+`1000`. This is kept as a context label rather than assumed to mean HK 2.
+Every selector is retained separately even if its TEM number appears elsewhere.
+Unoccupied slots (`ff1f`) are skipped; short and unknown parameter types are
+retained with their raw response. Type and unit columns are raw hex codes;
+no speculative value scaling is performed.
+
+Examples:
+
+```sh
+# Only base context, directory block 14 (menus a0..a7)
+python3 scripts/discover_parameters.py --first-block 14 --last-block 14 --base-only
+
+# JSON Lines output; choose an explicit extended context
+python3 scripts/discover_parameters.py --context 1000 --format jsonl > parameters.jsonl
+```
+
+`--context` can be repeated for known additional contexts; it replaces the
+default list. `--destination` takes a hexadecimal read address (default `15`);
+`--expert-destination` sets the expert-write address (default `10`). All calls
+use the same ebusd connection options and its configured bus source address.
+`--port`, `--timeout` and `--delay` configure the connection and pacing
+(defaults: 8888, 5 seconds, 0.1 seconds). Blocks and contexts are hexadecimal.
+
+Each output row includes TEM number, menu, slot, context, full selector,
+raw type/unit and reply. Commands are not included in the output.
+To query a selector manually, for example:
+
+```sh
+ebusctl -s localhost -p 8888 -t 5 -e hex 15062102a704
+```
+
+This reads 07-05 using selector `a7 04`. `hex` sends the request directly.
+Results stream to stdout; errors and counts go to stderr. Failed reads do
+not stop later slots, but make the final exit code 1 (partial scan).
+Exit code 0 means all attempted reads succeeded; Ctrl+C returns 130 and
+leaves previously printed rows usable. Discovery beyond the selected blocks
+and contexts is not implied. The script does not read supplemental `06 22`
+contents or guess write commands.
+
+Offline verification: `python3 -m unittest discover -s scripts -p test_discover_parameters.py`.
+
 # 06-21-Parameterscan
 
 Mit Python 3 und `ebusctl` auf dem Rechner mit ebusd starten:
