@@ -1,16 +1,16 @@
-# Controllerzugriffe aus master.log
+# Controllerzugriffe aus input/complete.log
 
-Ergänzung: Das später bereitgestellte `complete.log` enthält die zuvor
-weggefilterten Schreibtelegramme `01 -> 10`, Dienst `06 23`.
-Die Nachweise und Zuordnungen stehen in [Write-Analysis.md](Write-Analysis.md).
-Die folgenden Aussagen zur fehlenden Schreibbeobachtung beziehen sich auf
-die ursprüngliche Datei `master.log`.
+`input/complete.log` ist der vollständige Sitzungsmitschnitt. Er enthält sowohl
+die TEM-Lesezugriffe `01 -> 15` als auch Schreibtelegramme `01 -> 10` mit Dienst
+`06 23`. Die Nachweise und Zuordnungen der Schreibzugriffe stehen in
+[Write-Analysis.md](Write-Analysis.md).
 
 ## Ergebnis
 
 [controller.tsp](controller.tsp) enthält **alle 240 unterschiedlichen,
-vollständig und mit gültigen Prüfsummen beobachteten Anfragen** aus
-`master.log`. [main.tsp](main.tsp) importiert diese neue Datei anstelle von
+vollständig und mit gültigen Prüfsummen beobachteten TEM-Leseanfragen** aus
+`input/complete.log`. Dafür werden nur Frames mit Quelle `01`, Ziel `15` und
+den Diensten `06 20`, `06 21` oder `06 22` ausgewertet. [main.tsp](main.tsp) importiert diese Datei anstelle von
 `tem/controller.tsp`. Die alte Datei bleibt als historische Arbeitsdatei erhalten.
 
 | Kategorie | Anzahl Modelle |
@@ -31,19 +31,20 @@ Die vollständige Zuordnung einschließlich Belegzeile und Antworttyp steht in
 [master-output/Parameter.md](master-output/Parameter.md), maschinenlesbar in
 [requests.tsv](master-output/requests.tsv) und [requests.json](master-output/requests.json).
 
-**Schreiben ist durch diese Datei noch nicht belegt.** `master.log` enthält
-ausschließlich Anfragen an Slave `15` mit den Diensten `06 20`, `06 21` und
-`06 22`. Keine Anfrage trägt einen veränderten Einstellwert. Die Änderungen
-stehen in den Antworten. `06 23` kommt überhaupt nicht vor. Deshalb enthält
-die neue Datei keine geratenen Schreibmodelle.
+Die Schreibtelegramme werden nicht in den Read-Katalog gemischt. Die bestätigten
+Schreibmodelle und der Expert-Freischaltablauf sind separat dokumentiert. Die
+quittierte Schreibsequenz `01 10 06 23 04 00 00 51 00` versetzt den
+Controller in den Expert-Modus. Danach werden zuvor unsichtbare Expert-Einsteller
 
 Ein auf `01 -> 15` eingeschränkter Filter könnte Schreibtelegramme an die
 zugehörige Masteradresse `10` ausgeblendet haben. Das ist eine mögliche
 Erklärung, kein Nachweis des Schreibziels. Für bestätigte Schreibmodelle wird
 ein ungefilterter Ausschnitt um eine Bedienänderung benötigt, einschließlich
-Master-Master-Telegrammen. Ein Passwort-/Freischaltablauf ist hier ebenfalls
-nicht nachgewiesen. `04-43` wird nur gelesen, mit Wert 1; die früher vermutete
-Enumeration „User=0, Expert=2“ wird nicht übernommen.
+Master-Master-Telegrammen. Der Freischaltablauf ist inzwischen separat bestätigt:
+Die quittierte Schreibsequenz `01 10 06 23 04 00 00 51 00` versetzt den
+Controller in den Expert-Modus. Danach werden zuvor unsichtbare Expert-Einsteller
+wie `05-05` sichtbar. Die `00 00`-Schreibungen sind daher als
+Expert-Freischaltung beziehungsweise Sitzungserhaltung dokumentiert.
 
 ## Benutzung
 
@@ -193,10 +194,10 @@ zugeordnete und dekodierte Antworten, keine unbekannte Nachricht und kein
 Dekodierungsfehler**. Die Antwortkennung wird dabei für jede Parameterantwort
 mit der erwarteten TEM-Kennung verglichen. Ein Live-Test ist nicht erfolgt.
 
-Quelle: `master.log`, SHA-256
-`b6fb33c89d99a122bb3e4f7f34919e0a450ead3a60db31fffafca2e8462d0e9c`.
+Quelle: `input/complete.log`, SHA-256
+`24097dad5a033f8098dc596427dc784f688c8024eefea6b72a9e8d72cea8d69e`.
 
-Die Datei umfasst 4.953 Zeilen:
+Die Datei umfasst 10.857 Zeilen. Für den Read-Test relevant sind:
 
 - 4.776 vollständige, beidseitig quittierte Telegramme mit gültigen CRCs.
 - 176 Anfragen mit gültiger Master-CRC, aber ohne Antwort in dieser Zeile.

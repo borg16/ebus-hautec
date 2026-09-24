@@ -4,13 +4,18 @@ This is a configuration to read and write observed numeric parameters of the TEM
 
 The preliminary analysis of the protocol is documented in [Protocol-Analysis.md](Protocol-Analysis.md).
 
-The active [controller.tsp](controller.tsp) uses the CRC-checked requests
-captured in `master.log` and adds `06 23` write models for observed numeric
+The active [controller.tsp](controller.tsp) uses the CRC-checked TEM requests
+captured in `input/complete.log` and adds `06 23` write models for observed numeric
 parameter selectors. It replaces the previously imported `tem/controller.tsp`.
 See [Master-Analysis.md](Master-Analysis.md) for read coverage and remaining
 gaps, [Write-Analysis.md](Write-Analysis.md) for write evidence, and [the
 parameter index](master-output/Parameter.md) for model names by TEM parameter.
 Parameters without an observed selector in `parameter.json` are not guessed.
+
+Für Expert-Einsteller muss vor dem Lesen oder Schreiben zunächst die quittierte
+Freischaltung `01 10 06 23 04 00 00 51 00` gesendet werden. Danach werden auch
+Parameter wie `05-05` sichtbar; wiederholte `00 00`-Schreibungen halten die
+Sitzung aktiv.
 
 ## Building the ebusd CSV configuration
 

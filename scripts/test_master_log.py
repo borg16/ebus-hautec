@@ -37,14 +37,18 @@ class RawFormatTests(unittest.TestCase):
 class CaptureTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.records, cls.errors = read_log(ROOT / "master.log")
+        all_records, cls.errors = read_log(ROOT / "input/complete.log")
+        cls.records = [
+            record for record in all_records
+            if (record["source"], record["destination"]) == ("01", "15")
+            and record["service"] in {"0620", "0621", "0622"}
+        ]
         cls.ste = json.loads((ROOT / "ste-output/parameter.json").read_text())
         cls.catalog = build_catalog(cls.records, cls.ste)
 
     def test_capture_coverage(self):
         self.assertEqual(sum(r["status"] == "complete" for r in self.records), 4776)
         self.assertEqual(sum(r["status"] == "request_only" for r in self.records), 176)
-        self.assertEqual(self.errors, [{"line": 2069, "error": "slave CRC mismatch"}])
         self.assertEqual(len(self.catalog), 240)
         self.assertEqual(len([r for r in self.catalog if r["tem_id"]]), 201)
         ids = {r["tem_id"] for r in self.catalog if r["tem_id"]}

@@ -38,8 +38,32 @@ Schreiben:01 10 06 23 06 [Menü Index|80 10 00] [Wert-Lo Wert-Hi] CRC ACK
 Der Lese-Selektor wird beim Schreiben unverändert übernommen und um zwei
 Wertbytes ergänzt. Der Zusatz `10 00` ist weiterhin ein Kontext-/Instanzselektor;
 er ist nicht der geschriebene Wert. Die Zuordnung dieses Kontexts zur physischen
-Anlage bleibt offen. Der einzelne Befehl mit Selektor `04 AD 00 40` passt nicht
-in die hier beobachtete Menü-Variante und wird separat als unzugeordnet geführt.
+Anlage bleibt offen.
+
+### Expert-Modus
+
+Die Sitzung wurde zusätzlich mit `ebusctl` nachvollzogen. Die Schreibsequenz
+
+```text
+(01) 10 06 23 04 00 00 51 00
+```
+
+versetzt den Controller in den Expert-Modus. `00 00` ist damit in dieser
+Controller-Version kein bloßer Keepalive-Selektor. Erst nach diesem Schreiben
+werden Expert-Einsteller wie `05-05` (Funktionsweise Ladepumpennachlauf) sichtbar.
+Im Mitschnitt erscheint die vollständige quittierte Übertragung beispielsweise
+in [complete.log:2468](input/complete.log#L2468):
+
+```text
+01 10 06 23 04 00 00 51 00 13 00
+```
+
+Die wiederkehrenden Schreibungen mit `00 00 51 00` halten den Expert-Zugang
+offen. Die Varianten mit `00 00 E8 03` gehören zum selben Sitzungsmechanismus;
+ihre genaue Zeit-/Statusbedeutung ist noch nicht getrennt bestimmt.
+
+Der einzelne Befehl mit Selektor `04 AD 00 40` bleibt davon unabhängig. Er ist
+weiterhin als separater, nicht vollständig zugeordneter Adressierungsweg geführt.
 
 ### Beispiel: Warmwasser-Solltemperatur 05-51 auf 30 °C
 
@@ -96,7 +120,7 @@ negativen Parametern als vorzeichenbehaftetes 16-Bit-Wort interpretiert.
 | Selektor | TEM | Anzahl | Beobachtete Rohwerte | Erste Schreibzeile |
 |---|---|---:|---|---:|
 | `01 02` | 03-58 | 8 | 5, 10, 0, −5 | 1949 |
-| `00 00` | offen; möglicherweise Freischaltung/Sitzungserhaltung | 56 | 81, 1000 | 2468 |
+| `00 00` | Expert-Modus-Freischaltung und Sitzungserhaltung | 56 | 81, 1000 | 2468 |
 | `A3 00` | 03-11 | 1 | 200 | 2522 |
 | `A5 05` | 05-05 | 1 | 0 | 2671 |
 | `0B 03` | 05-51 | 6 | 300, 500 | 3512 |

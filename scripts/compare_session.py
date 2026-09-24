@@ -206,6 +206,6 @@ def write_outputs(report, output):
 if __name__ == "__main__":
     baseline = json.loads((ROOT / "ste-output/parameter.json").read_text())["records"]
     verify_markdown(baseline, (ROOT / "ste-output/Parameter.md").read_text())
-    report = compare(ROOT / "complete.log", baseline)
+    report = compare(ROOT / "input/complete.log", baseline)
     write_outputs(report, ROOT / "comparison-output")
     print(json.dumps({k: v for k, v in report.items() if k not in ("results", "unobserved_ste_indices")}, indent=2))
