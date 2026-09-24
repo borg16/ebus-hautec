@@ -1,0 +1,8 @@
+timestamp	server	destination	request	status	parameter_bytes	tem_code	type	unit	max	min	value_bytes	value_unsigned	value_signed	value	value_encoding	response	error
+2026-09-12T22:35:00.719121+00:00	localhost:8888	15	150621040b000000	hit	b341	03-051	TemperaturSchwelle	_C	300	100	f000	240	240	24 °C	Annahme: SIN / 10	0ab3414d022c016400f000	
+2026-09-12T22:35:01.466580+00:00	localhost:8888	15	150621040b020000	hit	b541	03-053	TemperaturSchwelle	_C	200	50	b400	180	180	18 °C	Annahme: SIN / 10	0ab5414d02c8003200b400	
+2026-09-12T22:35:01.733063+00:00	localhost:8888	15	150621040b030000	hit	b342	05-051	TemperaturSoll	_C	700	100	1202	530	530	53 °C	Annahme: SIN / 10	0ab3428d02bc0264001202	
+2026-09-12T22:35:01.998556+00:00	localhost:8888	15	150621040b040000	hit	8a41	03-010	Zeit	__0	500	0	2800	40	40		unbekannt; Rohwerte ohne Skalierung	0a8a410408f40100002800	
+2026-09-12T22:35:02.292981+00:00	localhost:8888	15	150621040b050000	hit	8843	07-008	TemperaturSoll	_C	900	300	2602	550	550	55 °C	Annahme: SIN / 10	0a88438d0284032c012602	
+2026-09-12T22:35:02.594940+00:00	localhost:8888	15	150621040b060000	hit	9541	03-021	TemperaturSchwelle	_C	300	0	a000	160	160	16 °C	Annahme: SIN / 10	0a95414d022c010000a000	
+2026-09-12T22:35:36.810623+00:00	localhost:8888	15	150621040b800000	hit	b341	03-051	TemperaturSchwelle	_C	300	100	f000	240	240	24 °C	Annahme: SIN / 10	0ab3414d022c016400f000	

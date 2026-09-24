@@ -1,0 +1,13 @@
+timestamp	server	destination	request	status	parameter_bytes	tem_code	type	unit	max	min	value_bytes	value_unsigned	value_signed	value	value_encoding	response	error
+2026-09-11T22:02:27.172764+00:00	localhost:8888	15	1506210402000000	invalid													
+2026-09-11T22:02:32.103688+00:00	localhost:8888	15	1506210402000040	invalid													
+2026-09-11T22:02:37.016036+00:00	localhost:8888	15	1506210402000080	invalid													
+2026-09-11T22:02:42.128105+00:00	localhost:8888	15	15062104020000c0	invalid													
+2026-09-11T22:02:47.040070+00:00	localhost:8888	15	1506210402000100	invalid													
+2026-09-11T22:02:52.153251+00:00	localhost:8888	15	1506210402000140	invalid													
+2026-09-11T22:02:57.064372+00:00	localhost:8888	15	1506210402000180	invalid													
+2026-09-11T22:03:02.175718+00:00	localhost:8888	15	15062104020001c0	invalid													
+2026-09-11T22:03:07.086668+00:00	localhost:8888	15	1506210402000200	invalid													
+2026-09-11T22:03:12.198108+00:00	localhost:8888	15	1506210402000240	invalid													
+2026-09-11T22:03:17.109031+00:00	localhost:8888	15	1506210402000280	invalid													
+2026-09-11T22:03:22.020279+00:00	localhost:8888	15	15062104020002c0	invalid													

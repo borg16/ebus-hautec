@@ -1,7 +1,7 @@
 {
   "name": "ebus-hautec",
   "version": "1.0.0",
-  "description": "This is a configuration to read some data from the TEM SE 6000 WPC controller. This configuration does not support sending commands to the controller.",
+  "description": "This is a configuration to read and write observed numeric parameters of the TEM SE 6000 WPC controller.",
   "main": "index.js",
   "scripts": {
     "build:csv": "tsp compile main.tsp --emit @ebusd/ebus-typespec --output-dir ./csv-output",

@@ -1,8 +1,16 @@
 # EBUSD Configuration for Reading Hautec Carno (~2006) Data
 
-This is a configuration to read some data from the TEM SE 6000 WPC controller. This configuration does not support sending commands to the controller.^
+This is a configuration to read and write observed numeric parameters of the TEM SE 6000 WPC controller.
 
 The preliminary analysis of the protocol is documented in [Protocol-Analysis.md](Protocol-Analysis.md).
+
+The active [controller.tsp](controller.tsp) uses the CRC-checked requests
+captured in `master.log` and adds `06 23` write models for observed numeric
+parameter selectors. It replaces the previously imported `tem/controller.tsp`.
+See [Master-Analysis.md](Master-Analysis.md) for read coverage and remaining
+gaps, [Write-Analysis.md](Write-Analysis.md) for write evidence, and [the
+parameter index](master-output/Parameter.md) for model names by TEM parameter.
+Parameters without an observed selector in `parameter.json` are not guessed.
 
 ## Building the ebusd CSV configuration
 

@@ -1,0 +1,473 @@
+﻿index;tem_id;name;context;stored_value;unit_inferred;minimum;maximum;step_raw;group_text;address_candidate_hex;type_raw;unit_raw;variant_index;position_raw;page_raw;entry_key_raw;variant_flag_raw;address_low_raw;address_high_raw;header_raw;tail_raw;title;help_text;author_text;controller_text;offset;end_offset;payload_offset;fields_offset
+32;03-00;Raumschutztemperatur;Heizkreis 1 (abgeleitet);10;°C;3;15;10;Einstellebene 3, Raumtemperaturregelung;0xF03A;13;1;0;0;3;6144;1;58;240;[1, 2, 21, 2];[0, 0, 81];03-00  Raumschutztemperatur;Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb.;ich;17385;7254;7563;7256;7300
+33;03-00;Raumschutztemperatur;Heizkreis 2 (abgeleitet);10;°C;3;15;10;Einstellebene 3, Raumtemperaturregelung;0xF362;13;1;1;0;3;6145;1;98;243;[1, 2, 21, 2];[0, 0, 81];03-00  Raumschutztemperatur;Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb.;ich;17385;7563;7872;7565;7609
+34;03-01;Fusspunkttemperatur;Heizkreis 1 (abgeleitet);20;°C;10;40;10;Einstellebene 3, Raumtemperaturregelung;0xF022;13;1;0;1;3;6160;1;34;240;[1, 2, 21, 2];[0, 0, 81];03-01  Fusspunkttemperatur;Die Fusspunkttemperatur bestimmt den Vorlaufsollwert beim eigestellten Aussentemperaturfusspunkt.;ich;17385;7872;8141;7874;7917
+35;03-01;Fusspunkttemperatur;Heizkreis 2 (abgeleitet);20;°C;10;40;10;Einstellebene 3, Raumtemperaturregelung;0xF34A;13;1;1;1;3;6161;1;74;243;[1, 2, 21, 2];[0, 0, 81];03-01  Fusspunkttemperatur;Die Fusspunkttemperatur bestimmt den Vorlaufsollwert bei 20 °C Aussentemperatur.;ich;17385;8141;8393;8143;8186
+36;03-02;Heizgrenze Absenkbetrieb;Heizkreis 1 (abgeleitet);17;°C;-10;20;5;Einstellebene 3, Raumtemperaturregelung;0xF034;13;1;0;2;3;6176;1;52;240;[1, 2, 21, 2];[0, 0, 81];03-02  Heizgrenze Absenkbetrieb;Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet;ich;17385;8393;8790;8395;8443
+37;03-02;Heizgrenze Absenkbetrieb;Heizkreis 2 (abgeleitet);17;°C;-10;20;5;Einstellebene 3, Raumtemperaturregelung;0xF35C;13;1;1;2;3;6177;1;92;243;[1, 2, 21, 2];[0, 0, 81];03-02  Heizgrenze Absenkbetrieb;Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet;ich;17385;8790;9187;8792;8840
+38;03-06;Startoptimierung Vorhaltezeit;Heizkreis 1 (abgeleitet);0;min;0;900;10;Einstellebene 3, Raumtemperaturregelung;0xF036;13;6;0;3;3;6192;1;54;240;[1, 2, 21, 2];[0, 0, 81];03-06  Startoptimierung Vorhaltezeit;Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest.;ich;17385;9187;9590;9189;9242
+39;03-06;Startoptimierung Vorhaltezeit;Heizkreis 2 (abgeleitet);0;min;0;900;10;Einstellebene 3, Raumtemperaturregelung;0xF35E;13;6;1;3;3;6193;1;94;243;[1, 2, 21, 2];[0, 0, 81];03-06  Startoptimierung Vorhaltezeit;Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest.;ich;17385;9590;9993;9592;9645
+40;03-07;Raumtemperatur - Kompensation;Heizkreis 1 (abgeleitet);0;;0;10;1;Einstellebene 3, Raumtemperaturregelung;0xF038;13;0;0;4;3;6208;1;56;240;[1, 2, 21, 2];[0, 0, 81];03-07  Raumtemperatur - Kompensation ;Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert.;ich;17385;9993;10381;9995;10049
+41;03-07;Raumtemperatur - Kompensation;Heizkreis 2 (abgeleitet);0;;0;10;1;Einstellebene 3, Raumtemperaturregelung;0xF360;13;0;1;4;3;6209;1;96;243;[1, 2, 21, 2];[0, 0, 81];03-07  Raumtemperatur - Kompensation ;Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert.;ich;17385;10381;10769;10383;10437
+42;03-08;Vorlauf Sollwert  Heizgrenze;Heizkreis 1 (abgeleitet);-10;K;-10;10;5;Einstellebene 3, Raumtemperaturregelung;0xF026;13;2;0;5;3;6224;1;38;240;[1, 2, 21, 2];[0, 0, 81];03-08  Vorlauf Sollwert  Heizgrenze;Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist.;ich;17385;10769;11114;10771;10823
+43;03-08;Vorlauf Sollwert  Heizgrenze;Heizkreis 2 (abgeleitet);-10;K;-10;10;5;Einstellebene 3, Raumtemperaturregelung;0xF34E;13;2;1;5;3;6225;1;78;243;[1, 2, 21, 2];[0, 0, 81];03-08  Vorlauf Sollwert  Heizgrenze;Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist.;ich;17385;11114;11459;11116;11168
+15;03-10;Steilheit Kennlinie;Heizkreis 1 (abgeleitet);0,3;;0;5;1;Einstellebene 2, ;0xF01A;14;0;0;3;2;4144;1;26;240;[1, 2, 21, 2];[0, 0, 81];03-10  Steilheit Kennlinie;Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur;ich;17385;3063;3299;3065;3108
+16;03-10;Steilheit Kennlinie;Heizkreis 2 (abgeleitet);0,3;;0;5;1;Einstellebene 2, ;0xF342;14;0;1;3;2;4145;1;66;243;[1, 2, 21, 2];[0, 0, 81];03-10  Steilheit Kennlinie;Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur;ich;17385;3299;3535;3301;3344
+44;03-11;Fusspunkt Vorlaufkennlinie: TA;Heizkreis 1 (abgeleitet);20;°C;-10;30;5;Einstellebene 3, Raumtemperaturregelung;0xF024;13;1;0;6;3;6240;1;36;240;[1, 2, 21, 2];[2, 0, 81];03-11  Fusspunkt Vorlaufkennlinie: TA;Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur.;ich;17385;11459;11729;11461;11515
+45;03-11;Fusspunkt Vorlaufkennlinie: TA;Heizkreis 2 (abgeleitet);20;°C;-10;30;5;Einstellebene 3, Raumtemperaturregelung;0xF34C;13;1;1;6;3;6241;1;76;243;[1, 2, 21, 2];[2, 0, 81];03-11  Fusspunkt Vorlaufkennlinie: TA;Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur.;ich;17385;11729;11999;11731;11785
+46;03-20;Zeitkonstante für Aussentemperaturmittelung;Einstellebene 3, Raumtemperaturregelung;10;h;0;20;10;Einstellebene 3, Raumtemperaturregelung;0xF2D8;13;5;0;7;3;6256;0;216;242;[1, 2, 21, 2];[1, 0, 81];03-20  Zeitkonstante für Aussentemperaturmittelung;"Für die Sommer-/Winterumschaltung wird mit einer gemittelten Aussentemperatur gerechnet, welche die Trägheit des Gebäudes berücksichtigt.
+0=keine
+5h=leichte Bauweise
+10h=mittelschwere Bauweise
+20h=schwere Bauweise";ich;17385;11999;12412;12001;12068
+19;03-21;Heizgrenze bei Tagbetrieb;Heizkreis 1 (abgeleitet);16;°C;0;40;10;Einstellebene 2, ;0xF032;13;1;0;5;2;4176;1;50;240;[1, 2, 21, 2];[0, 0, 81];03-21  Heizgrenze bei Tagbetrieb;Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist.;ich;17385;3951;4278;3953;4002
+20;03-21;Heizgrenze bei Tagbetrieb;Heizkreis 2 (abgeleitet);16;°C;0;40;10;Einstellebene 2, ;0xF35A;13;1;1;5;2;4177;1;90;243;[1, 2, 21, 2];[0, 0, 81];03-21  Heizgrenze bei Tagbetrieb;Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist.;ich;17385;4278;4605;4280;4329
+47;03-23;Frostgrenze;Heizkreis 1 (abgeleitet);2;°C;-10;20;5;Einstellebene 3, Raumtemperaturregelung;0xF03C;13;1;0;8;3;6272;1;60;240;[1, 2, 21, 2];[2, 0, 81];03-23  Frostgrenze;Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert.;ich;17385;12412;12771;12414;12449
+48;03-23;Frostgrenze;Heizkreis 2 (abgeleitet);2;°C;-10;20;5;Einstellebene 3, Raumtemperaturregelung;0xF364;13;1;1;8;3;6273;1;100;243;[1, 2, 21, 2];[2, 0, 81];03-23  Frostgrenze;Liegt die Aussentemperatur unterhalb des Einstellwertes sind die Frostschutzfunktionen frei.;ich;17385;12771;13027;12773;12808
+49;03-30;Nachstellzeit Raumregler;Heizkreis 1 (abgeleitet);0;min;0;200;10;Einstellebene 3, Raumtemperaturregelung;0xF03E;13;6;0;9;3;6288;1;62;240;[1, 2, 21, 2];[1, 0, 81];03-30  Nachstellzeit Raumregler ;Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7).;ich;17385;13027;13413;13029;13078
+50;03-30;Nachstellzeit Raumregler;Heizkreis 2 (abgeleitet);0;min;0;200;10;Einstellebene 3, Raumtemperaturregelung;0xF366;13;6;1;9;3;6289;1;102;243;[1, 2, 21, 2];[1, 0, 81];03-30  Nachstellzeit Raumregler ;Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7).;ich;17385;13413;13799;13415;13464
+51;03-35;Kühlgrenzenabstand;Heizkreis 1 (abgeleitet);10;°C;2;10;5;Einstellebene 3, Raumtemperaturregelung;0xF014;13;1;0;10;3;6304;1;20;240;[1, 2, 21, 2];[0, 0, 81];03-35  Kühlgrenzenabstand;"Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,
+sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet.";ich;17385;13799;14186;13801;13843
+52;03-35;Kühlgrenzenabstand;Heizkreis 2 (abgeleitet);5;°C;2;10;5;Einstellebene 3, Raumtemperaturregelung;0xF33C;13;1;1;10;3;6305;1;60;243;[1, 2, 21, 2];[0, 0, 81];03-35  Kühlgrenzenabstand;"Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,
+sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet.";ich;17385;14186;14573;14188;14230
+53;03-43;Kühltemperatur;Heizkreis 1 (abgeleitet);22;°C;10;30;5;Einstellebene 3, Raumtemperaturregelung;0xF010;13;1;0;11;3;6320;1;16;240;[1, 2, 21, 2];[0, 0, 81];03-43  Kühltemperatur;Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb;ich;17385;14573;14818;14575;14613
+54;03-43;Kühltemperatur;Heizkreis 2 (abgeleitet);22;°C;10;30;5;Einstellebene 3, Raumtemperaturregelung;0xF338;13;1;1;11;3;6321;1;56;243;[1, 2, 21, 2];[0, 0, 81];03-43  Kühltemperatur;Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb;ich;17385;14818;15063;14820;14858
+1;03-50;Betriebswahl Heizung und Brauchwasser;Heizkreis 1 (abgeleitet);1;;0;5;1;Einstellebene 1, ;0xF00A;0;0;0;0;1;2048;1;10;240;[1, 2, 21, 1];[0, 0, 81];03-50  Betriebswahl Heizung und Brauchwasser;"0 = Standbybetrieb           
+1 = Automatik 1                 
+2 = Normalbetrieb           
+3 = Reduziertbetrieb           
+4 = Sommerbetrieb           
+5 = Handbetrieb";ich;17385;2;356;17;78
+2;03-50;Betriebswahl Heizung und Brauchwasser;Heizkreis 2 (abgeleitet);1;;0;5;1;Einstellebene 1, ;0xF332;0;0;1;0;1;2049;1;50;243;[1, 2, 21, 1];[0, 0, 81];03-50  Betriebswahl Heizung und Brauchwasser;"0 = Standbybetrieb           
+1 = Automatik 1                 
+2 = Normalbetrieb           
+3 = Reduziertbetrieb           
+4 = Sommerbetrieb           
+5 = Handbetrieb";ich;17385;356;697;358;419
+9;03-51;Sollwert Raumtemperatur Heizen Tag normal;Heizkreis 1 (abgeleitet);20,5;°C;10;30;5;Einstellebene 2, ;0xF004;13;1;0;0;2;4096;1;4;240;[1, 2, 21, 2];[0, 0, 81];03-51  Sollwert Raumtemperatur Heizen Tag normal;Raumtemperatur Sollwert für Normalbetrieb;ich;17385;1819;2032;1821;1886
+10;03-51;Sollwert Raumtemperatur Heizen Tag normal;Heizkreis 2 (abgeleitet);20,5;°C;10;30;5;Einstellebene 2, ;0xF32C;13;1;1;0;2;4097;1;44;243;[1, 2, 21, 2];[0, 0, 81];03-51  Sollwert Raumtemperatur Heizen Tag normal;Raumtemperatur Sollwert für Normalbetrieb;ich;17385;2032;2245;2034;2099
+11;03-53;Sollwert Raumteperatur Heizen Nacht;Heizkreis 1 (abgeleitet);18;°C;5;20;5;Einstellebene 2, ;0xF006;13;1;0;1;2;4112;1;6;240;[1, 2, 21, 2];[0, 0, 81];03-53  Sollwert Raumteperatur Heizen Nacht;Raumtemperatur Sollwert für reduzierten Betrieb;ich;17385;2245;2458;2247;2306
+12;03-53;Sollwert Raumteperatur Heizen Nacht;Heizkreis 2 (abgeleitet);18;°C;5;20;5;Einstellebene 2, ;0xF32E;13;1;1;1;2;4113;1;46;243;[1, 2, 21, 2];[0, 0, 81];03-53  Sollwert Raumteperatur Heizen Nacht;Raumtemperatur Sollwert für reduzierten Betrieb;ich;17385;2458;2671;2460;2519
+5;03-58;Behaglichkeit;Heizkreis 1 (abgeleitet);0;K;-3;3;5;Einstellebene 1, ;0xF00E;13;2;0;2;1;2080;1;14;240;[1, 2, 21, 2];[0, 0, 81];03-58  Behaglichkeit;Anpassung der Raum Solltemperatur;ich;17385;1103;1280;1105;1142
+6;03-58;Behaglichkeit;Heizkreis 2 (abgeleitet);-1;K;-3;3;5;Einstellebene 1, ;0xF336;13;2;1;2;1;2081;1;54;243;[1, 2, 21, 2];[0, 0, 81];03-58  Behaglichkeit;Anpassung der Raum Solltemperatur;ich;17385;1280;1457;1282;1319
+7;03-60;Partydauer HB;Heizkreis 1 (abgeleitet);0;min;0;600;5;Einstellebene 1, ;0xF00C;0;6;0;3;1;2096;1;12;240;[1, 2, 21, 1];[0, 0, 81];03-60  Partydauer HB;Zeitdauer für Partybetrieb in Minuten;ich;17385;1457;1638;1459;1496
+8;03-60;Partydauer HB;Heizkreis 2 (abgeleitet);0;min;0;600;5;Einstellebene 1, ;0xF334;0;6;1;3;1;2097;1;52;243;[1, 2, 21, 1];[0, 0, 81];03-60  Partydauer HB;Zeitdauer für Partybetrieb in Minuten;ich;17385;1638;1819;1640;1677
+59;04-00;Fühlerkonfiguration speichern;Einstellebene 4, Globale Einstellungen;0;;0;1;1;Einstellebene 4, Globale Einstellungen;0xF2DA;4;0;0;0;4;8192;0;218;242;[1, 2, 21, 2];[1, 0, 81];04-00  Fühlerkonfiguration speichern;"Sind alle benötigten Fühler angeschlossen muss der Einsteller auf ""on"" gesetzt werden. Damit wird die Anlagenkonfiguration
+gespeichert und es werden Fehler generiert, sollte ein Fühlerwert nicht im definierten Bereich sein.";ich;17385;16093;16498;16095;16148
+60;04-02;Funktion Sollwerteingang;Einstellebene 4, Globale Einstellungen;0;;0;4;1;Einstellebene 4, Globale Einstellungen;0xF2D6;4;0;0;1;4;8208;0;214;242;[1, 2, 21, 2];[1, 0, 81];04-02  Funktion Sollwerteingang;"Hier wird die Funktion Sollwerteingang einem Heizkreis oder der ganzen Anlage zugeordnet:
+0 = Wärmeerzeuger 
+1 = Wärmeerzeuger (0 V = Standby, 1-8.5 V = 10-85 °C, 10 V = Kühlbetrieb)
+2 = Heizkreis 
+3 = Keine Funktion
+4 = Heizkreis (10 V = Standby)";ich;17385;16498;16926;16500;16548
+61;04-08;Handbetrieb Konfiguration;Einstellebene 4, Globale Einstellungen;2;;1;2;1;Einstellebene 4, Globale Einstellungen;0xF2DC;4;0;0;2;4;8224;0;220;242;[1, 2, 21, 2];[1, 0, 81];04-08  Handbetrieb Konfiguration;"Welcher Wärmeerzeuger im Handbetrieb aktiviert werden soll, kann konfiguriert werden.
+1 = Lokal (es wird nur der angewählte, reglerinterne WEZ aktiviert).
+2 = Es werden alle über eBUS eingebundenen WEZ aktiviert.";ich;17385;16926;17317;16928;16977
+62;04-20;Anlage-Hauptregler / Folgeregler;Einstellebene 4, Globale Einstellungen;2;;0;25;1;Einstellebene 4, Globale Einstellungen;0xF2E2;4;0;0;3;4;8240;0;226;242;[1, 2, 21, 2];[1, 0, 81];04-20  Anlage-Hauptregler / Folgeregler;"0=kein Wärmemanagement         
+2=Masterregler          
+3=Folgeregler 1          
+4=Folgeregler 2          
+5=Folgeregler 3          
+17=Folgeregler 4          
+18=Folgeregler 5          
+19=Folgeregler 6          
+20=Folgeregler 7";ich;17385;17317;17741;17319;17375
+170;04-22;WE 1 Zieladresse;Einstellebene 11, WE 1 Kaskadenfunktionen;11;;0;24;1;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2EA;0;0;0;0;11;22528;0;234;242;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;51022;51390;51024;51064
+176;04-22;WE 1 Zieladresse;Einstellebene 12, WE 2 Kaskadenfunktionen;12;;0;24;1;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F2;0;0;0;10;11;22688;0;242;242;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;52766;53134;52768;52808
+182;04-22;WE 1 Zieladresse;Einstellebene 13, WE 3 Kaskadenfunktionen;0;;0;24;1;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF2FA;0;0;0;20;11;22848;0;250;242;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;54510;54878;54512;54552
+188;04-22;WE 1 Zieladresse;Einstellebene 14, WE 4 Kaskadenfunktionen;0;;0;24;1;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF302;0;0;0;30;11;23008;0;2;243;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;56254;56622;56256;56296
+194;04-22;WE 1 Zieladresse;Einstellebene 15, WE 5 Kaskadenfunktionen;0;;0;24;1;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF30A;0;0;0;40;11;23168;0;10;243;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;57998;58366;58000;58040
+200;04-22;WE 1 Zieladresse;Einstellebene 16, WE 6 Kaskadenfunktionen;0;;0;24;1;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF312;0;0;0;50;11;23328;0;18;243;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;59742;60110;59744;59784
+206;04-22;WE 1 Zieladresse;Einstellebene 17, WE 7 Kaskadenfunktionen;0;;0;24;1;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF31A;0;0;0;60;11;23488;0;26;243;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;61486;61854;61488;61528
+212;04-22;WE 1 Zieladresse;Einstellebene 18, WE 8 Kaskadenfunktionen;0;;0;24;1;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF322;0;0;0;70;11;23648;0;34;243;[1, 2, 21, 1];[1, 0, 81];04-22  WE 1 Zieladresse;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;63230;63598;63232;63272
+115;04-27;eBUS Adresse WEZ;Einstellebene 9, WE Einstellungen Wärmepumpe;11;;0;25;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF252;4;0;0;0;9;18432;0;82;242;[1, 2, 21, 2];[1, 0, 81];04-27  eBUS Adresse WEZ;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;33096;33467;33098;33138
+155;04-27;eBUS Adresse WEZ;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;12;;0;25;1;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF57A;4;0;0;0;10;20480;0;122;245;[1, 2, 21, 2];[1, 0, 81];04-27  eBUS Adresse WEZ;"0 = kein WE
+11 = Wärmeerzeuger 1
+12 = Wärmeerzeuger 2
+13 = Wärmeerzeuger 3  
+14 = Wärmeerzeuger 4  
+15 = Wärmeerzeuger 5  
+22 = Wärmeerzeuger 6  
+23 = Wärmeerzeuger 7  
+24 = Wärmeerzeuger 8";ich;17385;46298;46681;46300;46340
+63;04-30;Multifunktionsusgang 1;Einstellebene 4, Globale Einstellungen;1;;0;1;1;Einstellebene 4, Globale Einstellungen;0xF2DE;4;0;0;4;4;8256;0;222;242;[1, 2, 21, 2];[1, 0, 81];04-30  Multifunktionsusgang 1;"Heizkreispumpe 1
+0 = Normale Funktion        
+1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft";ich;17385;17741;18027;17743;17789
+64;04-31;Multifunktionsusgang 2;Einstellebene 4, Globale Einstellungen;0;;0;1;1;Einstellebene 4, Globale Einstellungen;0xF2E4;4;0;0;5;4;8272;0;228;242;[1, 2, 21, 2];[1, 0, 81];04-31  Multifunktionsusgang 2;"Heizkreispumpe 2
+0 = Normale Funktion        
+1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft";ich;17385;18027;18313;18029;18075
+65;04-36;eBUS Speisung Abschaltung;Einstellebene 4, Globale Einstellungen;1;;0;1;1;Einstellebene 4, Globale Einstellungen;0xFEAE;0;0;0;6;4;8288;0;174;254;[1, 2, 21, 1];[2, 0, 81];04-36  eBUS Speisung Abschaltung;"eBUS Speisung:
+0 = abgeschaltet        
+1 = eBUS Speisung 50 mA aktiv";ich;17385;18313;18561;18315;18364
+66;04-40;Service Passwort;Einstellebene 4, Globale Einstellungen;161;;0;255;1;Einstellebene 4, Globale Einstellungen;0xF2E6;0;0;0;7;4;8304;0;230;242;[1, 2, 21, 1];[1, 0, 81];04-40  Service Passwort;Als Service Passwort kann ein Wert zwischen 0 und 255 eingestellt werden;ich;17385;18561;18801;18563;18603
+21;04-45;Kommandobefehle;Einstellebene 2;0;;0;29;1;Einstellebene 2, ;0x0A9D;0;0;0;6;2;4192;0;157;10;[0, 0, 21, 1];[3, 0, 81];04-45  Kommandobefehle;"Kommandobefehle:
+0 = keine Funktion
+9 = Geräte Reset
+21 = Entriegelung
+29 = Factory Reset";ich;17385;4605;4844;4607;4646
+67;04-60;Mode Austrocknungsprogramm;Einstellebene 4, Globale Einstellungen;0;;0;2;1;Einstellebene 4, Globale Einstellungen;0xFFC6;0;0;0;8;4;8320;0;198;255;[1, 2, 21, 1];[1, 0, 81];04-60  Mode Austrocknungsprogramm;"0 = Austrocknungsprogramm beenden
+1 = Austrocknungsprogramm für Heizkreis 1 starten
+2 = Austrocknungsprogramm für Heizkreis 2 starten";ich;17385;18801;19114;18803;18853
+68;04-61;Vorlaufsollwert-Steigung in der Aufheizphase;Einstellebene 4, Globale Einstellungen;5;K;0,5;20;1;Einstellebene 4, Globale Einstellungen;0xFFC7;13;2;0;9;4;8336;0;199;255;[1, 2, 21, 2];[3, 0, 81];04-61  Vorlaufsollwert-Steigung in der Aufheizphase;Vorlauf Sollwertsteigung für die Aufheizphase Austrocknungsprogramm [K/d];ich;17385;19114;19383;19116;19184
+69;04-62;Vorlaufsollwert-Abfall in der Abkühlphase;Einstellebene 4, Globale Einstellungen;-5;K;-20;-0,5;1;Einstellebene 4, Globale Einstellungen;0xFFC9;13;2;0;10;4;8352;0;201;255;[1, 2, 21, 2];[3, 0, 81];04-62  Vorlaufsollwert-Abfall in der Abkühlphase;Vorlauf Sollwertabsenkung für die Auskühlphase im Austrocknungsprogramm [K/d];ich;17385;19383;19653;19385;19450
+70;04-63;Vorlaufsollwert in der Beharrungsphase;Einstellebene 4, Globale Einstellungen;47;°C;20;70;1;Einstellebene 4, Globale Einstellungen;0xFFCB;13;1;0;11;4;8368;0;203;255;[1, 2, 21, 2];[3, 0, 81];04-63  Vorlaufsollwert in der Beharrungsphase;Vorlaufsollwert für die Beharrungsphase im Austrocknungsprogramm;ich;17385;19653;19907;19655;19717
+71;04-64;Dauer der Beharrungsphase;Einstellebene 4, Globale Einstellungen;30;;1;250;1;Einstellebene 4, Globale Einstellungen;0xFFCD;0;0;0;12;4;8384;0;205;255;[1, 2, 21, 1];[3, 0, 81];04-64  Dauer der Beharrungsphase;Zeitdauer für die Beharrungsphase [0.1 d];ich;17385;19907;20125;19909;19958
+72;05-00;Schaltdifferenz Brauchwasserbereitung;Einstellebene 5, Brauchwasserbereitung;5;°C;2;20;5;Einstellebene 5, Brauchwasserbereitung;0xF294;13;1;0;0;5;10240;0;148;242;[1, 2, 21, 2];[1, 0, 81];05-00  Schaltdifferenz Brauchwasserbereitung;"Unterschreitet die Warmwassertemperatur am Fühler TB den Sollwert um den Einstellwert wird die WW-Erwärmung
+aktiviert.";ich;17385;20125;20433;20127;20188
+73;05-01;Temperaturüberhoehung Brauchwasserbereitung;Einstellebene 5, Brauchwasserbereitung;6;°C;2;30;5;Einstellebene 5, Brauchwasserbereitung;0xF296;13;1;0;1;5;10256;0;150;242;[1, 2, 21, 2];[1, 0, 81];05-01  Temperaturüberhoehung Brauchwasserbereitung;"Damit das Warmwasser effektiv und schnell erwärmt werden kann, ist eine Wärmeerzeuger-Überhöhung zum
+Warmwasser-Sollwert einzustellen.";ich;17385;20433;20763;20435;20502
+74;05-02;Brauchwasser-Vorrang;Einstellebene 5, Brauchwasserbereitung;0,1;;0;20;1;Einstellebene 5, Brauchwasserbereitung;0xF292;13;0;0;2;5;10272;0;146;242;[1, 2, 21, 2];[1, 0, 81];05-02  Brauchwasser-Vorrang;"Das Warmwasser kann parallel, im Vorrang oder lastabhängig - parallel zu den Heizkreisen erwärmt werden.
+0 = absoluter Vorrangbetrieb
+0.1 = absoluter Parallelbetrieb
+0.2 - 20.0 h = lastabhängiger Parallelbetrieb";ich;17385;20763;21149;20765;20809
+75;05-03;Nachlaufzeit Brauchwasserbereitung;Einstellebene 5, Brauchwasserbereitung;3;min;0;30;5;Einstellebene 5, Brauchwasserbereitung;0xF298;13;6;0;3;5;10288;0;152;242;[1, 2, 21, 2];[1, 0, 81];05-03  Nachlaufzeit Brauchwasserbereitung;Die Ladepumpe läuft nach Beendigung einer Warmwasserladung um die eingestellte Zeit nach.;ich;17385;21149;21424;21151;21209
+76;05-04;Legionellenschutztemperatur;Einstellebene 5, Brauchwasserbereitung;60;°C;60;80;10;Einstellebene 5, Brauchwasserbereitung;0xF29A;13;1;0;4;5;10304;0;154;242;[1, 2, 21, 2];[1, 0, 81];05-04  Legionellenschutztemperatur;"Sollwert für die thermische Desinfektion (Legionellenschutz). Gilt während einer freigegeben thermischen Desinfektion
+für die Warmwasserladung.";ich;17385;21424;21747;21426;21477
+77;05-05;Funktionsweise Ladepumpennachlauf;Einstellebene 5, Brauchwasserbereitung;0;;0;2;1;Einstellebene 5, Brauchwasserbereitung;0xF2A0;4;0;0;5;5;10320;0;160;242;[1, 2, 21, 2];[1, 0, 81];05-05  Funktionsweise Ladepumpennachlauf;"Konfiguration der Warmwasserbereitung.
+0 = zeitabhängiger Pumpennachlauf gemäss Einstellwert 5-03
+1 = Zeit- und Temperaturabhängiger Pumpennachlauf
+2 = Warmwasserbereitung über eine separate Wärmepumpe an Klemme .";ich;17385;21747;22148;21749;21806
+78;05-06;Zirkulationspumpe aktiv;Einstellebene 5, Brauchwasserbereitung;1;;0;1;1;Einstellebene 5, Brauchwasserbereitung;0xF2A2;0;0;0;6;5;10336;0;162;242;[1, 2, 21, 1];[1, 0, 81];05-06  Zirkulationspumpe aktiv;"0 = Funktion nicht aktiv
+1 = Zirkulationspumpe aktiv gemäss eingestelltem Automatikprogramm";ich;17385;22148;22415;22150;22197
+79;05-07;Stellglied Brauchwasserbereitung;Einstellebene 5, Brauchwasserbereitung;1;;0;1;1;Einstellebene 5, Brauchwasserbereitung;0xF2A3;0;0;0;7;5;10352;0;163;242;[1, 2, 21, 1];[1, 0, 81];05-07  Stellglied Brauchwasserbereitung;"0 = Warmwasserbereitung über Ladepumpe
+1 = Warmwasserbereitung über ULV";ich;17385;22415;22671;22417;22473
+80;05-13;Reduktion Sollwert TBO;Einstellebene 5, Brauchwasserbereitung;15;K;0;20;10;Einstellebene 5, Brauchwasserbereitung;0xF2C2;13;2;0;8;5;10368;0;194;242;[1, 2, 21, 2];[1, 0, 81];05-13  Reduktion Sollwert TBO;Während einer Störung der Wärmepumpe wird der Sollwert TBO um den eingestellten Wert reduziert.;ich;17385;22671;22940;22673;22719
+55;05-14;Legionellenschutzfunktion;Einstellebene 3, Raumtemperaturregelung;0;;0;8;1;Einstellebene 3, Raumtemperaturregelung;0xF29C;4;0;0;12;3;6336;0;156;242;[1, 2, 21, 2];[0, 0, 81];05-14  Legionellenschutzfunktion;"0 = keine Legionellenschutzfunktion
+1 = Montag
+2 = Dienstag
+3 = Mittwoch
+4 = Donnerstag
+5 = Freitag
+6 = Samstag
+7 = Sonntag
+8 = täglich";ich;17385;15063;15384;15065;15114
+81;05-40;Min. Fehlerdauer fuer Brauchwasser Störmeldung;Einstellebene 5, Brauchwasserbereitung;0;h;0;20;10;Einstellebene 5, Brauchwasserbereitung;0xF2A4;13;5;0;9;5;10384;0;164;242;[1, 2, 21, 2];[2, 0, 81];05-40  Min. Fehlerdauer fuer Brauchwasser Störmeldung;Weicht die Brauchwassertemperatur während der Ladung innerhalb der eingestellten Zeit um mehr als 10 K vom Sollwert ab, wird eine Störung generiert. Einstellung 0=Funktion unwirksam;ich;17385;22940;23319;22942;23012
+13;05-51;Sollwert Warmwassertemperatur;Heizkreis 1 (abgeleitet);50;°C;10;70;10;Einstellebene 2, ;0xF008;13;1;0;2;2;4128;1;8;240;[1, 2, 21, 2];[0, 0, 81];05-51  Sollwert Warmwassertemperatur;Sollwert für Brauchwasser Temperatur;ich;17385;2671;2867;2673;2726
+14;05-51;Sollwert Warmwassertemperatur;Heizkreis 2 (abgeleitet);10;°C;10;70;10;Einstellebene 2, ;0xF330;13;1;1;2;2;4129;1;48;243;[1, 2, 21, 2];[0, 0, 81];05-51  Sollwert Warmwassertemperatur;Sollwert für Brauchwasser Temperatur;ich;17385;2867;3063;2869;2922
+22;05-60;Partydauer WWB;Heizkreis 1 (abgeleitet);0;min;0;600;5;Einstellebene 2, ;0xF00D;0;6;0;7;2;4208;1;13;240;[1, 2, 21, 1];[0, 0, 81];05-60  Partydauer WWB;Zeitdauer für Partybetrieb in Minuten;ich;17385;4844;5026;4846;4884
+23;05-60;Partydauer WWB;Heizkreis 2 (abgeleitet);0;min;0;600;5;Einstellebene 2, ;0xF335;0;6;1;7;2;4209;1;53;243;[1, 2, 21, 1];[0, 0, 81];05-60  Partydauer WWB;Zeitdauer für Partybetrieb in Minuten;ich;17385;5026;5208;5028;5066
+83;06-00;Brauchwasser Ladeleistung;Einstellebene 6, WM-Einstellungen;100;kW;0;999;10;Einstellebene 6, WM-Einstellungen;0xF2A8;13;8;0;0;6;12288;0;168;242;[1, 2, 21, 2];[1, 0, 81];06-00 Brauchwasser Ladeleistung;"Ladeleistung die bei einer Warmwasserbereitung vom Wärmemanager angefordert wird.
+Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02)";ich;17385;23716;24070;23718;23766
+84;06-01;Puffer, Heiz-  Ladeleistung;Einstellebene 6, WM-Einstellungen;100;kW;0;999;10;Einstellebene 6, WM-Einstellungen;0xF2AA;13;8;0;1;6;12304;0;170;242;[1, 2, 21, 2];[1, 0, 81];06-01  Puffer, Heiz-  Ladeleistung;Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02);ich;17385;24070;24344;24072;24123
+85;06-02;Kühlleistung;Einstellebene 6, WM-Einstellungen;100;kW;0;999;5;Einstellebene 6, WM-Einstellungen;0xF2CA;13;8;0;2;6;12320;0;202;242;[1, 2, 21, 2];[1, 0, 81];06-02  Kühlleistung;Die Kühlleistung dient dem Wärmemanager zur Berechnung der benötigten Leistung für die weiteren Wärmeerzeuger.;ich;17385;24344;24613;24346;24382
+86;06-04;WEZ Überhöhung;Einstellebene 6, WM-Einstellungen;10;K;0;20;5;Einstellebene 6, WM-Einstellungen;0xF2AC;13;2;0;3;6;12336;0;172;242;[1, 2, 21, 2];[1, 0, 81];06-04  WEZ Überhöhung;Hier wird die Überhöhung Wärmeerzeugersollwert zum Puffer Oben TPO oder Hauptvorlauffühler TKx eingestellt. (TWV zu TPO oder TKx);ich;17385;24613;24903;24615;24653
+87;06-05;Puffer Offset TPM aus;Einstellebene 6, WM-Einstellungen;0;K;-10;30;5;Einstellebene 6, WM-Einstellungen;0xF2AE;13;2;0;4;6;12352;0;174;242;[1, 2, 21, 2];[2, 0, 81];06-05  Puffer Offset TPM aus;Sollwertreduktion für das Beenden der Pufferladung am Abschaltfühler;ich;17385;24903;25139;24905;24950
+88;06-08;TBVsoll Überhöhung;Einstellebene 6, WM-Einstellungen;10;K;0;20;5;Einstellebene 6, WM-Einstellungen;0xF2B2;13;2;0;5;6;12368;0;178;242;[1, 2, 21, 2];[1, 0, 81];06-08  TBVsoll Überhöhung;Notwendige Wärmeerzeuger Temperaturerhöhung bei Brauchwasserladung;ich;17385;25139;25370;25141;25183
+89;06-10;Xp WEZ Manager;Einstellebene 6, WM-Einstellungen;3;K;2;100;5;Einstellebene 6, WM-Einstellungen;0xF2B4;13;2;0;6;6;12384;0;180;242;[1, 2, 21, 2];[1, 0, 81];06-10  Xp WEZ Manager;Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist;ich;17385;25370;25596;25372;25410
+90;06-11;Tn WEZ Manager;Einstellebene 6, WM-Einstellungen;20;min;0;100;10;Einstellebene 6, WM-Einstellungen;0xF2B6;13;6;0;7;6;12400;0;182;242;[1, 2, 21, 2];[1, 0, 81];06-11  Tn WEZ Manager;Die Stellgrösse wird innerhalb der eingestellten Zeit verdoppelt, wenn die Regelabweichung kostant bleibt.;ich;17385;25596;25863;25598;25636
+91;06-12;Tv WEZ Manager;Einstellebene 6, WM-Einstellungen;0;s?;0;100;10;Einstellebene 6, WM-Einstellungen;0xF2B8;13;7;0;8;6;12416;0;184;242;[1, 2, 21, 2];[2, 0, 81];06-12  Tv WEZ Manager;Mit der Vorhaltezeit kann dem Wärmemanager ein Differential Anteil zugeordnet werden. Die aktuelle Steigung der Puffer- oder Hauptvorlauftemperatur mit der Vorhaltezeit multipliziert ergibt eine theoretische Sollwertverschiebung.;ich;17385;25863;26253;25865;25903
+92;06-13;Reduktion Sollwert TKX;Einstellebene 6, WM-Einstellungen;5;K;0;25;10;Einstellebene 6, WM-Einstellungen;0xF2C0;13;2;0;9;6;12432;0;192;242;[1, 2, 21, 2];[1, 0, 81];06-13  Reduktion Sollwert TKX;Während einer Störung der Wärmepumpe wird der Sollwert TWR oder TKX um den eingestellten Wert reduziert.;ich;17385;26253;26526;26255;26301
+93;06-20;Sequenzwechsel Flag;Einstellebene 6, WM-Einstellungen;0;;0;8;1;Einstellebene 6, WM-Einstellungen;0xF2E0;4;0;0;10;6;12448;0;224;242;[1, 2, 21, 2];[1, 0, 81];06-20  Sequenzwechsel Flag;"0=kein Folgewechsel
+1=Folgewechsel nach 1 Woche
+2=Folgewechsel nach 2 Wochen
+3=Folgewechsel nach 3 Wochen
+4=Folgewechsel nach 4 Wochen
+5=Folgewechsel nach 5 Wochen
+6=Folgewechsel nach 6 Wochen
+7=Folgewechsel nach 7 Wochen
+8=Folgewechsel sofort";ich;17385;26526;26943;26528;26571
+94;07-00;Proportional-Bereich Mischer;Heizkreis 1 (abgeleitet);15;K;5;30;10;Einstellebene 7 Heizkreisregelung;0xF028;13;2;0;0;7;14336;1;40;240;[1, 2, 21, 2];[1, 0, 81];07-00  Proportional-Bereich Mischer;Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist;ich;17385;26943;27183;26945;26997
+95;07-00;Proportional-Bereich Mischer;Heizkreis 2 (abgeleitet);15;K;5;30;10;Einstellebene 7 Heizkreisregelung;0xF350;13;2;1;0;7;14337;1;80;243;[1, 2, 21, 2];[1, 0, 81];07-00  Proportional-Bereich Mischer;Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist;ich;17385;27183;27423;27185;27237
+96;07-01;Überhöhung WE-Temperatur;Heizkreis 1 (abgeleitet);0;K;0;30;10;Einstellebene 7 Heizkreisregelung;0xF020;13;2;0;1;7;14352;1;32;240;[1, 2, 21, 2];[1, 0, 81];07-01  Überhöhung WE-Temperatur;Überhöhung der Sollwertanforderung an den Wärmeverteiler.;ich;17385;27423;27651;27425;27473
+97;07-01;Überhöhung WE-Temperatur;Heizkreis 2 (abgeleitet);3;K;0;30;10;Einstellebene 7 Heizkreisregelung;0xF348;13;2;1;1;7;14353;1;72;243;[1, 2, 21, 2];[1, 0, 81];07-01  Überhöhung WE-Temperatur;Überhöhung der Sollwertanforderung an den Wärmeverteiler.;ich;17385;27651;27879;27653;27701
+98;07-02;Minimale Vorlauftemperatur;Heizkreis 1 (abgeleitet);0;°C;0;40;10;Einstellebene 7 Heizkreisregelung;0xF01C;13;1;0;2;7;14368;1;28;240;[1, 2, 21, 2];[2, 0, 81];07-02  Minimale Vorlauftemperatur;Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv);ich;17385;27879;28121;27881;27931
+99;07-02;Minimale Vorlauftemperatur;Heizkreis 2 (abgeleitet);0;°C;0;40;10;Einstellebene 7 Heizkreisregelung;0xF344;13;1;1;2;7;14369;1;68;243;[1, 2, 21, 2];[2, 0, 81];07-02  Minimale Vorlauftemperatur;Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv);ich;17385;28121;28363;28123;28173
+100;07-03;Pumpennachlauf Heizkreis;Heizkreis 1 (abgeleitet);15;min;0;30;10;Einstellebene 7 Heizkreisregelung;0xF02C;13;6;0;3;7;14384;1;44;240;[1, 2, 21, 2];[1, 0, 81];07-03  Pumpennachlauf Heizkreis;Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach.;ich;17385;28363;28619;28365;28413
+101;07-03;Pumpennachlauf Heizkreis;Heizkreis 2 (abgeleitet);15;min;0;30;10;Einstellebene 7 Heizkreisregelung;0xF354;13;6;1;3;7;14385;1;84;243;[1, 2, 21, 2];[1, 0, 81];07-03  Pumpennachlauf Heizkreis;Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach.;ich;17385;28619;28875;28621;28669
+102;07-05;Heizkreistyp;Heizkreis 1 (abgeleitet);2;;0;3;1;Einstellebene 7 Heizkreisregelung;0xF02A;4;0;0;4;7;14400;1;42;240;[1, 2, 21, 2];[1, 0, 81];07-05  Heizkreistyp;"0 = 3 Punkt Mischer 
+1 = 2 Punkt Mischer
+2 = Pumpenkreis
+3 = Kein Heizkreis
+4 = Taktbetrieb, wenn WE abgeschaltet";ich;17385;28875;29151;28877;28913
+103;07-05;Heizkreistyp;Heizkreis 2 (abgeleitet);0;;0;3;1;Einstellebene 7 Heizkreisregelung;0xF352;4;0;1;4;7;14401;1;82;243;[1, 2, 21, 2];[1, 0, 81];07-05  Heizkreistyp;"0 = 3 Punkt Mischer 
+1 = 2 Punkt Mischer
+2 = Pumpenkreis
+3 = Kein Heizkreis
+4 = Taktbetrieb, wenn WE abgeschaltet";ich;17385;29151;29427;29153;29189
+104;07-06;Min. Fehlerdauer fuer Vorlauf-Störmeldung;Heizkreis 1 (abgeleitet);0;h;0;20;10;Einstellebene 7 Heizkreisregelung;0xF040;13;5;0;5;7;14416;1;64;240;[1, 3, 21, 2];[1, 0, 81];07-06  Min. Fehlerdauer fuer Vorlauf-Störmeldung;Weicht die Isttemperatur über die eingestellte Zeit um mehr als 5 K vom Sollwert ab, wird eine eBUS Fehlermeldung generiert.;ich;17385;29427;29739;29429;29494
+105;07-06;Min. Fehlerdauer fuer Vorlauf-Störmeldung;Heizkreis 2 (abgeleitet);0;h;0;20;10;Einstellebene 7 Heizkreisregelung;0xF368;13;5;1;5;7;14417;1;104;243;[1, 3, 21, 2];[1, 0, 81];07-06  Min. Fehlerdauer fuer Vorlauf-Störmeldung;Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert.;ich;17385;29739;30122;29741;29806
+17;07-08;Vorlauf Maximaltemperatur TV;Heizkreis 1 (abgeleitet);55;°C;10;90;10;Einstellebene 2, ;0xF01E;13;1;0;4;2;4160;1;30;240;[1, 2, 21, 2];[0, 0, 81];07-08  Vorlauf Maximaltemperatur TV;Maximal möglicher Sollwert für Vorlauftemperatur.;ich;17385;3535;3743;3537;3589
+18;07-08;Vorlauf Maximaltemperatur TV;Heizkreis 2 (abgeleitet);45;°C;10;90;10;Einstellebene 2, ;0xF346;13;1;1;4;2;4161;1;70;243;[1, 2, 21, 2];[0, 0, 81];07-08  Vorlauf Maximaltemperatur TV;Maximal möglicher Sollwert für Vorlauftemperatur.;ich;17385;3743;3951;3745;3797
+106;07-14;Heizkreisfunktion im Kühlbetrieb;Heizkreis 1 (abgeleitet);0;;0;3;1;Einstellebene 7 Heizkreisregelung;0xF012;4;0;0;6;7;14432;1;18;240;[1, 2, 21, 2];[1, 0, 81];07-14  Heizkreisfunktion im Kühlbetrieb;"0 = Mischer für Heizbetrieb ohne Kühlbetrieb
+1 = Mischer zu im Kühlbetrieb
+2 = Mischer auf im Kühlbetrieb
+3 = Mischer geregelt im Kühlbetrieb";ich;17385;30122;30445;30124;30180
+107;07-14;Heizkreisfunktion im Kühlbetrieb;Heizkreis 2 (abgeleitet);0;;0;3;1;Einstellebene 7 Heizkreisregelung;0xF33A;4;0;1;6;7;14433;1;58;243;[1, 2, 21, 2];[1, 0, 81];07-14  Heizkreisfunktion im Kühlbetrieb;"0 = Mischer für Heizbetrieb ohne Kühlbetrieb
+1 = Mischer zu im Kühlbetrieb
+2 = Mischer auf im Kühlbetrieb
+3 = Mischer geregelt im Kühlbetrieb";ich;17385;30445;30768;30447;30503
+108;07-31;Heizkreisüberhöhung Niedertarif;Heizkreis 1 (abgeleitet);0;K;0;30;5;Einstellebene 7 Heizkreisregelung;0xF042;13;2;0;7;7;14448;1;66;240;[1, 2, 21, 2];[1, 0, 81];07-31  Heizkreisüberhöhung Niedertarif;"Ist die Zirkulationspumpe inaktiv, kann die Heizkreistemperatur, im günstigen Niedertarif, um den hier eingestellten Wert erhöht werden. 
+Dadurch kann bei einer Fussbodenheizung ohne Pufferspeicher zusätzliche Energie in den Fussboden gebracht werden.
+Als Niedertarifzeit gilt das eingestellte Zirkulationspumpen Zeitprogramm. 
+Bei einem Pufferspeicher wird der Sollwert TPO um diesen Wert erhöht.";ich;17385;30768;31348;30770;30825
+109;07-31;Heizkreisüberhöhung Niedertarif;Heizkreis 2 (abgeleitet);0;K;0;30;5;Einstellebene 7 Heizkreisregelung;0xF36A;13;2;1;7;7;14449;1;106;243;[1, 2, 21, 2];[1, 0, 81];07-31  Heizkreisüberhöhung Niedertarif;Die Temperaturabweichung für für die Fehlermeldung kann hier verändert werden;ich;17385;31348;31603;31350;31405
+110;08-55;Puffer aktiv;Einstellebene 8, Solar- und Speicherfunktionen;0;;0;3;1;Einstellebene 8, Solar- und Speicherfunktionen;0xF2C6;4;0;0;0;8;16384;0;198;242;[1, 2, 21, 2];[2, 0, 81];08-55  Puffer aktiv;"0 = kein Pufferspeicher  
+1 = Pufferspeicher ohne Warmwassereinsatz (kein TB)  
+2 = Pufferspeicher mit integriertem Warmwassereinsatz oder externem WW-Speicher der über den Puffer erwärmt wird";ich;17385;31603;31969;31605;31641
+111;08-58;Puffer Minimaltemperatur;Einstellebene 8, Solar- und Speicherfunktionen;0;°C;0;80;10;Einstellebene 8, Solar- und Speicherfunktionen;0xF2BE;13;1;0;1;8;16400;0;190;242;[1, 2, 21, 2];[2, 0, 81];08-58  Puffer Minimaltemperatur;Die minimale Puffer Solltemperatur ist immer im Heiz- oder Brauchwasser Ladebetrieb aktiv.;ich;17385;31969;32243;31971;32019
+112;08-59;Puffer Maximaltemperatur;Einstellebene 8, Solar- und Speicherfunktionen;90;°C;60;100;10;Einstellebene 8, Solar- und Speicherfunktionen;0xF2D0;13;1;0;2;8;16416;0;208;242;[1, 2, 21, 2];[2, 0, 81];08-59  Puffer Maximaltemperatur;Maximal mögliche Puffer Abschalttemperatur;ich;17385;32243;32469;32245;32293
+113;08-72;Delta Puffer bei Solar aktiv;Einstellebene 8, Solar- und Speicherfunktionen;40;K;0;40;10;Einstellebene 8, Solar- und Speicherfunktionen;0xF2CE;13;2;0;3;8;16432;0;206;242;[1, 2, 21, 2];[2, 0, 81];08-72  Delta Puffer bei Solar aktiv;Der Puffer-Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, um den eingestellten Wert reduziert.;ich;17385;32469;32775;32471;32523
+114;08-79;WW Minimaltemperatur bei Solar aktiv;Einstellebene 8, Solar- und Speicherfunktionen;10;K;0;60;10;Einstellebene 8, Solar- und Speicherfunktionen;0xF2CC;13;2;0;4;8;16448;0;204;242;[1, 2, 21, 2];[2, 0, 81];08-79  WW Minimaltemperatur bei Solar aktiv;Der Warmwasser - Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, auf den eingestellten Wert reduziert.;ich;17385;32775;33096;32777;32837
+116;09-00;Nachlaufzeit Schutzfunktion;Einstellebene 9, WE Einstellungen Wärmepumpe;1;min;0;40;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF258;13;6;0;1;9;18448;0;88;242;[1, 2, 21, 2];[1, 0, 81];09-00  Nachlaufzeit Schutzfunktion;Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter.;ich;17385;33467;33734;33469;33520
+156;09-00;Nachlaufzeit Schutzfunktion;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;1;min;0;40;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF580;13;6;0;1;10;20496;0;128;245;[1, 2, 21, 2];[1, 0, 81];09-00  Nachlaufzeit Schutzfunktion;Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter.;ich;17385;46681;46960;46683;46734
+117;09-04;Vorlaufzeit Quellenpumpe;Einstellebene 9, WE Einstellungen Wärmepumpe;0,5;min;0;300;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF254;13;6;0;2;9;18464;0;84;242;[1, 2, 21, 2];[1, 0, 81];09-04  Vorlaufzeit Quellenpumpe;Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten.;ich;17385;33734;34095;33736;33784
+157;09-04;Einschaltverzögerung;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0,5;min;0;300;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF57C;13;6;0;2;10;20512;0;124;245;[1, 2, 21, 2];[1, 0, 81];09-04  Einschaltverzögerung;Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten.;ich;17385;46960;47329;46962;47006
+118;09-07;WEZ Typ;Einstellebene 9, WE Einstellungen Wärmepumpe;5;;0;6;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF250;4;0;0;3;9;18480;0;80;242;[1, 2, 21, 2];[1, 0, 81];09-07  WEZ Typ;"0 = kein Wärmeerzeuger aktiv  
+1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)
+2 = Funktion nicht verfügbar
+3 = Funktion nicht verfügbar
+4 = Funktion nicht verfügbar
+5 = Wärmepumpe ohne Kühlfunktion
+6 = Wärmepumpe mit Kühlfunktion";ich;17385;34095;34498;34097;34128
+158;09-07;WEZ Typ;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;1;;0;6;1;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF578;4;0;0;3;10;20528;0;120;245;[1, 2, 21, 2];[1, 0, 81];09-07  WEZ Typ;"0 = kein Wärmeerzeuger aktiv  
+1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)
+2 = Funktion nicht verfügbar
+3 = Funktion nicht verfügbar
+4 = Funktion nicht verfügbar
+5 = Wärmepumpe ohne Kühlfunktion
+6 = Wärmepumpe mit Kühlfunktion";ich;17385;47329;47744;47331;47362
+56;09-08;Wärmeerzeuger Sperre;Einstellebene 3, Raumtemperaturregelung;0;;0;3;1;Einstellebene 3, Raumtemperaturregelung;0xF2D4;4;0;0;13;3;6352;0;212;242;[1, 2, 21, 2];[0, 0, 81];09-08  Wärmeerzeuger Sperre;"0=keine Sperre   
+1=WE1 (WP) gesperrt   
+2=WE2 (E-Heizung) gesperrt   
+3=WE1 und WE2 gesperrt";ich;17385;15384;15653;15386;15430
+119;09-11;Bedingte WEZ Freigabe;Einstellebene 9, WE Einstellungen Wärmepumpe;0;;0;13;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF27C;4;0;0;4;9;18496;0;124;242;[1, 2, 21, 2];[1, 0, 81];09-11  Bedingte WEZ Freigabe;"0 = Keine Sperre.
+1 = Wärmeerzeuger gesperrt.
+2 = gesperrt wenn die Aussentemp. unter den Wert in 11-1 - 2K sinkt. 
+3 = gesperrt wenn die Aussentemp. über den Wert in 11-1 steigt.";ich;17385;34498;34859;34500;34545
+159;09-11;Bedingte WEZ Freigabe;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;10;;0;13;1;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF5A4;4;0;0;4;10;20544;0;164;245;[1, 2, 21, 2];[1, 0, 81];09-11  Bedingte WEZ Freigabe;0 = frei;ich;17385;47744;47943;47746;47791
+120;09-12;Aussentemperatursperre TAW;Einstellebene 9, WE Einstellungen Wärmepumpe;-50;°C;-50;50;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF27E;13;1;0;5;9;18512;0;126;242;[1, 2, 21, 2];[1, 0, 81];09-12  Aussentemperatursperre TAW;Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert.;ich;17385;34859;35205;34861;34911
+160;09-12;Aussentemperatursperre TAW;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;-5;°C;-50;50;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF5A6;13;1;0;5;10;20560;0;166;245;[1, 2, 21, 2];[1, 0, 81];09-12  Aussentemperatursperre TAW;Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert.;ich;17385;47943;48301;47945;47995
+121;09-13;Energiezwang Funktion;Einstellebene 9, WE Einstellungen Wärmepumpe;2;;0;3;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF280;4;0;0;6;9;18528;0;128;242;[1, 2, 21, 2];[2, 0, 81];09-13  Energiezwang Funktion;"0 = Kein Energiezwang
+1 = Energiezwang auf Schutztemperatur
+2 = Energiezwang auf Maximaltemperatur
+3 = Energiezwang auf Schutztemperatur und Maximaltemperatur";ich;17385;35205;35545;35207;35252
+161;09-13;Energiezwang Funktion;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;2;;0;3;1;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF5A8;4;0;0;6;10;20576;0;168;245;[1, 2, 21, 2];[2, 0, 81];09-13  Energiezwang Funktion;"0 = Kein Energiezwang
+1 = Energiezwang auf Schutztemperatur
+2 = Energiezwang auf Maximaltemperatur
+3 = Energiezwang auf Schutztemperatur und Maximaltemperatur";ich;17385;48301;48653;48303;48348
+122;09-14;Diff. Leistungszwang Tkmax;Einstellebene 9, WE Einstellungen Wärmepumpe;0;K;-30;30;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF282;13;2;0;7;9;18544;0;130;242;[1, 2, 21, 2];[2, 0, 81];09-14  Diff. Leistungszwang Tkmax;Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben.;ich;17385;35545;35828;35547;35597
+162;09-14;Diff. Leistungszwang Tkmax;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0;K;-30;30;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF5AA;13;2;0;7;10;20592;0;170;245;[1, 2, 21, 2];[2, 0, 81];09-14  Diff. Leistungszwang Tkmax;Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben.;ich;17385;48653;48948;48655;48705
+57;09-20;Solltemperatur Handbetrieb;Heizkreis 1 (abgeleitet);48;°C;0;90;10;Einstellebene 3, Raumtemperaturregelung;0xFE9C;13;1;0;14;3;6368;1;156;254;[1, 2, 21, 2];[0, 0, 81];09-20  Solltemperatur Handbetrieb;Sollwert Vorlauftemperatur im Handbetrieb;ich;17385;15653;15873;15655;15705
+58;09-20;Solltemperatur Handbetrieb;Heizkreis 2 (abgeleitet);48;°C;0;90;10;Einstellebene 3, Raumtemperaturregelung;0xFE9E;13;1;1;14;3;6369;1;158;254;[1, 2, 21, 2];[0, 0, 81];09-20  Solltemperatur Handbetrieb;Sollwert Vorlauftemperatur im Handbetrieb;ich;17385;15873;16093;15875;15925
+123;09-21;WE Abschaltdifferenz;Einstellebene 9, WE Einstellungen Wärmepumpe;5;K;2;30;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF268;13;2;0;8;9;18560;0;104;242;[1, 2, 21, 2];[1, 0, 81];09-21  WE Abschaltdifferenz;Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus.;ich;17385;35828;36109;35830;35874
+163;09-21;WE Abschaltdifferenz;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;3;K;2;30;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF590;13;2;0;8;10;20608;0;144;245;[1, 2, 21, 2];[1, 0, 81];09-21  WE Abschaltdifferenz;Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus.;ich;17385;48948;49241;48950;48994
+124;09-23;Minimale Stillstandszeit;Einstellebene 9, WE Einstellungen Wärmepumpe;12;min;0;100;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF25A;13;6;0;9;9;18576;0;90;242;[1, 2, 21, 2];[2, 0, 81];09-23  Minimale Stillstandszeit;Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung.;ich;17385;36109;36357;36111;36159
+164;09-23;Minimale Stillstandszeit;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;60;min;0;100;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF582;13;6;0;9;10;20624;0;130;245;[1, 2, 21, 2];[1, 0, 81];09-23  Minimale Stillstandszeit;Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung.;ich;17385;49241;49501;49243;49291
+125;09-26;Vorhaltezeit 2. Stufe;Einstellebene 9, WE Einstellungen Wärmepumpe;10;s?;0;100;10;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF25E;13;7;0;10;9;18592;0;94;242;[1, 2, 21, 2];[2, 0, 81];09-26  Vorhaltezeit 2. Stufe;"Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt
+werden. Optimierung um ein Überschwingen zu vermeiden.";ich;17385;36357;36696;36359;36404
+165;09-26;Vorhaltezeit 2. Stufe;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0;s?;0;100;10;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF586;13;7;0;10;10;20640;0;134;245;[1, 2, 21, 2];[2, 0, 81];09-26  Vorhaltezeit 2. Stufe;"Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt
+werden. Optimierung um ein Überschwingen zu vermeiden.";ich;17385;49501;49852;49503;49548
+126;09-31;Minimale WE Laufzeit;Einstellebene 9, WE Einstellungen Wärmepumpe;9;min;0;40;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF256;13;6;0;11;9;18608;0;86;242;[1, 2, 21, 2];[2, 0, 81];09-31  Minimale WE Laufzeit;Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe.;ich;17385;36696;36931;36698;36742
+166;09-31;Minimale WE Laufzeit;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0;min;0;40;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF57E;13;6;0;11;10;20656;0;126;245;[1, 2, 21, 2];[2, 0, 81];09-31  Minimale WE Laufzeit;Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe.;ich;17385;49852;50099;49854;49898
+127;09-32;TWVmin Kühlbetrieb;Einstellebene 9, WE Einstellungen Wärmepumpe;14;°C;0;30;10;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF26C;13;1;0;12;9;18624;0;108;242;[1, 2, 21, 2];[3, 0, 81];09-32  TWVmin Kühlbetrieb ;Unterschreitet der Wärmepumpen Vorlauffühler im Kühlbetrieb diese Temperatur, wird die Wärmepume abgeschaltet.;ich;17385;36931;37218;36933;36976
+128;09-34;Einschaltverzögerung 2. Stufe;Einstellebene 9, WE Einstellungen Wärmepumpe;9;min;0;40;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF260;13;6;0;13;9;18640;0;96;242;[1, 2, 21, 2];[2, 0, 81];09-34  Einschaltverzögerung 2. Stufe;Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden.;ich;17385;37218;37550;37220;37273
+167;09-34;Einschaltverzögerung 2. Stufe;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0;min;0;40;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF588;13;6;0;12;10;20672;0;136;245;[1, 2, 21, 2];[2, 0, 81];09-34  Einschaltverzögerung 2. Stufe;Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden.;ich;17385;50099;50443;50101;50154
+129;09-35;Schaltdifferenz 2. Stufe;Einstellebene 9, WE Einstellungen Wärmepumpe;-3;K;-20;0;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF25C;13;2;0;14;9;18656;0;92;242;[1, 2, 21, 2];[2, 0, 81];09-35  Schaltdifferenz 2. Stufe;"Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.
+Schaltdifferenz für die 2. Stufe -1.0 bis -20.0";ich;17385;37550;37844;37552;37600
+168;09-35;Schaltdifferenz 2. Stufe;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0;K;-20;0;5;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF584;13;2;0;13;10;20688;0;132;245;[1, 2, 21, 2];[2, 0, 81];09-35  Schaltdifferenz 2. Stufe;"Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.
+Schaltdifferenz für die 2. Stufe -1.0 bis -20.0";ich;17385;50443;50749;50445;50493
+130;10-31;WE Maximaltemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;70;°C;30;80;10;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF266;13;1;0;15;9;18672;0;102;242;[1, 2, 21, 2];[2, 0, 81];10-31  WE Maximaltemperatur;Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet.;ich;17385;37844;38105;37846;37890
+169;10-31;WE Maximaltemperatur;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;70;°C;30;80;10;Einstellebene 10, WE Einstellungen Elektro Zusatzheizung;0xF58E;13;1;0;14;10;20704;0;142;245;[1, 2, 21, 2];[2, 0, 81];10-31  WE Maximaltemperatur;Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet.;ich;17385;50749;51022;50751;50795
+171;11-01;WE Steuerbefehl;Einstellebene 11, WE 1 Kaskadenfunktionen;2;;1;4;1;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2EB;0;0;0;1;11;22544;0;235;242;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;51390;51746;51392;51431
+177;11-01;WE Steuerbefehl;Einstellebene 12, WE 2 Kaskadenfunktionen;2;;1;4;1;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F3;0;0;0;11;11;22704;0;243;242;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;53134;53490;53136;53175
+183;11-01;WE Steuerbefehl;Einstellebene 13, WE 3 Kaskadenfunktionen;2;;1;4;1;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF2FB;0;0;0;21;11;22864;0;251;242;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;54878;55234;54880;54919
+189;11-01;WE Steuerbefehl;Einstellebene 14, WE 4 Kaskadenfunktionen;2;;1;4;1;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF303;0;0;0;31;11;23024;0;3;243;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;56622;56978;56624;56663
+195;11-01;WE Steuerbefehl;Einstellebene 15, WE 5 Kaskadenfunktionen;2;;1;4;1;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF30B;0;0;0;41;11;23184;0;11;243;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;58366;58722;58368;58407
+201;11-01;WE Steuerbefehl;Einstellebene 16, WE 6 Kaskadenfunktionen;2;;1;4;1;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF313;0;0;0;51;11;23344;0;19;243;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;60110;60466;60112;60151
+207;11-01;WE Steuerbefehl;Einstellebene 17, WE 7 Kaskadenfunktionen;2;;1;4;1;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF31B;0;0;0;61;11;23504;0;27;243;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;61854;62210;61856;61895
+213;11-01;WE Steuerbefehl;Einstellebene 18, WE 8 Kaskadenfunktionen;2;;1;4;1;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF323;0;0;0;71;11;23664;0;35;243;[1, 2, 21, 1];[1, 0, 81];11-01  WE Steuerbefehl;"1 = Temperatursteuerung mit BW Funktion am WE
+2 = Leistungssteuerung mit BW Funktion am WE
+3 = Temperatursteuerung ohne BW Funktion am WE
+4 = Leistungssteuerung ohne BW Funktion am WE";ich;17385;63598;63954;63600;63639
+172;11-02;WE Nennleistung;Einstellebene 11, WE 1 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2EC;13;8;0;2;11;22560;0;236;242;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;51746;52007;51748;51787
+178;11-02;WE Nennleistung;Einstellebene 12, WE 2 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F4;13;8;0;12;11;22720;0;244;242;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;53490;53751;53492;53531
+184;11-02;WE Nennleistung;Einstellebene 13, WE 3 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF2FC;13;8;0;22;11;22880;0;252;242;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;55234;55495;55236;55275
+190;11-02;WE Nennleistung;Einstellebene 14, WE 4 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF304;13;8;0;32;11;23040;0;4;243;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;56978;57239;56980;57019
+196;11-02;WE Nennleistung;Einstellebene 15, WE 5 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF30C;13;8;0;42;11;23200;0;12;243;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;58722;58983;58724;58763
+202;11-02;WE Nennleistung;Einstellebene 16, WE 6 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF314;13;8;0;52;11;23360;0;20;243;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;60466;60727;60468;60507
+208;11-02;WE Nennleistung;Einstellebene 17, WE 7 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF31C;13;8;0;62;11;23520;0;28;243;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;62210;62471;62212;62251
+214;11-02;WE Nennleistung;Einstellebene 18, WE 8 Kaskadenfunktionen;100;kW;0;999;10;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF324;13;8;0;72;11;23680;0;36;243;[1, 2, 21, 2];[1, 0, 81];11-02  WE Nennleistung;Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt;ich;17385;63954;64215;63956;63995
+173;11-03;minimale WE-Leistung;Einstellebene 11, WE 1 Kaskadenfunktionen;70;%;0;100;1;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2EE;0;4;0;3;11;22576;0;238;242;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;52007;52282;52009;52053
+179;11-03;minimale WE-Leistung;Einstellebene 12, WE 2 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F6;0;4;0;13;11;22736;0;246;242;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;53751;54026;53753;53797
+185;11-03;minimale WE-Leistung;Einstellebene 13, WE 3 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF2FE;0;4;0;23;11;22896;0;254;242;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;55495;55770;55497;55541
+191;11-03;minimale WE-Leistung;Einstellebene 14, WE 4 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF306;0;4;0;33;11;23056;0;6;243;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;57239;57514;57241;57285
+197;11-03;minimale WE-Leistung;Einstellebene 15, WE 5 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF30E;0;4;0;43;11;23216;0;14;243;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;58983;59258;58985;59029
+203;11-03;minimale WE-Leistung;Einstellebene 16, WE 6 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF316;0;4;0;53;11;23376;0;22;243;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;60727;61002;60729;60773
+209;11-03;minimale WE-Leistung;Einstellebene 17, WE 7 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF31E;0;4;0;63;11;23536;0;30;243;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;62471;62746;62473;62517
+215;11-03;minimale WE-Leistung;Einstellebene 18, WE 8 Kaskadenfunktionen;100;%;0;100;1;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF326;0;4;0;73;11;23696;0;38;243;[1, 2, 21, 1];[1, 0, 81];11-03  minimale WE-Leistung;Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt.;ich;17385;64215;64490;64217;64261
+174;11-04;Einschaltleistung Folge WE;Einstellebene 11, WE 1 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2EF;0;4;0;4;11;22592;0;239;242;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;52282;52544;52284;52334
+180;11-04;Einschaltleistung Folge WE;Einstellebene 12, WE 2 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F7;0;4;0;14;11;22752;0;247;242;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;54026;54288;54028;54078
+186;11-04;Einschaltleistung Folge WE;Einstellebene 13, WE 3 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF2FF;0;4;0;24;11;22912;0;255;242;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;55770;56032;55772;55822
+192;11-04;Einschaltleistung Folge WE;Einstellebene 14, WE 4 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF307;0;4;0;34;11;23072;0;7;243;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;57514;57776;57516;57566
+198;11-04;Einschaltleistung Folge WE;Einstellebene 15, WE 5 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF30F;0;4;0;44;11;23232;0;15;243;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;59258;59520;59260;59310
+204;11-04;Einschaltleistung Folge WE;Einstellebene 16, WE 6 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF317;0;4;0;54;11;23392;0;23;243;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;61002;61264;61004;61054
+210;11-04;Einschaltleistung Folge WE;Einstellebene 17, WE 7 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF31F;0;4;0;64;11;23552;0;31;243;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;62746;63008;62748;62798
+216;11-04;Einschaltleistung Folge WE;Einstellebene 18, WE 8 Kaskadenfunktionen;80;%;0;100;1;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF327;0;4;0;74;11;23712;0;39;243;[1, 2, 21, 1];[1, 0, 81];11-04  Einschaltleistung Folge WE;Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt;ich;17385;64490;64752;64492;64542
+175;11-05;WE Folgewechsel;Einstellebene 11, WE 1 Kaskadenfunktionen;0;;0;1;1;Einstellebene 11, WE 1 Kaskadenfunktionen;0xF2F0;0;0;0;5;11;22608;0;240;242;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;52544;52766;52546;52585
+181;11-05;WE Folgewechsel;Einstellebene 12, WE 2 Kaskadenfunktionen;0;;0;1;1;Einstellebene 12, WE 2 Kaskadenfunktionen;0xF2F8;0;0;0;15;11;22768;0;248;242;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;54288;54510;54290;54329
+187;11-05;WE Folgewechsel;Einstellebene 13, WE 3 Kaskadenfunktionen;0;;0;1;1;Einstellebene 13, WE 3 Kaskadenfunktionen;0xF300;0;0;0;25;11;22928;0;0;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;56032;56254;56034;56073
+193;11-05;WE Folgewechsel;Einstellebene 14, WE 4 Kaskadenfunktionen;0;;0;1;1;Einstellebene 14, WE 4 Kaskadenfunktionen;0xF308;0;0;0;35;11;23088;0;8;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;57776;57998;57778;57817
+199;11-05;WE Folgewechsel;Einstellebene 15, WE 5 Kaskadenfunktionen;0;;0;1;1;Einstellebene 15, WE 5 Kaskadenfunktionen;0xF310;0;0;0;45;11;23248;0;16;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;59520;59742;59522;59561
+205;11-05;WE Folgewechsel;Einstellebene 16, WE 6 Kaskadenfunktionen;0;;0;1;1;Einstellebene 16, WE 6 Kaskadenfunktionen;0xF318;0;0;0;55;11;23408;0;24;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;61264;61486;61266;61305
+211;11-05;WE Folgewechsel;Einstellebene 17, WE 7 Kaskadenfunktionen;0;;0;1;1;Einstellebene 17, WE 7 Kaskadenfunktionen;0xF320;0;0;0;65;11;23568;0;32;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;63008;63230;63010;63049
+217;11-05;WE Folgewechsel;Einstellebene 18, WE 8 Kaskadenfunktionen;0;;0;1;1;Einstellebene 18, WE 8 Kaskadenfunktionen;0xF328;0;0;0;75;11;23728;0;40;243;[1, 2, 21, 1];[1, 0, 81];11-05  WE Folgewechsel;"0 = Keine Sequenzumschaltung
+1 = Sequenzumschaltung";ich;17385;64752;64974;64754;64793
+131;15-10;Heissgas Maximaltemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;125;°C;0;140;10;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF286;13;1;0;16;9;18688;0;134;242;[1, 2, 21, 2];[2, 0, 81];15-10  Heissgas Maximaltemperatur;Überschreitet die Heissgastemperatur (THG) den Einstellwert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Sinkt die Temperatur THG um 2 K unter den Einstellwert, läuft die Anlage in der eingestellten Betriebsart weiter.;ich;17385;38105;38535;38107;38157
+132;15-11;TWVmax Abschalthysterese;Einstellebene 9, WE Einstellungen Wärmepumpe;7;K;2;30;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF1F;13;2;0;17;9;18704;0;31;255;[1, 2, 21, 2];[2, 0, 81];15-11  TWVmax Abschalthysterese;Bei einer TWVmax Abschaltung ist immer diese eingestellte Hysterese wirksam für die Wiederinschaltung.;ich;17385;38535;38819;38537;38585
+133;15-12;Kondensator Austritt Störung;Einstellebene 9, WE Einstellungen Wärmepumpe;-5;°C;-20;70;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF3C;13;1;0;18;9;18720;0;60;255;[1, 2, 21, 2];[2, 0, 81];15-12  Kondensator Austritt Störung;Sinkt die Kondensator Austrittstemperatur unter den eingestellten Wert, wird eine Störung 8 generiert und der WE abgeschaltet.;ich;17385;38819;39131;38821;38873
+134;15-13;Kondensator Austritt Abschaltoffset;Einstellebene 9, WE Einstellungen Wärmepumpe;2;K;0;10;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF3E;13;2;0;19;9;18736;0;62;255;[1, 2, 21, 2];[2, 0, 81];15-13  Kondensator Austritt Abschaltoffset;Sinkt die Kondensator Austrittstemperatur unter den eingestellten an ID 15-11Wert plus diesen Abschaltoffset, wird der WE abgeschaltet.;ich;17385;39131;39459;39133;39192
+135;15-21;Nachlaufzeit Quellenpumpe;Einstellebene 9, WE Einstellungen Wärmepumpe;0,5;min;0;15;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF26A;13;6;0;20;9;18752;0;106;242;[1, 2, 21, 2];[1, 0, 81];15-21  Nachlaufzeit Quellenpumpe;Die Quellenpumpe (QP) oder das Gebläse laufen nach Abschalten des Kompressors noch für die hier festgelegte Zeit nach.;ich;17385;39459;39760;39461;39510
+136;15-22;Wärmequelle Frostschutztemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;-12;°C;-50;10;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF288;13;1;0;21;9;18768;0;136;242;[1, 2, 21, 2];[2, 0, 81];15-22  Wärmequelle Frostschutztemperatur;Unterschreitet die Wärmequellen Austrittstemperatur (TWA) den hier eingestellten Wert, so wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Störung Err 02 wird angezeigt.;ich;17385;39760;40143;39762;39819
+82;15-23;Frostschutztemperatur TVD;Einstellebene 5, Brauchwasserbereitung;4;;-20;20;5;Einstellebene 5, Brauchwasserbereitung;0xF29E;13;0;0;10;5;10400;0;158;242;[1, 2, 21, 2];[2, 0, 81];15-23 Frostschutztemperatur TVD;Der TVD (Klemme 45) wirkt, in Stellung 2 des Einstellers 5-5, als Frostschutzfühler für die separate WW-Wärmepumpe. Diese Wärmepumpe wird abgeschaltet, sobald die Temperatur TVD den hier eingestellten Wert unterschreitet.;ich;17385;23319;23716;23321;23369
+137;15-24;Wärmequelle Eintrittsschutztemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;40;°C;0;50;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF28A;13;1;0;22;9;18784;0;138;242;[1, 2, 21, 2];[2, 0, 81];15-24  Wärmequelle Eintrittsschutztemperatur;Überschreitet die Wärmequellen-Eintrittstemperatur (TWE) den hier eingestellten Wert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet.;ich;17385;40143;40495;40145;40206
+138;15-25;Abschaltoffset Frostschutz;Einstellebene 9, WE Einstellungen Wärmepumpe;2;K;0;20;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF28E;13;2;0;23;9;18800;0;142;242;[1, 2, 21, 2];[2, 0, 81];15-25  Abschaltoffset Frostschutz;"Dieser Einsteller ermöglicht bei Frostgefahr ein Abschalten des Kompressors bevor eine Störung ausgelöst
+wird. Die Wärmequellen-Frostschutztemperatur (Einsteller 15-22) plus der hier eingestellte Wert ergeben die Abschaltgrenze.";ich;17385;40495;40908;40497;40547
+139;15-26;TWE-Temperaturpunkt TWVmax Reduktion;Einstellebene 9, WE Einstellungen Wärmepumpe;-20;°C;-20;10;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF28;1;1;0;24;9;18816;0;40;255;[1, 2, 21, 1];[2, 0, 81];15-26  TWE-Temperaturpunkt TWVmax Reduktion;Wärmequellen Eintrittstemperatur für die Absenkung der maximalen Wärmepumpen Vorlauftemperatur.;ich;17385;40908;41197;40910;40970
+140;15-27;TWVmax bei TWE Grenztemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;60;°C;20;60;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF2A;0;1;0;25;9;18832;0;42;255;[1, 2, 21, 1];[2, 0, 81];15-27  TWVmax bei TWE Grenztemperatur;Maximale Wärmepumpen Vorlauftemperatur bei Wärmequellen Eintritts Grenztemperatur (15-28).;ich;17385;41197;41475;41199;41253
+141;15-28;TWE Grenztemperatur;Einstellebene 9, WE Einstellungen Wärmepumpe;-30;°C;-30;10;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF29;1;1;0;26;9;18848;0;41;255;[1, 2, 21, 1];[2, 0, 81];15-28  TWE Grenztemperatur ;Wärmequellen Eintritts Grenzemperatur für Wärmepumpen Vorlaufreduktion;ich;17385;41475;41723;41477;41521
+142;15-40;Abtautyp;Einstellebene 9, WE Einstellungen Wärmepumpe;0;;0;2;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF26E;0;0;0;27;9;18864;0;110;242;[1, 2, 21, 1];[2, 0, 81];15-40  Abtautyp;"Damit wird festgelegt auf welche Art abgetaut wird. Der eingestellte Code hat folgende Bedeutung:
+0 = Keine Abtauung (Sole / Wasser- oder Wasser / Wasser Wärmepumpe)
+1 = Temperaturabhängige Abtaueinleitung
+2 = Druckabhängige Abtaueinleitung";ich;17385;41723;42132;41725;41757
+143;15-41;Abtaudifferenz (TWE - TVD);Einstellebene 9, WE Einstellungen Wärmepumpe;10;°C;3;30;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF270;13;1;0;28;9;18880;0;112;242;[1, 2, 21, 2];[2, 0, 81];15-41  Abtaudifferenz (TWE - TVD);"Für eine Abtaueinleitung muss die Temperaturdifferenz Wärmequelle-Eintrittstemperatur TWE – Verdampfungstemperatur
+TVD grösser sein, als der in diesem Einsteller eingestellte Wert.";ich;17385;42132;42497;42134;42184
+144;15-42;Freigabe Abtauung (TVD);Einstellebene 9, WE Einstellungen Wärmepumpe;-6;°C;-20;20;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF272;13;1;0;29;9;18896;0;114;242;[1, 2, 21, 2];[2, 0, 81];15-42  Freigabe Abtauung (TVD);"Bei 15-40 = 1: Für eine Freigabe der Abtauung muss die Verdampfungstemperatur TVD kleiner sein, als der in diesem Parameter eingestellte Wert.
+Bei 15-40 = 2: Für eine Freigabe der Abtauung muss die Aussentemperatur TA kleiner sein, als der in diesem Parameter eingestellte Wert.";ich;17385;42497;42959;42499;42546
+145;15-43;Abtauendetemperatur (TVD);Einstellebene 9, WE Einstellungen Wärmepumpe;9;°C;0;40;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF274;13;1;0;30;9;18912;0;116;242;[1, 2, 21, 2];[1, 0, 81];15-43  Abtauendetemperatur (TVD);Überschreitet die Verdampfungstemperatur TVD den in diesem Einsteller eingestellten Wert, wird die Abtauung beendet.;ich;17385;42959;43258;42961;43010
+146;15-44;Abtaudauer;Einstellebene 9, WE Einstellungen Wärmepumpe;10;min;0;30;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF276;13;6;0;31;9;18928;0;118;242;[1, 2, 21, 2];[1, 0, 81];15-44  Abtaudauer;Die Abtauung wird beendet, spätestens nach Ablauf der in diesem Einsteller eingestellten Dauer.;ich;17385;43258;43521;43260;43294
+147;15-45;Abtausperrzeit;Einstellebene 9, WE Einstellungen Wärmepumpe;45;min;0;60;5;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF278;13;6;0;32;9;18944;0;120;242;[1, 2, 21, 2];[1, 0, 81];15-45  Abtausperrzeit;Nach Beendigung einer Abtauung, kann eine weitere Abtauung erst erfolgen, nach Ablauf der in diesem Einsteller eingestellten Abtausperrzeit.;ich;17385;43521;43833;43523;43561
+148;15-46;Verzögerung Niederdruck;Einstellebene 9, WE Einstellungen Wärmepumpe;10;s?;0;250;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF26F;0;7;0;33;9;18960;0;111;242;[1, 2, 21, 1];[2, 0, 81];15-46  Verzögerung Niederdruck;Eine Störung des Niederdruck Pressostaten muss mindestens um die hier eingestellte Zeit anliegen bis die Störung ausgelöst und angezeigt wird.;ich;17385;43833;44156;43835;43882
+149;15-47;Abtropfzeit;Einstellebene 9, WE Einstellungen Wärmepumpe;0;;0;100;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF26;0;0;0;34;9;18976;0;38;255;[1, 2, 21, 1];[2, 0, 81];15-47  Abtropfzeit;"Nach erfolgter Abtauung wird der Verdichter abgeschaltet und das Abtauventil bleib für die Abtropfzeit wahlweise ein oder ausgeschaltet.
+Achtung der Wert ist im 0.1 Minuten Format. (10 = 1.0 Min)";ich;17385;44156;44521;44158;44193
+150;15-48;Verzögerung Druckdifferenzeingang;Einstellebene 9, WE Einstellungen Wärmepumpe;120;;0;250;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF27;0;0;0;35;9;18992;0;39;255;[1, 2, 21, 1];[2, 0, 81];15-48  Verzögerung Druckdifferenzeingang ;Bei Differenzdruck Abtauung muss der Differndruckschalter für die eingestellte Zeit geschlossen sein, damit eine Abtauung gestartet wird.;ich;17385;44521;44850;44523;44581
+151;15-49;Abtau Frostschutzstörung;Einstellebene 9, WE Einstellungen Wärmepumpe;12;°C;3;20;10;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF40;13;1;0;36;9;19008;0;64;255;[1, 2, 21, 2];[2, 0, 81];15-49  Abtau Frostschutzstörung;Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den eingestellten Wert, wird eine Frostschutzstörung 9 generiert und der WE abgeschaltet.;ich;17385;44850;45183;44852;44900
+152;15-50;Abtau Frostschutz Offset Zusatzheizung;Einstellebene 9, WE Einstellungen Wärmepumpe;2;K;2;10;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF42;13;2;0;37;9;19024;0;66;255;[1, 2, 21, 2];[2, 0, 81];15-50  Abtau Frostschutz Offset Zusatzheizung;Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den an ID 15-49 eingestellten Wert plus diesen Offset, wird eine Zusatzheizung Abtaubetrieb freigegeben..;ich;17385;45183;45546;45185;45247
+153;15-60;Anpassen TWA Messwert;Einstellebene 9, WE Einstellungen Wärmepumpe;0;K;0;5;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xF28C;13;2;0;38;9;19040;0;140;242;[1, 2, 21, 2];[2, 0, 81];15-60  Anpassen TWA Messwert;Mit diesem Einsteller kann der Messwert des Wärmequellen-Austrittsfühlers TWA, werkseitig, an die Wärmepumpe angepasst werden.;ich;17385;45546;45851;45548;45593
+3;;Automatikprogramm;Heizkreis 1 (abgeleitet);0;;0;2;1;Einstellebene 1, ;0xF00B;0;0;0;1;1;2064;1;11;240;[1, 2, 21, 1];[0, 0, 81];-----  Automatikprogramm;"0 = Uhrprogramm 1
+1 = Uhrprogramm 2
+2 = Uhrprogramm 3";ich;17385;697;900;699;740
+4;;Automatikprogramm;Heizkreis 2 (abgeleitet);0;;0;2;1;Einstellebene 1, ;0xF333;0;0;1;1;1;2065;1;51;243;[1, 2, 21, 1];[0, 0, 81];-----  Automatikprogramm;"0 = Uhrprogramm 1
+1 = Uhrprogramm 2
+2 = Uhrprogramm 3";ich;17385;900;1103;902;943
+24;;BW Zeitprog mit Heizkreisprogramm 1;Heizkreis 1 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF06D;0;0;0;8;2;4224;1;109;240;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 1;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 1";ich;17385;5208;5467;5210;5269
+25;;BW Zeitprog mit Heizkreisprogramm 1;Heizkreis 2 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF06D;0;0;1;8;2;4225;1;109;240;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 1;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 1";ich;17385;5467;5726;5469;5528
+26;;BW Zeitprog mit Heizkreisprogramm 2;Heizkreis 1 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF0CB;0;0;0;9;2;4240;1;203;240;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 2;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 2";ich;17385;5726;5985;5728;5787
+27;;BW Zeitprog mit Heizkreisprogramm 2;Heizkreis 2 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF0CB;0;0;1;9;2;4241;1;203;240;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 2;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 2";ich;17385;5985;6244;5987;6046
+28;;BW Zeitprog mit Heizkreisprogramm 3;Heizkreis 1 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF129;0;0;0;10;2;4256;1;41;241;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 3;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 3";ich;17385;6244;6503;6246;6305
+29;;BW Zeitprog mit Heizkreisprogramm 3;Heizkreis 2 (abgeleitet);0;;0;1;1;Einstellebene 2, ;0xF129;0;0;1;10;2;4257;1;41;241;[1, 2, 21, 1];[0, 0, 81];-----  BW Zeitprog mit Heizkreisprogramm 3;"0 = Freigabe mit separarem Warmwasser Zeitprogramm
+1 = Freigabe mit Heizkreis Zeitprogramm 3";ich;17385;6503;6762;6505;6564
+30;;Störung quittieren;Einstellebene 2;0;;0;1;1;Einstellebene 2, ;0x0889;0;0;0;11;2;4272;0;137;8;[0, 0, 21, 1];[1, 0, 81];-----  Störung quittieren;"Störung quittieren
+0 = nein
+1 = quittieren";ich;17385;6762;6955;6764;6806
+31;;Betriebsdaten zurückstellen;Einstellebene 2;0;;0;2;1;Einstellebene 2, ;0x0B51;0;0;0;12;2;4288;0;81;11;[0, 0, 21, 1];[3, 0, 81];-----  Betriebsdaten zurückstellen;"Betriebsdaten zurückstellen:
+0 = keine Rückstellung
+1 = Rückstellung Betriebsdaten Wärmepumpe
+2 = Rückstellung Betriebsdaten Zusatzheizung";ich;17385;6955;7254;6957;7008
+154;;TWA Maximalwert;Einstellebene 9, WE Einstellungen Wärmepumpe;150;°C;0;150;1;Einstellebene 9, WE Einstellungen Wärmepumpe;0xFF2B;0;1;0;39;9;19056;0;43;255;[1, 2, 21, 1];[3, 0, 81];-----   TWA Maximalwert;"Mit diesem Einsteller kann eine Temperaturgrenze für den WQA Fühler gesetzt werden (Kurzschlussüberwachung).
+Eine Überschreitung der Temperatur führt zu einer Störabschaltung (WQA Frostschutzstörung).
+Eine Einstellung >125 °C bewirkt, dass keine Störung generiert wird.";ich;17385;45851;46298;45853;45893

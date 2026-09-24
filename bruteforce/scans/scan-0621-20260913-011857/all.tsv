@@ -1,0 +1,21 @@
+timestamp	server	destination	request	status	parameter_bytes	tem_code	type	unit	max	min	value_bytes	value_unsigned	value_signed	value	value_encoding	response	error
+2026-09-12T23:18:57.400400+00:00	localhost:8888	15	1506210421000000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:57.506894+00:00	localhost:8888	15	1506210421010000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:57.612496+00:00	localhost:8888	15	1506210421020000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:57.718283+00:00	localhost:8888	15	1506210421030000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:57.824887+00:00	localhost:8888	15	1506210421040000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:57.930622+00:00	localhost:8888	15	1506210421050000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.036151+00:00	localhost:8888	15	1506210421060000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.141807+00:00	localhost:8888	15	1506210421070000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.247438+00:00	localhost:8888	15	1506210421080000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.353085+00:00	localhost:8888	15	1506210421090000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.463130+00:00	localhost:8888	15	15062104210a0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.572561+00:00	localhost:8888	15	15062104210b0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.683301+00:00	localhost:8888	15	15062104210c0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.792775+00:00	localhost:8888	15	15062104210d0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:58.901539+00:00	localhost:8888	15	15062104210e0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:59.010921+00:00	localhost:8888	15	15062104210f0000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:59.121249+00:00	localhost:8888	15	1506210421100000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:59.230449+00:00	localhost:8888	15	1506210421110000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:59.340798+00:00	localhost:8888	15	1506210421120000	error												ERR: command not enabled	ebusctl exit=1
+2026-09-12T23:18:59.452744+00:00	localhost:8888	15	1506210421130000	error												ERR: command not enabled	ebusctl exit=1

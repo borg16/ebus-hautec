@@ -1,0 +1,3 @@
+timestamp	server	destination	request	status	parameter_bytes	tem_code	type	unit	max	min	value_bytes	value_unsigned	value_signed	value	value_encoding	response	error
+2026-09-11T23:01:02.571636+00:00	localhost:8888	15	1506210403000000	hit	b241	03-050	none	none	7	0	0300	3	3		unbekannt; Rohwerte ohne Skalierung	0ab2410000070000000300	
+2026-09-11T23:01:02.833002+00:00	localhost:8888	15	1506210403000028	hit	b241	03-050	none	none	7	0	0300	3	3		unbekannt; Rohwerte ohne Skalierung	0ab2410000070000000300	

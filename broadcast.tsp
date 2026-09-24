@@ -1,5 +1,5 @@
 import "@ebusd/ebus-typespec";
-import "./_templates.tsp";
+import "./hautec.tsp";
 using Ebus;
 using Ebus.Num;
 using Ebus.Dtm;

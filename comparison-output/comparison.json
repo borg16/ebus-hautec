@@ -1,0 +1,4039 @@
+{
+  "log_end": "2026-09-23 11:50:08.058",
+  "invalid": [
+    {
+      "line": 5033,
+      "error": "slave CRC mismatch"
+    }
+  ],
+  "direct_request_count": 106,
+  "fb_block_count": 10,
+  "status_counts": {
+    "abweichend": 28,
+    "gleich": 85,
+    "Passwortanzeige; nicht als geaendertes Passwort bewiesen": 1
+  },
+  "results": [
+    {
+      "ste_index": 1,
+      "tem_id": "03-50",
+      "name": "Betriebswahl Heizung und Brauchwasser",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 1,
+        "source": "Master",
+        "selector": "0100",
+        "line": 10175,
+        "time": "2026-09-23 11:23:36.896",
+        "value": 4,
+        "unit": "",
+        "value_hex": "0400",
+        "payload": "b2410000070000000400"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 1,
+          "source": "Master",
+          "selector": "0100",
+          "line": 10175,
+          "time": "2026-09-23 11:23:36.896",
+          "value": 4,
+          "unit": "",
+          "value_hex": "0400",
+          "payload": "b2410000070000000400"
+        }
+      ]
+    },
+    {
+      "ste_index": 2,
+      "tem_id": "03-50",
+      "name": "Betriebswahl Heizung und Brauchwasser",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 2,
+        "source": "Master",
+        "selector": "01801000",
+        "line": 9958,
+        "time": "2026-09-23 11:19:11.355",
+        "value": 4,
+        "unit": "",
+        "value_hex": "0400",
+        "payload": "b2410000070000000400"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 2,
+          "source": "Master",
+          "selector": "01801000",
+          "line": 9958,
+          "time": "2026-09-23 11:19:11.355",
+          "value": 4,
+          "unit": "",
+          "value_hex": "0400",
+          "payload": "b2410000070000000400"
+        }
+      ]
+    },
+    {
+      "ste_index": 5,
+      "tem_id": "03-58",
+      "name": "Behaglichkeit",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 5,
+        "source": "FB 90",
+        "selector": "3101",
+        "line": 10320,
+        "time": "2026-09-23 11:25:29.379",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "31010000dc000300320000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 5,
+          "source": "Master",
+          "selector": "0102",
+          "line": 10177,
+          "time": "2026-09-23 11:23:37.442",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "ba414d041e00e2ff0000"
+        },
+        {
+          "ste_index": 5,
+          "source": "FB 90",
+          "selector": "3101",
+          "line": 10320,
+          "time": "2026-09-23 11:25:29.379",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "31010000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 6,
+      "tem_id": "03-58",
+      "name": "Behaglichkeit",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": -1.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 6,
+        "source": "FB 91",
+        "selector": "310b",
+        "line": 10729,
+        "time": "2026-09-23 11:44:19.495",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "310b0000dc000300320000000000"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 6,
+          "source": "Master",
+          "selector": "01821000",
+          "line": 9960,
+          "time": "2026-09-23 11:19:13.232",
+          "value": -1.0,
+          "unit": "K",
+          "value_hex": "f6ff",
+          "payload": "ba414d041e00e2fff6ff"
+        },
+        {
+          "ste_index": 6,
+          "source": "FB 91",
+          "selector": "310b",
+          "line": 10729,
+          "time": "2026-09-23 11:44:19.495",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "310b0000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 9,
+      "tem_id": "03-51",
+      "name": "Sollwert Raumtemperatur Heizen Tag normal",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 20.5,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 9,
+        "source": "FB 90",
+        "selector": "3001",
+        "line": 10321,
+        "time": "2026-09-23 11:25:30.020",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "3001dc00b400f401020000004c03"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 9,
+          "source": "Master",
+          "selector": "0b00",
+          "line": 10273,
+          "time": "2026-09-23 11:24:18.459",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "b3414d022c016400dc00"
+        },
+        {
+          "ste_index": 9,
+          "source": "FB 90",
+          "selector": "3001",
+          "line": 10321,
+          "time": "2026-09-23 11:25:30.020",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "3001dc00b400f401020000004c03"
+        }
+      ]
+    },
+    {
+      "ste_index": 10,
+      "tem_id": "03-51",
+      "name": "Sollwert Raumtemperatur Heizen Tag normal",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 20.5,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 10,
+        "source": "FB 91",
+        "selector": "300b",
+        "line": 10730,
+        "time": "2026-09-23 11:44:20.150",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "300bdc006400e001020000003e91"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 10,
+          "source": "Master",
+          "selector": "0b801000",
+          "line": 10302,
+          "time": "2026-09-23 11:24:47.937",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "b3414d022c016400dc00"
+        },
+        {
+          "ste_index": 10,
+          "source": "FB 91",
+          "selector": "300b",
+          "line": 10730,
+          "time": "2026-09-23 11:44:20.150",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "300bdc006400e001020000003e91"
+        }
+      ]
+    },
+    {
+      "ste_index": 11,
+      "tem_id": "03-53",
+      "name": "Sollwert Raumteperatur Heizen Nacht",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 18.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 11,
+        "source": "FB 90",
+        "selector": "3001",
+        "line": 10321,
+        "time": "2026-09-23 11:25:30.020",
+        "value": 18.0,
+        "unit": "°C",
+        "value_hex": "b400",
+        "payload": "3001dc00b400f401020000004c03"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 11,
+          "source": "Master",
+          "selector": "0b02",
+          "line": 10260,
+          "time": "2026-09-23 11:24:09.412",
+          "value": 18.0,
+          "unit": "°C",
+          "value_hex": "b400",
+          "payload": "b5414d02c8003200b400"
+        },
+        {
+          "ste_index": 11,
+          "source": "FB 90",
+          "selector": "3001",
+          "line": 10321,
+          "time": "2026-09-23 11:25:30.020",
+          "value": 18.0,
+          "unit": "°C",
+          "value_hex": "b400",
+          "payload": "3001dc00b400f401020000004c03"
+        }
+      ]
+    },
+    {
+      "ste_index": 12,
+      "tem_id": "03-53",
+      "name": "Sollwert Raumteperatur Heizen Nacht",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 18.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 12,
+        "source": "FB 91",
+        "selector": "300b",
+        "line": 10730,
+        "time": "2026-09-23 11:44:20.150",
+        "value": 10.0,
+        "unit": "°C",
+        "value_hex": "6400",
+        "payload": "300bdc006400e001020000003e91"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 12,
+          "source": "Master",
+          "selector": "0b821000",
+          "line": 10297,
+          "time": "2026-09-23 11:24:42.023",
+          "value": 10.0,
+          "unit": "°C",
+          "value_hex": "6400",
+          "payload": "b5414d02c80032006400"
+        },
+        {
+          "ste_index": 12,
+          "source": "FB 91",
+          "selector": "300b",
+          "line": 10730,
+          "time": "2026-09-23 11:44:20.150",
+          "value": 10.0,
+          "unit": "°C",
+          "value_hex": "6400",
+          "payload": "300bdc006400e001020000003e91"
+        }
+      ]
+    },
+    {
+      "ste_index": 13,
+      "tem_id": "05-51",
+      "name": "Sollwert Warmwassertemperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 50.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 13,
+        "source": "FB 90",
+        "selector": "3001",
+        "line": 10321,
+        "time": "2026-09-23 11:25:30.020",
+        "value": 50.0,
+        "unit": "°C",
+        "value_hex": "f401",
+        "payload": "3001dc00b400f401020000004c03"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 13,
+          "source": "Master",
+          "selector": "0b03",
+          "line": 10258,
+          "time": "2026-09-23 11:24:08.506",
+          "value": 50.0,
+          "unit": "°C",
+          "value_hex": "f401",
+          "payload": "b3428d02bc026400f401"
+        },
+        {
+          "ste_index": 13,
+          "source": "FB 90",
+          "selector": "3001",
+          "line": 10321,
+          "time": "2026-09-23 11:25:30.020",
+          "value": 50.0,
+          "unit": "°C",
+          "value_hex": "f401",
+          "payload": "3001dc00b400f401020000004c03"
+        }
+      ]
+    },
+    {
+      "ste_index": 14,
+      "tem_id": "05-51",
+      "name": "Sollwert Warmwassertemperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 10.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 14,
+        "source": "FB 91",
+        "selector": "300b",
+        "line": 10730,
+        "time": "2026-09-23 11:44:20.150",
+        "value": 48.0,
+        "unit": "°C",
+        "value_hex": "e001",
+        "payload": "300bdc006400e001020000003e91"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 14,
+          "source": "Master",
+          "selector": "0b831000",
+          "line": 10286,
+          "time": "2026-09-23 11:24:23.842",
+          "value": 50.0,
+          "unit": "°C",
+          "value_hex": "f401",
+          "payload": "b3428d02bc026400f401"
+        },
+        {
+          "ste_index": 14,
+          "source": "FB 91",
+          "selector": "300b",
+          "line": 10730,
+          "time": "2026-09-23 11:44:20.150",
+          "value": 48.0,
+          "unit": "°C",
+          "value_hex": "e001",
+          "payload": "300bdc006400e001020000003e91"
+        }
+      ]
+    },
+    {
+      "ste_index": 15,
+      "tem_id": "03-10",
+      "name": "Steilheit Kennlinie",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.3,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 15,
+        "source": "FB 90",
+        "selector": "3002",
+        "line": 10262,
+        "time": "2026-09-23 11:24:10.269",
+        "value": 0.4,
+        "unit": "",
+        "value_hex": "2800",
+        "payload": "30022800000026020000dc000703"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 15,
+          "source": "Master",
+          "selector": "0b04",
+          "line": 10256,
+          "time": "2026-09-23 11:24:07.568",
+          "value": 0.4,
+          "unit": "",
+          "value_hex": "2800",
+          "payload": "8a410408f40100002800"
+        },
+        {
+          "ste_index": 15,
+          "source": "FB 90",
+          "selector": "3002",
+          "line": 10262,
+          "time": "2026-09-23 11:24:10.269",
+          "value": 0.4,
+          "unit": "",
+          "value_hex": "2800",
+          "payload": "30022800000026020000dc000703"
+        }
+      ]
+    },
+    {
+      "ste_index": 16,
+      "tem_id": "03-10",
+      "name": "Steilheit Kennlinie",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.3,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 16,
+        "source": "FB 91",
+        "selector": "300c",
+        "line": 10332,
+        "time": "2026-09-23 11:25:43.817",
+        "value": 0.4,
+        "unit": "",
+        "value_hex": "2800",
+        "payload": "300c2800000026021e00dc000703"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 16,
+          "source": "Master",
+          "selector": "0b841000",
+          "line": 10293,
+          "time": "2026-09-23 11:24:36.579",
+          "value": 0.4,
+          "unit": "",
+          "value_hex": "2800",
+          "payload": "8a410408f40100002800"
+        },
+        {
+          "ste_index": 16,
+          "source": "FB 91",
+          "selector": "300c",
+          "line": 10332,
+          "time": "2026-09-23 11:25:43.817",
+          "value": 0.4,
+          "unit": "",
+          "value_hex": "2800",
+          "payload": "300c2800000026021e00dc000703"
+        }
+      ]
+    },
+    {
+      "ste_index": 17,
+      "tem_id": "07-08",
+      "name": "Vorlauf Maximaltemperatur TV",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 55.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 17,
+        "source": "Master",
+        "selector": "0b05",
+        "line": 10255,
+        "time": "2026-09-23 11:24:07.083",
+        "value": 55.0,
+        "unit": "°C",
+        "value_hex": "2602",
+        "payload": "88438d0284032c012602"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 17,
+          "source": "Master",
+          "selector": "0b05",
+          "line": 10255,
+          "time": "2026-09-23 11:24:07.083",
+          "value": 55.0,
+          "unit": "°C",
+          "value_hex": "2602",
+          "payload": "88438d0284032c012602"
+        }
+      ]
+    },
+    {
+      "ste_index": 18,
+      "tem_id": "07-08",
+      "name": "Vorlauf Maximaltemperatur TV",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 45.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 18,
+        "source": "Master",
+        "selector": "0b851000",
+        "line": 10290,
+        "time": "2026-09-23 11:24:29.874",
+        "value": 55.0,
+        "unit": "°C",
+        "value_hex": "2602",
+        "payload": "88438d0284032c012602"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 18,
+          "source": "Master",
+          "selector": "0b851000",
+          "line": 10290,
+          "time": "2026-09-23 11:24:29.874",
+          "value": 55.0,
+          "unit": "°C",
+          "value_hex": "2602",
+          "payload": "88438d0284032c012602"
+        }
+      ]
+    },
+    {
+      "ste_index": 19,
+      "tem_id": "03-21",
+      "name": "Heizgrenze bei Tagbetrieb",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 16.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 19,
+        "source": "Master",
+        "selector": "0b06",
+        "line": 10254,
+        "time": "2026-09-23 11:24:06.693",
+        "value": 25.0,
+        "unit": "°C",
+        "value_hex": "fa00",
+        "payload": "95414d022c010000fa00"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 19,
+          "source": "FB 90",
+          "selector": "3003",
+          "line": 9577,
+          "time": "2026-09-23 11:13:55.984",
+          "value": 25.0,
+          "unit": "°C",
+          "value_hex": "fa00",
+          "payload": "300300fffa00aa00000000000c03"
+        },
+        {
+          "ste_index": 19,
+          "source": "Master",
+          "selector": "0b06",
+          "line": 10254,
+          "time": "2026-09-23 11:24:06.693",
+          "value": 25.0,
+          "unit": "°C",
+          "value_hex": "fa00",
+          "payload": "95414d022c010000fa00"
+        }
+      ]
+    },
+    {
+      "ste_index": 20,
+      "tem_id": "03-21",
+      "name": "Heizgrenze bei Tagbetrieb",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 16.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 20,
+        "source": "Master",
+        "selector": "0b861000",
+        "line": 10283,
+        "time": "2026-09-23 11:24:22.952",
+        "value": 20.0,
+        "unit": "°C",
+        "value_hex": "c800",
+        "payload": "95414d022c010000c800"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 20,
+          "source": "FB 91",
+          "selector": "300d",
+          "line": 9373,
+          "time": "2026-09-23 11:12:01.811",
+          "value": 20.0,
+          "unit": "°C",
+          "value_hex": "c800",
+          "payload": "300d00ffc800aa00000000000991"
+        },
+        {
+          "ste_index": 20,
+          "source": "Master",
+          "selector": "0b861000",
+          "line": 10283,
+          "time": "2026-09-23 11:24:22.952",
+          "value": 20.0,
+          "unit": "°C",
+          "value_hex": "c800",
+          "payload": "95414d022c010000c800"
+        }
+      ]
+    },
+    {
+      "ste_index": 32,
+      "tem_id": "03-00",
+      "name": "Raumschutztemperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 10.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 32,
+        "source": "FB 90",
+        "selector": "3103",
+        "line": 9575,
+        "time": "2026-09-23 11:13:55.262",
+        "value": 10.0,
+        "unit": "°C",
+        "value_hex": "6400",
+        "payload": "310364001400000014000000c001"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 32,
+          "source": "Master",
+          "selector": "2300",
+          "line": 5610,
+          "time": "2026-09-23 10:10:04.846",
+          "value": 10.0,
+          "unit": "°C",
+          "value_hex": "6400",
+          "payload": "80418d0296001e006400"
+        },
+        {
+          "ste_index": 32,
+          "source": "FB 90",
+          "selector": "3103",
+          "line": 9575,
+          "time": "2026-09-23 11:13:55.262",
+          "value": 10.0,
+          "unit": "°C",
+          "value_hex": "6400",
+          "payload": "310364001400000014000000c001"
+        }
+      ]
+    },
+    {
+      "ste_index": 33,
+      "tem_id": "03-00",
+      "name": "Raumschutztemperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 10.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 33,
+        "source": "FB 91",
+        "selector": "310d",
+        "line": 9371,
+        "time": "2026-09-23 11:12:01.103",
+        "value": 10.0,
+        "unit": "°C",
+        "value_hex": "6400",
+        "payload": "310d64001400000000000000c001"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 33,
+          "source": "FB 91",
+          "selector": "310d",
+          "line": 9371,
+          "time": "2026-09-23 11:12:01.103",
+          "value": 10.0,
+          "unit": "°C",
+          "value_hex": "6400",
+          "payload": "310d64001400000000000000c001"
+        }
+      ]
+    },
+    {
+      "ste_index": 34,
+      "tem_id": "03-01",
+      "name": "Fusspunkttemperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 20.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 34,
+        "source": "FB 90",
+        "selector": "3002",
+        "line": 10262,
+        "time": "2026-09-23 11:24:10.269",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "30022800000026020000dc000703"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 34,
+          "source": "Master",
+          "selector": "2301",
+          "line": 5611,
+          "time": "2026-09-23 10:10:05.237",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "81418d0290016400dc00"
+        },
+        {
+          "ste_index": 34,
+          "source": "FB 90",
+          "selector": "3002",
+          "line": 10262,
+          "time": "2026-09-23 11:24:10.269",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "30022800000026020000dc000703"
+        }
+      ]
+    },
+    {
+      "ste_index": 35,
+      "tem_id": "03-01",
+      "name": "Fusspunkttemperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 20.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 35,
+        "source": "FB 91",
+        "selector": "300c",
+        "line": 10332,
+        "time": "2026-09-23 11:25:43.817",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "300c2800000026021e00dc000703"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 35,
+          "source": "FB 91",
+          "selector": "300c",
+          "line": 10332,
+          "time": "2026-09-23 11:25:43.817",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "300c2800000026021e00dc000703"
+        }
+      ]
+    },
+    {
+      "ste_index": 36,
+      "tem_id": "03-02",
+      "name": "Heizgrenze Absenkbetrieb",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 17.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 36,
+        "source": "FB 90",
+        "selector": "3003",
+        "line": 9577,
+        "time": "2026-09-23 11:13:55.984",
+        "value": 17.0,
+        "unit": "°C",
+        "value_hex": "aa00",
+        "payload": "300300fffa00aa00000000000c03"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 36,
+          "source": "FB 90",
+          "selector": "3003",
+          "line": 9577,
+          "time": "2026-09-23 11:13:55.984",
+          "value": 17.0,
+          "unit": "°C",
+          "value_hex": "aa00",
+          "payload": "300300fffa00aa00000000000c03"
+        }
+      ]
+    },
+    {
+      "ste_index": 37,
+      "tem_id": "03-02",
+      "name": "Heizgrenze Absenkbetrieb",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 17.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 37,
+        "source": "FB 91",
+        "selector": "300d",
+        "line": 9373,
+        "time": "2026-09-23 11:12:01.811",
+        "value": 17.0,
+        "unit": "°C",
+        "value_hex": "aa00",
+        "payload": "300d00ffc800aa00000000000991"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 37,
+          "source": "FB 91",
+          "selector": "300d",
+          "line": 9373,
+          "time": "2026-09-23 11:12:01.811",
+          "value": 17.0,
+          "unit": "°C",
+          "value_hex": "aa00",
+          "payload": "300d00ffc800aa00000000000991"
+        }
+      ]
+    },
+    {
+      "ste_index": 44,
+      "tem_id": "03-11",
+      "name": "Fusspunkt Vorlaufkennlinie: TA",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 20.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 44,
+        "source": "Master",
+        "selector": "a300",
+        "line": 9843,
+        "time": "2026-09-23 11:17:34.673",
+        "value": 20.0,
+        "unit": "°C",
+        "value_hex": "c800",
+        "payload": "8b418d022c019cffc800"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 44,
+          "source": "Master",
+          "selector": "a300",
+          "line": 9843,
+          "time": "2026-09-23 11:17:34.673",
+          "value": 20.0,
+          "unit": "°C",
+          "value_hex": "c800",
+          "payload": "8b418d022c019cffc800"
+        }
+      ]
+    },
+    {
+      "ste_index": 46,
+      "tem_id": "03-20",
+      "name": "Zeitkonstante für Aussentemperaturmittelung",
+      "context": "Einstellebene 3, Raumtemperaturregelung",
+      "baseline": 10.0,
+      "baseline_unit": "h",
+      "latest": {
+        "ste_index": 46,
+        "source": "Master",
+        "selector": "a301",
+        "line": 9845,
+        "time": "2026-09-23 11:17:35.081",
+        "value": 10.0,
+        "unit": "h",
+        "value_hex": "6400",
+        "payload": "94418d0ac80000006400"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 46,
+          "source": "Master",
+          "selector": "a301",
+          "line": 9845,
+          "time": "2026-09-23 11:17:35.081",
+          "value": 10.0,
+          "unit": "h",
+          "value_hex": "6400",
+          "payload": "94418d0ac80000006400"
+        }
+      ]
+    },
+    {
+      "ste_index": 47,
+      "tem_id": "03-23",
+      "name": "Frostgrenze",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 2.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 47,
+        "source": "Master",
+        "selector": "a302",
+        "line": 2532,
+        "time": "2026-09-23 09:18:43.789",
+        "value": 2.0,
+        "unit": "°C",
+        "value_hex": "1400",
+        "payload": "97414d02c8009cff1400"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 47,
+          "source": "Master",
+          "selector": "a302",
+          "line": 2532,
+          "time": "2026-09-23 09:18:43.789",
+          "value": 2.0,
+          "unit": "°C",
+          "value_hex": "1400",
+          "payload": "97414d02c8009cff1400"
+        }
+      ]
+    },
+    {
+      "ste_index": 49,
+      "tem_id": "03-30",
+      "name": "Nachstellzeit Raumregler",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 49,
+        "source": "Master",
+        "selector": "a303",
+        "line": 2541,
+        "time": "2026-09-23 09:18:55.915",
+        "value": 0.0,
+        "unit": "min",
+        "value_hex": "0000",
+        "payload": "9e418d0cd00700000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 49,
+          "source": "Master",
+          "selector": "a303",
+          "line": 2541,
+          "time": "2026-09-23 09:18:55.915",
+          "value": 0.0,
+          "unit": "min",
+          "value_hex": "0000",
+          "payload": "9e418d0cd00700000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 51,
+      "tem_id": "03-35",
+      "name": "Kühlgrenzenabstand",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 10.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 51,
+        "source": "FB 90",
+        "selector": "3101",
+        "line": 10320,
+        "time": "2026-09-23 11:25:29.379",
+        "value": 5.0,
+        "unit": "K",
+        "value_hex": "3200",
+        "payload": "31010000dc000300320000000000"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 51,
+          "source": "FB 90",
+          "selector": "3101",
+          "line": 10320,
+          "time": "2026-09-23 11:25:29.379",
+          "value": 5.0,
+          "unit": "K",
+          "value_hex": "3200",
+          "payload": "31010000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 52,
+      "tem_id": "03-35",
+      "name": "Kühlgrenzenabstand",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 5.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 52,
+        "source": "FB 91",
+        "selector": "310b",
+        "line": 10729,
+        "time": "2026-09-23 11:44:19.495",
+        "value": 5.0,
+        "unit": "K",
+        "value_hex": "3200",
+        "payload": "310b0000dc000300320000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 52,
+          "source": "FB 91",
+          "selector": "310b",
+          "line": 10729,
+          "time": "2026-09-23 11:44:19.495",
+          "value": 5.0,
+          "unit": "K",
+          "value_hex": "3200",
+          "payload": "310b0000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 53,
+      "tem_id": "03-43",
+      "name": "Kühltemperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 22.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 53,
+        "source": "FB 90",
+        "selector": "3101",
+        "line": 10320,
+        "time": "2026-09-23 11:25:29.379",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "31010000dc000300320000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 53,
+          "source": "FB 90",
+          "selector": "3101",
+          "line": 10320,
+          "time": "2026-09-23 11:25:29.379",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "31010000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 54,
+      "tem_id": "03-43",
+      "name": "Kühltemperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 22.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 54,
+        "source": "FB 91",
+        "selector": "310b",
+        "line": 10729,
+        "time": "2026-09-23 11:44:19.495",
+        "value": 22.0,
+        "unit": "°C",
+        "value_hex": "dc00",
+        "payload": "310b0000dc000300320000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 54,
+          "source": "FB 91",
+          "selector": "310b",
+          "line": 10729,
+          "time": "2026-09-23 11:44:19.495",
+          "value": 22.0,
+          "unit": "°C",
+          "value_hex": "dc00",
+          "payload": "310b0000dc000300320000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 59,
+      "tem_id": "04-00",
+      "name": "Fühlerkonfiguration speichern",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 59,
+        "source": "Master",
+        "selector": "a400",
+        "line": 2587,
+        "time": "2026-09-23 09:20:27.712",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "00020200010000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 59,
+          "source": "Master",
+          "selector": "a400",
+          "line": 2587,
+          "time": "2026-09-23 09:20:27.712",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "00020200010000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 60,
+      "tem_id": "04-02",
+      "name": "Funktion Sollwerteingang",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 60,
+        "source": "Master",
+        "selector": "a401",
+        "line": 2556,
+        "time": "2026-09-23 09:19:18.789",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "02420400040000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 60,
+          "source": "Master",
+          "selector": "a401",
+          "line": 2556,
+          "time": "2026-09-23 09:19:18.789",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "02420400040000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 61,
+      "tem_id": "04-08",
+      "name": "Handbetrieb Konfiguration",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 61,
+        "source": "Master",
+        "selector": "a402",
+        "line": 2565,
+        "time": "2026-09-23 09:19:45.321",
+        "value": 2,
+        "unit": "",
+        "value_hex": "0200",
+        "payload": "08420400020001000200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 61,
+          "source": "Master",
+          "selector": "a402",
+          "line": 2565,
+          "time": "2026-09-23 09:19:45.321",
+          "value": 2,
+          "unit": "",
+          "value_hex": "0200",
+          "payload": "08420400020001000200"
+        }
+      ]
+    },
+    {
+      "ste_index": 62,
+      "tem_id": "04-20",
+      "name": "Anlage-Hauptregler / Folgeregler",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 62,
+        "source": "Master",
+        "selector": "a403",
+        "line": 2567,
+        "time": "2026-09-23 09:19:50.431",
+        "value": 2,
+        "unit": "",
+        "value_hex": "0200",
+        "payload": "144209003d001e000200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 62,
+          "source": "Master",
+          "selector": "a403",
+          "line": 2567,
+          "time": "2026-09-23 09:19:50.431",
+          "value": 2,
+          "unit": "",
+          "value_hex": "0200",
+          "payload": "144209003d001e000200"
+        }
+      ]
+    },
+    {
+      "ste_index": 63,
+      "tem_id": "04-30",
+      "name": "Multifunktionsusgang 1",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 63,
+        "source": "Master",
+        "selector": "a404",
+        "line": 2570,
+        "time": "2026-09-23 09:19:56.508",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "1e420200010000000000"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 63,
+          "source": "Master",
+          "selector": "a404",
+          "line": 2570,
+          "time": "2026-09-23 09:19:56.508",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "1e420200010000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 64,
+      "tem_id": "04-31",
+      "name": "Multifunktionsusgang 2",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 64,
+        "source": "Master",
+        "selector": "a405",
+        "line": 2574,
+        "time": "2026-09-23 09:20:03.775",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "1f420200010000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 64,
+          "source": "Master",
+          "selector": "a405",
+          "line": 2574,
+          "time": "2026-09-23 09:20:03.775",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "1f420200010000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 65,
+      "tem_id": "04-36",
+      "name": "eBUS Speisung Abschaltung",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 65,
+        "source": "Master",
+        "selector": "a406",
+        "line": 2576,
+        "time": "2026-09-23 09:20:08.150",
+        "value": 1,
+        "unit": "",
+        "value_hex": "0100",
+        "payload": "24420200010000000100"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 65,
+          "source": "Master",
+          "selector": "a406",
+          "line": 2576,
+          "time": "2026-09-23 09:20:08.150",
+          "value": 1,
+          "unit": "",
+          "value_hex": "0100",
+          "payload": "24420200010000000100"
+        }
+      ]
+    },
+    {
+      "ste_index": 66,
+      "tem_id": "04-40",
+      "name": "Service Passwort",
+      "context": "Einstellebene 4, Globale Einstellungen",
+      "baseline": 161.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 66,
+        "source": "Master",
+        "selector": "a407",
+        "line": 2581,
+        "time": "2026-09-23 09:20:18.805",
+        "value": 0,
+        "unit": "Passwortanzeige",
+        "value_hex": "0000",
+        "payload": "28420022ff0000000000"
+      },
+      "status": "Passwortanzeige; nicht als geaendertes Passwort bewiesen",
+      "evidence": [
+        {
+          "ste_index": 66,
+          "source": "Master",
+          "selector": "a407",
+          "line": 2581,
+          "time": "2026-09-23 09:20:18.805",
+          "value": 0,
+          "unit": "Passwortanzeige",
+          "value_hex": "0000",
+          "payload": "28420022ff0000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 72,
+      "tem_id": "05-00",
+      "name": "Schaltdifferenz Brauchwasserbereitung",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 5.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 72,
+        "source": "Master",
+        "selector": "a500",
+        "line": 8596,
+        "time": "2026-09-23 10:59:08.782",
+        "value": 5.0,
+        "unit": "K",
+        "value_hex": "3200",
+        "payload": "80424d04c80014003200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 72,
+          "source": "Master",
+          "selector": "a500",
+          "line": 8596,
+          "time": "2026-09-23 10:59:08.782",
+          "value": 5.0,
+          "unit": "K",
+          "value_hex": "3200",
+          "payload": "80424d04c80014003200"
+        }
+      ]
+    },
+    {
+      "ste_index": 73,
+      "tem_id": "05-01",
+      "name": "Temperaturüberhoehung Brauchwasserbereitung",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 6.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 73,
+        "source": "Master",
+        "selector": "a501",
+        "line": 8528,
+        "time": "2026-09-23 10:56:25.530",
+        "value": 6.0,
+        "unit": "K",
+        "value_hex": "3c00",
+        "payload": "81424d042c0114003c00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 73,
+          "source": "Master",
+          "selector": "a501",
+          "line": 8528,
+          "time": "2026-09-23 10:56:25.530",
+          "value": 6.0,
+          "unit": "K",
+          "value_hex": "3c00",
+          "payload": "81424d042c0114003c00"
+        }
+      ]
+    },
+    {
+      "ste_index": 74,
+      "tem_id": "05-02",
+      "name": "Brauchwasser-Vorrang",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 0.1,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 74,
+        "source": "Master",
+        "selector": "a502",
+        "line": 8529,
+        "time": "2026-09-23 10:56:29.046",
+        "value": 0.1,
+        "unit": "h",
+        "value_hex": "0100",
+        "payload": "82420d0a640000000100"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 74,
+          "source": "Master",
+          "selector": "a502",
+          "line": 8529,
+          "time": "2026-09-23 10:56:29.046",
+          "value": 0.1,
+          "unit": "h",
+          "value_hex": "0100",
+          "payload": "82420d0a640000000100"
+        }
+      ]
+    },
+    {
+      "ste_index": 75,
+      "tem_id": "05-03",
+      "name": "Nachlaufzeit Brauchwasserbereitung",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 3.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 75,
+        "source": "Master",
+        "selector": "a503",
+        "line": 8531,
+        "time": "2026-09-23 10:56:32.140",
+        "value": 1.0,
+        "unit": "min",
+        "value_hex": "0a00",
+        "payload": "83424d0c2c0100000a00"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 75,
+          "source": "Master",
+          "selector": "a503",
+          "line": 8531,
+          "time": "2026-09-23 10:56:32.140",
+          "value": 1.0,
+          "unit": "min",
+          "value_hex": "0a00",
+          "payload": "83424d0c2c0100000a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 76,
+      "tem_id": "05-04",
+      "name": "Legionellenschutztemperatur",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 60.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 76,
+        "source": "Master",
+        "selector": "a504",
+        "line": 8534,
+        "time": "2026-09-23 10:56:35.921",
+        "value": 60.0,
+        "unit": "°C",
+        "value_hex": "5802",
+        "payload": "84428d02200358025802"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 76,
+          "source": "Master",
+          "selector": "a504",
+          "line": 8534,
+          "time": "2026-09-23 10:56:35.921",
+          "value": 60.0,
+          "unit": "°C",
+          "value_hex": "5802",
+          "payload": "84428d02200358025802"
+        }
+      ]
+    },
+    {
+      "ste_index": 77,
+      "tem_id": "05-05",
+      "name": "Funktionsweise Ladepumpennachlauf",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 77,
+        "source": "Master",
+        "selector": "a505",
+        "line": 8538,
+        "time": "2026-09-23 10:56:46.078",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "85420400020000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 77,
+          "source": "Master",
+          "selector": "a505",
+          "line": 8538,
+          "time": "2026-09-23 10:56:46.078",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "85420400020000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 78,
+      "tem_id": "05-06",
+      "name": "Zirkulationspumpe aktiv",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 78,
+        "source": "Master",
+        "selector": "a506",
+        "line": 8540,
+        "time": "2026-09-23 10:56:50.109",
+        "value": 1,
+        "unit": "",
+        "value_hex": "0100",
+        "payload": "86420200010000000100"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 78,
+          "source": "Master",
+          "selector": "a506",
+          "line": 8540,
+          "time": "2026-09-23 10:56:50.109",
+          "value": 1,
+          "unit": "",
+          "value_hex": "0100",
+          "payload": "86420200010000000100"
+        }
+      ]
+    },
+    {
+      "ste_index": 79,
+      "tem_id": "05-07",
+      "name": "Stellglied Brauchwasserbereitung",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 79,
+        "source": "Master",
+        "selector": "a507",
+        "line": 8541,
+        "time": "2026-09-23 10:56:53.641",
+        "value": 1,
+        "unit": "",
+        "value_hex": "0100",
+        "payload": "87420200010000000100"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 79,
+          "source": "Master",
+          "selector": "a507",
+          "line": 8541,
+          "time": "2026-09-23 10:56:53.641",
+          "value": 1,
+          "unit": "",
+          "value_hex": "0100",
+          "payload": "87420200010000000100"
+        }
+      ]
+    },
+    {
+      "ste_index": 80,
+      "tem_id": "05-13",
+      "name": "Reduktion Sollwert TBO",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 15.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 80,
+        "source": "Master",
+        "selector": "a508",
+        "line": 8544,
+        "time": "2026-09-23 10:56:57.531",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "8d428d04c80000000000"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 80,
+          "source": "Master",
+          "selector": "a508",
+          "line": 8544,
+          "time": "2026-09-23 10:56:57.531",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "8d428d04c80000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 81,
+      "tem_id": "05-40",
+      "name": "Min. Fehlerdauer fuer Brauchwasser Störmeldung",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 0.0,
+      "baseline_unit": "h",
+      "latest": {
+        "ste_index": 81,
+        "source": "Master",
+        "selector": "a509",
+        "line": 8590,
+        "time": "2026-09-23 10:58:56.970",
+        "value": 0.0,
+        "unit": "h",
+        "value_hex": "0000",
+        "payload": "a8428d0ac80000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 81,
+          "source": "Master",
+          "selector": "a509",
+          "line": 8590,
+          "time": "2026-09-23 10:58:56.970",
+          "value": 0.0,
+          "unit": "h",
+          "value_hex": "0000",
+          "payload": "a8428d0ac80000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 82,
+      "tem_id": "15-23",
+      "name": "Frostschutztemperatur TVD",
+      "context": "Einstellebene 5, Brauchwasserbereitung",
+      "baseline": 4.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 82,
+        "source": "Master",
+        "selector": "a50a",
+        "line": 8593,
+        "time": "2026-09-23 10:59:01.954",
+        "value": 4.0,
+        "unit": "°C",
+        "value_hex": "2800",
+        "payload": "97474d02c80038ff2800"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 82,
+          "source": "Master",
+          "selector": "a50a",
+          "line": 8593,
+          "time": "2026-09-23 10:59:01.954",
+          "value": 4.0,
+          "unit": "°C",
+          "value_hex": "2800",
+          "payload": "97474d02c80038ff2800"
+        }
+      ]
+    },
+    {
+      "ste_index": 83,
+      "tem_id": "06-00",
+      "name": "Brauchwasser Ladeleistung",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 100.0,
+      "baseline_unit": "kW",
+      "latest": {
+        "ste_index": 83,
+        "source": "Master",
+        "selector": "a600",
+        "line": 2771,
+        "time": "2026-09-23 09:26:56.450",
+        "value": 100.0,
+        "unit": "kW",
+        "value_hex": "e803",
+        "payload": "00438d1006270000e803"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 83,
+          "source": "Master",
+          "selector": "a600",
+          "line": 2771,
+          "time": "2026-09-23 09:26:56.450",
+          "value": 100.0,
+          "unit": "kW",
+          "value_hex": "e803",
+          "payload": "00438d1006270000e803"
+        }
+      ]
+    },
+    {
+      "ste_index": 84,
+      "tem_id": "06-01",
+      "name": "Puffer, Heiz-  Ladeleistung",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 100.0,
+      "baseline_unit": "kW",
+      "latest": {
+        "ste_index": 84,
+        "source": "Master",
+        "selector": "a601",
+        "line": 2759,
+        "time": "2026-09-23 09:26:48.565",
+        "value": 100.0,
+        "unit": "kW",
+        "value_hex": "e803",
+        "payload": "01438d1006270000e803"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 84,
+          "source": "Master",
+          "selector": "a601",
+          "line": 2759,
+          "time": "2026-09-23 09:26:48.565",
+          "value": 100.0,
+          "unit": "kW",
+          "value_hex": "e803",
+          "payload": "01438d1006270000e803"
+        }
+      ]
+    },
+    {
+      "ste_index": 85,
+      "tem_id": "06-02",
+      "name": "Kühlleistung",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 100.0,
+      "baseline_unit": "kW",
+      "latest": {
+        "ste_index": 85,
+        "source": "Master",
+        "selector": "a602",
+        "line": 2760,
+        "time": "2026-09-23 09:26:52.059",
+        "value": 100.0,
+        "unit": "kW",
+        "value_hex": "e803",
+        "payload": "02434d10e8030000e803"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 85,
+          "source": "Master",
+          "selector": "a602",
+          "line": 2760,
+          "time": "2026-09-23 09:26:52.059",
+          "value": 100.0,
+          "unit": "kW",
+          "value_hex": "e803",
+          "payload": "02434d10e8030000e803"
+        }
+      ]
+    },
+    {
+      "ste_index": 86,
+      "tem_id": "06-04",
+      "name": "WEZ Überhöhung",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 10.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 86,
+        "source": "Master",
+        "selector": "a603",
+        "line": 2761,
+        "time": "2026-09-23 09:26:52.450",
+        "value": 10.0,
+        "unit": "K",
+        "value_hex": "6400",
+        "payload": "04434d04c80000006400"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 86,
+          "source": "Master",
+          "selector": "a603",
+          "line": 2761,
+          "time": "2026-09-23 09:26:52.450",
+          "value": 10.0,
+          "unit": "K",
+          "value_hex": "6400",
+          "payload": "04434d04c80000006400"
+        }
+      ]
+    },
+    {
+      "ste_index": 87,
+      "tem_id": "06-05",
+      "name": "Puffer Offset TPM aus",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 87,
+        "source": "Master",
+        "selector": "a604",
+        "line": 2762,
+        "time": "2026-09-23 09:26:52.840",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "05434d042c019cff0000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 87,
+          "source": "Master",
+          "selector": "a604",
+          "line": 2762,
+          "time": "2026-09-23 09:26:52.840",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "05434d042c019cff0000"
+        }
+      ]
+    },
+    {
+      "ste_index": 88,
+      "tem_id": "06-08",
+      "name": "TBVsoll Überhöhung",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 10.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 88,
+        "source": "Master",
+        "selector": "a605",
+        "line": 2763,
+        "time": "2026-09-23 09:26:53.371",
+        "value": 10.0,
+        "unit": "K",
+        "value_hex": "6400",
+        "payload": "08434d04c80000006400"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 88,
+          "source": "Master",
+          "selector": "a605",
+          "line": 2763,
+          "time": "2026-09-23 09:26:53.371",
+          "value": 10.0,
+          "unit": "K",
+          "value_hex": "6400",
+          "payload": "08434d04c80000006400"
+        }
+      ]
+    },
+    {
+      "ste_index": 89,
+      "tem_id": "06-10",
+      "name": "Xp WEZ Manager",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 3.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 89,
+        "source": "Master",
+        "selector": "a606",
+        "line": 2765,
+        "time": "2026-09-23 09:26:53.794",
+        "value": 3.0,
+        "unit": "K",
+        "value_hex": "1e00",
+        "payload": "0a434d04e80314001e00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 89,
+          "source": "Master",
+          "selector": "a606",
+          "line": 2765,
+          "time": "2026-09-23 09:26:53.794",
+          "value": 3.0,
+          "unit": "K",
+          "value_hex": "1e00",
+          "payload": "0a434d04e80314001e00"
+        }
+      ]
+    },
+    {
+      "ste_index": 90,
+      "tem_id": "06-11",
+      "name": "Tn WEZ Manager",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 20.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 90,
+        "source": "Master",
+        "selector": "a607",
+        "line": 2766,
+        "time": "2026-09-23 09:26:54.184",
+        "value": 20.0,
+        "unit": "min",
+        "value_hex": "c800",
+        "payload": "0b438d0ce8030000c800"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 90,
+          "source": "Master",
+          "selector": "a607",
+          "line": 2766,
+          "time": "2026-09-23 09:26:54.184",
+          "value": 20.0,
+          "unit": "min",
+          "value_hex": "c800",
+          "payload": "0b438d0ce8030000c800"
+        }
+      ]
+    },
+    {
+      "ste_index": 91,
+      "tem_id": "06-12",
+      "name": "Tv WEZ Manager",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "s?",
+      "latest": {
+        "ste_index": 91,
+        "source": "Master",
+        "selector": "a608",
+        "line": 2768,
+        "time": "2026-09-23 09:26:54.809",
+        "value": 0.0,
+        "unit": "min",
+        "value_hex": "0000",
+        "payload": "0c438d0ce80300000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 91,
+          "source": "Master",
+          "selector": "a608",
+          "line": 2768,
+          "time": "2026-09-23 09:26:54.809",
+          "value": 0.0,
+          "unit": "min",
+          "value_hex": "0000",
+          "payload": "0c438d0ce80300000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 92,
+      "tem_id": "06-13",
+      "name": "Reduktion Sollwert TKX",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 5.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 92,
+        "source": "Master",
+        "selector": "a609",
+        "line": 2769,
+        "time": "2026-09-23 09:26:55.388",
+        "value": 5.0,
+        "unit": "K",
+        "value_hex": "3200",
+        "payload": "0d438d04fa0000003200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 92,
+          "source": "Master",
+          "selector": "a609",
+          "line": 2769,
+          "time": "2026-09-23 09:26:55.388",
+          "value": 5.0,
+          "unit": "K",
+          "value_hex": "3200",
+          "payload": "0d438d04fa0000003200"
+        }
+      ]
+    },
+    {
+      "ste_index": 93,
+      "tem_id": "06-20",
+      "name": "Sequenzwechsel Flag",
+      "context": "Einstellebene 6, WM-Einstellungen",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 93,
+        "source": "Master",
+        "selector": "a60a",
+        "line": 2770,
+        "time": "2026-09-23 09:26:55.966",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "14430400080000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 93,
+          "source": "Master",
+          "selector": "a60a",
+          "line": 2770,
+          "time": "2026-09-23 09:26:55.966",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "14430400080000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 94,
+      "tem_id": "07-00",
+      "name": "Proportional-Bereich Mischer",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 15.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 94,
+        "source": "Master",
+        "selector": "a700",
+        "line": 8737,
+        "time": "2026-09-23 11:01:25.158",
+        "value": 15.0,
+        "unit": "K",
+        "value_hex": "9600",
+        "payload": "80438d042c0132009600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 94,
+          "source": "Master",
+          "selector": "a700",
+          "line": 8737,
+          "time": "2026-09-23 11:01:25.158",
+          "value": 15.0,
+          "unit": "K",
+          "value_hex": "9600",
+          "payload": "80438d042c0132009600"
+        }
+      ]
+    },
+    {
+      "ste_index": 95,
+      "tem_id": "07-00",
+      "name": "Proportional-Bereich Mischer",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 15.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 95,
+        "source": "Master",
+        "selector": "a7801000",
+        "line": 9851,
+        "time": "2026-09-23 11:17:41.807",
+        "value": 15.0,
+        "unit": "K",
+        "value_hex": "9600",
+        "payload": "80438d042c0132009600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 95,
+          "source": "Master",
+          "selector": "a7801000",
+          "line": 9851,
+          "time": "2026-09-23 11:17:41.807",
+          "value": 15.0,
+          "unit": "K",
+          "value_hex": "9600",
+          "payload": "80438d042c0132009600"
+        }
+      ]
+    },
+    {
+      "ste_index": 96,
+      "tem_id": "07-01",
+      "name": "Überhöhung WE-Temperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 96,
+        "source": "Master",
+        "selector": "a701",
+        "line": 8700,
+        "time": "2026-09-23 11:00:39.736",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "81438d042c0100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 96,
+          "source": "Master",
+          "selector": "a701",
+          "line": 8700,
+          "time": "2026-09-23 11:00:39.736",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "81438d042c0100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 97,
+      "tem_id": "07-01",
+      "name": "Überhöhung WE-Temperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 3.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 97,
+        "source": "Master",
+        "selector": "a7811000",
+        "line": 9852,
+        "time": "2026-09-23 11:17:42.214",
+        "value": 3.0,
+        "unit": "K",
+        "value_hex": "1e00",
+        "payload": "81438d042c0100001e00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 97,
+          "source": "Master",
+          "selector": "a7811000",
+          "line": 9852,
+          "time": "2026-09-23 11:17:42.214",
+          "value": 3.0,
+          "unit": "K",
+          "value_hex": "1e00",
+          "payload": "81438d042c0100001e00"
+        }
+      ]
+    },
+    {
+      "ste_index": 98,
+      "tem_id": "07-02",
+      "name": "Minimale Vorlauftemperatur",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 98,
+        "source": "Master",
+        "selector": "a702",
+        "line": 8701,
+        "time": "2026-09-23 11:00:42.329",
+        "value": 0.0,
+        "unit": "°C",
+        "value_hex": "0000",
+        "payload": "82438d02900100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 98,
+          "source": "Master",
+          "selector": "a702",
+          "line": 8701,
+          "time": "2026-09-23 11:00:42.329",
+          "value": 0.0,
+          "unit": "°C",
+          "value_hex": "0000",
+          "payload": "82438d02900100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 99,
+      "tem_id": "07-02",
+      "name": "Minimale Vorlauftemperatur",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 99,
+        "source": "Master",
+        "selector": "a7821000",
+        "line": 9854,
+        "time": "2026-09-23 11:17:42.932",
+        "value": 0.0,
+        "unit": "°C",
+        "value_hex": "0000",
+        "payload": "82438d02900100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 99,
+          "source": "Master",
+          "selector": "a7821000",
+          "line": 9854,
+          "time": "2026-09-23 11:17:42.932",
+          "value": 0.0,
+          "unit": "°C",
+          "value_hex": "0000",
+          "payload": "82438d02900100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 100,
+      "tem_id": "07-03",
+      "name": "Pumpennachlauf Heizkreis",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 15.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 100,
+        "source": "Master",
+        "selector": "a703",
+        "line": 9879,
+        "time": "2026-09-23 11:18:23.915",
+        "value": 15.0,
+        "unit": "min",
+        "value_hex": "9600",
+        "payload": "83438d0c2c0100009600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 100,
+          "source": "Master",
+          "selector": "a703",
+          "line": 9879,
+          "time": "2026-09-23 11:18:23.915",
+          "value": 15.0,
+          "unit": "min",
+          "value_hex": "9600",
+          "payload": "83438d0c2c0100009600"
+        }
+      ]
+    },
+    {
+      "ste_index": 101,
+      "tem_id": "07-03",
+      "name": "Pumpennachlauf Heizkreis",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 15.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 101,
+        "source": "Master",
+        "selector": "a7831000",
+        "line": 9883,
+        "time": "2026-09-23 11:18:30.230",
+        "value": 15.0,
+        "unit": "min",
+        "value_hex": "9600",
+        "payload": "83438d0c2c0100009600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 101,
+          "source": "Master",
+          "selector": "a7831000",
+          "line": 9883,
+          "time": "2026-09-23 11:18:30.230",
+          "value": 15.0,
+          "unit": "min",
+          "value_hex": "9600",
+          "payload": "83438d0c2c0100009600"
+        }
+      ]
+    },
+    {
+      "ste_index": 102,
+      "tem_id": "07-05",
+      "name": "Heizkreistyp",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 102,
+        "source": "Master",
+        "selector": "a704",
+        "line": 9876,
+        "time": "2026-09-23 11:18:23.314",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "85430400030000000000"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 102,
+          "source": "Master",
+          "selector": "a704",
+          "line": 9876,
+          "time": "2026-09-23 11:18:23.314",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "85430400030000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 103,
+      "tem_id": "07-05",
+      "name": "Heizkreistyp",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 103,
+        "source": "Master",
+        "selector": "a7841000",
+        "line": 9882,
+        "time": "2026-09-23 11:18:29.777",
+        "value": 3,
+        "unit": "",
+        "value_hex": "0300",
+        "payload": "85430400030000000300"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 103,
+          "source": "Master",
+          "selector": "a7841000",
+          "line": 9882,
+          "time": "2026-09-23 11:18:29.777",
+          "value": 3,
+          "unit": "",
+          "value_hex": "0300",
+          "payload": "85430400030000000300"
+        }
+      ]
+    },
+    {
+      "ste_index": 104,
+      "tem_id": "07-06",
+      "name": "Min. Fehlerdauer fuer Vorlauf-Störmeldung",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "h",
+      "latest": {
+        "ste_index": 104,
+        "source": "Master",
+        "selector": "a705",
+        "line": 9249,
+        "time": "2026-09-23 11:10:39.756",
+        "value": 2.0,
+        "unit": "h",
+        "value_hex": "1400",
+        "payload": "86430d0ac80000001400"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 104,
+          "source": "Master",
+          "selector": "a705",
+          "line": 9249,
+          "time": "2026-09-23 11:10:39.756",
+          "value": 2.0,
+          "unit": "h",
+          "value_hex": "1400",
+          "payload": "86430d0ac80000001400"
+        }
+      ]
+    },
+    {
+      "ste_index": 105,
+      "tem_id": "07-06",
+      "name": "Min. Fehlerdauer fuer Vorlauf-Störmeldung",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "h",
+      "latest": {
+        "ste_index": 105,
+        "source": "Master",
+        "selector": "a7851000",
+        "line": 9859,
+        "time": "2026-09-23 11:17:45.197",
+        "value": 0.0,
+        "unit": "h",
+        "value_hex": "0000",
+        "payload": "86430d0ac80000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 105,
+          "source": "Master",
+          "selector": "a7851000",
+          "line": 9859,
+          "time": "2026-09-23 11:17:45.197",
+          "value": 0.0,
+          "unit": "h",
+          "value_hex": "0000",
+          "payload": "86430d0ac80000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 106,
+      "tem_id": "07-14",
+      "name": "Heizkreisfunktion im Kühlbetrieb",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 106,
+        "source": "Master",
+        "selector": "a706",
+        "line": 9248,
+        "time": "2026-09-23 11:10:39.319",
+        "value": 3,
+        "unit": "",
+        "value_hex": "0300",
+        "payload": "8e430400030000000300"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 106,
+          "source": "Master",
+          "selector": "a706",
+          "line": 9248,
+          "time": "2026-09-23 11:10:39.319",
+          "value": 3,
+          "unit": "",
+          "value_hex": "0300",
+          "payload": "8e430400030000000300"
+        }
+      ]
+    },
+    {
+      "ste_index": 107,
+      "tem_id": "07-14",
+      "name": "Heizkreisfunktion im Kühlbetrieb",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 107,
+        "source": "Master",
+        "selector": "a7861000",
+        "line": 9250,
+        "time": "2026-09-23 11:10:40.578",
+        "value": 3,
+        "unit": "",
+        "value_hex": "0300",
+        "payload": "8e430400030000000300"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 107,
+          "source": "Master",
+          "selector": "a7861000",
+          "line": 9250,
+          "time": "2026-09-23 11:10:40.578",
+          "value": 3,
+          "unit": "",
+          "value_hex": "0300",
+          "payload": "8e430400030000000300"
+        }
+      ]
+    },
+    {
+      "ste_index": 108,
+      "tem_id": "07-31",
+      "name": "Heizkreisüberhöhung Niedertarif",
+      "context": "Heizkreis 1 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 108,
+        "source": "Master",
+        "selector": "a707",
+        "line": 8728,
+        "time": "2026-09-23 11:01:05.970",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "9f434d042c0100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 108,
+          "source": "Master",
+          "selector": "a707",
+          "line": 8728,
+          "time": "2026-09-23 11:01:05.970",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "9f434d042c0100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 109,
+      "tem_id": "07-31",
+      "name": "Heizkreisüberhöhung Niedertarif",
+      "context": "Heizkreis 2 (abgeleitet)",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 109,
+        "source": "Master",
+        "selector": "a7871000",
+        "line": 9222,
+        "time": "2026-09-23 11:10:12.749",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "9f434d042c0100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 109,
+          "source": "Master",
+          "selector": "a7871000",
+          "line": 9222,
+          "time": "2026-09-23 11:10:12.749",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "9f434d042c0100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 115,
+      "tem_id": "04-27",
+      "name": "eBUS Adresse WEZ",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 11.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 115,
+        "source": "Master",
+        "selector": "a900",
+        "line": 7567,
+        "time": "2026-09-23 10:38:56.949",
+        "value": 11,
+        "unit": "",
+        "value_hex": "0b00",
+        "payload": "1b42090001f8c0010b00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 115,
+          "source": "Master",
+          "selector": "a900",
+          "line": 7567,
+          "time": "2026-09-23 10:38:56.949",
+          "value": 11,
+          "unit": "",
+          "value_hex": "0b00",
+          "payload": "1b42090001f8c0010b00"
+        }
+      ]
+    },
+    {
+      "ste_index": 116,
+      "tem_id": "09-00",
+      "name": "Nachlaufzeit Schutzfunktion",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 1.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 116,
+        "source": "Master",
+        "selector": "a901",
+        "line": 7569,
+        "time": "2026-09-23 10:38:57.527",
+        "value": 1.0,
+        "unit": "min",
+        "value_hex": "0a00",
+        "payload": "80444d0c900100000a00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 116,
+          "source": "Master",
+          "selector": "a901",
+          "line": 7569,
+          "time": "2026-09-23 10:38:57.527",
+          "value": 1.0,
+          "unit": "min",
+          "value_hex": "0a00",
+          "payload": "80444d0c900100000a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 117,
+      "tem_id": "09-04",
+      "name": "Vorlaufzeit Quellenpumpe",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 0.5,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 117,
+        "source": "Master",
+        "selector": "a902",
+        "line": 7620,
+        "time": "2026-09-23 10:39:42.058",
+        "value": 0.5,
+        "unit": "min",
+        "value_hex": "0500",
+        "payload": "84444d0cb80b00000500"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 117,
+          "source": "Master",
+          "selector": "a902",
+          "line": 7620,
+          "time": "2026-09-23 10:39:42.058",
+          "value": 0.5,
+          "unit": "min",
+          "value_hex": "0500",
+          "payload": "84444d0cb80b00000500"
+        }
+      ]
+    },
+    {
+      "ste_index": 118,
+      "tem_id": "09-07",
+      "name": "WEZ Typ",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 5.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 118,
+        "source": "Master",
+        "selector": "a903",
+        "line": 7641,
+        "time": "2026-09-23 10:40:27.284",
+        "value": 6,
+        "unit": "",
+        "value_hex": "0600",
+        "payload": "87440400060000000600"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 118,
+          "source": "Master",
+          "selector": "a903",
+          "line": 7641,
+          "time": "2026-09-23 10:40:27.284",
+          "value": 6,
+          "unit": "",
+          "value_hex": "0600",
+          "payload": "87440400060000000600"
+        }
+      ]
+    },
+    {
+      "ste_index": 119,
+      "tem_id": "09-11",
+      "name": "Bedingte WEZ Freigabe",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 119,
+        "source": "Master",
+        "selector": "a904",
+        "line": 7618,
+        "time": "2026-09-23 10:39:40.777",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "8b4404000d0000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 119,
+          "source": "Master",
+          "selector": "a904",
+          "line": 7618,
+          "time": "2026-09-23 10:39:40.777",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "8b4404000d0000000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 120,
+      "tem_id": "09-12",
+      "name": "Aussentemperatursperre TAW",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": -50.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 120,
+        "source": "Master",
+        "selector": "a905",
+        "line": 7642,
+        "time": "2026-09-23 10:40:27.730",
+        "value": -50.0,
+        "unit": "°C",
+        "value_hex": "0cfe",
+        "payload": "8c444d02f4010cfe0cfe"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 120,
+          "source": "Master",
+          "selector": "a905",
+          "line": 7642,
+          "time": "2026-09-23 10:40:27.730",
+          "value": -50.0,
+          "unit": "°C",
+          "value_hex": "0cfe",
+          "payload": "8c444d02f4010cfe0cfe"
+        }
+      ]
+    },
+    {
+      "ste_index": 121,
+      "tem_id": "09-13",
+      "name": "Energiezwang Funktion",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 121,
+        "source": "Master",
+        "selector": "a906",
+        "line": 7649,
+        "time": "2026-09-23 10:40:32.887",
+        "value": 2,
+        "unit": "",
+        "value_hex": "0200",
+        "payload": "8d440400030000000200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 121,
+          "source": "Master",
+          "selector": "a906",
+          "line": 7649,
+          "time": "2026-09-23 10:40:32.887",
+          "value": 2,
+          "unit": "",
+          "value_hex": "0200",
+          "payload": "8d440400030000000200"
+        }
+      ]
+    },
+    {
+      "ste_index": 122,
+      "tem_id": "09-14",
+      "name": "Diff. Leistungszwang Tkmax",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 122,
+        "source": "Master",
+        "selector": "a907",
+        "line": 7661,
+        "time": "2026-09-23 10:40:40.356",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "8e444d042c01d4fe0000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 122,
+          "source": "Master",
+          "selector": "a907",
+          "line": 7661,
+          "time": "2026-09-23 10:40:40.356",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "8e444d042c01d4fe0000"
+        }
+      ]
+    },
+    {
+      "ste_index": 123,
+      "tem_id": "09-21",
+      "name": "WE Abschaltdifferenz",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 5.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 123,
+        "source": "Master",
+        "selector": "a908",
+        "line": 7665,
+        "time": "2026-09-23 10:40:43.909",
+        "value": 3.0,
+        "unit": "K",
+        "value_hex": "1e00",
+        "payload": "95444d042c0114001e00"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 123,
+          "source": "Master",
+          "selector": "a908",
+          "line": 7665,
+          "time": "2026-09-23 10:40:43.909",
+          "value": 3.0,
+          "unit": "K",
+          "value_hex": "1e00",
+          "payload": "95444d042c0114001e00"
+        }
+      ]
+    },
+    {
+      "ste_index": 124,
+      "tem_id": "09-23",
+      "name": "Minimale Stillstandszeit",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 12.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 124,
+        "source": "Master",
+        "selector": "a909",
+        "line": 7710,
+        "time": "2026-09-23 10:42:02.403",
+        "value": 12.0,
+        "unit": "min",
+        "value_hex": "7800",
+        "payload": "97444d0ce80300007800"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 124,
+          "source": "Master",
+          "selector": "a909",
+          "line": 7710,
+          "time": "2026-09-23 10:42:02.403",
+          "value": 12.0,
+          "unit": "min",
+          "value_hex": "7800",
+          "payload": "97444d0ce80300007800"
+        }
+      ]
+    },
+    {
+      "ste_index": 125,
+      "tem_id": "09-26",
+      "name": "Vorhaltezeit 2. Stufe",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 10.0,
+      "baseline_unit": "s?",
+      "latest": {
+        "ste_index": 125,
+        "source": "Master",
+        "selector": "a90a",
+        "line": 7716,
+        "time": "2026-09-23 10:42:06.560",
+        "value": 10.0,
+        "unit": "s",
+        "value_hex": "6400",
+        "payload": "9a448d0ee80300006400"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 125,
+          "source": "Master",
+          "selector": "a90a",
+          "line": 7716,
+          "time": "2026-09-23 10:42:06.560",
+          "value": 10.0,
+          "unit": "s",
+          "value_hex": "6400",
+          "payload": "9a448d0ee80300006400"
+        }
+      ]
+    },
+    {
+      "ste_index": 126,
+      "tem_id": "09-31",
+      "name": "Minimale WE Laufzeit",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 9.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 126,
+        "source": "Master",
+        "selector": "a90b",
+        "line": 7687,
+        "time": "2026-09-23 10:41:08.763",
+        "value": 9.0,
+        "unit": "min",
+        "value_hex": "5a00",
+        "payload": "9f444d0c900100005a00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 126,
+          "source": "Master",
+          "selector": "a90b",
+          "line": 7687,
+          "time": "2026-09-23 10:41:08.763",
+          "value": 9.0,
+          "unit": "min",
+          "value_hex": "5a00",
+          "payload": "9f444d0c900100005a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 128,
+      "tem_id": "09-34",
+      "name": "Einschaltverzögerung 2. Stufe",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 9.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 128,
+        "source": "Master",
+        "selector": "a90c",
+        "line": 7744,
+        "time": "2026-09-23 10:42:41.435",
+        "value": 9.0,
+        "unit": "min",
+        "value_hex": "5a00",
+        "payload": "a2444d0c900100005a00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 128,
+          "source": "Master",
+          "selector": "a90c",
+          "line": 7744,
+          "time": "2026-09-23 10:42:41.435",
+          "value": 9.0,
+          "unit": "min",
+          "value_hex": "5a00",
+          "payload": "a2444d0c900100005a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 129,
+      "tem_id": "09-35",
+      "name": "Schaltdifferenz 2. Stufe",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": -3.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 129,
+        "source": "Master",
+        "selector": "a90d",
+        "line": 7751,
+        "time": "2026-09-23 10:42:57.044",
+        "value": -3.0,
+        "unit": "K",
+        "value_hex": "e2ff",
+        "payload": "a3444d04000038ffe2ff"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 129,
+          "source": "Master",
+          "selector": "a90d",
+          "line": 7751,
+          "time": "2026-09-23 10:42:57.044",
+          "value": -3.0,
+          "unit": "K",
+          "value_hex": "e2ff",
+          "payload": "a3444d04000038ffe2ff"
+        }
+      ]
+    },
+    {
+      "ste_index": 130,
+      "tem_id": "10-31",
+      "name": "WE Maximaltemperatur",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 70.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 130,
+        "source": "Master",
+        "selector": "a90e",
+        "line": 7745,
+        "time": "2026-09-23 10:42:41.841",
+        "value": 60.0,
+        "unit": "°C",
+        "value_hex": "5802",
+        "payload": "1f458d0220032c015802"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 130,
+          "source": "Master",
+          "selector": "a90e",
+          "line": 7745,
+          "time": "2026-09-23 10:42:41.841",
+          "value": 60.0,
+          "unit": "°C",
+          "value_hex": "5802",
+          "payload": "1f458d0220032c015802"
+        }
+      ]
+    },
+    {
+      "ste_index": 131,
+      "tem_id": "15-10",
+      "name": "Heissgas Maximaltemperatur",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 125.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 131,
+        "source": "Master",
+        "selector": "a90f",
+        "line": 7752,
+        "time": "2026-09-23 10:42:57.497",
+        "value": 130.0,
+        "unit": "°C",
+        "value_hex": "1405",
+        "payload": "8a478d02780500001405"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 131,
+          "source": "Master",
+          "selector": "a90f",
+          "line": 7752,
+          "time": "2026-09-23 10:42:57.497",
+          "value": 130.0,
+          "unit": "°C",
+          "value_hex": "1405",
+          "payload": "8a478d02780500001405"
+        }
+      ]
+    },
+    {
+      "ste_index": 132,
+      "tem_id": "15-11",
+      "name": "TWVmax Abschalthysterese",
+      "context": "Einstellebene 9, WE Einstellungen Wärmepumpe",
+      "baseline": 7.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 132,
+        "source": "Master",
+        "selector": "a910",
+        "line": 7766,
+        "time": "2026-09-23 10:43:32.206",
+        "value": 7.0,
+        "unit": "K",
+        "value_hex": "4600",
+        "payload": "8b474d042c0114004600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 132,
+          "source": "Master",
+          "selector": "a910",
+          "line": 7766,
+          "time": "2026-09-23 10:43:32.206",
+          "value": 7.0,
+          "unit": "K",
+          "value_hex": "4600",
+          "payload": "8b474d042c0114004600"
+        }
+      ]
+    },
+    {
+      "ste_index": 155,
+      "tem_id": "04-27",
+      "name": "eBUS Adresse WEZ",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 12.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 155,
+        "source": "Master",
+        "selector": "aa00",
+        "line": 7837,
+        "time": "2026-09-23 10:45:03.076",
+        "value": 12,
+        "unit": "",
+        "value_hex": "0c00",
+        "payload": "1b42090001f8c0010c00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 155,
+          "source": "Master",
+          "selector": "aa00",
+          "line": 7837,
+          "time": "2026-09-23 10:45:03.076",
+          "value": 12,
+          "unit": "",
+          "value_hex": "0c00",
+          "payload": "1b42090001f8c0010c00"
+        }
+      ]
+    },
+    {
+      "ste_index": 156,
+      "tem_id": "09-00",
+      "name": "Nachlaufzeit Schutzfunktion",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 1.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 156,
+        "source": "Master",
+        "selector": "aa01",
+        "line": 7804,
+        "time": "2026-09-23 10:44:26.732",
+        "value": 1.0,
+        "unit": "min",
+        "value_hex": "0a00",
+        "payload": "80444d0c900100000a00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 156,
+          "source": "Master",
+          "selector": "aa01",
+          "line": 7804,
+          "time": "2026-09-23 10:44:26.732",
+          "value": 1.0,
+          "unit": "min",
+          "value_hex": "0a00",
+          "payload": "80444d0c900100000a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 157,
+      "tem_id": "09-04",
+      "name": "Einschaltverzögerung",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.5,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 157,
+        "source": "Master",
+        "selector": "aa02",
+        "line": 7806,
+        "time": "2026-09-23 10:44:30.967",
+        "value": 0.5,
+        "unit": "min",
+        "value_hex": "0500",
+        "payload": "84444d0cb80b00000500"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 157,
+          "source": "Master",
+          "selector": "aa02",
+          "line": 7806,
+          "time": "2026-09-23 10:44:30.967",
+          "value": 0.5,
+          "unit": "min",
+          "value_hex": "0500",
+          "payload": "84444d0cb80b00000500"
+        }
+      ]
+    },
+    {
+      "ste_index": 158,
+      "tem_id": "09-07",
+      "name": "WEZ Typ",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 1.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 158,
+        "source": "Master",
+        "selector": "aa03",
+        "line": 7809,
+        "time": "2026-09-23 10:44:34.670",
+        "value": 1,
+        "unit": "",
+        "value_hex": "0100",
+        "payload": "87440400060000000100"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 158,
+          "source": "Master",
+          "selector": "aa03",
+          "line": 7809,
+          "time": "2026-09-23 10:44:34.670",
+          "value": 1,
+          "unit": "",
+          "value_hex": "0100",
+          "payload": "87440400060000000100"
+        }
+      ]
+    },
+    {
+      "ste_index": 159,
+      "tem_id": "09-11",
+      "name": "Bedingte WEZ Freigabe",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 10.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 159,
+        "source": "Master",
+        "selector": "aa04",
+        "line": 7811,
+        "time": "2026-09-23 10:44:38.412",
+        "value": 10,
+        "unit": "",
+        "value_hex": "0a00",
+        "payload": "8b4404000d0000000a00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 159,
+          "source": "Master",
+          "selector": "aa04",
+          "line": 7811,
+          "time": "2026-09-23 10:44:38.412",
+          "value": 10,
+          "unit": "",
+          "value_hex": "0a00",
+          "payload": "8b4404000d0000000a00"
+        }
+      ]
+    },
+    {
+      "ste_index": 160,
+      "tem_id": "09-12",
+      "name": "Aussentemperatursperre TAW",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": -5.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 160,
+        "source": "Master",
+        "selector": "aa05",
+        "line": 7813,
+        "time": "2026-09-23 10:44:41.846",
+        "value": -5.0,
+        "unit": "°C",
+        "value_hex": "ceff",
+        "payload": "8c444d02f4010cfeceff"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 160,
+          "source": "Master",
+          "selector": "aa05",
+          "line": 7813,
+          "time": "2026-09-23 10:44:41.846",
+          "value": -5.0,
+          "unit": "°C",
+          "value_hex": "ceff",
+          "payload": "8c444d02f4010cfeceff"
+        }
+      ]
+    },
+    {
+      "ste_index": 161,
+      "tem_id": "09-13",
+      "name": "Energiezwang Funktion",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 161,
+        "source": "Master",
+        "selector": "aa06",
+        "line": 7816,
+        "time": "2026-09-23 10:44:44.998",
+        "value": 2,
+        "unit": "",
+        "value_hex": "0200",
+        "payload": "8d440400030000000200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 161,
+          "source": "Master",
+          "selector": "aa06",
+          "line": 7816,
+          "time": "2026-09-23 10:44:44.998",
+          "value": 2,
+          "unit": "",
+          "value_hex": "0200",
+          "payload": "8d440400030000000200"
+        }
+      ]
+    },
+    {
+      "ste_index": 162,
+      "tem_id": "09-14",
+      "name": "Diff. Leistungszwang Tkmax",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 162,
+        "source": "Master",
+        "selector": "aa07",
+        "line": 7818,
+        "time": "2026-09-23 10:44:51.529",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "8e444d042c01d4fe0000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 162,
+          "source": "Master",
+          "selector": "aa07",
+          "line": 7818,
+          "time": "2026-09-23 10:44:51.529",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "8e444d042c01d4fe0000"
+        }
+      ]
+    },
+    {
+      "ste_index": 163,
+      "tem_id": "09-21",
+      "name": "WE Abschaltdifferenz",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 3.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 163,
+        "source": "Master",
+        "selector": "aa08",
+        "line": 7819,
+        "time": "2026-09-23 10:44:52.405",
+        "value": 3.0,
+        "unit": "K",
+        "value_hex": "1e00",
+        "payload": "95444d042c0114001e00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 163,
+          "source": "Master",
+          "selector": "aa08",
+          "line": 7819,
+          "time": "2026-09-23 10:44:52.405",
+          "value": 3.0,
+          "unit": "K",
+          "value_hex": "1e00",
+          "payload": "95444d042c0114001e00"
+        }
+      ]
+    },
+    {
+      "ste_index": 164,
+      "tem_id": "09-23",
+      "name": "Minimale Stillstandszeit",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 60.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 164,
+        "source": "Master",
+        "selector": "aa09",
+        "line": 7821,
+        "time": "2026-09-23 10:44:53.123",
+        "value": 60.0,
+        "unit": "min",
+        "value_hex": "5802",
+        "payload": "97444d0ce80300005802"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 164,
+          "source": "Master",
+          "selector": "aa09",
+          "line": 7821,
+          "time": "2026-09-23 10:44:53.123",
+          "value": 60.0,
+          "unit": "min",
+          "value_hex": "5802",
+          "payload": "97444d0ce80300005802"
+        }
+      ]
+    },
+    {
+      "ste_index": 165,
+      "tem_id": "09-26",
+      "name": "Vorhaltezeit 2. Stufe",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.0,
+      "baseline_unit": "s?",
+      "latest": {
+        "ste_index": 165,
+        "source": "Master",
+        "selector": "aa0a",
+        "line": 7824,
+        "time": "2026-09-23 10:44:54.019",
+        "value": 0.0,
+        "unit": "s",
+        "value_hex": "0000",
+        "payload": "9a448d0ee80300000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 165,
+          "source": "Master",
+          "selector": "aa0a",
+          "line": 7824,
+          "time": "2026-09-23 10:44:54.019",
+          "value": 0.0,
+          "unit": "s",
+          "value_hex": "0000",
+          "payload": "9a448d0ee80300000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 166,
+      "tem_id": "09-31",
+      "name": "Minimale WE Laufzeit",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 166,
+        "source": "Master",
+        "selector": "aa0b",
+        "line": 7833,
+        "time": "2026-09-23 10:45:00.983",
+        "value": 0.0,
+        "unit": "min",
+        "value_hex": "0000",
+        "payload": "9f444d0c900100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 166,
+          "source": "Master",
+          "selector": "aa0b",
+          "line": 7833,
+          "time": "2026-09-23 10:45:00.983",
+          "value": 0.0,
+          "unit": "min",
+          "value_hex": "0000",
+          "payload": "9f444d0c900100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 167,
+      "tem_id": "09-34",
+      "name": "Einschaltverzögerung 2. Stufe",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.0,
+      "baseline_unit": "min",
+      "latest": {
+        "ste_index": 167,
+        "source": "Master",
+        "selector": "aa0c",
+        "line": 7834,
+        "time": "2026-09-23 10:45:01.530",
+        "value": 0.0,
+        "unit": "min",
+        "value_hex": "0000",
+        "payload": "a2444d0c900100000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 167,
+          "source": "Master",
+          "selector": "aa0c",
+          "line": 7834,
+          "time": "2026-09-23 10:45:01.530",
+          "value": 0.0,
+          "unit": "min",
+          "value_hex": "0000",
+          "payload": "a2444d0c900100000000"
+        }
+      ]
+    },
+    {
+      "ste_index": 168,
+      "tem_id": "09-35",
+      "name": "Schaltdifferenz 2. Stufe",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 0.0,
+      "baseline_unit": "K",
+      "latest": {
+        "ste_index": 168,
+        "source": "Master",
+        "selector": "aa0d",
+        "line": 7835,
+        "time": "2026-09-23 10:45:02.076",
+        "value": 0.0,
+        "unit": "K",
+        "value_hex": "0000",
+        "payload": "a3444d04000038ff0000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 168,
+          "source": "Master",
+          "selector": "aa0d",
+          "line": 7835,
+          "time": "2026-09-23 10:45:02.076",
+          "value": 0.0,
+          "unit": "K",
+          "value_hex": "0000",
+          "payload": "a3444d04000038ff0000"
+        }
+      ]
+    },
+    {
+      "ste_index": 169,
+      "tem_id": "10-31",
+      "name": "WE Maximaltemperatur",
+      "context": "Einstellebene 10, WE Einstellungen Elektro Zusatzheizung",
+      "baseline": 70.0,
+      "baseline_unit": "°C",
+      "latest": {
+        "ste_index": 169,
+        "source": "Master",
+        "selector": "aa0e",
+        "line": 7836,
+        "time": "2026-09-23 10:45:02.576",
+        "value": 68.0,
+        "unit": "°C",
+        "value_hex": "a802",
+        "payload": "1f458d0220032c01a802"
+      },
+      "status": "abweichend",
+      "evidence": [
+        {
+          "ste_index": 169,
+          "source": "Master",
+          "selector": "aa0e",
+          "line": 7836,
+          "time": "2026-09-23 10:45:02.576",
+          "value": 68.0,
+          "unit": "°C",
+          "value_hex": "a802",
+          "payload": "1f458d0220032c01a802"
+        }
+      ]
+    },
+    {
+      "ste_index": 170,
+      "tem_id": "04-22",
+      "name": "WE 1 Zieladresse",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 11.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 170,
+        "source": "Master",
+        "selector": "ab02",
+        "line": 7880,
+        "time": "2026-09-23 10:45:49.869",
+        "value": 11,
+        "unit": "",
+        "value_hex": "0b00",
+        "payload": "1642090001f8c0010b00"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 170,
+          "source": "Master",
+          "selector": "ab02",
+          "line": 7880,
+          "time": "2026-09-23 10:45:49.869",
+          "value": 11,
+          "unit": "",
+          "value_hex": "0b00",
+          "payload": "1642090001f8c0010b00"
+        }
+      ]
+    },
+    {
+      "ste_index": 171,
+      "tem_id": "11-01",
+      "name": "WE Steuerbefehl",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 2.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 171,
+        "source": "Master",
+        "selector": "ab03",
+        "line": 7881,
+        "time": "2026-09-23 10:45:52.135",
+        "value": 2,
+        "unit": "",
+        "value_hex": "0200",
+        "payload": "81450000040001000200"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 171,
+          "source": "Master",
+          "selector": "ab03",
+          "line": 7881,
+          "time": "2026-09-23 10:45:52.135",
+          "value": 2,
+          "unit": "",
+          "value_hex": "0200",
+          "payload": "81450000040001000200"
+        }
+      ]
+    },
+    {
+      "ste_index": 172,
+      "tem_id": "11-02",
+      "name": "WE Nennleistung",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 100.0,
+      "baseline_unit": "kW",
+      "latest": {
+        "ste_index": 172,
+        "source": "Master",
+        "selector": "ab04",
+        "line": 7886,
+        "time": "2026-09-23 10:46:01.588",
+        "value": 100.0,
+        "unit": "kW",
+        "value_hex": "e803",
+        "payload": "82458d1006270000e803"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 172,
+          "source": "Master",
+          "selector": "ab04",
+          "line": 7886,
+          "time": "2026-09-23 10:46:01.588",
+          "value": 100.0,
+          "unit": "kW",
+          "value_hex": "e803",
+          "payload": "82458d1006270000e803"
+        }
+      ]
+    },
+    {
+      "ste_index": 173,
+      "tem_id": "11-03",
+      "name": "minimale WE-Leistung",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 70.0,
+      "baseline_unit": "%",
+      "latest": {
+        "ste_index": 173,
+        "source": "Master",
+        "selector": "ab05",
+        "line": 7907,
+        "time": "2026-09-23 10:46:41.463",
+        "value": 70,
+        "unit": "%",
+        "value_hex": "4600",
+        "payload": "83450008640000004600"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 173,
+          "source": "Master",
+          "selector": "ab05",
+          "line": 7907,
+          "time": "2026-09-23 10:46:41.463",
+          "value": 70,
+          "unit": "%",
+          "value_hex": "4600",
+          "payload": "83450008640000004600"
+        }
+      ]
+    },
+    {
+      "ste_index": 174,
+      "tem_id": "11-04",
+      "name": "Einschaltleistung Folge WE",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 80.0,
+      "baseline_unit": "%",
+      "latest": {
+        "ste_index": 174,
+        "source": "Master",
+        "selector": "ab06",
+        "line": 7892,
+        "time": "2026-09-23 10:46:14.088",
+        "value": 80,
+        "unit": "%",
+        "value_hex": "5000",
+        "payload": "84450008640000005000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 174,
+          "source": "Master",
+          "selector": "ab06",
+          "line": 7892,
+          "time": "2026-09-23 10:46:14.088",
+          "value": 80,
+          "unit": "%",
+          "value_hex": "5000",
+          "payload": "84450008640000005000"
+        }
+      ]
+    },
+    {
+      "ste_index": 175,
+      "tem_id": "11-05",
+      "name": "WE Folgewechsel",
+      "context": "Einstellebene 11, WE 1 Kaskadenfunktionen",
+      "baseline": 0.0,
+      "baseline_unit": "",
+      "latest": {
+        "ste_index": 175,
+        "source": "Master",
+        "selector": "ab07",
+        "line": 7908,
+        "time": "2026-09-23 10:46:41.901",
+        "value": 0,
+        "unit": "",
+        "value_hex": "0000",
+        "payload": "85450200010000000000"
+      },
+      "status": "gleich",
+      "evidence": [
+        {
+          "ste_index": 175,
+          "source": "Master",
+          "selector": "ab07",
+          "line": 7908,
+          "time": "2026-09-23 10:46:41.901",
+          "value": 0,
+          "unit": "",
+          "value_hex": "0000",
+          "payload": "85450200010000000000"
+        }
+      ]
+    }
+  ],
+  "unobserved_ste_indices": [
+    3,
+    4,
+    7,
+    8,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    45,
+    48,
+    50,
+    55,
+    56,
+    57,
+    58,
+    67,
+    68,
+    69,
+    70,
+    71,
+    110,
+    111,
+    112,
+    113,
+    114,
+    127,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217
+  ]
+}
