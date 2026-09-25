@@ -22,9 +22,11 @@ die TEM-Reglerfunktionen HK1/HK2 und die Bediengeräte FB1/FB2 sind zu untersche
 - **Vom Betreiber beobachtet:** Nach Ende der Warmwasserbereitung und Übernahme
   der Raumheizung durch die Abluft-Wärmepumpe wechselte **01-21 HK2 von 0 % auf
   −100 %**.
+- **Vom Betreiber am Gerät abgelesen:** KT15 ist ein ABB CT-MFE mit
+  Ausschaltverzögerung von **1000 s (16 min 40 s)** für den Steuereingang Y1.
+  Die Versorgung an A1/A2 muss während des Zeitablaufs bestehen bleiben.
 - **Offen:** Die genaue Firmware-Zuordnung aller HK-/FB-Statusfelder zu den
-  Ausgängen, das Zeitverhalten von KT15 und die Ursache des früheren
-  Warmwasserabbruchs.
+  Ausgängen und die Ursache des früheren Warmwasserabbruchs.
 
 „Aus dem Schaltplan abgelesen“ bezeichnet die dokumentierte Verdrahtung, nicht
 eine durch Messung bestätigte Übereinstimmung mit der heute eingebauten Anlage.
@@ -39,6 +41,7 @@ eine durch Messung bestätigte Übereinstimmung mit der heute eingebauten Anlage
 | [Legende 1](input/schaltplan_legende1.jpg) | Motoren, Schütze und Hilfsrelais |
 | [Legende 2](input/schaltplan_legende2.jpg) | Heizstab, Ventile und Schalter |
 | [Controllerfoto](input/tem_se_6000_wpc.png) | Anschlussbeschriftungen |
+| [KT15-Foto](../input/kt15.jpg) und Betreiberangabe zur Einstellung | ABB CT-MFE; Y1; Ausschaltverzögerung 1000 s |
 | [STE-Parameterkatalog](ste-output/Parameter.md) | Parametertexte und gespeicherte Dateifelder |
 | [Sitzungsvergleich](Session-Comparison.md) | Historische Mitschnittwerte, insbesondere 07-05 = 0/3 |
 | Betreiberangaben im Gespräch vom 25.09.2026 | Aktuelle Einstellung 2/0, Warmwasserproblem mit 0/3 und Änderung von 01-21 HK2 |
@@ -86,7 +89,7 @@ Elektroheizstab bezeichnet; Y2 als Magnetventil Heizen/Kühlen.
 | 10 | Beschriftung im Foto teilweise verdeckt | K2, laut Legende Heizstabschütz |
 | 11 | Separate Warmwasser-Wärmepumpe | Unter anderem K11; zusätzlich Verknüpfung über einen K4-Kontakt |
 | 13 | WW ein / Ladepumpe / Umlenkventil | Speicherladepumpe M5 |
-| 15 | Heizkreis 2 + / Mischer | Steuereingang B1 von KT15 |
+| 15 | Heizkreis 2 + / Mischer | Steuereingang Y1 von KT15 |
 | 16 | Heizkreis 2 − / Mischer | Im gezeigten Plan nicht angeschlossen |
 | 26 | WE2, geschalteter Anschluss | Versorgung A1 von KT15 |
 
@@ -106,20 +109,47 @@ Pumpenlauf oder Volumenstrom. M5 wird separat über Ausgang 13 angesteuert.
 Die abgelesene Signalkette lautet:
 
 ```text
-TEM 15 (Heizkreis 2 +) ──> KT15, Steuereingang B1
+TEM 15 (Heizkreis 2 +) ──> KT15, Steuereingang Y1
 TEM 26 (WE2)           ──> KT15, Versorgung A1
 KT15, Kontakt 15–18    ──> K3, Spule
 ```
 
 Die Kontaktnummern 15–18 am Relais sind nicht mit den TEM-Klemmen zu verwechseln.
-KT15 benötigt die entsprechende Versorgung und Ansteuerung; Ausgang 15 allein
-beweist keinen laufenden Verdichter. Zeitfunktion und Verzögerungen des
-Relais sind bisher unbekannt.
+KT15 ist laut Foto ein **ABB CT-MFE**. Der Betreiber hat am Gerät eine
+**Ausschaltverzögerung von 1000 s (16 min 40 s)** abgelesen. Der Steuereingang
+heißt **Y1**; die frühere Bezeichnung B1 war falsch.
+
+Bei vorhandener Versorgung an A1/A2 gilt laut ABB-Funktionsbeschreibung:
+
+| Ereignis | Reaktion von KT15 |
+|---|---|
+| Steuersignal an Y1 wird aktiv | Relais zieht sofort an; Kontakt 15–18 schließt |
+| Steuersignal an Y1 fällt weg | Die Ausschaltverzögerung von 1000 s beginnt; Kontakt bleibt geschlossen |
+| Y1 wird vor Ablauf erneut aktiv | Zeitablauf wird zurückgesetzt; Kontakt bleibt geschlossen. Erst der nächste Signalwegfall startet die vollen 1000 s erneut |
+| 1000 s ohne erneutes Steuersignal sind abgelaufen | Relais fällt ab; Kontakt 15–18 öffnet |
+| Versorgung an A1/A2 fällt weg | Relais fällt ohne die eingestellte Verzögerung ab; Zeitablauf wird zurückgesetzt |
+
+Damit können Auf-Impulse des HK2-Ausgangs über KT15 eine anhaltende
+Schützansteuerung erzeugen, sofern die Impulspausen kürzer als 1000 s sind
+und TEM 26 die Versorgung aufrechterhält. Dies erklärt eine mögliche Nutzung
+der Mischerregelung ohne Mischermotor; die tatsächliche Impulsfolge wurde
+noch nicht aufgezeichnet.
+
+Die 1000 s sind **keine garantierte Mindestlaufzeit des Verdichters**: Die
+Verzögerung beginnt mit dem Wegfall von Y1, und die Versorgung über TEM 26
+kann sie jederzeit beenden. Auch andere Freigaben und Schutzkontakte sind
+für den tatsächlichen Verdichterlauf maßgeblich. Ausgang 15 allein beweist
+keinen laufenden Verdichter.
+
+Quelle: [ABB CT-MFE, Datenblatt, S. 2, Rückfallverzögerung](https://library.e.abb.com/public/10c49196c23c80a0c12575f400340e36/2CDC111032D0201.pdf).
+Die Funktion stammt aus dem Datenblatt, der konkrete Einstellwert aus der
+Ablesung des Betreibers.
 
 Die Legende nennt **K15** ein Multifunktionsrelais „bei Ansteuerung über
 Mischerkontakt“, während der Plan **KT15** schreibt. Die funktionale
 Übereinstimmung stützt die Interpretation; die unterschiedliche Benennung
-und das konkrete Relaismodell bleiben zu klären.
+bleibt als Dokumentationsabweichung bestehen; das Relaismodell ist durch das
+Foto geklärt.
 
 **Korrektur früherer Deutungen:** K3 ist laut Legende das Kompressorschütz WP2,
 K2 das Heizstabschütz. Der K3-Kontakt 21–22 im E1-Zweig ist ein zusätzlicher
@@ -225,7 +255,10 @@ Es handelt sich um einen Stellbefehl, nicht um eine gemessene Ventilposition.
 **Plausible Erklärung:** Mit der wieder verfügbaren Abluftwärme fordert HK2
 eine Verringerung der zusätzlichen Wärmezufuhr. Das passt zur Verwendung des
 Auf-Ausgangs für KT15/K3. −100 % schaltet jedoch nicht unmittelbar über den
-unbeschalteten Ausgang 16 einen Verdichter aus. Der zeitliche Zusammenhang
+unbeschalteten Ausgang 16 einen Verdichter aus. Bleiben weitere Auf-Impulse
+aus, öffnet KT15 nach 1000 s ab dem letzten Wegfall des Y1-Signals, sofern
+die Versorgung bestehen bleibt. Fällt die Versorgung vorher weg, öffnet es
+bereits dann. Der zeitliche Zusammenhang
 zwischen Auf-Befehl, Versorgung von KT15, dessen Kontakt und dem tatsächlichen
 Verdichterlauf ist noch nicht aufgezeichnet.
 
@@ -262,8 +295,9 @@ Symbolreihenfolge wird keine Bitnummer abgeleitet.
    Dazu Vorlauf-Soll/Ist und Wärmeerzeugerstatus erfassen.
 3. Aktuelle Werte von 05-02, 05-03, 05-05 und 05-07 zusammen mit 07-05 sichern;
    historische STE-/Mitschnittwerte nicht als aktuelle Werte behandeln.
-4. Modell und Zeitfunktion von KT15 identifizieren und die tatsächliche
-   Verdrahtung mit dem Plan abgleichen. Arbeiten an Netzspannungsklemmen sind
+4. Die tatsächliche Verdrahtung von KT15 mit dem Plan abgleichen und den
+   Ablauf von Y1, Versorgung und Relaiskontakt zeitlich erfassen; Modell und
+   eingestellte Zeitfunktion sind identifiziert. Arbeiten an Netzspannungsklemmen sind
    davon getrennte Facharbeiten; zur Protokollbeobachtung sind keine Eingriffe nötig.
 
 Ein erneuter Versuch mit der problematischen Einstellung 0/3 ist für diese
