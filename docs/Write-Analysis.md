@@ -1,5 +1,26 @@
 # Schreibbefehle in complete.log
 
+## Generierte Schreibdefinitionen ab 03-00
+
+Der Generator `scripts/analyze_master_log.py` erzeugt `_set`-Modelle für alle
+205 numerisch dekodierbaren Parameter-/Kontextpaare ab 03-00, einschließlich
+der nur im Scan belegten Zugriffe. Zusammen mit den 56 bisherigen Schreibmodellen
+unterhalb 03-00 ergeben sich 261 Definitionen. Ziel ist `10`, Dienst `06 23`;
+der vollständige Leseselektor und die jeweilige Wertkodierung bleiben erhalten.
+Die Definition allein belegt noch keine Annahme durch den Regler.
+
+Für 03-07 wird `SIN / 10` ohne Einheit verwendet: Die Antwort nennt die Grenze
+100, der STE-Katalog die Grenze 10. Diese Skalierung ist abgeleitet.
+Acht Kurzantwort-Zugriffe bleiben ohne Schreibdefinition: 03-61, 03-62 und
+03-63 jeweils in HK1/HK2 sowie 05-61 und 05-64. Die sechs Antwortbytes enthalten
+keinen normalen Zwei-Byte-Wert; ihr Schreibformat ist bisher unbekannt.
+Die vollständige Ausnahmeliste steht in
+[master-output/Parameter.md](master-output/Parameter.md#schreibdefinitionen-ab-03-00).
+
+Die Erweiterung wurde durch TypeSpec-Kompilierung, Prüfung der erzeugten
+CSV-Zieladressen/Selektoren/Werttypen und Offline-Wiedergabe der Leseantworten
+geprüft. Es wurden dafür keine Werte am Regler geschrieben.
+
 ## Ergebnis
 
 In `complete.log` sind **131 Übertragungen mit Dienst `06 23` von Quelle `01`

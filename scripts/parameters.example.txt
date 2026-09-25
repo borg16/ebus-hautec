@@ -1,0 +1,8 @@
+# Parametersammlung: TEM-Code und optional Kontext
+# Ohne Kontext werden alle bekannten Kontexte gelesen.
+# Reihenfolge bleibt erhalten; doppelte Zugriffe werden nur einmal gelesen.
+
+00-01 HK1  # Raumtemperatur Heizkreis 1
+00-01 HK2  # Raumtemperatur Heizkreis 2
+03-00      # Alle bekannten Kontexte dieses Parameters
+07-05 HK1  # Heizkreistyp

@@ -1,3 +1,166 @@
+# Eigene Parametersammlung lesen
+
+```sh
+python3 scripts/read_menu_block.py --parameters-file scripts/parameters.example.txt
+python3 scripts/read_menu_block.py --parameters-file meine-parameter.txt --server 192.168.87.46 --raw
+```
+
+Die Sammlung ist eine UTF-8-Textdatei mit einem TEM-Code pro Zeile und einem
+optionalen Kontext, getrennt durch Leerzeichen oder Tabulatoren:
+
+```text
+# Meine Parameter
+00-01 HK1  # Raumtemperatur Heizkreis 1
+00-01 HK2
+03-00      # Alle bekannten Kontexte
+07-05 HK1
+```
+
+Leerzeilen und Kommentare ab `#` werden ignoriert. TEM-Codes sind dezimal;
+`3-0` und `03-00` sind gleichwertig. Kontexte entsprechen der Kontextspalte
+der Live-Ausgabe, etwa `HK1`, `HK2`, `WP`,
+`EH`, `WE1` bis `WE8` oder `Global`; Groß-/Kleinschreibung ist beliebig.
+Ohne Kontext werden alle für diesen TEM-Code bekannten, durch die
+Kontextoptionen zugelassenen Zugriffe gelesen. Die Dateireihenfolge bleibt
+erhalten, mehrere Kontexte eines Eintrags werden nach Kontext sortiert.
+Doppelte TEM-/Kontext-Paare werden nur bei ihrem ersten Auftreten gelesen.
+
+Die Datei wird vollständig geprüft, bevor die Expert-Freischaltung oder ein
+Lesezugriff erfolgt. Ungültige Codes, unbekannte Parameter/Kontexte und durch
+`--base-only` ausgeschlossene explizite Kontexte führen mit Dateiname und
+Zeilennummer zum Abbruch. Eine leere Sammlung wird ebenfalls abgelehnt.
+Es werden nur die ausgewählten Zugriffe aus `master-output/requests.json`
+verwendet, auch über die Grenze `03-00` hinweg. Ausgabe und Fehlerbehandlung
+entsprechen dem Parametermodus ohne die Spalte `Art`.
+
+`--parameters-file` ist nicht mit Block, `--menu`, `--before-03-00` oder
+`--from-03-00` kombinierbar. Verbindungsoptionen, `--raw`, `--base-only` und
+`--context` gelten weiterhin. Relative Dateipfade beziehen sich auf das
+aktuelle Arbeitsverzeichnis. Eine anpassbare Vorlage liegt in
+[parameters.example.txt](parameters.example.txt).
+
+# Parameter nach Code mit aktuellen Werten lesen
+
+```sh
+# Alle bekannten Werte der Gruppen 00, 01 und 02 mit Soll-/Ist-Zuordnung
+python3 scripts/read_menu_block.py --before-03-00 --server 192.168.87.46
+
+# Alle bekannten Parameter ab 03-00
+python3 scripts/read_menu_block.py --from-03-00 --server 192.168.87.46
+```
+
+Ohne Block oder `--menu` wählen diese Optionen zwei eigenständige Betriebsarten.
+Die Ausgabe ist numerisch nach TEM-Code und danach nach Kontext sortiert.
+Pro TEM-Code und Kontext wird genau ein bevorzugter Selektor aus
+`master-output/requests.json` direkt mit `06 21` gelesen; Verzeichnisblöcke
+werden dabei nicht abgefragt. HK1/HK2, WP/EH und WE1–WE8 bleiben getrennt.
+Aktuell sind dies 115 Zugriffe für 00–02 und 213 Zugriffe ab 03-00.
+`--base-only` lässt die Zusatzkontexte aus; standardmäßig ist `1000` enthalten.
+Andere Zusatzkontexte sind im Parameterkatalog nicht belegt und können
+weiterhin gezielt mit `--menu` untersucht werden.
+
+Der erste Modus zeigt die Spalten `TEM`, `Kontext`, `Art`, `Beschreibung` und
+`Aktueller Wert`. `Art` ist `Soll` oder `Ist` gemäß der jeweiligen Spalte in
+[input/soll_und_istwerte.md](../input/soll_und_istwerte.md), nicht allein anhand
+der TEM-Gruppe. Beispielsweise ist `02-20` dort als Soll eingetragen.
+Tabellenzeilen für WE1–WE8 und ausdrücklich nummerierte Raum-/Vorlauftemperaturen
+werden dem jeweiligen Kontext zugeordnet. Andere mehrdeutige Bezeichnungen
+bleiben als Alternativen erhalten; etwa beweisen WP-/EH-Namen in der Tabelle
+keine neue Zuordnung der HK-Selektoren. Ohne passende Tabellenzuordnung steht
+`—` in der Spalte `Art`; der Parameter wird trotzdem gelesen und angezeigt.
+Der zweite Modus zeigt dieselben Spalten ohne `Art`.
+
+Die Katalogdatei liefert nur Adressen und Kontextzuordnungen, keine aktuellen
+Werte: Jeder angezeigte Wert stammt aus einer neuen Busantwort. Nicht verfügbare
+Parameter (`ff1f`) und Lesefehler bleiben als Zeilen sichtbar. Bei einer
+abweichenden TEM-Kennung wird ein Fehler ausgegeben und nicht unter der
+ursprünglichen Kennung dekodiert. Fehler einzelner Werte unterbrechen die
+übrigen Abfragen nicht und führen zu Exitcode 1.
+
+Vor dem ersten Zugriff und nach jeweils mindestens 60 Sekunden wird die
+Expert-Freischaltung erneuert, entsprechend dem beobachteten Minutenrhythmus.
+Schlägt sie fehl, endet der Lauf. Es werden keine Parameterwerte geschrieben.
+Die Sitzung wird am Ende nicht deaktiviert. Für die Parametermodi einschließlich der Parametersammlung wird
+`commands.txt` gegen den gespeicherten Katalog-Hash geprüft. Nach Änderungen
+am Scan zunächst `python3 scripts/analyze_master_log.py` ausführen.
+Unbekannte oder bislang nicht belegte Selektoren werden nicht ergänzt;
+insbesondere bleiben die dokumentierten Lücken des STE-Katalogs bestehen.
+
+# Menüblock mit Beschreibungen und aktuellen Werten lesen
+
+```sh
+# Verzeichnisblock 14 (hex): alle angebotenen Parameter der Menüs a0..a7
+python3 scripts/read_menu_block.py 14
+
+# Nur das Menü a7, auf einem entfernten ebusd
+python3 scripts/read_menu_block.py --menu a7 --server 192.168.87.46
+
+# Nur Grundkontext; vollständige Rohantwort zusätzlich ausgeben
+python3 scripts/read_menu_block.py --menu a7 --base-only --raw
+```
+
+Zwei optionale Darstellungsmodi filtern nach der numerischen TEM-Kennung:
+
+```sh
+# Alle Werte ab TEM 03-00 einschließlich im ausgewählten Block
+python3 scripts/read_menu_block.py 00 --from-03-00
+
+# Alle Werte vor TEM 03-00 im ausgewählten Block
+python3 scripts/read_menu_block.py 00 --before-03-00
+```
+
+Die Optionen schließen einander aus und funktionieren auch mit `--menu`.
+Ohne diese Optionen werden alle gelesenen Werte angezeigt. Die Filter beziehen
+sich auf TEM-Kennungen aus den Antworten, nicht auf Menüadressen. Alle Plätze
+der ausgewählten Menüs werden weiterhin gelesen; auch die zusätzliche
+Rohdatenausgabe mit `--raw` wird gefiltert. Bei aktivem Filter zeigt die
+Abschlussmeldung zusätzlich die Anzahl angezeigter und ausgefilterter Werte.
+
+Benötigt Python 3, `ebusctl` im PATH und `--enablehex` am ebusd-Daemon.
+Das Skript kann aus jedem Arbeitsverzeichnis aufgerufen werden; die
+Beschreibungsdateien werden relativ zum Projektverzeichnis gefunden.
+Verzeichnisblock und Menüadresse sind unterschiedliche Angaben und werden
+immer hexadezimal interpretiert (auch `10` bedeutet hexadezimal 10).
+Ein Block enthält acht Menüs; alternativ wählt `--menu` genau eines aus.
+
+Das Skript liest die Platzanzahl live mit `06 20` und anschließend jeden
+angebotenen Platz mit `06 21`. Wie beim Discovery-Scanner wird nach der
+Verzeichnisantwort einmal der Expert-Zugang über `10 06 23 04 00 00 51 00`
+freigeschaltet. Schlägt die Freischaltung fehl, werden keine Parameter gelesen.
+Es werden keine Parameterwerte geschrieben. Die Sitzung wird nicht periodisch
+verlängert oder anschließend deaktiviert; bei langen Abfragen kann sie ablaufen.
+
+Die Ausgabe enthält Menü, interpretierten Kontext, TEM-Kennung, Beschreibung
+und aktuellen Wert mit Einheit. Die Kontextspalte zeigt `HK1`/`HK2` für die
+bekannten Heizkreismenüs, `WP`/`EH` für Wärmepumpe/Zusatzheizung und `WE1` bis
+`WE8` für die Wärmeerzeugerinstanzen, auch bei den unteren Menüaliasen.
+Ungepaarte allgemeine Menüs erscheinen als `Global`, nicht zugeordnete Menüs
+mit ihrer Menüadresse und unbekannte Zusatzkontexte als `Unbekannt (XXXX)`.
+Die HK-Zuordnung bleibt abgeleitet; `Global` bezeichnet hier die allgemeine
+Menügruppe, keine bewiesene gemeinsame Speicherinstanz.
+Beschreibungen stammen vorrangig
+aus den Eingabetabellen unter `input/`, ersatzweise aus
+`ste-output/parameter.json`; fehlende Namen bleiben ausdrücklich unbekannt.
+Werte werden ausschließlich aus den neuen Busantworten übernommen. Die
+Dekodierung folgt den bestehenden Regeln für `controller.tsp`, einschließlich
+03-10 mit Skalierung 1/100, vorzeichenbehafteten Byte-Werten und Wochenminuten.
+Auswahlwerte erscheinen numerisch, Schalter als Aus/Ein. Sonderantworten und
+unbekannte Formate bleiben als Rohdaten sichtbar; ergänzende `06 22`-Inhalte
+werden nicht abgefragt.
+
+Bei gesetztem Zusatzflag wird auch der beobachtete Kontext `1000` gelesen.
+`--base-only` unterdrückt ihn; wiederholbares `--context XXXX` ersetzt die
+Standardauswahl. Gleiche TEM-Kennungen an verschiedenen Selektoren bleiben
+getrennte Zeilen. Nicht verfügbare Plätze (`ff1f`) werden gezählt und ausgelassen.
+Fehler einzelner Plätze verhindern die übrigen Abfragen nicht.
+
+Weitere Optionen: `--port 8888`, `--timeout 5`, `--delay 0.1`,
+`--destination 15` und `--expert-destination 10`. Ergebnisse erscheinen sofort
+auf stdout, Fehler und Abschlusszähler auf stderr. Exitcode: 0 bei erfolgreicher
+Abfrage, 1 bei Fehlern/Teilergebnissen, 2 bei ungültigem Aufruf, 130 bei Abbruch.
+
+Offline-Test: `python3 -m unittest discover -s scripts -p test_read_menu_block.py`.
+
 # Menu-based parameter discovery
 
 Use `discover_parameters.py` to read the menu directory (`06 20`) and query

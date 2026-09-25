@@ -61,9 +61,9 @@ class CaptureTests(unittest.TestCase):
     def test_generated_source_matches_capture(self):
         source = (ROOT / "controller.tsp").read_text()
         self.assertEqual(source, render_tsp(self.catalog))
-        self.assertEqual(source.count("  @write\n"), 165)
+        self.assertEqual(source.count("  @write\n"), 261)
         self.assertNotIn("@qq(", source)
-        self.assertEqual(source.count("  @id("), 494)
+        self.assertEqual(source.count("  @id("), 590)
         self.assertIn('import "./controller.tsp";', (ROOT / "main.tsp").read_text())
         self.assertNotIn('import "./tem/controller.tsp";', (ROOT / "main.tsp").read_text())
 
@@ -97,8 +97,28 @@ class CaptureTests(unittest.TestCase):
         self.assertIn("WE 2", parameters["ac01"]["label"])
         self.assertNotIn("WE 1", parameters["ac01"]["label"])
         self.assertTrue(parameters["a925"]["scan_only"])
-        self.assertFalse(parameters["a925"]["generate_write"])
+        self.assertTrue(parameters["a925"]["generate_write"])
         self.assertEqual(sum(e.get("scan_only", False) for e in parameters.values()), 153)
+
+    def test_write_coverage_from_03_and_retained_lower_writes(self):
+        entries = [e for e in self.catalog if e["tem_id"]]
+        above = [e for e in entries if int(e["tem_id"].split("-")[0]) >= 3]
+        self.assertEqual(len(above), 213)
+        self.assertEqual(sum(e["generate_write"] for e in above), 205)
+        self.assertEqual({e["tem_id"] for e in above if not e["generate_write"]},
+                         {"03-61", "03-62", "03-63", "05-61", "05-64"})
+        self.assertTrue(all(e.get("write_exclusion") for e in above if not e["generate_write"]))
+        for e in above:
+            if e["tem_id"] == "03-07":
+                self.assertEqual(e["response_model"], "Zahlenantwort<Faktor10>")
+                self.assertTrue(e["generate_write"])
+        below = [e for e in entries if int(e["tem_id"].split("-")[0]) < 3]
+        self.assertEqual(sum(e["generate_write"] for e in below), 56)
+        for entry in entries:
+            if entry["generate_write"]:
+                selector = ", ".join(f"0x{b:02x}" for b in bytes.fromhex(entry["request"]))
+                self.assertIn(f"@write\n  @zz(0x10)\n  @id(0x06, 0x23, {selector})\n"
+                              f"  model {entry['name']}_set", render_tsp([entry]))
 
     def test_one_command_per_parameter_context_and_tem_names(self):
         entries = [e for e in self.catalog if e["tem_id"]]
@@ -126,7 +146,21 @@ class CaptureTests(unittest.TestCase):
             self.assertEqual(compile_result.returncode, 0, compile_result.stdout + compile_result.stderr)
             config = Path(temporary) / "@ebusd/ebus-typespec"
             with (config / "tem/controller.csv").open(newline="") as handle:
-                csv_rows = [r for r in csv.reader(handle) if r and r[0] == "r"]
+                all_rows = list(csv.reader(handle))
+            csv_rows = [r for r in all_rows if r and r[0] == "r"]
+            write_rows = [r for r in all_rows if r and r[0] == "w"]
+            expected_writes = {e["name"] + "_set": e for e in self.catalog if e.get("generate_write")}
+            self.assertEqual(len(write_rows), 261)
+            self.assertEqual({r[3] for r in write_rows}, set(expected_writes))
+            for row in write_rows:
+                self.assertEqual(row[1], "15")
+                self.assertEqual(row[5:9], ["", "10", "0623", expected_writes[row[3]]["request"]])
+            by_name = {r[3]: r for r in write_rows}
+            self.assertEqual(by_name["P03_07_HK1_set"][11:14], ["SIN", "10", ""])
+            self.assertEqual(by_name["P03_07_HK2_set"][8], "23841000")
+            self.assertEqual(by_name["P15_60_WP_set"][11:14], ["SIN", "10", "K"])
+            self.assertEqual(by_name["P15_26_WP_set"][11], "SCH")
+            self.assertEqual(by_name["P15_26_WP_set"][17], "HEX:1")
             self.assertEqual(len(csv_rows), 329)
             self.assertEqual({(r[7], r[8]) for r in csv_rows},
                              {(r["service"], "" if r["service"] == "0620" else r["request"])

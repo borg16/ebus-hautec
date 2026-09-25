@@ -76,7 +76,7 @@ class Reader:
             time.sleep(self.args.delay)
 
 
-def discover(reader, blocks, contexts, emit, error):
+def discover(reader, blocks, contexts, emit, error, *, menus=None):
     """Keep each selector separately, including duplicate TEM identifiers."""
     counts = {"accessible": 0, "unavailable": 0, "errors": 0}
     for block in blocks:
@@ -96,6 +96,8 @@ def discover(reader, blocks, contexts, emit, error):
             continue
         for position, descriptor in enumerate(directory):
             menu = block * 8 + position
+            if menus is not None and menu not in menus:
+                continue
             variants = [None] + (contexts if descriptor & 128 else [])
             for context in variants:
                 for index in range(descriptor & 127):

@@ -5,7 +5,8 @@
 // Source 01 was observed; no @qq forces ebusd to impersonate that master.
 // 10 00 in the extended read variant is a selector, NOT a value to write.
 // One selector per TEM/context; TEM-number names, migration table in master-output/Umbenennung.md.
-// Existing numeric write capability retained on selected aliases; scan-only selectors are read-only.
+// Numeric parameters from 03-00 also receive inferred writes on scan-only selectors.
+// Short/special responses without a known value encoding remain read-only; device acceptance is unverified.
 
 import "@ebusd/ebus-typespec";
 using Ebus;
@@ -38,6 +39,8 @@ model Antwortkopf {
 @unit("kW") @divisor(10) scalar Kilowatt10 extends SIN;
 /** Aus Log-Grenze 500 und STE-Grenze 5 abgeleitete Skalierung. */
 @divisor(100) scalar Steilheit100 extends SIN;
+/** 03-07: Antwortgrenze 100 / STE-Grenze 10; ohne Einheit. */
+@divisor(10) scalar Faktor10 extends SIN;
 /** Minuten innerhalb einer Woche; nicht als 24-Stunden-Uhrzeit dekodieren. */
 @unit("min") scalar Wochenminuten extends UIN;
 
@@ -111,7 +114,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-00: Aussentemperatur (Ist; TA). Kontext: HK1. commands.txt:41; input/complete.log:1355. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-00: Aussentemperatur (Ist; TA). Kontext: HK1. commands.txt:41; input/complete.log:1355. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x00)
@@ -125,7 +128,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-00: Aussentemperatur (Ist; TA). Kontext: HK2. commands.txt:56; input/complete.log:2003. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-00: Aussentemperatur (Ist; TA). Kontext: HK2. commands.txt:56; input/complete.log:2003. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x80, 0x10, 0x00)
@@ -139,7 +142,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x01)
@@ -153,7 +156,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x81, 0x10, 0x00)
@@ -167,7 +170,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x02)
@@ -181,7 +184,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x82, 0x10, 0x00)
@@ -195,7 +198,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-04: Warmwassertemperatur (Ist; TBO). Kontext: HK1. commands.txt:44; input/complete.log:1366. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-04: Warmwassertemperatur (Ist; TBO). Kontext: HK1. commands.txt:44; input/complete.log:1366. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x03)
@@ -209,7 +212,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-04: Warmwassertemperatur (Ist; TBO). Kontext: HK2. commands.txt:59; input/complete.log:2009. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-04: Warmwassertemperatur (Ist; TBO). Kontext: HK2. commands.txt:59; input/complete.log:2009. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x83, 0x10, 0x00)
@@ -223,7 +226,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK1. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK1. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x04)
@@ -237,7 +240,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK2. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK2. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x84, 0x10, 0x00)
@@ -251,7 +254,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-08: WP-Rücklauftemperatur (Ist; TWR). Kontext: HK1. commands.txt:46; input/complete.log:1391. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-08: WP-Rücklauftemperatur (Ist; TWR). Kontext: HK1. commands.txt:46; input/complete.log:1391. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x05)
@@ -265,7 +268,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-08: WP-Rücklauftemperatur (Ist; TWR). Kontext: HK2. commands.txt:61; input/complete.log:2016. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-08: WP-Rücklauftemperatur (Ist; TWR). Kontext: HK2. commands.txt:61; input/complete.log:2016. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x85, 0x10, 0x00)
@@ -279,7 +282,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
-  /** 00-09: Wärmeleistung WE 1 (Ist; PWE1). Kontext: WE1. commands.txt:441; input/complete.log:4353. Namensquelle: soll_und_istwerte.md. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-09: Wärmeleistung WE 1 (Ist; PWE1). Kontext: WE1. commands.txt:441; input/complete.log:4353. Namensquelle: soll_und_istwerte.md. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x00)
@@ -335,7 +338,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-70: Wärmequelle-Austrittstemperatur (Ist; TWA). Kontext: HK1. commands.txt:47; input/complete.log:1397. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-70: Wärmequelle-Austrittstemperatur (Ist; TWA). Kontext: HK1. commands.txt:47; input/complete.log:1397. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x06)
@@ -349,7 +352,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-70: Wärmequelle-Austrittstemperatur (Ist; TWA). Kontext: HK2. commands.txt:62; input/complete.log:2023. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-70: Wärmequelle-Austrittstemperatur (Ist; TWA). Kontext: HK2. commands.txt:62; input/complete.log:2023. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x86, 0x10, 0x00)
@@ -363,7 +366,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-71: Wärmequelle-Eintrittstemperatur (Ist; TWE). Kontext: HK1. commands.txt:48; input/complete.log:1407. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-71: Wärmequelle-Eintrittstemperatur (Ist; TWE). Kontext: HK1. commands.txt:48; input/complete.log:1407. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x07)
@@ -377,7 +380,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-71: Wärmequelle-Eintrittstemperatur (Ist; TWE). Kontext: HK2. commands.txt:63; input/complete.log:2024. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-71: Wärmequelle-Eintrittstemperatur (Ist; TWE). Kontext: HK2. commands.txt:63; input/complete.log:2024. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x87, 0x10, 0x00)
@@ -391,7 +394,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-72: Heissgastemperatur (Ist; THG). Kontext: HK1. commands.txt:49; input/complete.log:1425. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-72: Heissgastemperatur (Ist; THG). Kontext: HK1. commands.txt:49; input/complete.log:1425. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x08)
@@ -405,7 +408,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-72: Heissgastemperatur (Ist; THG). Kontext: HK2. commands.txt:64; input/complete.log:2027. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-72: Heissgastemperatur (Ist; THG). Kontext: HK2. commands.txt:64; input/complete.log:2027. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x88, 0x10, 0x00)
@@ -419,7 +422,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-73: Kondensatortemperatur (Ist; TKA). Kontext: HK1. commands.txt:50; input/complete.log:1460. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-73: Kondensatortemperatur (Ist; TKA). Kontext: HK1. commands.txt:50; input/complete.log:1460. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x09)
@@ -433,7 +436,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-73: Kondensatortemperatur (Ist; TKA). Kontext: HK2. commands.txt:65; input/complete.log:2028. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-73: Kondensatortemperatur (Ist; TKA). Kontext: HK2. commands.txt:65; input/complete.log:2028. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x89, 0x10, 0x00)
@@ -447,7 +450,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-74: Verdampfertemperatur (Ist; TVD). Kontext: HK1. commands.txt:51; input/complete.log:1466. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-74: Verdampfertemperatur (Ist; TVD). Kontext: HK1. commands.txt:51; input/complete.log:1466. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x0a)
@@ -461,7 +464,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-74: Verdampfertemperatur (Ist; TVD). Kontext: HK2. commands.txt:66; input/complete.log:2032. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-74: Verdampfertemperatur (Ist; TVD). Kontext: HK2. commands.txt:66; input/complete.log:2032. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x8a, 0x10, 0x00)
@@ -475,7 +478,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-75: Sauggastemperatur (Ist; TSG). Kontext: HK1. commands.txt:52; input/complete.log:1472. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-75: Sauggastemperatur (Ist; TSG). Kontext: HK1. commands.txt:52; input/complete.log:1472. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x0b)
@@ -495,7 +498,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-81: Warmwasser WP Verdampfertemperatur (Ist; WW-TVD). Kontext: HK1. commands.txt:53; input/complete.log:1494. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-81: Warmwasser WP Verdampfertemperatur (Ist; WW-TVD). Kontext: HK1. commands.txt:53; input/complete.log:1494. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x0c)
@@ -515,7 +518,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 00-95: Externer Sollwert 0-10V (Ist; SWin). Kontext: HK1. commands.txt:54; input/complete.log:1496. Namensquelle: soll_und_istwerte.md. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-95: Externer Sollwert 0-10V (Ist; SWin). Kontext: HK1. commands.txt:54; input/complete.log:1496. Namensquelle: soll_und_istwerte.md. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x0d)
@@ -535,7 +538,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-96: Anlage Vorlaufsollwert (Ist; TKx/TWR). Kontext: HK1. commands.txt:55; input/complete.log:1503. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-96: Anlage Vorlaufsollwert (Ist; TKx/TWR). Kontext: HK1. commands.txt:55; input/complete.log:1503. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x0e)
@@ -549,7 +552,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-96: Anlage Vorlaufsollwert (Ist; TKx/TWR). Kontext: HK2. commands.txt:70; input/complete.log:10281. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 00-96: Anlage Vorlaufsollwert (Ist; TKx/TWR). Kontext: HK2. commands.txt:70; input/complete.log:10281. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x8e, 0x10, 0x00)
@@ -563,7 +566,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-01: Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2). Kontext: HK1. commands.txt:74; input/complete.log:2934. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-01: Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2). Kontext: HK1. commands.txt:74; input/complete.log:2934. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x03)
@@ -577,7 +580,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-01: Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2). Kontext: HK2. commands.txt:98; input/complete.log:4522. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-01: Raumtemperatur 1 (Soll; TI1) / Raumtemperatur 2 (Soll; TI2). Kontext: HK2. commands.txt:98; input/complete.log:4522. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x83, 0x10, 0x00)
@@ -591,7 +594,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-02: Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2). Kontext: HK1. commands.txt:76; input/complete.log:2939. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-02: Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2). Kontext: HK1. commands.txt:76; input/complete.log:2939. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x05)
@@ -605,7 +608,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-02: Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2). Kontext: HK2. commands.txt:100; input/complete.log:4526. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-02: Vorlauftemperatur1 (Soll; THV1) / Vorlauftemperatur2 (Soll; THV2). Kontext: HK2. commands.txt:100; input/complete.log:4526. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x85, 0x10, 0x00)
@@ -619,7 +622,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-04: Warmwassertemperatur (Soll; TBO). Kontext: HK1. commands.txt:78; input/complete.log:2979. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-04: Warmwassertemperatur (Soll; TBO). Kontext: HK1. commands.txt:78; input/complete.log:2979. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x07)
@@ -633,7 +636,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-04: Warmwassertemperatur (Soll; TBO). Kontext: HK2. commands.txt:102; input/complete.log:4528. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-04: Warmwassertemperatur (Soll; TBO). Kontext: HK2. commands.txt:102; input/complete.log:4528. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x87, 0x10, 0x00)
@@ -647,7 +650,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-07: WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV). Kontext: HK1. commands.txt:80; input/complete.log:3007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-07: WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV). Kontext: HK1. commands.txt:80; input/complete.log:3007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x09)
@@ -661,7 +664,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-07: WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV). Kontext: HK2. commands.txt:104; input/complete.log:4532. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-07: WP-Vorlauftemperatur (Soll; TWV) / EH-Vorlauftemperatur (Soll; TEV). Kontext: HK2. commands.txt:104; input/complete.log:4532. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x89, 0x10, 0x00)
@@ -675,7 +678,7 @@ namespace _15 {
     antwort: Zahlenantwort<Prozent10>;
   }
 
-  /** 01-09: Wärmeleistungsanforderung WE 1 (Soll; PSollWE1). Kontext: WE1. commands.txt:442; input/complete.log:4356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-09: Wärmeleistungsanforderung WE 1 (Soll; PSollWE1). Kontext: WE1. commands.txt:442; input/complete.log:4356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x01)
@@ -731,7 +734,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:144; input/complete.log:5453. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:144; input/complete.log:5453. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x00)
@@ -745,7 +748,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:160; input/complete.log:7267. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:160; input/complete.log:7267. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x80, 0x10, 0x00)
@@ -759,7 +762,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
-  /** 01-21: TEM 01-21; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:145; input/complete.log:5454. Namensquelle: unbekannt. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-21: TEM 01-21; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:145; input/complete.log:5454. Namensquelle: unbekannt. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x01)
@@ -779,7 +782,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-22: TEM 01-22; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:146; input/complete.log:5498. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-22: TEM 01-22; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:146; input/complete.log:5498. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x02)
@@ -799,7 +802,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-40: TEM 01-40; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:147; input/complete.log:5499. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-40: TEM 01-40; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:147; input/complete.log:5499. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x03)
@@ -819,7 +822,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-53: TEM 01-53; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:148; input/complete.log:5513. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-53: TEM 01-53; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:148; input/complete.log:5513. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x04)
@@ -839,7 +842,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-54: TEM 01-54; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:149; input/complete.log:5527. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-54: TEM 01-54; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:149; input/complete.log:5527. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x05)
@@ -859,7 +862,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-63: TEM 01-63; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:150; input/complete.log:5539. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-63: TEM 01-63; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:150; input/complete.log:5539. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x06)
@@ -975,7 +978,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 01-96: Anlage Vorlaufsollwert (Soll; TKx/TWR). Kontext: HK1. commands.txt:91; input/complete.log:5742. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-96: Anlage Vorlaufsollwert (Soll; TKx/TWR). Kontext: HK1. commands.txt:91; input/complete.log:5742. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x14)
@@ -995,7 +998,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
-  /** 01-97: Anlage Vorlaufsollwert (Soll; TBx). Kontext: HK1. commands.txt:92; input/complete.log:5743. Namensquelle: soll_und_istwerte.md. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-97: Anlage Vorlaufsollwert (Soll; TBx). Kontext: HK1. commands.txt:92; input/complete.log:5743. Namensquelle: soll_und_istwerte.md. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x15)
@@ -1015,7 +1018,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-99: TEM 01-99; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:159; input/complete.log:5608. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-99: TEM 01-99; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:159; input/complete.log:5608. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x0f)
@@ -1029,7 +1032,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 01-99: TEM 01-99; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:175; input/complete.log:7269. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 01-99: TEM 01-99; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:175; input/complete.log:7269. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x21, 0x8f, 0x10, 0x00)
@@ -1103,7 +1106,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 02-20: Aussentemperatur Mittelwert (Soll; TAavg). Kontext: HK1. commands.txt:72; input/complete.log:5748. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-20: Aussentemperatur Mittelwert (Soll; TAavg). Kontext: HK1. commands.txt:72; input/complete.log:5748. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x01)
@@ -1117,7 +1120,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 02-20: Aussentemperatur Mittelwert (Soll; TAavg). Kontext: HK2. commands.txt:96; input/complete.log:4520. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-20: Aussentemperatur Mittelwert (Soll; TAavg). Kontext: HK2. commands.txt:96; input/complete.log:4520. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x81, 0x10, 0x00)
@@ -1131,7 +1134,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 02-40: Wärmeleistung (Soll; PH). Kontext: HK1. commands.txt:93; input/complete.log:5745. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-40: Wärmeleistung (Soll; PH). Kontext: HK1. commands.txt:93; input/complete.log:5745. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x16)
@@ -1151,7 +1154,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 02-41: Wärmeleistung (Soll; PBW). Kontext: HK1. commands.txt:94; input/complete.log:5746. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-41: Wärmeleistung (Soll; PBW). Kontext: HK1. commands.txt:94; input/complete.log:5746. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x09, 0x17)
@@ -1183,7 +1186,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<DAY>;
   }
 
-  /** 02-70: TEM 02-70; Bezeichnung nicht im STE-Katalog. Kontext: Global. commands.txt:120; input/complete.log:1229. Namensquelle: unbekannt. DAY: Tage seit 1900; Datum des Reglers, nicht Log-Zeitstempel.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-70: TEM 02-70; Bezeichnung nicht im STE-Katalog. Kontext: Global. commands.txt:120; input/complete.log:1229. Namensquelle: unbekannt. DAY: Tage seit 1900; Datum des Reglers, nicht Log-Zeitstempel.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0a, 0x01)
@@ -1197,7 +1200,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Wochenminuten>;
   }
 
-  /** 02-71: TEM 02-71; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:12; input/complete.log:1220. Namensquelle: unbekannt. UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-71: TEM 02-71; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:12; input/complete.log:1220. Namensquelle: unbekannt. UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x08)
@@ -1211,7 +1214,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Wochenminuten>;
   }
 
-  /** 02-71: TEM 02-71; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:20; input/complete.log:1978. Namensquelle: unbekannt. UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 02-71: TEM 02-71; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:20; input/complete.log:1978. Namensquelle: unbekannt. UIN, Minutenwert bis 10080; keine MIN-Uhrzeit bis 24 h.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x88, 0x10, 0x00)
@@ -1249,7 +1252,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-00: Raumschutztemperatur. Kontext: HK1. commands.txt:176; input/complete.log:5610. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 32: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. STE 33: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-00: Raumschutztemperatur. Kontext: HK1. commands.txt:176; input/complete.log:5610. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 32: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. STE 33: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x00)
@@ -1263,13 +1266,21 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-00: Raumschutztemperatur. Kontext: HK2. commands.txt:188. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 32: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. STE 33: Einstellebene 3, Raumtemperaturregelung Grenzen 3.0..15.0, gespeichert 10.0. Die Raumschutztemperatur ist immer wirksam. Sie wird in keiner Betriebsart unterschritten. Sie ist die Solltemperatur bei Ferienbetrieb. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x80, 0x10, 0x00)
+  model P03_00_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-01: Fusspunkttemperatur. Kontext: HK1. commands.txt:177; input/complete.log:5611. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 34: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert beim eigestellten Aussentemperaturfusspunkt. STE 35: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert bei 20 °C Aussentemperatur. */
   @id(0x06, 0x21, 0x23, 0x01)
   model P03_01_HK1 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-01: Fusspunkttemperatur. Kontext: HK1. commands.txt:177; input/complete.log:5611. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 34: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert beim eigestellten Aussentemperaturfusspunkt. STE 35: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert bei 20 °C Aussentemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-01: Fusspunkttemperatur. Kontext: HK1. commands.txt:177; input/complete.log:5611. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 34: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert beim eigestellten Aussentemperaturfusspunkt. STE 35: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert bei 20 °C Aussentemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x01)
@@ -1283,10 +1294,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-01: Fusspunkttemperatur. Kontext: HK2. commands.txt:189. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 34: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert beim eigestellten Aussentemperaturfusspunkt. STE 35: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..40.0, gespeichert 20.0. Die Fusspunkttemperatur bestimmt den Vorlaufsollwert bei 20 °C Aussentemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x81, 0x10, 0x00)
+  model P03_01_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-02: Heizgrenze Absenkbetrieb. Kontext: HK1. commands.txt:178. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 36: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet STE 37: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet */
   @id(0x06, 0x21, 0x23, 0x02)
   model P03_02_HK1 {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 03-02: Heizgrenze Absenkbetrieb. Kontext: HK1. commands.txt:178. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 36: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet STE 37: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x02)
+  model P03_02_HK1_set {
+    wert: Celsius10;
   }
 
   /** 03-02: Heizgrenze Absenkbetrieb. Kontext: HK2. commands.txt:190. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 36: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet STE 37: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet */
@@ -1295,10 +1322,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-02: Heizgrenze Absenkbetrieb. Kontext: HK2. commands.txt:190. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 36: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet STE 37: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 17.0. Wenn die gemittelte Aussentemperatur den eingestellten Wert im Absenkbetrieb überschreitet, schaltet der Heizkreis auf Sommerbetrieb. Bei Unterschreiten des Einstellwertes um 2 K wird der Heizbetrieb wieder eingeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x82, 0x10, 0x00)
+  model P03_02_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-06: Startoptimierung Vorhaltezeit. Kontext: HK1. commands.txt:179. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 38: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. STE 39: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. */
   @id(0x06, 0x21, 0x23, 0x03)
   model P03_06_HK1 {
     antwort: Zahlenantwort<Minuten10>;
+  }
+
+  /** 03-06: Startoptimierung Vorhaltezeit. Kontext: HK1. commands.txt:179. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 38: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. STE 39: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x03)
+  model P03_06_HK1_set {
+    wert: Minuten10;
   }
 
   /** 03-06: Startoptimierung Vorhaltezeit. Kontext: HK2. commands.txt:191. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 38: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. STE 39: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. */
@@ -1307,16 +1350,40 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK1. commands.txt:180. Namensquelle: Checkliste_Regler_Programmierung.CSV. unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. */
-  @id(0x06, 0x21, 0x23, 0x04)
-  model P03_07_HK1 {
-    antwort: Sonderantwort;
+  /** 03-06: Startoptimierung Vorhaltezeit. Kontext: HK2. commands.txt:191. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 38: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. STE 39: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..900.0, gespeichert 0.0. Damit wird erreicht, dass die Raumtemperatur zum Belegungsbeginn nahezu dem Raumtemperatur-Sollwert entspricht. Der Einstellwert (in Minuten) legt die Zeitdifferenz für den vorzeitigen Heizbeginn zum Belegungsbeginn fest. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x83, 0x10, 0x00)
+  model P03_06_HK2_set {
+    wert: Minuten10;
   }
 
-  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK2. commands.txt:192. Namensquelle: Checkliste_Regler_Programmierung.CSV. unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. */
+  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK1. commands.txt:180. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. */
+  @id(0x06, 0x21, 0x23, 0x04)
+  model P03_07_HK1 {
+    antwort: Zahlenantwort<Faktor10>;
+  }
+
+  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK1. commands.txt:180. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x04)
+  model P03_07_HK1_set {
+    wert: Faktor10;
+  }
+
+  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK2. commands.txt:192. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. */
   @id(0x06, 0x21, 0x23, 0x84, 0x10, 0x00)
   model P03_07_HK2 {
-    antwort: Sonderantwort;
+    antwort: Zahlenantwort<Faktor10>;
+  }
+
+  /** 03-07: Raumtemperatur - Kompensation. Kontext: HK2. commands.txt:192. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet. STE 40: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. STE 41: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..10.0, gespeichert 0.0. Weicht die mit einer Fernbedienung gemessene Raumtemperatur vom Sollwert ab (z. B. durch Fremdwärme wie Sonneneinstrahlung), korrigiert der Regler die Vorlauftemperatur entsprechend dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x84, 0x10, 0x00)
+  model P03_07_HK2_set {
+    wert: Faktor10;
   }
 
   /** 03-08: Vorlauf Sollwert Heizgrenze. Kontext: HK1. commands.txt:181. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 42: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. STE 43: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. */
@@ -1325,10 +1392,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
+  /** 03-08: Vorlauf Sollwert Heizgrenze. Kontext: HK1. commands.txt:181. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 42: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. STE 43: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x05)
+  model P03_08_HK1_set {
+    wert: Kelvin10;
+  }
+
   /** 03-08: Vorlauf Sollwert Heizgrenze. Kontext: HK2. commands.txt:193. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 42: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. STE 43: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. */
   @id(0x06, 0x21, 0x23, 0x85, 0x10, 0x00)
   model P03_08_HK2 {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 03-08: Vorlauf Sollwert Heizgrenze. Kontext: HK2. commands.txt:193. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 42: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. STE 43: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..10.0, gespeichert -10.0. Der Sommerbetrieb ist aktiv wenn die Differenz zwischen dem errechneten Vorlauftemperatur-Sollwert und dem Raumtemperatur-Sollwert kleiner als der Einstellwert ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x85, 0x10, 0x00)
+  model P03_08_HK2_set {
+    wert: Kelvin10;
   }
 
   /** 03-10: Steilheit Kennlinie. Kontext: HK1. commands.txt:124; input/complete.log:1237. Namensquelle: STE-Katalog. SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet. STE 15: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur STE 16: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur */
@@ -1337,7 +1420,7 @@ namespace _15 {
     antwort: Zahlenantwort<Steilheit100>;
   }
 
-  /** 03-10: Steilheit Kennlinie. Kontext: HK1. commands.txt:124; input/complete.log:1237. Namensquelle: STE-Katalog. SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet. STE 15: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur STE 16: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-10: Steilheit Kennlinie. Kontext: HK1. commands.txt:124; input/complete.log:1237. Namensquelle: STE-Katalog. SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet. STE 15: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur STE 16: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x04)
@@ -1351,7 +1434,7 @@ namespace _15 {
     antwort: Zahlenantwort<Steilheit100>;
   }
 
-  /** 03-10: Steilheit Kennlinie. Kontext: HK2. commands.txt:130; input/complete.log:2061. Namensquelle: STE-Katalog. SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet. STE 15: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur STE 16: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-10: Steilheit Kennlinie. Kontext: HK2. commands.txt:130; input/complete.log:2061. Namensquelle: STE-Katalog. SIN / 100, aus Antwortgrenze 500 und STE-Grenze 5 abgeleitet. STE 15: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur STE 16: Einstellebene 2,  Grenzen 0.0..5.0, gespeichert 0.3. Die Steilheit bestimmt die Steigung der Kennlinie in Abhängigkeit der Aussentemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x84, 0x10, 0x00)
@@ -1365,7 +1448,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-11: Fusspunkt Vorlaufkennlinie TA. Kontext: HK1. commands.txt:329; input/complete.log:2473. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 44: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. STE 45: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-11: Fusspunkt Vorlaufkennlinie TA. Kontext: HK1. commands.txt:329; input/complete.log:2473. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 44: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. STE 45: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa3, 0x00)
@@ -1379,13 +1462,21 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-11: Fusspunkt Vorlaufkennlinie TA. Kontext: HK2. commands.txt:333. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 44: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. STE 45: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..30.0, gespeichert 20.0. Der eingestellte Wert bestimmt die Lage der eingeastellten Vorlauf Fusspunkttemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa3, 0x80, 0x10, 0x00)
+  model P03_11_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-20: Zeitkonst. für Aussentemp.rmittelung. Kontext: HK1. commands.txt:330; input/complete.log:2474. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 46: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..20.0, gespeichert 10.0. Für die Sommer-/Winterumschaltung wird mit einer gemittelten Aussentemperatur gerechnet, welche die Trägheit des Gebäudes berücksichtigt.  0=keine  5h=leichte Bauweise  10h=mittelschwere Bauweise  20h=schwere Bauweise */
   @id(0x06, 0x21, 0xa3, 0x01)
   model P03_20_HK1 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
-  /** 03-20: Zeitkonst. für Aussentemp.rmittelung. Kontext: HK1. commands.txt:330; input/complete.log:2474. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 46: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..20.0, gespeichert 10.0. Für die Sommer-/Winterumschaltung wird mit einer gemittelten Aussentemperatur gerechnet, welche die Trägheit des Gebäudes berücksichtigt.  0=keine  5h=leichte Bauweise  10h=mittelschwere Bauweise  20h=schwere Bauweise Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-20: Zeitkonst. für Aussentemp.rmittelung. Kontext: HK1. commands.txt:330; input/complete.log:2474. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 46: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..20.0, gespeichert 10.0. Für die Sommer-/Winterumschaltung wird mit einer gemittelten Aussentemperatur gerechnet, welche die Trägheit des Gebäudes berücksichtigt.  0=keine  5h=leichte Bauweise  10h=mittelschwere Bauweise  20h=schwere Bauweise Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa3, 0x01)
@@ -1399,13 +1490,21 @@ namespace _15 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
+  /** 03-20: Zeitkonst. für Aussentemp.rmittelung. Kontext: HK2. commands.txt:334. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 46: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..20.0, gespeichert 10.0. Für die Sommer-/Winterumschaltung wird mit einer gemittelten Aussentemperatur gerechnet, welche die Trägheit des Gebäudes berücksichtigt.  0=keine  5h=leichte Bauweise  10h=mittelschwere Bauweise  20h=schwere Bauweise Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa3, 0x81, 0x10, 0x00)
+  model P03_20_HK2_set {
+    wert: Stunden10;
+  }
+
   /** 03-21: Heizgrenze bei Tagbetrieb. Kontext: HK1. commands.txt:126; input/complete.log:1239. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 19: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. STE 20: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. */
   @id(0x06, 0x21, 0x0b, 0x06)
   model P03_21_HK1 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-21: Heizgrenze bei Tagbetrieb. Kontext: HK1. commands.txt:126; input/complete.log:1239. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 19: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. STE 20: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-21: Heizgrenze bei Tagbetrieb. Kontext: HK1. commands.txt:126; input/complete.log:1239. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 19: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. STE 20: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x06)
@@ -1419,7 +1518,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-21: Heizgrenze bei Tagbetrieb. Kontext: HK2. commands.txt:132; input/complete.log:2059. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 19: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. STE 20: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-21: Heizgrenze bei Tagbetrieb. Kontext: HK2. commands.txt:132; input/complete.log:2059. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 19: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. STE 20: Einstellebene 2,  Grenzen 0.0..40.0, gespeichert 16.0. Ist der Aussentemperatur Mittelwert grösser als der Einstelwert, schaltet der Heizbetrieb aus. Der Heizbetrieb schaltet wieder ein, wenn der Mittelwert um 2 K kleiner ist. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x86, 0x10, 0x00)
@@ -1433,7 +1532,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-23: Frostgrenze. Kontext: HK1. commands.txt:331; input/complete.log:2532. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 47: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. STE 48: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Liegt die Aussentemperatur unterhalb des Einstellwertes sind die Frostschutzfunktionen frei. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-23: Frostgrenze. Kontext: HK1. commands.txt:331; input/complete.log:2532. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 47: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. STE 48: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Liegt die Aussentemperatur unterhalb des Einstellwertes sind die Frostschutzfunktionen frei. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa3, 0x02)
@@ -1447,13 +1546,21 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-23: Frostgrenze. Kontext: HK2. commands.txt:335. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 47: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. STE 48: Einstellebene 3, Raumtemperaturregelung Grenzen -10.0..20.0, gespeichert 2.0. Liegt die Aussentemperatur unterhalb des Einstellwertes sind die Frostschutzfunktionen frei. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa3, 0x82, 0x10, 0x00)
+  model P03_23_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-30: Nachstellzeit Raumregler. Kontext: HK1. commands.txt:332; input/complete.log:2541. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 49: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). STE 50: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). */
   @id(0x06, 0x21, 0xa3, 0x03)
   model P03_30_HK1 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 03-30: Nachstellzeit Raumregler. Kontext: HK1. commands.txt:332; input/complete.log:2541. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 49: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). STE 50: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-30: Nachstellzeit Raumregler. Kontext: HK1. commands.txt:332; input/complete.log:2541. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 49: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). STE 50: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa3, 0x03)
@@ -1467,10 +1574,26 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
+  /** 03-30: Nachstellzeit Raumregler. Kontext: HK2. commands.txt:336. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 49: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). STE 50: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..200.0, gespeichert 0.0. Mit der Nachstellzeit wird die Geschwindigkeit beeinflusst, mit der die Heizungseinrichtung eine Soll-/Istwertabweichung der Raumtemperatur ausregelt. Sie wirkt ergänzend zum eingestellten Raumeinfluss (3-7). Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa3, 0x83, 0x10, 0x00)
+  model P03_30_HK2_set {
+    wert: Minuten10;
+  }
+
   /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
   @id(0x06, 0x21, 0x23, 0x06)
   model P03_35_HK1 {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x06)
+  model P03_35_HK1_set {
+    wert: Kelvin10;
   }
 
   /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
@@ -1479,10 +1602,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x86, 0x10, 0x00)
+  model P03_35_HK2_set {
+    wert: Kelvin10;
+  }
+
   /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
   @id(0x06, 0x21, 0x23, 0x07)
   model P03_43_HK1 {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x07)
+  model P03_43_HK1_set {
+    wert: Celsius10;
   }
 
   /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
@@ -1491,13 +1630,21 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x87, 0x10, 0x00)
+  model P03_43_HK2_set {
+    wert: Celsius10;
+  }
+
   /** 03-50: Betriebswahl Heizung und Brauchwasser. Kontext: HK1. commands.txt:5; input/complete.log:1209. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 1: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb STE 2: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb */
   @id(0x06, 0x21, 0x01, 0x00)
   model P03_50_HK1 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 03-50: Betriebswahl Heizung und Brauchwasser. Kontext: HK1. commands.txt:5; input/complete.log:1209. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 1: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb STE 2: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-50: Betriebswahl Heizung und Brauchwasser. Kontext: HK1. commands.txt:5; input/complete.log:1209. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 1: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb STE 2: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x00)
@@ -1511,7 +1658,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 03-50: Betriebswahl Heizung und Brauchwasser. Kontext: HK2. commands.txt:14; input/complete.log:1968. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 1: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb STE 2: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-50: Betriebswahl Heizung und Brauchwasser. Kontext: HK2. commands.txt:14; input/complete.log:1968. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 1: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb STE 2: Einstellebene 1,  Grenzen 0.0..5.0, gespeichert 1.0. 0 = Standbybetrieb             1 = Automatik 1                   2 = Normalbetrieb             3 = Reduziertbetrieb             4 = Sommerbetrieb             5 = Handbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x80, 0x10, 0x00)
@@ -1525,7 +1672,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-51: Sollwert Raumtemperatur Heizen Tag normal. Kontext: HK1. commands.txt:121; input/complete.log:1230. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 9: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb STE 10: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-51: Sollwert Raumtemperatur Heizen Tag normal. Kontext: HK1. commands.txt:121; input/complete.log:1230. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 9: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb STE 10: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x00)
@@ -1539,7 +1686,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-51: Sollwert Raumtemperatur Heizen Tag normal. Kontext: HK2. commands.txt:127; input/complete.log:10298. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 9: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb STE 10: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-51: Sollwert Raumtemperatur Heizen Tag normal. Kontext: HK2. commands.txt:127; input/complete.log:10298. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 9: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb STE 10: Einstellebene 2,  Grenzen 10.0..30.0, gespeichert 20.5. Raumtemperatur Sollwert für Normalbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x80, 0x10, 0x00)
@@ -1553,7 +1700,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-53: Sollwert Raumteperatur Heizen Nacht. Kontext: HK1. commands.txt:122; input/complete.log:1235. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 11: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb STE 12: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-53: Sollwert Raumteperatur Heizen Nacht. Kontext: HK1. commands.txt:122; input/complete.log:1235. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 11: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb STE 12: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x02)
@@ -1567,7 +1714,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-53: Sollwert Raumteperatur Heizen Nacht. Kontext: HK2. commands.txt:128; input/complete.log:2064. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 11: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb STE 12: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-53: Sollwert Raumteperatur Heizen Nacht. Kontext: HK2. commands.txt:128; input/complete.log:2064. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 11: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb STE 12: Einstellebene 2,  Grenzen 5.0..20.0, gespeichert 18.0. Raumtemperatur Sollwert für reduzierten Betrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x82, 0x10, 0x00)
@@ -1581,7 +1728,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 03-58: Behaglichkeit. Kontext: HK1. commands.txt:7; input/complete.log:1211. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 5: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert 0.0. Anpassung der Raum Solltemperatur STE 6: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert -1.0. Anpassung der Raum Solltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-58: Behaglichkeit. Kontext: HK1. commands.txt:7; input/complete.log:1211. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 5: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert 0.0. Anpassung der Raum Solltemperatur STE 6: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert -1.0. Anpassung der Raum Solltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x02)
@@ -1595,7 +1742,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 03-58: Behaglichkeit. Kontext: HK2. commands.txt:15; input/complete.log:1970. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 5: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert 0.0. Anpassung der Raum Solltemperatur STE 6: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert -1.0. Anpassung der Raum Solltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-58: Behaglichkeit. Kontext: HK2. commands.txt:15; input/complete.log:1970. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 5: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert 0.0. Anpassung der Raum Solltemperatur STE 6: Einstellebene 1,  Grenzen -3.0..3.0, gespeichert -1.0. Anpassung der Raum Solltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x01, 0x82, 0x10, 0x00)
@@ -1645,7 +1792,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 03-78: TEM 03-78; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:141; input/complete.log:2461. Namensquelle: unbekannt. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-78: TEM 03-78; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:141; input/complete.log:2461. Namensquelle: unbekannt. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0f, 0x00)
@@ -1659,7 +1806,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 03-78: TEM 03-78; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:142; input/complete.log:9159. Namensquelle: unbekannt. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 03-78: TEM 03-78; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:142; input/complete.log:9159. Namensquelle: unbekannt. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0f, 0x80, 0x10, 0x00)
@@ -1673,7 +1820,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 04-00: Fühlerkonfiguration speichern. Kontext: Global. commands.txt:337; input/complete.log:2554. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 59: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 0.0. Sind alle benötigten Fühler angeschlossen muss der Einsteller auf "on" gesetzt werden. Damit wird die Anlagenkonfiguration  gespeichert und es werden Fehler generiert, sollte ein Fühlerwert nicht im definierten Bereich sein. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-00: Fühlerkonfiguration speichern. Kontext: Global. commands.txt:337; input/complete.log:2554. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 59: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 0.0. Sind alle benötigten Fühler angeschlossen muss der Einsteller auf "on" gesetzt werden. Damit wird die Anlagenkonfiguration  gespeichert und es werden Fehler generiert, sollte ein Fühlerwert nicht im definierten Bereich sein. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x00)
@@ -1687,7 +1834,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-02: Funktion Sollwerteingang. Kontext: Global. commands.txt:338; input/complete.log:2556. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 60: Einstellebene 4, Globale Einstellungen Grenzen 0.0..4.0, gespeichert 0.0. Hier wird die Funktion Sollwerteingang einem Heizkreis oder der ganzen Anlage zugeordnet:  0 = Wärmeerzeuger   1 = Wärmeerzeuger (0 V = Standby, 1-8.5 V = 10-85 °C, 10 V = Kühlbetrieb)  2 = Heizkreis   3 = Keine Funktion  4 = Heizkreis (10 V = Standby) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-02: Funktion Sollwerteingang. Kontext: Global. commands.txt:338; input/complete.log:2556. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 60: Einstellebene 4, Globale Einstellungen Grenzen 0.0..4.0, gespeichert 0.0. Hier wird die Funktion Sollwerteingang einem Heizkreis oder der ganzen Anlage zugeordnet:  0 = Wärmeerzeuger   1 = Wärmeerzeuger (0 V = Standby, 1-8.5 V = 10-85 °C, 10 V = Kühlbetrieb)  2 = Heizkreis   3 = Keine Funktion  4 = Heizkreis (10 V = Standby) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x01)
@@ -1701,7 +1848,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-08: Handbetrieb Konfiguration. Kontext: Global. commands.txt:339; input/complete.log:2565. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 61: Einstellebene 4, Globale Einstellungen Grenzen 1.0..2.0, gespeichert 2.0. Welcher Wärmeerzeuger im Handbetrieb aktiviert werden soll, kann konfiguriert werden.  1 = Lokal (es wird nur der angewählte, reglerinterne WEZ aktiviert).  2 = Es werden alle über eBUS eingebundenen WEZ aktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-08: Handbetrieb Konfiguration. Kontext: Global. commands.txt:339; input/complete.log:2565. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 61: Einstellebene 4, Globale Einstellungen Grenzen 1.0..2.0, gespeichert 2.0. Welcher Wärmeerzeuger im Handbetrieb aktiviert werden soll, kann konfiguriert werden.  1 = Lokal (es wird nur der angewählte, reglerinterne WEZ aktiviert).  2 = Es werden alle über eBUS eingebundenen WEZ aktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x02)
@@ -1715,7 +1862,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-20: Anlage-Hauptregler / Folgeregler. Kontext: Global. commands.txt:340; input/complete.log:2567. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 62: Einstellebene 4, Globale Einstellungen Grenzen 0.0..25.0, gespeichert 2.0. 0=kein Wärmemanagement           2=Masterregler            3=Folgeregler 1            4=Folgeregler 2            5=Folgeregler 3            17=Folgeregler 4            18=Folgeregler 5            19=Folgeregler 6            20=Folgeregler 7 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-20: Anlage-Hauptregler / Folgeregler. Kontext: Global. commands.txt:340; input/complete.log:2567. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 62: Einstellebene 4, Globale Einstellungen Grenzen 0.0..25.0, gespeichert 2.0. 0=kein Wärmemanagement           2=Masterregler            3=Folgeregler 1            4=Folgeregler 2            5=Folgeregler 3            17=Folgeregler 4            18=Folgeregler 5            19=Folgeregler 6            20=Folgeregler 7 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x03)
@@ -1729,7 +1876,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-22: WE 1 Zieladresse. Kontext: WE1. commands.txt:443; input/complete.log:4371. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 170: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 11.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-22: WE 1 Zieladresse. Kontext: WE1. commands.txt:443; input/complete.log:4371. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 170: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 11.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x02)
@@ -1743,10 +1890,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-22: WE 1 Zieladresse. Kontext: WE2. commands.txt:451. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 176: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 12.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x02)
+  model P04_22_WE2_set {
+    wert: UIN;
+  }
+
   /** 04-22: WE 1 Zieladresse. Kontext: WE3. commands.txt:459. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 182: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
   @id(0x06, 0x21, 0xad, 0x02)
   model P04_22_WE3 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 04-22: WE 1 Zieladresse. Kontext: WE3. commands.txt:459. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 182: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x02)
+  model P04_22_WE3_set {
+    wert: UIN;
   }
 
   /** 04-22: WE 1 Zieladresse. Kontext: WE4. commands.txt:467. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 188: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
@@ -1755,10 +1918,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-22: WE 1 Zieladresse. Kontext: WE4. commands.txt:467. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 188: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x02)
+  model P04_22_WE4_set {
+    wert: UIN;
+  }
+
   /** 04-22: WE 1 Zieladresse. Kontext: WE5. commands.txt:475. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 194: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
   @id(0x06, 0x21, 0xaf, 0x02)
   model P04_22_WE5 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 04-22: WE 1 Zieladresse. Kontext: WE5. commands.txt:475. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 194: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x02)
+  model P04_22_WE5_set {
+    wert: UIN;
   }
 
   /** 04-22: WE 1 Zieladresse. Kontext: WE6. commands.txt:483. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 200: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
@@ -1767,10 +1946,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-22: WE 1 Zieladresse. Kontext: WE6. commands.txt:483. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 200: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x02)
+  model P04_22_WE6_set {
+    wert: UIN;
+  }
+
   /** 04-22: WE 1 Zieladresse. Kontext: WE7. commands.txt:491. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 206: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
   @id(0x06, 0x21, 0xb1, 0x02)
   model P04_22_WE7 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 04-22: WE 1 Zieladresse. Kontext: WE7. commands.txt:491. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 206: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x02)
+  model P04_22_WE7_set {
+    wert: UIN;
   }
 
   /** 04-22: WE 1 Zieladresse. Kontext: WE8. commands.txt:499. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 212: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
@@ -1779,13 +1974,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-22: WE 1 Zieladresse. Kontext: WE8. commands.txt:499. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 212: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..24.0, gespeichert 0.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x02)
+  model P04_22_WE8_set {
+    wert: UIN;
+  }
+
   /** 04-27: eBUS Adresse WEZ. Kontext: WP. commands.txt:388; input/complete.log:7567. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 115: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..25.0, gespeichert 11.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 */
   @id(0x06, 0x21, 0xa9, 0x00)
   model P04_27_WP {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-27: eBUS Adresse WEZ. Kontext: WP. commands.txt:388; input/complete.log:7567. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 115: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..25.0, gespeichert 11.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-27: eBUS Adresse WEZ. Kontext: WP. commands.txt:388; input/complete.log:7567. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 115: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..25.0, gespeichert 11.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x00)
@@ -1799,7 +2002,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-27: eBUS Adresse WEZ. Kontext: EH. commands.txt:426; input/complete.log:4235. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 155: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..25.0, gespeichert 12.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-27: eBUS Adresse WEZ. Kontext: EH. commands.txt:426; input/complete.log:4235. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 155: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..25.0, gespeichert 12.0. 0 = kein WE  11 = Wärmeerzeuger 1  12 = Wärmeerzeuger 2  13 = Wärmeerzeuger 3    14 = Wärmeerzeuger 4    15 = Wärmeerzeuger 5    22 = Wärmeerzeuger 6    23 = Wärmeerzeuger 7    24 = Wärmeerzeuger 8 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x00)
@@ -1813,7 +2016,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 04-30: Multifunktionsausgang 1. Kontext: Global. commands.txt:341; input/complete.log:2570. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 63: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 1.0. Heizkreispumpe 1  0 = Normale Funktion          1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-30: Multifunktionsausgang 1. Kontext: Global. commands.txt:341; input/complete.log:2570. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 63: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 1.0. Heizkreispumpe 1  0 = Normale Funktion          1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x04)
@@ -1827,7 +2030,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 04-31: Multifunktionsausgang 2. Kontext: Global. commands.txt:342; input/complete.log:2574. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 64: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 0.0. Heizkreispumpe 2  0 = Normale Funktion          1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-31: Multifunktionsausgang 2. Kontext: Global. commands.txt:342; input/complete.log:2574. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 64: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 0.0. Heizkreispumpe 2  0 = Normale Funktion          1 = Heizkreipumpe läuft zusätzlich wenn Wärmeerzeugerpumpe läuft Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x05)
@@ -1841,7 +2044,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 04-36: eBUS Speisung Abschaltung. Kontext: Global. commands.txt:343; input/complete.log:2576. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 65: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 1.0. eBUS Speisung:  0 = abgeschaltet          1 = eBUS Speisung 50 mA aktiv Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-36: eBUS Speisung Abschaltung. Kontext: Global. commands.txt:343; input/complete.log:2576. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 65: Einstellebene 4, Globale Einstellungen Grenzen 0.0..1.0, gespeichert 1.0. eBUS Speisung:  0 = abgeschaltet          1 = eBUS Speisung 50 mA aktiv Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x06)
@@ -1855,7 +2058,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-40: Service Passwort. Kontext: Global. commands.txt:344; input/complete.log:2581. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 66: Einstellebene 4, Globale Einstellungen Grenzen 0.0..255.0, gespeichert 161.0. Als Service Passwort kann ein Wert zwischen 0 und 255 eingestellt werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-40: Service Passwort. Kontext: Global. commands.txt:344; input/complete.log:2581. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 66: Einstellebene 4, Globale Einstellungen Grenzen 0.0..255.0, gespeichert 161.0. Als Service Passwort kann ein Wert zwischen 0 und 255 eingestellt werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa4, 0x07)
@@ -1869,13 +2072,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-42: TEM 04-42; Bezeichnung nicht im STE-Katalog. Kontext: Global. commands.txt:2. Namensquelle: unbekannt. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x00, 0x00)
+  model P04_42_set {
+    wert: UIN;
+  }
+
   /** 04-43: Expert-Modus. Kontext: Global. commands.txt:3; input/complete.log:2469. Namensquelle: Benutzerbestaetigung. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  */
   @id(0x06, 0x21, 0x00, 0x01)
   model P04_43 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 04-43: Expert-Modus. Kontext: Global. commands.txt:3; input/complete.log:2469. Namensquelle: Benutzerbestaetigung. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 04-43: Expert-Modus. Kontext: Global. commands.txt:3; input/complete.log:2469. Namensquelle: Benutzerbestaetigung. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich).  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x00, 0x01)
@@ -1889,10 +2100,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-45: Kommandobefehle. Kontext: HK1. commands.txt:143. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 21: Einstellebene 2,  Grenzen 0.0..29.0, gespeichert 0.0. Kommandobefehle:  0 = keine Funktion  9 = Geräte Reset  21 = Entriegelung  29 = Factory Reset Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x10, 0x00)
+  model P04_45_HK1_set {
+    wert: UIN;
+  }
+
   /** 04-45: Kommandobefehle. Kontext: HK2. commands.txt:196. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 21: Einstellebene 2,  Grenzen 0.0..29.0, gespeichert 0.0. Kommandobefehle:  0 = keine Funktion  9 = Geräte Reset  21 = Entriegelung  29 = Factory Reset */
   @id(0x06, 0x21, 0x23, 0x88, 0x10, 0x00)
   model P04_45_HK2 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 04-45: Kommandobefehle. Kontext: HK2. commands.txt:196. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 21: Einstellebene 2,  Grenzen 0.0..29.0, gespeichert 0.0. Kommandobefehle:  0 = keine Funktion  9 = Geräte Reset  21 = Entriegelung  29 = Factory Reset Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x88, 0x10, 0x00)
+  model P04_45_HK2_set {
+    wert: UIN;
   }
 
   /** 04-60: Mode Austrocknungsprogramm. Kontext: HK1. commands.txt:185. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 67: Einstellebene 4, Globale Einstellungen Grenzen 0.0..2.0, gespeichert 0.0. 0 = Austrocknungsprogramm beenden  1 = Austrocknungsprogramm für Heizkreis 1 starten  2 = Austrocknungsprogramm für Heizkreis 2 starten */
@@ -1901,10 +2128,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 04-60: Mode Austrocknungsprogramm. Kontext: HK1. commands.txt:185. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 67: Einstellebene 4, Globale Einstellungen Grenzen 0.0..2.0, gespeichert 0.0. 0 = Austrocknungsprogramm beenden  1 = Austrocknungsprogramm für Heizkreis 1 starten  2 = Austrocknungsprogramm für Heizkreis 2 starten Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x09)
+  model P04_60_HK1_set {
+    wert: UIN;
+  }
+
   /** 04-60: Mode Austrocknungsprogramm. Kontext: HK2. commands.txt:197. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 67: Einstellebene 4, Globale Einstellungen Grenzen 0.0..2.0, gespeichert 0.0. 0 = Austrocknungsprogramm beenden  1 = Austrocknungsprogramm für Heizkreis 1 starten  2 = Austrocknungsprogramm für Heizkreis 2 starten */
   @id(0x06, 0x21, 0x23, 0x89, 0x10, 0x00)
   model P04_60_HK2 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 04-60: Mode Austrocknungsprogramm. Kontext: HK2. commands.txt:197. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 67: Einstellebene 4, Globale Einstellungen Grenzen 0.0..2.0, gespeichert 0.0. 0 = Austrocknungsprogramm beenden  1 = Austrocknungsprogramm für Heizkreis 1 starten  2 = Austrocknungsprogramm für Heizkreis 2 starten Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x89, 0x10, 0x00)
+  model P04_60_HK2_set {
+    wert: UIN;
   }
 
   /** 05-00: Schaltdifferenz Brauchwasserbereitung. Kontext: Global. commands.txt:345; input/complete.log:2596. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 72: Einstellebene 5, Brauchwasserbereitung Grenzen 2.0..20.0, gespeichert 5.0. Unterschreitet die Warmwassertemperatur am Fühler TB den Sollwert um den Einstellwert wird die WW-Erwärmung  aktiviert. */
@@ -1913,7 +2156,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 05-00: Schaltdifferenz Brauchwasserbereitung. Kontext: Global. commands.txt:345; input/complete.log:2596. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 72: Einstellebene 5, Brauchwasserbereitung Grenzen 2.0..20.0, gespeichert 5.0. Unterschreitet die Warmwassertemperatur am Fühler TB den Sollwert um den Einstellwert wird die WW-Erwärmung  aktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-00: Schaltdifferenz Brauchwasserbereitung. Kontext: Global. commands.txt:345; input/complete.log:2596. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 72: Einstellebene 5, Brauchwasserbereitung Grenzen 2.0..20.0, gespeichert 5.0. Unterschreitet die Warmwassertemperatur am Fühler TB den Sollwert um den Einstellwert wird die WW-Erwärmung  aktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x00)
@@ -1927,7 +2170,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 05-01: Temperaturüberhoehung Brauchwasserbereitung. Kontext: Global. commands.txt:346; input/complete.log:2597. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 73: Einstellebene 5, Brauchwasserbereitung Grenzen 2.0..30.0, gespeichert 6.0. Damit das Warmwasser effektiv und schnell erwärmt werden kann, ist eine Wärmeerzeuger-Überhöhung zum  Warmwasser-Sollwert einzustellen. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-01: Temperaturüberhoehung Brauchwasserbereitung. Kontext: Global. commands.txt:346; input/complete.log:2597. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 73: Einstellebene 5, Brauchwasserbereitung Grenzen 2.0..30.0, gespeichert 6.0. Damit das Warmwasser effektiv und schnell erwärmt werden kann, ist eine Wärmeerzeuger-Überhöhung zum  Warmwasser-Sollwert einzustellen. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x01)
@@ -1941,7 +2184,7 @@ namespace _15 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
-  /** 05-02: Brauchwasser-Vorrang. Kontext: Global. commands.txt:347; input/complete.log:2600. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 74: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 0.1. Das Warmwasser kann parallel, im Vorrang oder lastabhängig - parallel zu den Heizkreisen erwärmt werden.  0 = absoluter Vorrangbetrieb  0.1 = absoluter Parallelbetrieb  0.2 - 20.0 h = lastabhängiger Parallelbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-02: Brauchwasser-Vorrang. Kontext: Global. commands.txt:347; input/complete.log:2600. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 74: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 0.1. Das Warmwasser kann parallel, im Vorrang oder lastabhängig - parallel zu den Heizkreisen erwärmt werden.  0 = absoluter Vorrangbetrieb  0.1 = absoluter Parallelbetrieb  0.2 - 20.0 h = lastabhängiger Parallelbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x02)
@@ -1955,7 +2198,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 05-03: Nachlaufzeit Brauchwasserbereitung. Kontext: Global. commands.txt:348; input/complete.log:2604. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 75: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..30.0, gespeichert 3.0. Die Ladepumpe läuft nach Beendigung einer Warmwasserladung um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-03: Nachlaufzeit Brauchwasserbereitung. Kontext: Global. commands.txt:348; input/complete.log:2604. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 75: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..30.0, gespeichert 3.0. Die Ladepumpe läuft nach Beendigung einer Warmwasserladung um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x03)
@@ -1969,7 +2212,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 05-04: Legionellenschutztemperatur. Kontext: Global. commands.txt:349; input/complete.log:2607. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 76: Einstellebene 5, Brauchwasserbereitung Grenzen 60.0..80.0, gespeichert 60.0. Sollwert für die thermische Desinfektion (Legionellenschutz). Gilt während einer freigegeben thermischen Desinfektion  für die Warmwasserladung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-04: Legionellenschutztemperatur. Kontext: Global. commands.txt:349; input/complete.log:2607. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 76: Einstellebene 5, Brauchwasserbereitung Grenzen 60.0..80.0, gespeichert 60.0. Sollwert für die thermische Desinfektion (Legionellenschutz). Gilt während einer freigegeben thermischen Desinfektion  für die Warmwasserladung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x04)
@@ -1983,7 +2226,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 05-05: Funktionsweise Ladepumpennachlauf. Kontext: Global. commands.txt:350; input/complete.log:2610. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 77: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..2.0, gespeichert 0.0. Konfiguration der Warmwasserbereitung.  0 = zeitabhängiger Pumpennachlauf gemäss Einstellwert 5-03  1 = Zeit- und Temperaturabhängiger Pumpennachlauf  2 = Warmwasserbereitung über eine separate Wärmepumpe an Klemme . Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-05: Funktionsweise Ladepumpennachlauf. Kontext: Global. commands.txt:350; input/complete.log:2610. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 77: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..2.0, gespeichert 0.0. Konfiguration der Warmwasserbereitung.  0 = zeitabhängiger Pumpennachlauf gemäss Einstellwert 5-03  1 = Zeit- und Temperaturabhängiger Pumpennachlauf  2 = Warmwasserbereitung über eine separate Wärmepumpe an Klemme . Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x05)
@@ -1997,7 +2240,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 05-06: Zirkulationspumpe aktiv. Kontext: Global. commands.txt:351; input/complete.log:2613. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 78: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..1.0, gespeichert 1.0. 0 = Funktion nicht aktiv  1 = Zirkulationspumpe aktiv gemäss eingestelltem Automatikprogramm Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-06: Zirkulationspumpe aktiv. Kontext: Global. commands.txt:351; input/complete.log:2613. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 78: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..1.0, gespeichert 1.0. 0 = Funktion nicht aktiv  1 = Zirkulationspumpe aktiv gemäss eingestelltem Automatikprogramm Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x06)
@@ -2011,7 +2254,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 05-07: Stellglied Brauchwasserbereitung. Kontext: Global. commands.txt:352; input/complete.log:2673. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 79: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..1.0, gespeichert 1.0. 0 = Warmwasserbereitung über Ladepumpe  1 = Warmwasserbereitung über ULV Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-07: Stellglied Brauchwasserbereitung. Kontext: Global. commands.txt:352; input/complete.log:2673. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN: 0=Aus, 1=Ein. STE 79: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..1.0, gespeichert 1.0. 0 = Warmwasserbereitung über Ladepumpe  1 = Warmwasserbereitung über ULV Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x07)
@@ -2025,7 +2268,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 05-13: Reduktion Sollwert TBO. Kontext: Global. commands.txt:353; input/complete.log:2677. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 80: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 15.0. Während einer Störung der Wärmepumpe wird der Sollwert TBO um den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-13: Reduktion Sollwert TBO. Kontext: Global. commands.txt:353; input/complete.log:2677. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 80: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 15.0. Während einer Störung der Wärmepumpe wird der Sollwert TBO um den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x08)
@@ -2039,10 +2282,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 05-14: Legionellenschutzfunktion. Kontext: HK1. commands.txt:186. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 55: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..8.0, gespeichert 0.0. 0 = keine Legionellenschutzfunktion  1 = Montag  2 = Dienstag  3 = Mittwoch  4 = Donnerstag  5 = Freitag  6 = Samstag  7 = Sonntag  8 = täglich Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x0a)
+  model P05_14_HK1_set {
+    wert: UIN;
+  }
+
   /** 05-14: Legionellenschutzfunktion. Kontext: HK2. commands.txt:198. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 55: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..8.0, gespeichert 0.0. 0 = keine Legionellenschutzfunktion  1 = Montag  2 = Dienstag  3 = Mittwoch  4 = Donnerstag  5 = Freitag  6 = Samstag  7 = Sonntag  8 = täglich */
   @id(0x06, 0x21, 0x23, 0x8a, 0x10, 0x00)
   model P05_14_HK2 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 05-14: Legionellenschutzfunktion. Kontext: HK2. commands.txt:198. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 55: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..8.0, gespeichert 0.0. 0 = keine Legionellenschutzfunktion  1 = Montag  2 = Dienstag  3 = Mittwoch  4 = Donnerstag  5 = Freitag  6 = Samstag  7 = Sonntag  8 = täglich Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x8a, 0x10, 0x00)
+  model P05_14_HK2_set {
+    wert: UIN;
   }
 
   /** 05-40: Min. Fehlerdauer fuer Brauchwasser Störmeldung. Kontext: Global. commands.txt:354; input/complete.log:2685. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 81: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Brauchwassertemperatur während der Ladung innerhalb der eingestellten Zeit um mehr als 10 K vom Sollwert ab, wird eine Störung generiert. Einstellung 0=Funktion unwirksam */
@@ -2051,7 +2310,7 @@ namespace _15 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
-  /** 05-40: Min. Fehlerdauer fuer Brauchwasser Störmeldung. Kontext: Global. commands.txt:354; input/complete.log:2685. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 81: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Brauchwassertemperatur während der Ladung innerhalb der eingestellten Zeit um mehr als 10 K vom Sollwert ab, wird eine Störung generiert. Einstellung 0=Funktion unwirksam Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-40: Min. Fehlerdauer fuer Brauchwasser Störmeldung. Kontext: Global. commands.txt:354; input/complete.log:2685. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 81: Einstellebene 5, Brauchwasserbereitung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Brauchwassertemperatur während der Ladung innerhalb der eingestellten Zeit um mehr als 10 K vom Sollwert ab, wird eine Störung generiert. Einstellung 0=Funktion unwirksam Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x09)
@@ -2065,7 +2324,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 05-51: Sollwert Warmwassertemperatur. Kontext: HK1. commands.txt:123; input/complete.log:1236. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 13: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 50.0. Sollwert für Brauchwasser Temperatur STE 14: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 10.0. Sollwert für Brauchwasser Temperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-51: Sollwert Warmwassertemperatur. Kontext: HK1. commands.txt:123; input/complete.log:1236. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 13: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 50.0. Sollwert für Brauchwasser Temperatur STE 14: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 10.0. Sollwert für Brauchwasser Temperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x03)
@@ -2079,7 +2338,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 05-51: Sollwert Warmwassertemperatur. Kontext: HK2. commands.txt:129; input/complete.log:2062. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 13: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 50.0. Sollwert für Brauchwasser Temperatur STE 14: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 10.0. Sollwert für Brauchwasser Temperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 05-51: Sollwert Warmwassertemperatur. Kontext: HK2. commands.txt:129; input/complete.log:2062. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 13: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 50.0. Sollwert für Brauchwasser Temperatur STE 14: Einstellebene 2,  Grenzen 10.0..70.0, gespeichert 10.0. Sollwert für Brauchwasser Temperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x83, 0x10, 0x00)
@@ -2105,7 +2364,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 06-00: Brauchwasser Ladeleistung. Kontext: Global. commands.txt:356; input/complete.log:2714. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 83: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Ladeleistung die bei einer Warmwasserbereitung vom Wärmemanager angefordert wird.  Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-00: Brauchwasser Ladeleistung. Kontext: Global. commands.txt:356; input/complete.log:2714. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 83: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Ladeleistung die bei einer Warmwasserbereitung vom Wärmemanager angefordert wird.  Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x00)
@@ -2119,7 +2378,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 06-01: Puffer, Heiz- Ladeleistung. Kontext: Global. commands.txt:357; input/complete.log:2715. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 84: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-01: Puffer, Heiz- Ladeleistung. Kontext: Global. commands.txt:357; input/complete.log:2715. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 84: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Anteil der gesamten Wärmeerzeuger-/Anlageleistung (Summe der Einstellebene 11 ÷ 18 Einsteller 11-02) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x01)
@@ -2133,7 +2392,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 06-02: Kühlleistung. Kontext: Global. commands.txt:358; input/complete.log:2719. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 85: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Die Kühlleistung dient dem Wärmemanager zur Berechnung der benötigten Leistung für die weiteren Wärmeerzeuger. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-02: Kühlleistung. Kontext: Global. commands.txt:358; input/complete.log:2719. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 85: Einstellebene 6, WM-Einstellungen Grenzen 0.0..999.0, gespeichert 100.0. Die Kühlleistung dient dem Wärmemanager zur Berechnung der benötigten Leistung für die weiteren Wärmeerzeuger. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x02)
@@ -2147,7 +2406,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 06-04: WEZ Überhöhung. Kontext: Global. commands.txt:359; input/complete.log:2721. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 86: Einstellebene 6, WM-Einstellungen Grenzen 0.0..20.0, gespeichert 10.0. Hier wird die Überhöhung Wärmeerzeugersollwert zum Puffer Oben TPO oder Hauptvorlauffühler TKx eingestellt. (TWV zu TPO oder TKx) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-04: WEZ Überhöhung. Kontext: Global. commands.txt:359; input/complete.log:2721. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 86: Einstellebene 6, WM-Einstellungen Grenzen 0.0..20.0, gespeichert 10.0. Hier wird die Überhöhung Wärmeerzeugersollwert zum Puffer Oben TPO oder Hauptvorlauffühler TKx eingestellt. (TWV zu TPO oder TKx) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x03)
@@ -2161,7 +2420,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 06-05: Puffer Offset TPM aus. Kontext: Global. commands.txt:360; input/complete.log:2723. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 87: Einstellebene 6, WM-Einstellungen Grenzen -10.0..30.0, gespeichert 0.0. Sollwertreduktion für das Beenden der Pufferladung am Abschaltfühler Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-05: Puffer Offset TPM aus. Kontext: Global. commands.txt:360; input/complete.log:2723. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 87: Einstellebene 6, WM-Einstellungen Grenzen -10.0..30.0, gespeichert 0.0. Sollwertreduktion für das Beenden der Pufferladung am Abschaltfühler Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x04)
@@ -2175,7 +2434,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 06-08: TBVsoll Überhöhung. Kontext: Global. commands.txt:361; input/complete.log:2726. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 88: Einstellebene 6, WM-Einstellungen Grenzen 0.0..20.0, gespeichert 10.0. Notwendige Wärmeerzeuger Temperaturerhöhung bei Brauchwasserladung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-08: TBVsoll Überhöhung. Kontext: Global. commands.txt:361; input/complete.log:2726. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 88: Einstellebene 6, WM-Einstellungen Grenzen 0.0..20.0, gespeichert 10.0. Notwendige Wärmeerzeuger Temperaturerhöhung bei Brauchwasserladung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x05)
@@ -2189,7 +2448,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 06-10: Xp WEZ Manager. Kontext: Global. commands.txt:362; input/complete.log:2727. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 89: Einstellebene 6, WM-Einstellungen Grenzen 2.0..100.0, gespeichert 3.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-10: Xp WEZ Manager. Kontext: Global. commands.txt:362; input/complete.log:2727. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 89: Einstellebene 6, WM-Einstellungen Grenzen 2.0..100.0, gespeichert 3.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x06)
@@ -2203,7 +2462,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 06-11: Tn WEZ Manager. Kontext: Global. commands.txt:363; input/complete.log:2731. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 90: Einstellebene 6, WM-Einstellungen Grenzen 0.0..100.0, gespeichert 20.0. Die Stellgrösse wird innerhalb der eingestellten Zeit verdoppelt, wenn die Regelabweichung kostant bleibt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-11: Tn WEZ Manager. Kontext: Global. commands.txt:363; input/complete.log:2731. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 90: Einstellebene 6, WM-Einstellungen Grenzen 0.0..100.0, gespeichert 20.0. Die Stellgrösse wird innerhalb der eingestellten Zeit verdoppelt, wenn die Regelabweichung kostant bleibt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x07)
@@ -2217,7 +2476,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 06-12: Tv WEZ Manager. Kontext: Global. commands.txt:364; input/complete.log:2737. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 91: Einstellebene 6, WM-Einstellungen Grenzen 0.0..100.0, gespeichert 0.0. Mit der Vorhaltezeit kann dem Wärmemanager ein Differential Anteil zugeordnet werden. Die aktuelle Steigung der Puffer- oder Hauptvorlauftemperatur mit der Vorhaltezeit multipliziert ergibt eine theoretische Sollwertverschiebung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-12: Tv WEZ Manager. Kontext: Global. commands.txt:364; input/complete.log:2737. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 91: Einstellebene 6, WM-Einstellungen Grenzen 0.0..100.0, gespeichert 0.0. Mit der Vorhaltezeit kann dem Wärmemanager ein Differential Anteil zugeordnet werden. Die aktuelle Steigung der Puffer- oder Hauptvorlauftemperatur mit der Vorhaltezeit multipliziert ergibt eine theoretische Sollwertverschiebung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x08)
@@ -2231,7 +2490,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 06-13: Reduktion Sollwert TKX. Kontext: Global. commands.txt:365; input/complete.log:2742. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 92: Einstellebene 6, WM-Einstellungen Grenzen 0.0..25.0, gespeichert 5.0. Während einer Störung der Wärmepumpe wird der Sollwert TWR oder TKX um den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-13: Reduktion Sollwert TKX. Kontext: Global. commands.txt:365; input/complete.log:2742. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 92: Einstellebene 6, WM-Einstellungen Grenzen 0.0..25.0, gespeichert 5.0. Während einer Störung der Wärmepumpe wird der Sollwert TWR oder TKX um den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x09)
@@ -2245,7 +2504,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 06-20: Sequenzwechsel Flag. Kontext: Global. commands.txt:366; input/complete.log:2746. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 93: Einstellebene 6, WM-Einstellungen Grenzen 0.0..8.0, gespeichert 0.0. 0=kein Folgewechsel  1=Folgewechsel nach 1 Woche  2=Folgewechsel nach 2 Wochen  3=Folgewechsel nach 3 Wochen  4=Folgewechsel nach 4 Wochen  5=Folgewechsel nach 5 Wochen  6=Folgewechsel nach 6 Wochen  7=Folgewechsel nach 7 Wochen  8=Folgewechsel sofort Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 06-20: Sequenzwechsel Flag. Kontext: Global. commands.txt:366; input/complete.log:2746. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 93: Einstellebene 6, WM-Einstellungen Grenzen 0.0..8.0, gespeichert 0.0. 0=kein Folgewechsel  1=Folgewechsel nach 1 Woche  2=Folgewechsel nach 2 Wochen  3=Folgewechsel nach 3 Wochen  4=Folgewechsel nach 4 Wochen  5=Folgewechsel nach 5 Wochen  6=Folgewechsel nach 6 Wochen  7=Folgewechsel nach 7 Wochen  8=Folgewechsel sofort Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa6, 0x0a)
@@ -2259,7 +2518,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-00: Proportional-Bereich Mischer. Kontext: HK1. commands.txt:367; input/complete.log:2773. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 94: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist STE 95: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-00: Proportional-Bereich Mischer. Kontext: HK1. commands.txt:367; input/complete.log:2773. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 94: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist STE 95: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x00)
@@ -2273,7 +2532,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-00: Proportional-Bereich Mischer. Kontext: HK2. commands.txt:375; input/complete.log:9170. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 94: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist STE 95: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-00: Proportional-Bereich Mischer. Kontext: HK2. commands.txt:375; input/complete.log:9170. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 94: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist STE 95: Einstellebene 7 Heizkreisregelung Grenzen 5.0..30.0, gespeichert 15.0. Gibt an, bei welcher Soll-Ist Abweichung der Stellbefehl 100% ist Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x80, 0x10, 0x00)
@@ -2287,7 +2546,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-01: Überhöhung WE-Temperatur. Kontext: HK1. commands.txt:368; input/complete.log:2776. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 96: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. STE 97: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 3.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-01: Überhöhung WE-Temperatur. Kontext: HK1. commands.txt:368; input/complete.log:2776. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 96: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. STE 97: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 3.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x01)
@@ -2301,7 +2560,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-01: Überhöhung WE-Temperatur. Kontext: HK2. commands.txt:376; input/complete.log:9171. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 96: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. STE 97: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 3.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-01: Überhöhung WE-Temperatur. Kontext: HK2. commands.txt:376; input/complete.log:9171. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 96: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. STE 97: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 3.0. Überhöhung der Sollwertanforderung an den Wärmeverteiler. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x81, 0x10, 0x00)
@@ -2315,7 +2574,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 07-02: Minimale Vorlauftemperatur. Kontext: HK1. commands.txt:369; input/complete.log:2779. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 98: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) STE 99: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-02: Minimale Vorlauftemperatur. Kontext: HK1. commands.txt:369; input/complete.log:2779. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 98: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) STE 99: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x02)
@@ -2329,7 +2588,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 07-02: Minimale Vorlauftemperatur. Kontext: HK2. commands.txt:377; input/complete.log:9173. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 98: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) STE 99: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-02: Minimale Vorlauftemperatur. Kontext: HK2. commands.txt:377; input/complete.log:9173. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 98: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) STE 99: Einstellebene 7 Heizkreisregelung Grenzen 0.0..40.0, gespeichert 0.0. Vorlauf Minimaltemperatur (ist wirksam, wenn Heizgrenzen nicht aktiv) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x82, 0x10, 0x00)
@@ -2343,7 +2602,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 07-03: Pumpennachlauf Heizkreis. Kontext: HK1. commands.txt:370; input/complete.log:2787. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 100: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. STE 101: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-03: Pumpennachlauf Heizkreis. Kontext: HK1. commands.txt:370; input/complete.log:2787. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 100: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. STE 101: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x03)
@@ -2357,7 +2616,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 07-03: Pumpennachlauf Heizkreis. Kontext: HK2. commands.txt:378; input/complete.log:9174. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 100: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. STE 101: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-03: Pumpennachlauf Heizkreis. Kontext: HK2. commands.txt:378; input/complete.log:9174. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 100: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. STE 101: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 15.0. Nach Abschaltung des Heizkreises läuft die Umwälzpumpe um die eingestellte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x83, 0x10, 0x00)
@@ -2371,7 +2630,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 07-05: Heizkreistyp. Kontext: HK1. commands.txt:371; input/complete.log:2788. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 102: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 2.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet STE 103: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-05: Heizkreistyp. Kontext: HK1. commands.txt:371; input/complete.log:2788. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 102: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 2.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet STE 103: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x04)
@@ -2385,7 +2644,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 07-05: Heizkreistyp. Kontext: HK2. commands.txt:379; input/complete.log:9175. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 102: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 2.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet STE 103: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-05: Heizkreistyp. Kontext: HK2. commands.txt:379; input/complete.log:9175. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 102: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 2.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet STE 103: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = 3 Punkt Mischer   1 = 2 Punkt Mischer  2 = Pumpenkreis  3 = Kein Heizkreis  4 = Taktbetrieb, wenn WE abgeschaltet Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x84, 0x10, 0x00)
@@ -2399,7 +2658,7 @@ namespace _15 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
-  /** 07-06: Min. Fehlerdauer fuer Vorlauf-Störmeldung. Kontext: HK1. commands.txt:372; input/complete.log:2798. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 104: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Isttemperatur über die eingestellte Zeit um mehr als 5 K vom Sollwert ab, wird eine eBUS Fehlermeldung generiert. STE 105: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-06: Min. Fehlerdauer fuer Vorlauf-Störmeldung. Kontext: HK1. commands.txt:372; input/complete.log:2798. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 104: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Isttemperatur über die eingestellte Zeit um mehr als 5 K vom Sollwert ab, wird eine eBUS Fehlermeldung generiert. STE 105: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x05)
@@ -2413,7 +2672,7 @@ namespace _15 {
     antwort: Zahlenantwort<Stunden10>;
   }
 
-  /** 07-06: Min. Fehlerdauer fuer Vorlauf-Störmeldung. Kontext: HK2. commands.txt:380; input/complete.log:9176. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 104: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Isttemperatur über die eingestellte Zeit um mehr als 5 K vom Sollwert ab, wird eine eBUS Fehlermeldung generiert. STE 105: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-06: Min. Fehlerdauer fuer Vorlauf-Störmeldung. Kontext: HK2. commands.txt:380; input/complete.log:9176. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 104: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Weicht die Isttemperatur über die eingestellte Zeit um mehr als 5 K vom Sollwert ab, wird eine eBUS Fehlermeldung generiert. STE 105: Einstellebene 7 Heizkreisregelung Grenzen 0.0..20.0, gespeichert 0.0. Sinkt die Aussentemperatur unter den eingestellten Wert, wird die Frostschutzfunktion aktiv. Steigt die Aussentemperatur über den eingestellten Wert + 2K wird die Frostschutzfunktion deaktiviert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x85, 0x10, 0x00)
@@ -2427,7 +2686,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 07-08: Vorlauf Maximaltemperatur TV. Kontext: HK1. commands.txt:125; input/complete.log:1238. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 17: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 55.0. Maximal möglicher Sollwert für Vorlauftemperatur. STE 18: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 45.0. Maximal möglicher Sollwert für Vorlauftemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-08: Vorlauf Maximaltemperatur TV. Kontext: HK1. commands.txt:125; input/complete.log:1238. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 17: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 55.0. Maximal möglicher Sollwert für Vorlauftemperatur. STE 18: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 45.0. Maximal möglicher Sollwert für Vorlauftemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x05)
@@ -2441,7 +2700,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 07-08: Vorlauf Maximaltemperatur TV. Kontext: HK2. commands.txt:131; input/complete.log:2060. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 17: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 55.0. Maximal möglicher Sollwert für Vorlauftemperatur. STE 18: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 45.0. Maximal möglicher Sollwert für Vorlauftemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-08: Vorlauf Maximaltemperatur TV. Kontext: HK2. commands.txt:131; input/complete.log:2060. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 17: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 55.0. Maximal möglicher Sollwert für Vorlauftemperatur. STE 18: Einstellebene 2,  Grenzen 10.0..90.0, gespeichert 45.0. Maximal möglicher Sollwert für Vorlauftemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x0b, 0x85, 0x10, 0x00)
@@ -2449,10 +2708,18 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 07-09: TEM 07-09; Bezeichnung nicht im STE-Katalog. Kontext: Global. commands.txt:22. Namensquelle: unbekannt. SIN / 10; Einheit aus Antwort.  */
+  /** 07-09: Solltemperatur Handbetrieb. Kontext: Global. commands.txt:22. Namensquelle: Benutzerbestaetigung. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x02, 0x00)
   model P07_09 {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 07-09: Solltemperatur Handbetrieb. Kontext: Global. commands.txt:22. Namensquelle: Benutzerbestaetigung. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x02, 0x00)
+  model P07_09_set {
+    wert: Celsius10;
   }
 
   /** 07-14: Heizkreisfunktion im Kühlbetrieb. Kontext: HK1. commands.txt:373; input/complete.log:2800. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 106: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb STE 107: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb */
@@ -2461,7 +2728,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 07-14: Heizkreisfunktion im Kühlbetrieb. Kontext: HK1. commands.txt:373; input/complete.log:2800. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 106: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb STE 107: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-14: Heizkreisfunktion im Kühlbetrieb. Kontext: HK1. commands.txt:373; input/complete.log:2800. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 106: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb STE 107: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x06)
@@ -2475,7 +2742,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 07-14: Heizkreisfunktion im Kühlbetrieb. Kontext: HK2. commands.txt:381; input/complete.log:9221. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 106: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb STE 107: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-14: Heizkreisfunktion im Kühlbetrieb. Kontext: HK2. commands.txt:381; input/complete.log:9221. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 106: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb STE 107: Einstellebene 7 Heizkreisregelung Grenzen 0.0..3.0, gespeichert 0.0. 0 = Mischer für Heizbetrieb ohne Kühlbetrieb  1 = Mischer zu im Kühlbetrieb  2 = Mischer auf im Kühlbetrieb  3 = Mischer geregelt im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x86, 0x10, 0x00)
@@ -2489,7 +2756,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-31: Heizkreisüberhöhung Niedertarif. Kontext: HK1. commands.txt:374; input/complete.log:2807. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 108: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Ist die Zirkulationspumpe inaktiv, kann die Heizkreistemperatur, im günstigen Niedertarif, um den hier eingestellten Wert erhöht werden.   Dadurch kann bei einer Fussbodenheizung ohne Pufferspeicher zusätzliche Energie in den Fussboden gebracht werden.  Als Niedertarifzeit gilt das eingestellte Zirkulationspumpen Zeitprogramm.   Bei einem Pufferspeicher wird der Sollwert TPO um diesen Wert erhöht. STE 109: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Die Temperaturabweichung für für die Fehlermeldung kann hier verändert werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-31: Heizkreisüberhöhung Niedertarif. Kontext: HK1. commands.txt:374; input/complete.log:2807. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 108: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Ist die Zirkulationspumpe inaktiv, kann die Heizkreistemperatur, im günstigen Niedertarif, um den hier eingestellten Wert erhöht werden.   Dadurch kann bei einer Fussbodenheizung ohne Pufferspeicher zusätzliche Energie in den Fussboden gebracht werden.  Als Niedertarifzeit gilt das eingestellte Zirkulationspumpen Zeitprogramm.   Bei einem Pufferspeicher wird der Sollwert TPO um diesen Wert erhöht. STE 109: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Die Temperaturabweichung für für die Fehlermeldung kann hier verändert werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x07)
@@ -2503,7 +2770,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 07-31: Heizkreisüberhöhung Niedertarif. Kontext: HK2. commands.txt:382; input/complete.log:9222. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 108: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Ist die Zirkulationspumpe inaktiv, kann die Heizkreistemperatur, im günstigen Niedertarif, um den hier eingestellten Wert erhöht werden.   Dadurch kann bei einer Fussbodenheizung ohne Pufferspeicher zusätzliche Energie in den Fussboden gebracht werden.  Als Niedertarifzeit gilt das eingestellte Zirkulationspumpen Zeitprogramm.   Bei einem Pufferspeicher wird der Sollwert TPO um diesen Wert erhöht. STE 109: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Die Temperaturabweichung für für die Fehlermeldung kann hier verändert werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 07-31: Heizkreisüberhöhung Niedertarif. Kontext: HK2. commands.txt:382; input/complete.log:9222. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 108: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Ist die Zirkulationspumpe inaktiv, kann die Heizkreistemperatur, im günstigen Niedertarif, um den hier eingestellten Wert erhöht werden.   Dadurch kann bei einer Fussbodenheizung ohne Pufferspeicher zusätzliche Energie in den Fussboden gebracht werden.  Als Niedertarifzeit gilt das eingestellte Zirkulationspumpen Zeitprogramm.   Bei einem Pufferspeicher wird der Sollwert TPO um diesen Wert erhöht. STE 109: Einstellebene 7 Heizkreisregelung Grenzen 0.0..30.0, gespeichert 0.0. Die Temperaturabweichung für für die Fehlermeldung kann hier verändert werden Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa7, 0x87, 0x10, 0x00)
@@ -2517,10 +2784,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 08-55: Puffer aktiv. Kontext: Global. commands.txt:383. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 110: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..3.0, gespeichert 0.0. 0 = kein Pufferspeicher    1 = Pufferspeicher ohne Warmwassereinsatz (kein TB)    2 = Pufferspeicher mit integriertem Warmwassereinsatz oder externem WW-Speicher der über den Puffer erwärmt wird Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa8, 0x00)
+  model P08_55_set {
+    wert: UIN;
+  }
+
   /** 08-58: Puffer Minimaltemperatur. Kontext: Global. commands.txt:384. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 111: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..80.0, gespeichert 0.0. Die minimale Puffer Solltemperatur ist immer im Heiz- oder Brauchwasser Ladebetrieb aktiv. */
   @id(0x06, 0x21, 0xa8, 0x01)
   model P08_58 {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 08-58: Puffer Minimaltemperatur. Kontext: Global. commands.txt:384. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 111: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..80.0, gespeichert 0.0. Die minimale Puffer Solltemperatur ist immer im Heiz- oder Brauchwasser Ladebetrieb aktiv. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa8, 0x01)
+  model P08_58_set {
+    wert: Celsius10;
   }
 
   /** 08-59: Puffer Maximaltemperatur. Kontext: Global. commands.txt:385. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 112: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 60.0..100.0, gespeichert 90.0. Maximal mögliche Puffer Abschalttemperatur */
@@ -2529,10 +2812,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 08-59: Puffer Maximaltemperatur. Kontext: Global. commands.txt:385. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 112: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 60.0..100.0, gespeichert 90.0. Maximal mögliche Puffer Abschalttemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa8, 0x02)
+  model P08_59_set {
+    wert: Celsius10;
+  }
+
   /** 08-72: Delta Puffer bei Solar aktiv. Kontext: Global. commands.txt:386. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 113: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..40.0, gespeichert 40.0. Der Puffer-Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, um den eingestellten Wert reduziert. */
   @id(0x06, 0x21, 0xa8, 0x03)
   model P08_72 {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 08-72: Delta Puffer bei Solar aktiv. Kontext: Global. commands.txt:386. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 113: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..40.0, gespeichert 40.0. Der Puffer-Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, um den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa8, 0x03)
+  model P08_72_set {
+    wert: Kelvin10;
   }
 
   /** 08-79: WW Minimaltemperatur bei Solar aktiv. Kontext: Global. commands.txt:387. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 114: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..60.0, gespeichert 10.0. Der Warmwasser - Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, auf den eingestellten Wert reduziert. */
@@ -2541,13 +2840,21 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 08-79: WW Minimaltemperatur bei Solar aktiv. Kontext: Global. commands.txt:387. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 114: Einstellebene 8, Solar- und Speicherfunktionen Grenzen 0.0..60.0, gespeichert 10.0. Der Warmwasser - Sollwert wird, wenn der solare Ertrag auf über 50 % Solarleistung ist, auf den eingestellten Wert reduziert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa8, 0x04)
+  model P08_79_set {
+    wert: Celsius10;
+  }
+
   /** 09-00: Nachlaufzeit Schutzfunktion. Kontext: WP. commands.txt:389; input/complete.log:7569. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 116: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 1.0. Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter. */
   @id(0x06, 0x21, 0xa9, 0x01)
   model P09_00_WP {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-00: Nachlaufzeit Schutzfunktion. Kontext: WP. commands.txt:389; input/complete.log:7569. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 116: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 1.0. Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-00: Nachlaufzeit Schutzfunktion. Kontext: WP. commands.txt:389; input/complete.log:7569. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 116: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 1.0. Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x01)
@@ -2561,7 +2868,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-00: Nachlaufzeit Schutzfunktion. Kontext: EH. commands.txt:427; input/complete.log:4237. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 156: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 1.0. Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-00: Nachlaufzeit Schutzfunktion. Kontext: EH. commands.txt:427; input/complete.log:4237. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 156: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 1.0. Die Wärmeerzeugerpumpe und wenn vorhanden der Mischer laufen um diese Zeit weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x01)
@@ -2575,7 +2882,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-04: Vorlaufzeit Quellenpumpe. Kontext: WP. commands.txt:390; input/complete.log:7579. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 117: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..300.0, gespeichert 0.5. Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-04: Vorlaufzeit Quellenpumpe. Kontext: WP. commands.txt:390; input/complete.log:7579. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 117: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..300.0, gespeichert 0.5. Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x02)
@@ -2589,7 +2896,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-04: Vorlaufzeit Quellenpumpe. Kontext: EH. commands.txt:428; input/complete.log:4246. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 157: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..300.0, gespeichert 0.5. Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-04: Vorlaufzeit Quellenpumpe. Kontext: EH. commands.txt:428; input/complete.log:4246. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 157: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..300.0, gespeichert 0.5. Einschaltverzögerung des Wärmeerzeugers nach einer Wärmeanforderung. Dies entspricht auch der Vorlaufzeit Quellenpumpe oder Gebläse, da diese mit der Wärmeanforderung einschalten. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x02)
@@ -2603,7 +2910,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-07: WEZ Typ. Kontext: WP. commands.txt:391; input/complete.log:7585. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 118: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..6.0, gespeichert 5.0. 0 = kein Wärmeerzeuger aktiv    1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)  2 = Funktion nicht verfügbar  3 = Funktion nicht verfügbar  4 = Funktion nicht verfügbar  5 = Wärmepumpe ohne Kühlfunktion  6 = Wärmepumpe mit Kühlfunktion Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-07: WEZ Typ. Kontext: WP. commands.txt:391; input/complete.log:7585. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 118: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..6.0, gespeichert 5.0. 0 = kein Wärmeerzeuger aktiv    1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)  2 = Funktion nicht verfügbar  3 = Funktion nicht verfügbar  4 = Funktion nicht verfügbar  5 = Wärmepumpe ohne Kühlfunktion  6 = Wärmepumpe mit Kühlfunktion Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x03)
@@ -2617,7 +2924,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-07: WEZ Typ. Kontext: EH. commands.txt:429; input/complete.log:4250. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 158: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..6.0, gespeichert 1.0. 0 = kein Wärmeerzeuger aktiv    1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)  2 = Funktion nicht verfügbar  3 = Funktion nicht verfügbar  4 = Funktion nicht verfügbar  5 = Wärmepumpe ohne Kühlfunktion  6 = Wärmepumpe mit Kühlfunktion Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-07: WEZ Typ. Kontext: EH. commands.txt:429; input/complete.log:4250. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 158: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..6.0, gespeichert 1.0. 0 = kein Wärmeerzeuger aktiv    1 = Zusatzwärmeerzeuger 1-stufig (Elektroheizung)  2 = Funktion nicht verfügbar  3 = Funktion nicht verfügbar  4 = Funktion nicht verfügbar  5 = Wärmepumpe ohne Kühlfunktion  6 = Wärmepumpe mit Kühlfunktion Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x03)
@@ -2631,10 +2938,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 09-08: Wärmeerzeuger Sperre. Kontext: HK1. commands.txt:187. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 56: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..3.0, gespeichert 0.0. 0=keine Sperre     1=WE1 (WP) gesperrt     2=WE2 (E-Heizung) gesperrt     3=WE1 und WE2 gesperrt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x0b)
+  model P09_08_HK1_set {
+    wert: UIN;
+  }
+
   /** 09-08: Wärmeerzeuger Sperre. Kontext: HK2. commands.txt:199. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 56: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..3.0, gespeichert 0.0. 0=keine Sperre     1=WE1 (WP) gesperrt     2=WE2 (E-Heizung) gesperrt     3=WE1 und WE2 gesperrt */
   @id(0x06, 0x21, 0x23, 0x8b, 0x10, 0x00)
   model P09_08_HK2 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 09-08: Wärmeerzeuger Sperre. Kontext: HK2. commands.txt:199. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 56: Einstellebene 3, Raumtemperaturregelung Grenzen 0.0..3.0, gespeichert 0.0. 0=keine Sperre     1=WE1 (WP) gesperrt     2=WE2 (E-Heizung) gesperrt     3=WE1 und WE2 gesperrt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0x23, 0x8b, 0x10, 0x00)
+  model P09_08_HK2_set {
+    wert: UIN;
   }
 
   /** 09-11: Bedingte WEZ Freigabe. Kontext: WP. commands.txt:392; input/complete.log:7590. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 119: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..13.0, gespeichert 0.0. 0 = Keine Sperre.  1 = Wärmeerzeuger gesperrt.  2 = gesperrt wenn die Aussentemp. unter den Wert in 11-1 - 2K sinkt.   3 = gesperrt wenn die Aussentemp. über den Wert in 11-1 steigt. */
@@ -2643,7 +2966,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-11: Bedingte WEZ Freigabe. Kontext: WP. commands.txt:392; input/complete.log:7590. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 119: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..13.0, gespeichert 0.0. 0 = Keine Sperre.  1 = Wärmeerzeuger gesperrt.  2 = gesperrt wenn die Aussentemp. unter den Wert in 11-1 - 2K sinkt.   3 = gesperrt wenn die Aussentemp. über den Wert in 11-1 steigt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-11: Bedingte WEZ Freigabe. Kontext: WP. commands.txt:392; input/complete.log:7590. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 119: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..13.0, gespeichert 0.0. 0 = Keine Sperre.  1 = Wärmeerzeuger gesperrt.  2 = gesperrt wenn die Aussentemp. unter den Wert in 11-1 - 2K sinkt.   3 = gesperrt wenn die Aussentemp. über den Wert in 11-1 steigt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x04)
@@ -2657,7 +2980,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-11: Bedingte WEZ Freigabe. Kontext: EH. commands.txt:430; input/complete.log:4257. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 159: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..13.0, gespeichert 10.0. 0 = frei Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-11: Bedingte WEZ Freigabe. Kontext: EH. commands.txt:430; input/complete.log:4257. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 159: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..13.0, gespeichert 10.0. 0 = frei Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x04)
@@ -2671,7 +2994,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 09-12: Aussentemperatursperre TAW. Kontext: WP. commands.txt:393; input/complete.log:7594. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 120: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -50.0..50.0, gespeichert -50.0. Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-12: Aussentemperatursperre TAW. Kontext: WP. commands.txt:393; input/complete.log:7594. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 120: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -50.0..50.0, gespeichert -50.0. Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x05)
@@ -2685,7 +3008,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 09-12: Aussentemperatursperre TAW. Kontext: EH. commands.txt:431; input/complete.log:4261. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 160: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -50.0..50.0, gespeichert -5.0. Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-12: Aussentemperatursperre TAW. Kontext: EH. commands.txt:431; input/complete.log:4261. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 160: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -50.0..50.0, gespeichert -5.0. Aussentemperatur bei der die Sperrung des Wärmeerzeugers erfolgt.Die Sperrung erfolgt abhängig dem Wert im Einsteller 11-0 über oder unter dem eingestellten Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x05)
@@ -2699,7 +3022,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-13: Energiezweig Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x06)
@@ -2713,7 +3036,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-13: Energiezweig Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x06)
@@ -2727,7 +3050,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-14: Diff. Leistungszwang Tkmax. Kontext: WP. commands.txt:395; input/complete.log:7609. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 122: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -30.0..30.0, gespeichert 0.0. Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-14: Diff. Leistungszwang Tkmax. Kontext: WP. commands.txt:395; input/complete.log:7609. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 122: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -30.0..30.0, gespeichert 0.0. Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x07)
@@ -2741,7 +3064,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-14: Diff. Leistungszwang Tkmax. Kontext: EH. commands.txt:433; input/complete.log:4266. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 162: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -30.0..30.0, gespeichert 0.0. Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-14: Diff. Leistungszwang Tkmax. Kontext: EH. commands.txt:433; input/complete.log:4266. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 162: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -30.0..30.0, gespeichert 0.0. Die Ansprechtemperatur für positiven Leistungszwang wird gegenüber TKmax um diesen Wert verschoben. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x07)
@@ -2755,7 +3078,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-21: WE Abschaltdifferenz. Kontext: WP. commands.txt:396; input/complete.log:7665. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 123: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..30.0, gespeichert 5.0. Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-21: WE Abschaltdifferenz. Kontext: WP. commands.txt:396; input/complete.log:7665. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 123: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..30.0, gespeichert 5.0. Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x08)
@@ -2769,7 +3092,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-21: WE Abschaltdifferenz. Kontext: EH. commands.txt:434; input/complete.log:4269. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 163: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 2.0..30.0, gespeichert 3.0. Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-21: WE Abschaltdifferenz. Kontext: EH. commands.txt:434; input/complete.log:4269. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 163: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 2.0..30.0, gespeichert 3.0. Wird am Fühler TWV die Temperatur TWVSoll + Einstellwert überschritten, schaltet der Wärmeerzeuger aus. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x08)
@@ -2783,7 +3106,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-23: Minimale Stillstandszeit. Kontext: WP. commands.txt:397; input/complete.log:7673. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 124: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 12.0. Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-23: Minimale Stillstandszeit. Kontext: WP. commands.txt:397; input/complete.log:7673. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 124: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 12.0. Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x09)
@@ -2797,7 +3120,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-23: Minimale Stillstandszeit. Kontext: EH. commands.txt:435; input/complete.log:4326. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 164: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..100.0, gespeichert 60.0. Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-23: Minimale Stillstandszeit. Kontext: EH. commands.txt:435; input/complete.log:4326. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 164: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..100.0, gespeichert 60.0. Minimale Stillstandzeit des Wärmeerzeugers nach einer Abschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x09)
@@ -2811,7 +3134,7 @@ namespace _15 {
     antwort: Zahlenantwort<Sekunden10>;
   }
 
-  /** 09-26: Vorhaltezeit 2. Stufe. Kontext: WP. commands.txt:398; input/complete.log:7684. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 125: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 10.0. Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt  werden. Optimierung um ein Überschwingen zu vermeiden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-26: Vorhaltezeit 2. Stufe. Kontext: WP. commands.txt:398; input/complete.log:7684. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 125: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 10.0. Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt  werden. Optimierung um ein Überschwingen zu vermeiden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0a)
@@ -2825,7 +3148,7 @@ namespace _15 {
     antwort: Zahlenantwort<Sekunden10>;
   }
 
-  /** 09-26: Vorhaltezeit 2. Stufe. Kontext: EH. commands.txt:436; input/complete.log:4330. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 165: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..100.0, gespeichert 0.0. Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt  werden. Optimierung um ein Überschwingen zu vermeiden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-26: Vorhaltezeit 2. Stufe. Kontext: EH. commands.txt:436; input/complete.log:4330. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 165: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..100.0, gespeichert 0.0. Bei Modulations- und 2-stufigem Betrieb kann eine Vorhaltezeit (D-Anteil) für die Modulation eingestellt  werden. Optimierung um ein Überschwingen zu vermeiden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x0a)
@@ -2839,7 +3162,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-31: Minimale WE Laufzeit. Kontext: WP. commands.txt:399; input/complete.log:7687. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 126: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-31: Minimale WE Laufzeit. Kontext: WP. commands.txt:399; input/complete.log:7687. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 126: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0b)
@@ -2853,7 +3176,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-31: Minimale WE Laufzeit. Kontext: EH. commands.txt:437; input/complete.log:4335. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 166: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 0.0. Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-31: Minimale WE Laufzeit. Kontext: EH. commands.txt:437; input/complete.log:4335. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 166: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 0.0. Minimale Laufzeit des Wärmeerzeugers nach einer Freigabe. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x0b)
@@ -2867,7 +3190,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-34: Einschaltverzögerung 2. Stufe. Kontext: WP. commands.txt:400; input/complete.log:7701. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 128: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-34: Einschaltverzögerung 2. Stufe. Kontext: WP. commands.txt:400; input/complete.log:7701. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 128: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0c)
@@ -2881,7 +3204,7 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
-  /** 09-34: Einschaltverzögerung 2. Stufe. Kontext: EH. commands.txt:438; input/complete.log:4337. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 167: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 0.0. Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-34: Einschaltverzögerung 2. Stufe. Kontext: EH. commands.txt:438; input/complete.log:4337. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 167: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..40.0, gespeichert 0.0. Mit der Einschaltverzögerung kann der Einschaltzeitpunkt der zweiten Stufe um die eingestellte Zeit ab Wärmeerzeugeranforderung verzögert werden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x0c)
@@ -2895,7 +3218,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-35: Schaltdifferenz 2. Stufe. Kontext: WP. commands.txt:401; input/complete.log:7703. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 129: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..0.0, gespeichert -3.0. Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.  Schaltdifferenz für die 2. Stufe -1.0 bis -20.0 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-35: Schaltdifferenz 2. Stufe. Kontext: WP. commands.txt:401; input/complete.log:7703. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 129: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..0.0, gespeichert -3.0. Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.  Schaltdifferenz für die 2. Stufe -1.0 bis -20.0 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0d)
@@ -2909,7 +3232,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 09-35: Schaltdifferenz 2. Stufe. Kontext: EH. commands.txt:439; input/complete.log:4342. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 168: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -20.0..0.0, gespeichert 0.0. Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.  Schaltdifferenz für die 2. Stufe -1.0 bis -20.0 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 09-35: Schaltdifferenz 2. Stufe. Kontext: EH. commands.txt:439; input/complete.log:4342. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 168: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen -20.0..0.0, gespeichert 0.0. Bei 1-stufigem Betrieb ist dieser Einsteller auf 0 zu belassen.  Schaltdifferenz für die 2. Stufe -1.0 bis -20.0 Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x0d)
@@ -2923,7 +3246,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 10-31: WE Maximaltemperatur. Kontext: WP. commands.txt:402; input/complete.log:7745. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 130: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 30.0..80.0, gespeichert 70.0. Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 10-31: WE Maximaltemperatur. Kontext: WP. commands.txt:402; input/complete.log:7745. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 130: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 30.0..80.0, gespeichert 70.0. Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0e)
@@ -2937,7 +3260,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 10-31: WE Maximaltemperatur. Kontext: EH. commands.txt:440; input/complete.log:4345. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 169: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 30.0..80.0, gespeichert 70.0. Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 10-31: WE Maximaltemperatur. Kontext: EH. commands.txt:440; input/complete.log:4345. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 169: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 30.0..80.0, gespeichert 70.0. Wird die maximale Wärmeerzeugertemperatur überschritten, wird der WEZ abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x0e)
@@ -2951,7 +3274,7 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 11-01: WE Steuerbefehl. Kontext: WE1. commands.txt:444; input/complete.log:4372. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 171: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 11-01: WE Steuerbefehl. Kontext: WE1. commands.txt:444; input/complete.log:4372. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 171: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x03)
@@ -2965,10 +3288,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-01: WE Steuerbefehl. Kontext: WE2. commands.txt:452. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 177: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x03)
+  model P11_01_WE2_set {
+    wert: UIN;
+  }
+
   /** 11-01: WE Steuerbefehl. Kontext: WE3. commands.txt:460. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 183: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
   @id(0x06, 0x21, 0xad, 0x03)
   model P11_01_WE3 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-01: WE Steuerbefehl. Kontext: WE3. commands.txt:460. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 183: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x03)
+  model P11_01_WE3_set {
+    wert: UIN;
   }
 
   /** 11-01: WE Steuerbefehl. Kontext: WE4. commands.txt:468. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 189: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
@@ -2977,10 +3316,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-01: WE Steuerbefehl. Kontext: WE4. commands.txt:468. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 189: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x03)
+  model P11_01_WE4_set {
+    wert: UIN;
+  }
+
   /** 11-01: WE Steuerbefehl. Kontext: WE5. commands.txt:476. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 195: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
   @id(0x06, 0x21, 0xaf, 0x03)
   model P11_01_WE5 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-01: WE Steuerbefehl. Kontext: WE5. commands.txt:476. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 195: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x03)
+  model P11_01_WE5_set {
+    wert: UIN;
   }
 
   /** 11-01: WE Steuerbefehl. Kontext: WE6. commands.txt:484. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 201: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
@@ -2989,10 +3344,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-01: WE Steuerbefehl. Kontext: WE6. commands.txt:484. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 201: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x03)
+  model P11_01_WE6_set {
+    wert: UIN;
+  }
+
   /** 11-01: WE Steuerbefehl. Kontext: WE7. commands.txt:492. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 207: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
   @id(0x06, 0x21, 0xb1, 0x03)
   model P11_01_WE7 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-01: WE Steuerbefehl. Kontext: WE7. commands.txt:492. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 207: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x03)
+  model P11_01_WE7_set {
+    wert: UIN;
   }
 
   /** 11-01: WE Steuerbefehl. Kontext: WE8. commands.txt:500. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 213: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE */
@@ -3001,13 +3372,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-01: WE Steuerbefehl. Kontext: WE8. commands.txt:500. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 213: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 1.0..4.0, gespeichert 2.0. 1 = Temperatursteuerung mit BW Funktion am WE  2 = Leistungssteuerung mit BW Funktion am WE  3 = Temperatursteuerung ohne BW Funktion am WE  4 = Leistungssteuerung ohne BW Funktion am WE Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x03)
+  model P11_01_WE8_set {
+    wert: UIN;
+  }
+
   /** 11-02: WE Nennleistung. Kontext: WE1. commands.txt:445; input/complete.log:4376. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 172: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
   @id(0x06, 0x21, 0xab, 0x04)
   model P11_02_WE1 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
-  /** 11-02: WE Nennleistung. Kontext: WE1. commands.txt:445; input/complete.log:4376. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 172: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 11-02: WE Nennleistung. Kontext: WE1. commands.txt:445; input/complete.log:4376. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 172: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x04)
@@ -3021,10 +3400,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
+  /** 11-02: WE Nennleistung. Kontext: WE2. commands.txt:453. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 178: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x04)
+  model P11_02_WE2_set {
+    wert: Kilowatt10;
+  }
+
   /** 11-02: WE Nennleistung. Kontext: WE3. commands.txt:461. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 184: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
   @id(0x06, 0x21, 0xad, 0x04)
   model P11_02_WE3 {
     antwort: Zahlenantwort<Kilowatt10>;
+  }
+
+  /** 11-02: WE Nennleistung. Kontext: WE3. commands.txt:461. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 184: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x04)
+  model P11_02_WE3_set {
+    wert: Kilowatt10;
   }
 
   /** 11-02: WE Nennleistung. Kontext: WE4. commands.txt:469. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 190: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
@@ -3033,10 +3428,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
+  /** 11-02: WE Nennleistung. Kontext: WE4. commands.txt:469. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 190: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x04)
+  model P11_02_WE4_set {
+    wert: Kilowatt10;
+  }
+
   /** 11-02: WE Nennleistung. Kontext: WE5. commands.txt:477. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 196: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
   @id(0x06, 0x21, 0xaf, 0x04)
   model P11_02_WE5 {
     antwort: Zahlenantwort<Kilowatt10>;
+  }
+
+  /** 11-02: WE Nennleistung. Kontext: WE5. commands.txt:477. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 196: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x04)
+  model P11_02_WE5_set {
+    wert: Kilowatt10;
   }
 
   /** 11-02: WE Nennleistung. Kontext: WE6. commands.txt:485. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 202: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
@@ -3045,10 +3456,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
+  /** 11-02: WE Nennleistung. Kontext: WE6. commands.txt:485. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 202: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x04)
+  model P11_02_WE6_set {
+    wert: Kilowatt10;
+  }
+
   /** 11-02: WE Nennleistung. Kontext: WE7. commands.txt:493. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 208: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
   @id(0x06, 0x21, 0xb1, 0x04)
   model P11_02_WE7 {
     antwort: Zahlenantwort<Kilowatt10>;
+  }
+
+  /** 11-02: WE Nennleistung. Kontext: WE7. commands.txt:493. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 208: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x04)
+  model P11_02_WE7_set {
+    wert: Kilowatt10;
   }
 
   /** 11-02: WE Nennleistung. Kontext: WE8. commands.txt:501. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 214: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt */
@@ -3057,13 +3484,21 @@ namespace _15 {
     antwort: Zahlenantwort<Kilowatt10>;
   }
 
+  /** 11-02: WE Nennleistung. Kontext: WE8. commands.txt:501. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 214: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..999.0, gespeichert 100.0. Mit dem Einsteller wird die Maximalleistung des Wärmeerzeugers von 0 bis 999 kW eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x04)
+  model P11_02_WE8_set {
+    wert: Kilowatt10;
+  }
+
   /** 11-03: minimale WE-Leistung. Kontext: WE1. commands.txt:446; input/complete.log:4381. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 173: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 70.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
   @id(0x06, 0x21, 0xab, 0x05)
   model P11_03_WE1 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 11-03: minimale WE-Leistung. Kontext: WE1. commands.txt:446; input/complete.log:4381. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 173: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 70.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 11-03: minimale WE-Leistung. Kontext: WE1. commands.txt:446; input/complete.log:4381. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 173: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 70.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x05)
@@ -3077,10 +3512,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-03: minimale WE-Leistung. Kontext: WE2. commands.txt:454. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 179: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x05)
+  model P11_03_WE2_set {
+    wert: UIN;
+  }
+
   /** 11-03: minimale WE-Leistung. Kontext: WE3. commands.txt:462. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 185: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
   @id(0x06, 0x21, 0xad, 0x05)
   model P11_03_WE3 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-03: minimale WE-Leistung. Kontext: WE3. commands.txt:462. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 185: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x05)
+  model P11_03_WE3_set {
+    wert: UIN;
   }
 
   /** 11-03: minimale WE-Leistung. Kontext: WE4. commands.txt:470. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 191: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
@@ -3089,10 +3540,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-03: minimale WE-Leistung. Kontext: WE4. commands.txt:470. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 191: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x05)
+  model P11_03_WE4_set {
+    wert: UIN;
+  }
+
   /** 11-03: minimale WE-Leistung. Kontext: WE5. commands.txt:478. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 197: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
   @id(0x06, 0x21, 0xaf, 0x05)
   model P11_03_WE5 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-03: minimale WE-Leistung. Kontext: WE5. commands.txt:478. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 197: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x05)
+  model P11_03_WE5_set {
+    wert: UIN;
   }
 
   /** 11-03: minimale WE-Leistung. Kontext: WE6. commands.txt:486. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 203: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
@@ -3101,10 +3568,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-03: minimale WE-Leistung. Kontext: WE6. commands.txt:486. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 203: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x05)
+  model P11_03_WE6_set {
+    wert: UIN;
+  }
+
   /** 11-03: minimale WE-Leistung. Kontext: WE7. commands.txt:494. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 209: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
   @id(0x06, 0x21, 0xb1, 0x05)
   model P11_03_WE7 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-03: minimale WE-Leistung. Kontext: WE7. commands.txt:494. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 209: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x05)
+  model P11_03_WE7_set {
+    wert: UIN;
   }
 
   /** 11-03: minimale WE-Leistung. Kontext: WE8. commands.txt:502. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 215: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. */
@@ -3113,13 +3596,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-03: minimale WE-Leistung. Kontext: WE8. commands.txt:502. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 215: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 100.0. Mit dem Einsteller wird die Minimalleistung des Wärmeerzeugers in % der Maximalleistung eingestellt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x05)
+  model P11_03_WE8_set {
+    wert: UIN;
+  }
+
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE1. commands.txt:447; input/complete.log:4383. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 174: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
   @id(0x06, 0x21, 0xab, 0x06)
   model P11_04_WE1 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 11-04: Einschaltleistung Folge WE. Kontext: WE1. commands.txt:447; input/complete.log:4383. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 174: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE1. commands.txt:447; input/complete.log:4383. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 174: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x06)
@@ -3133,10 +3624,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE2. commands.txt:455. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 180: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x06)
+  model P11_04_WE2_set {
+    wert: UIN;
+  }
+
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE3. commands.txt:463. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 186: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
   @id(0x06, 0x21, 0xad, 0x06)
   model P11_04_WE3 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE3. commands.txt:463. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 186: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x06)
+  model P11_04_WE3_set {
+    wert: UIN;
   }
 
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE4. commands.txt:471. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 192: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
@@ -3145,10 +3652,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE4. commands.txt:471. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 192: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x06)
+  model P11_04_WE4_set {
+    wert: UIN;
+  }
+
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE5. commands.txt:479. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 198: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
   @id(0x06, 0x21, 0xaf, 0x06)
   model P11_04_WE5 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE5. commands.txt:479. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 198: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x06)
+  model P11_04_WE5_set {
+    wert: UIN;
   }
 
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE6. commands.txt:487. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 204: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
@@ -3157,10 +3680,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE6. commands.txt:487. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 204: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x06)
+  model P11_04_WE6_set {
+    wert: UIN;
+  }
+
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE7. commands.txt:495. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 210: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
   @id(0x06, 0x21, 0xb1, 0x06)
   model P11_04_WE7 {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE7. commands.txt:495. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 210: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x06)
+  model P11_04_WE7_set {
+    wert: UIN;
   }
 
   /** 11-04: Einschaltleistung Folge WE. Kontext: WE8. commands.txt:503. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 216: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt */
@@ -3169,13 +3708,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 11-04: Einschaltleistung Folge WE. Kontext: WE8. commands.txt:503. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 216: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..100.0, gespeichert 80.0. Mit dem Einsteller wird die Freigabe für den Folge Wärmeerzeuger in % eingestellt Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x06)
+  model P11_04_WE8_set {
+    wert: UIN;
+  }
+
   /** 11-05: WE Folgewechsel. Kontext: WE1. commands.txt:448; input/complete.log:4385. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 175: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
   @id(0x06, 0x21, 0xab, 0x07)
   model P11_05_WE1 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
-  /** 11-05: WE Folgewechsel. Kontext: WE1. commands.txt:448; input/complete.log:4385. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 175: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 11-05: WE Folgewechsel. Kontext: WE1. commands.txt:448; input/complete.log:4385. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 175: Einstellebene 11, WE 1 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xab, 0x07)
@@ -3189,10 +3736,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
+  /** 11-05: WE Folgewechsel. Kontext: WE2. commands.txt:456. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 181: Einstellebene 12, WE 2 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xac, 0x07)
+  model P11_05_WE2_set {
+    wert: Schalter;
+  }
+
   /** 11-05: WE Folgewechsel. Kontext: WE3. commands.txt:464. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 187: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
   @id(0x06, 0x21, 0xad, 0x07)
   model P11_05_WE3 {
     antwort: RohgrenzenAntwort<Schalter>;
+  }
+
+  /** 11-05: WE Folgewechsel. Kontext: WE3. commands.txt:464. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 187: Einstellebene 13, WE 3 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xad, 0x07)
+  model P11_05_WE3_set {
+    wert: Schalter;
   }
 
   /** 11-05: WE Folgewechsel. Kontext: WE4. commands.txt:472. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 193: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
@@ -3201,10 +3764,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
+  /** 11-05: WE Folgewechsel. Kontext: WE4. commands.txt:472. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 193: Einstellebene 14, WE 4 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xae, 0x07)
+  model P11_05_WE4_set {
+    wert: Schalter;
+  }
+
   /** 11-05: WE Folgewechsel. Kontext: WE5. commands.txt:480. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 199: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
   @id(0x06, 0x21, 0xaf, 0x07)
   model P11_05_WE5 {
     antwort: RohgrenzenAntwort<Schalter>;
+  }
+
+  /** 11-05: WE Folgewechsel. Kontext: WE5. commands.txt:480. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 199: Einstellebene 15, WE 5 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xaf, 0x07)
+  model P11_05_WE5_set {
+    wert: Schalter;
   }
 
   /** 11-05: WE Folgewechsel. Kontext: WE6. commands.txt:488. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 205: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
@@ -3213,10 +3792,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
+  /** 11-05: WE Folgewechsel. Kontext: WE6. commands.txt:488. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 205: Einstellebene 16, WE 6 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb0, 0x07)
+  model P11_05_WE6_set {
+    wert: Schalter;
+  }
+
   /** 11-05: WE Folgewechsel. Kontext: WE7. commands.txt:496. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 211: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
   @id(0x06, 0x21, 0xb1, 0x07)
   model P11_05_WE7 {
     antwort: RohgrenzenAntwort<Schalter>;
+  }
+
+  /** 11-05: WE Folgewechsel. Kontext: WE7. commands.txt:496. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 211: Einstellebene 17, WE 7 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb1, 0x07)
+  model P11_05_WE7_set {
+    wert: Schalter;
   }
 
   /** 11-05: WE Folgewechsel. Kontext: WE8. commands.txt:504. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 217: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung */
@@ -3225,13 +3820,21 @@ namespace _15 {
     antwort: RohgrenzenAntwort<Schalter>;
   }
 
+  /** 11-05: WE Folgewechsel. Kontext: WE8. commands.txt:504. Namensquelle: STE-Katalog. UIN: 0=Aus, 1=Ein. STE 217: Einstellebene 18, WE 8 Kaskadenfunktionen Grenzen 0.0..1.0, gespeichert 0.0. 0 = Keine Sequenzumschaltung  1 = Sequenzumschaltung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xb2, 0x07)
+  model P11_05_WE8_set {
+    wert: Schalter;
+  }
+
   /** 15-10: Heissgas Maximaltemperatur. Kontext: WP. commands.txt:403; input/complete.log:7752. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 131: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..140.0, gespeichert 125.0. Überschreitet die Heissgastemperatur (THG) den Einstellwert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Sinkt die Temperatur THG um 2 K unter den Einstellwert, läuft die Anlage in der eingestellten Betriebsart weiter. */
   @id(0x06, 0x21, 0xa9, 0x0f)
   model P15_10_WP {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 15-10: Heissgas Maximaltemperatur. Kontext: WP. commands.txt:403; input/complete.log:7752. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 131: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..140.0, gespeichert 125.0. Überschreitet die Heissgastemperatur (THG) den Einstellwert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Sinkt die Temperatur THG um 2 K unter den Einstellwert, läuft die Anlage in der eingestellten Betriebsart weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 15-10: Heissgas Maximaltemperatur. Kontext: WP. commands.txt:403; input/complete.log:7752. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 131: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..140.0, gespeichert 125.0. Überschreitet die Heissgastemperatur (THG) den Einstellwert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Sinkt die Temperatur THG um 2 K unter den Einstellwert, läuft die Anlage in der eingestellten Betriebsart weiter. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x0f)
@@ -3245,7 +3848,7 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 15-11: TWVmax Abschalthysterese. Kontext: WP. commands.txt:404; input/complete.log:7766. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 132: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..30.0, gespeichert 7.0. Bei einer TWVmax Abschaltung ist immer diese eingestellte Hysterese wirksam für die Wiederinschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 15-11: TWVmax Abschalthysterese. Kontext: WP. commands.txt:404; input/complete.log:7766. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 132: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..30.0, gespeichert 7.0. Bei einer TWVmax Abschaltung ist immer diese eingestellte Hysterese wirksam für die Wiederinschaltung. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x10)
@@ -3259,10 +3862,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 15-12: Kondensator Austritt Störung. Kontext: WP. commands.txt:405. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 133: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..70.0, gespeichert -5.0. Sinkt die Kondensator Austrittstemperatur unter den eingestellten Wert, wird eine Störung 8 generiert und der WE abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x11)
+  model P15_12_WP_set {
+    wert: Celsius10;
+  }
+
   /** 15-13: Kondensator Austritt Abschaltoffset. Kontext: WP. commands.txt:406. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 134: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..10.0, gespeichert 2.0. Sinkt die Kondensator Austrittstemperatur unter den eingestellten an ID 15-11Wert plus diesen Abschaltoffset, wird der WE abgeschaltet. */
   @id(0x06, 0x21, 0xa9, 0x12)
   model P15_13_WP {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 15-13: Kondensator Austritt Abschaltoffset. Kontext: WP. commands.txt:406. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 134: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..10.0, gespeichert 2.0. Sinkt die Kondensator Austrittstemperatur unter den eingestellten an ID 15-11Wert plus diesen Abschaltoffset, wird der WE abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x12)
+  model P15_13_WP_set {
+    wert: Kelvin10;
   }
 
   /** 15-21: Nachlaufzeit Quellenpumpe. Kontext: WP. commands.txt:407. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 135: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..15.0, gespeichert 0.5. Die Quellenpumpe (QP) oder das Gebläse laufen nach Abschalten des Kompressors noch für die hier festgelegte Zeit nach. */
@@ -3271,10 +3890,26 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
+  /** 15-21: Nachlaufzeit Quellenpumpe. Kontext: WP. commands.txt:407. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 135: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..15.0, gespeichert 0.5. Die Quellenpumpe (QP) oder das Gebläse laufen nach Abschalten des Kompressors noch für die hier festgelegte Zeit nach. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x13)
+  model P15_21_WP_set {
+    wert: Minuten10;
+  }
+
   /** 15-22: Wärmequelle Frostschutztemperatur. Kontext: WP. commands.txt:408. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 136: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -50.0..10.0, gespeichert -12.0. Unterschreitet die Wärmequellen Austrittstemperatur (TWA) den hier eingestellten Wert, so wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Störung Err 02 wird angezeigt. */
   @id(0x06, 0x21, 0xa9, 0x14)
   model P15_22_WP {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 15-22: Wärmequelle Frostschutztemperatur. Kontext: WP. commands.txt:408. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 136: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -50.0..10.0, gespeichert -12.0. Unterschreitet die Wärmequellen Austrittstemperatur (TWA) den hier eingestellten Wert, so wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Störung Err 02 wird angezeigt. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x14)
+  model P15_22_WP_set {
+    wert: Celsius10;
   }
 
   /** 15-23: Frostschutztemperatur TVD. Kontext: Global. commands.txt:355; input/complete.log:2692. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 82: Einstellebene 5, Brauchwasserbereitung Grenzen -20.0..20.0, gespeichert 4.0. Der TVD (Klemme 45) wirkt, in Stellung 2 des Einstellers 5-5, als Frostschutzfühler für die separate WW-Wärmepumpe. Diese Wärmepumpe wird abgeschaltet, sobald die Temperatur TVD den hier eingestellten Wert unterschreitet. */
@@ -3283,7 +3918,7 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 15-23: Frostschutztemperatur TVD. Kontext: Global. commands.txt:355; input/complete.log:2692. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 82: Einstellebene 5, Brauchwasserbereitung Grenzen -20.0..20.0, gespeichert 4.0. Der TVD (Klemme 45) wirkt, in Stellung 2 des Einstellers 5-5, als Frostschutzfühler für die separate WW-Wärmepumpe. Diese Wärmepumpe wird abgeschaltet, sobald die Temperatur TVD den hier eingestellten Wert unterschreitet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. */
+  /** 15-23: Frostschutztemperatur TVD. Kontext: Global. commands.txt:355; input/complete.log:2692. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 82: Einstellebene 5, Brauchwasserbereitung Grenzen -20.0..20.0, gespeichert 4.0. Der TVD (Klemme 45) wirkt, in Stellung 2 des Einstellers 5-5, als Frostschutzfühler für die separate WW-Wärmepumpe. Diese Wärmepumpe wird abgeschaltet, sobald die Temperatur TVD den hier eingestellten Wert unterschreitet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa5, 0x0a)
@@ -3297,10 +3932,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 15-24: Wärmequelle Eintrittsschutztemperatur. Kontext: WP. commands.txt:409. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 137: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..50.0, gespeichert 40.0. Überschreitet die Wärmequellen-Eintrittstemperatur (TWE) den hier eingestellten Wert, wird die Quellenpumpe oder das Gebläse und der Kompressor abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x15)
+  model P15_24_WP_set {
+    wert: Celsius10;
+  }
+
   /** 15-25: Abschaltoffset Frostschutz. Kontext: WP. commands.txt:410. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 138: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..20.0, gespeichert 2.0. Dieser Einsteller ermöglicht bei Frostgefahr ein Abschalten des Kompressors bevor eine Störung ausgelöst  wird. Die Wärmequellen-Frostschutztemperatur (Einsteller 15-22) plus der hier eingestellte Wert ergeben die Abschaltgrenze. */
   @id(0x06, 0x21, 0xa9, 0x16)
   model P15_25_WP {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 15-25: Abschaltoffset Frostschutz. Kontext: WP. commands.txt:410. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 138: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..20.0, gespeichert 2.0. Dieser Einsteller ermöglicht bei Frostgefahr ein Abschalten des Kompressors bevor eine Störung ausgelöst  wird. Die Wärmequellen-Frostschutztemperatur (Einsteller 15-22) plus der hier eingestellte Wert ergeben die Abschaltgrenze. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x16)
+  model P15_25_WP_set {
+    wert: Kelvin10;
   }
 
   /** 15-26: TWE-Temp rpunkt TWVmax Reduktion. Kontext: WP. commands.txt:411. Namensquelle: Checkliste_Regler_Programmierung.CSV. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort. STE 139: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..10.0, gespeichert -20.0. Wärmequellen Eintrittstemperatur für die Absenkung der maximalen Wärmepumpen Vorlauftemperatur. */
@@ -3309,10 +3960,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
+  /** 15-26: TWE-Temp rpunkt TWVmax Reduktion. Kontext: WP. commands.txt:411. Namensquelle: Checkliste_Regler_Programmierung.CSV. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort. STE 139: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..10.0, gespeichert -20.0. Wärmequellen Eintrittstemperatur für die Absenkung der maximalen Wärmepumpen Vorlauftemperatur. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x17)
+  model P15_26_WP_set {
+    wert: ByteMitVorzeichen;
+  }
+
   /** 15-27: TWVmax bei TWE Grenztenperatur. Kontext: WP. commands.txt:412. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 140: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 20.0..60.0, gespeichert 60.0. Maximale Wärmepumpen Vorlauftemperatur bei Wärmequellen Eintritts Grenztemperatur (15-28). */
   @id(0x06, 0x21, 0xa9, 0x18)
   model P15_27_WP {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 15-27: TWVmax bei TWE Grenztenperatur. Kontext: WP. commands.txt:412. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 140: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 20.0..60.0, gespeichert 60.0. Maximale Wärmepumpen Vorlauftemperatur bei Wärmequellen Eintritts Grenztemperatur (15-28). Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x18)
+  model P15_27_WP_set {
+    wert: UIN;
   }
 
   /** 15-28: TWE Grenztenperatur. Kontext: WP. commands.txt:413. Namensquelle: Checkliste_Regler_Programmierung.CSV. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort. STE 141: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -30.0..10.0, gespeichert -30.0. Wärmequellen Eintritts Grenzemperatur für Wärmepumpen Vorlaufreduktion */
@@ -3321,10 +3988,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
+  /** 15-28: TWE Grenztenperatur. Kontext: WP. commands.txt:413. Namensquelle: Checkliste_Regler_Programmierung.CSV. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort. STE 141: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -30.0..10.0, gespeichert -30.0. Wärmequellen Eintritts Grenzemperatur für Wärmepumpen Vorlaufreduktion Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x19)
+  model P15_28_WP_set {
+    wert: ByteMitVorzeichen;
+  }
+
   /** 15-40: Abtautyp. Kontext: WP. commands.txt:414. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 142: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..2.0, gespeichert 0.0. Damit wird festgelegt auf welche Art abgetaut wird. Der eingestellte Code hat folgende Bedeutung:  0 = Keine Abtauung (Sole / Wasser- oder Wasser / Wasser Wärmepumpe)  1 = Temperaturabhängige Abtaueinleitung  2 = Druckabhängige Abtaueinleitung */
   @id(0x06, 0x21, 0xa9, 0x1a)
   model P15_40_WP {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 15-40: Abtautyp. Kontext: WP. commands.txt:414. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 142: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..2.0, gespeichert 0.0. Damit wird festgelegt auf welche Art abgetaut wird. Der eingestellte Code hat folgende Bedeutung:  0 = Keine Abtauung (Sole / Wasser- oder Wasser / Wasser Wärmepumpe)  1 = Temperaturabhängige Abtaueinleitung  2 = Druckabhängige Abtaueinleitung Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1a)
+  model P15_40_WP_set {
+    wert: UIN;
   }
 
   /** 15-41: Abtaudifferenz (TWE - TVD). Kontext: WP. commands.txt:415. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 143: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 3.0..30.0, gespeichert 10.0. Für eine Abtaueinleitung muss die Temperaturdifferenz Wärmequelle-Eintrittstemperatur TWE – Verdampfungstemperatur  TVD grösser sein, als der in diesem Einsteller eingestellte Wert. */
@@ -3333,10 +4016,26 @@ namespace _15 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
+  /** 15-41: Abtaudifferenz (TWE - TVD). Kontext: WP. commands.txt:415. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 143: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 3.0..30.0, gespeichert 10.0. Für eine Abtaueinleitung muss die Temperaturdifferenz Wärmequelle-Eintrittstemperatur TWE – Verdampfungstemperatur  TVD grösser sein, als der in diesem Einsteller eingestellte Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1b)
+  model P15_41_WP_set {
+    wert: Kelvin10;
+  }
+
   /** 15-42: Freigabe Abtauung (TVD). Kontext: WP. commands.txt:416. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 144: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..20.0, gespeichert -6.0. Bei 15-40 = 1: Für eine Freigabe der Abtauung muss die Verdampfungstemperatur TVD kleiner sein, als der in diesem Parameter eingestellte Wert.  Bei 15-40 = 2: Für eine Freigabe der Abtauung muss die Aussentemperatur TA kleiner sein, als der in diesem Parameter eingestellte Wert. */
   @id(0x06, 0x21, 0xa9, 0x1c)
   model P15_42_WP {
     antwort: Zahlenantwort<Celsius10>;
+  }
+
+  /** 15-42: Freigabe Abtauung (TVD). Kontext: WP. commands.txt:416. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 144: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen -20.0..20.0, gespeichert -6.0. Bei 15-40 = 1: Für eine Freigabe der Abtauung muss die Verdampfungstemperatur TVD kleiner sein, als der in diesem Parameter eingestellte Wert.  Bei 15-40 = 2: Für eine Freigabe der Abtauung muss die Aussentemperatur TA kleiner sein, als der in diesem Parameter eingestellte Wert. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1c)
+  model P15_42_WP_set {
+    wert: Celsius10;
   }
 
   /** 15-43: Abtauendetemperatur (TVD). Kontext: WP. commands.txt:417. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 145: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Überschreitet die Verdampfungstemperatur TVD den in diesem Einsteller eingestellten Wert, wird die Abtauung beendet. */
@@ -3345,10 +4044,26 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 15-43: Abtauendetemperatur (TVD). Kontext: WP. commands.txt:417. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 145: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..40.0, gespeichert 9.0. Überschreitet die Verdampfungstemperatur TVD den in diesem Einsteller eingestellten Wert, wird die Abtauung beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1d)
+  model P15_43_WP_set {
+    wert: Celsius10;
+  }
+
   /** 15-44: Abtaudauer. Kontext: WP. commands.txt:418. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 146: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..30.0, gespeichert 10.0. Die Abtauung wird beendet, spätestens nach Ablauf der in diesem Einsteller eingestellten Dauer. */
   @id(0x06, 0x21, 0xa9, 0x1e)
   model P15_44_WP {
     antwort: Zahlenantwort<Minuten10>;
+  }
+
+  /** 15-44: Abtaudauer. Kontext: WP. commands.txt:418. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 146: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..30.0, gespeichert 10.0. Die Abtauung wird beendet, spätestens nach Ablauf der in diesem Einsteller eingestellten Dauer. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1e)
+  model P15_44_WP_set {
+    wert: Minuten10;
   }
 
   /** 15-45: Abtausperrzeit. Kontext: WP. commands.txt:419. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 147: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..60.0, gespeichert 45.0. Nach Beendigung einer Abtauung, kann eine weitere Abtauung erst erfolgen, nach Ablauf der in diesem Einsteller eingestellten Abtausperrzeit. */
@@ -3357,10 +4072,26 @@ namespace _15 {
     antwort: Zahlenantwort<Minuten10>;
   }
 
+  /** 15-45: Abtausperrzeit. Kontext: WP. commands.txt:419. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 147: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..60.0, gespeichert 45.0. Nach Beendigung einer Abtauung, kann eine weitere Abtauung erst erfolgen, nach Ablauf der in diesem Einsteller eingestellten Abtausperrzeit. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x1f)
+  model P15_45_WP_set {
+    wert: Minuten10;
+  }
+
   /** 15-46: Verzögerung Niederdruck. Kontext: WP. commands.txt:420. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 148: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..250.0, gespeichert 10.0. Eine Störung des Niederdruck Pressostaten muss mindestens um die hier eingestellte Zeit anliegen bis die Störung ausgelöst und angezeigt wird. */
   @id(0x06, 0x21, 0xa9, 0x20)
   model P15_46_WP {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 15-46: Verzögerung Niederdruck. Kontext: WP. commands.txt:420. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 148: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..250.0, gespeichert 10.0. Eine Störung des Niederdruck Pressostaten muss mindestens um die hier eingestellte Zeit anliegen bis die Störung ausgelöst und angezeigt wird. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x20)
+  model P15_46_WP_set {
+    wert: UIN;
   }
 
   /** 15-47: Abtropfzeit. Kontext: WP. commands.txt:421. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 149: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 0.0. Nach erfolgter Abtauung wird der Verdichter abgeschaltet und das Abtauventil bleib für die Abtropfzeit wahlweise ein oder ausgeschaltet.  Achtung der Wert ist im 0.1 Minuten Format. (10 = 1.0 Min) */
@@ -3369,10 +4100,26 @@ namespace _15 {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
+  /** 15-47: Abtropfzeit. Kontext: WP. commands.txt:421. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 149: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..100.0, gespeichert 0.0. Nach erfolgter Abtauung wird der Verdichter abgeschaltet und das Abtauventil bleib für die Abtropfzeit wahlweise ein oder ausgeschaltet.  Achtung der Wert ist im 0.1 Minuten Format. (10 = 1.0 Min) Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x21)
+  model P15_47_WP_set {
+    wert: UIN;
+  }
+
   /** 15-48: Verzögerung Druckdifferenzeingang. Kontext: WP. commands.txt:422. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 150: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..250.0, gespeichert 120.0. Bei Differenzdruck Abtauung muss der Differndruckschalter für die eingestellte Zeit geschlossen sein, damit eine Abtauung gestartet wird. */
   @id(0x06, 0x21, 0xa9, 0x22)
   model P15_48_WP {
     antwort: RohgrenzenAntwort<UIN>;
+  }
+
+  /** 15-48: Verzögerung Druckdifferenzeingang. Kontext: WP. commands.txt:422. Namensquelle: STE-Katalog. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 150: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..250.0, gespeichert 120.0. Bei Differenzdruck Abtauung muss der Differndruckschalter für die eingestellte Zeit geschlossen sein, damit eine Abtauung gestartet wird. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x22)
+  model P15_48_WP_set {
+    wert: UIN;
   }
 
   /** 15-49: Abtau Frostschutzstörung. Kontext: WP. commands.txt:423. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 151: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 3.0..20.0, gespeichert 12.0. Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den eingestellten Wert, wird eine Frostschutzstörung 9 generiert und der WE abgeschaltet. */
@@ -3381,16 +4128,40 @@ namespace _15 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
+  /** 15-49: Abtau Frostschutzstörung. Kontext: WP. commands.txt:423. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 151: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 3.0..20.0, gespeichert 12.0. Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den eingestellten Wert, wird eine Frostschutzstörung 9 generiert und der WE abgeschaltet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x23)
+  model P15_49_WP_set {
+    wert: Celsius10;
+  }
+
   /** 15-50: Abtau Frostschutz Offset Zusatzheizung. Kontext: WP. commands.txt:424. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 152: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..10.0, gespeichert 2.0. Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den an ID 15-49 eingestellten Wert plus diesen Offset, wird eine Zusatzheizung Abtaubetrieb freigegeben.. */
   @id(0x06, 0x21, 0xa9, 0x24)
   model P15_50_WP {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
+  /** 15-50: Abtau Frostschutz Offset Zusatzheizung. Kontext: WP. commands.txt:424. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 152: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 2.0..10.0, gespeichert 2.0. Sinkt die Wärmepumpen Vorlauftemperatur im Abtaubetrieb unter den an ID 15-49 eingestellten Wert plus diesen Offset, wird eine Zusatzheizung Abtaubetrieb freigegeben.. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x24)
+  model P15_50_WP_set {
+    wert: Kelvin10;
+  }
+
   /** 15-60: Anpassen TWA Messwert. Kontext: WP. commands.txt:425. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 153: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..5.0, gespeichert 0.0. Mit diesem Einsteller kann der Messwert des Wärmequellen-Austrittsfühlers TWA, werkseitig, an die Wärmepumpe angepasst werden. */
   @id(0x06, 0x21, 0xa9, 0x25)
   model P15_60_WP {
     antwort: Zahlenantwort<Kelvin10>;
+  }
+
+  /** 15-60: Anpassen TWA Messwert. Kontext: WP. commands.txt:425. Namensquelle: STE-Katalog. SIN / 10; Einheit aus Antwort. STE 153: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..5.0, gespeichert 0.0. Mit diesem Einsteller kann der Messwert des Wärmequellen-Austrittsfühlers TWA, werkseitig, an die Wärmepumpe angepasst werden. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  @write
+  @zz(0x10)
+  @id(0x06, 0x23, 0xa9, 0x25)
+  model P15_60_WP_set {
+    wert: Kelvin10;
   }
 
 }

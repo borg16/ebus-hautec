@@ -4016,7 +4016,7 @@
     "09-20",
     "09-32"
   ],
-  "generated_write_models": 165,
+  "generated_write_models": 261,
   "requests": [
     {
       "name": "Menueblock",
@@ -8130,7 +8130,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:188",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8362,7 +8362,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:189",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8478,7 +8478,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:178",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8594,7 +8594,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:190",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8710,7 +8710,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:179",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8826,7 +8826,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:191",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8845,8 +8845,8 @@
       "request": "2304",
       "tem_id": "03-07",
       "label": "Raumtemperatur - Kompensation",
-      "response_model": "Sonderantwort",
-      "encoding": "unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh",
+      "response_model": "Zahlenantwort<Faktor10>",
+      "encoding": "SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet",
       "response_length": 10,
       "sample_response": "87410d06640000000000",
       "first_line": 180,
@@ -8942,7 +8942,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:180",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -8961,8 +8961,8 @@
       "request": "23841000",
       "tem_id": "03-07",
       "label": "Raumtemperatur - Kompensation",
-      "response_model": "Sonderantwort",
-      "encoding": "unbekannte Spezialkodierung; sechs Byte Nutzdaten vollständig roh",
+      "response_model": "Zahlenantwort<Faktor10>",
+      "encoding": "SIN / 10 ohne Einheit; aus Antwortgrenze 100 und STE-Grenze 10 abgeleitet",
       "response_length": 10,
       "sample_response": "87410d06640000000000",
       "first_line": 192,
@@ -9058,7 +9058,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:192",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -9174,7 +9174,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:181",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -9290,7 +9290,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:193",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -9754,7 +9754,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:333",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -9900,7 +9900,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:334",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -10364,7 +10364,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:335",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -10596,7 +10596,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:336",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -10712,7 +10712,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:182",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -10828,7 +10828,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:194",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -10944,7 +10944,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:183",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -11060,7 +11060,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:195",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -12047,7 +12047,8 @@
           "had_write": false
         }
       ],
-      "context": "HK1"
+      "context": "HK1",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_61_HK2",
@@ -12075,7 +12076,8 @@
           "had_write": false
         }
       ],
-      "context": "HK2"
+      "context": "HK2",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_62_HK1",
@@ -12103,7 +12105,8 @@
           "had_write": false
         }
       ],
-      "context": "HK1"
+      "context": "HK1",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_62_HK2",
@@ -12131,7 +12134,8 @@
           "had_write": false
         }
       ],
-      "context": "HK2"
+      "context": "HK2",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_63_HK1",
@@ -12159,7 +12163,8 @@
           "had_write": false
         }
       ],
-      "context": "HK1"
+      "context": "HK1",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_63_HK2",
@@ -12187,7 +12192,8 @@
           "had_write": false
         }
       ],
-      "context": "HK2"
+      "context": "HK2",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P03_78_HK1",
@@ -12670,7 +12676,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:451",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -12743,7 +12749,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:459",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -12816,7 +12822,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:467",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -12889,7 +12895,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:475",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -12962,7 +12968,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:483",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -13035,7 +13041,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:491",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -13108,7 +13114,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:499",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -13574,7 +13580,7 @@
       "observations": 1,
       "ste_name_candidates": [],
       "ste_records": [],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:2",
       "scan_only": true,
       "label_source": "unbekannt",
@@ -13675,7 +13681,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:143",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -13753,7 +13759,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:196",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -13826,7 +13832,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:185",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -13899,7 +13905,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:197",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -14629,7 +14635,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:186",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -14702,7 +14708,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:198",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -15046,7 +15052,8 @@
           "had_write": false
         }
       ],
-      "context": "Global"
+      "context": "Global",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P05_64",
@@ -15074,7 +15081,8 @@
           "had_write": false
         }
       ],
-      "context": "Global"
+      "context": "Global",
+      "write_exclusion": "Kurz-/Sonderantwort: Schreibformat nicht bekannt"
     },
     {
       "name": "P06_00",
@@ -17508,7 +17516,7 @@
       "service": "0621",
       "request": "0200",
       "tem_id": "07-09",
-      "label": "TEM 07-09; Bezeichnung nicht im STE-Katalog",
+      "label": "Solltemperatur Handbetrieb",
       "response_model": "Zahlenantwort<Celsius10>",
       "encoding": "SIN / 10; Einheit aus Antwort",
       "response_length": 10,
@@ -17518,10 +17526,10 @@
       "observations": 1,
       "ste_name_candidates": [],
       "ste_records": [],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:22",
       "scan_only": true,
-      "label_source": "unbekannt",
+      "label_source": "Benutzerbestaetigung",
       "aliases": [
         {
           "selector": "0200",
@@ -18055,7 +18063,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:383",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -18128,7 +18136,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:384",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -18201,7 +18209,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:385",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -18274,7 +18282,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:386",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -18347,7 +18355,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:387",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -18858,7 +18866,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:187",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -18931,7 +18939,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:199",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -20683,7 +20691,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:452",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -20756,7 +20764,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:460",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -20829,7 +20837,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:468",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -20902,7 +20910,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:476",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -20975,7 +20983,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:484",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21048,7 +21056,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:492",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21121,7 +21129,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:500",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21267,7 +21275,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:453",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21340,7 +21348,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:461",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21413,7 +21421,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:469",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21486,7 +21494,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:477",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21559,7 +21567,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:485",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21632,7 +21640,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:493",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21705,7 +21713,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:501",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21851,7 +21859,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:454",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21924,7 +21932,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:462",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -21997,7 +22005,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:470",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22070,7 +22078,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:478",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22143,7 +22151,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:486",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22216,7 +22224,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:494",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22289,7 +22297,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:502",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22435,7 +22443,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:455",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22508,7 +22516,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:463",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22581,7 +22589,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:471",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22654,7 +22662,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:479",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22727,7 +22735,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:487",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22800,7 +22808,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:495",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -22873,7 +22881,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:503",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23019,7 +23027,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:456",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23092,7 +23100,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:464",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23165,7 +23173,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:472",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23238,7 +23246,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:480",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23311,7 +23319,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:488",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23384,7 +23392,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:496",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23457,7 +23465,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:504",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -23676,7 +23684,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:405",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -23749,7 +23757,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:406",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -23822,7 +23830,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:407",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -23895,7 +23903,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:408",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24041,7 +24049,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:409",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -24114,7 +24122,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:410",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24187,7 +24195,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:411",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24260,7 +24268,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:412",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24333,7 +24341,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:413",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24406,7 +24414,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:414",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24479,7 +24487,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:415",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24552,7 +24560,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:416",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24625,7 +24633,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:417",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24698,7 +24706,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:418",
       "scan_only": true,
       "label_source": "Checkliste_Regler_Programmierung.CSV",
@@ -24771,7 +24779,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:419",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -24844,7 +24852,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:420",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -24917,7 +24925,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:421",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -24990,7 +24998,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:422",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -25063,7 +25071,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:423",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -25136,7 +25144,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:424",
       "scan_only": true,
       "label_source": "STE-Katalog",
@@ -25209,7 +25217,7 @@
           "controller_text": "17385"
         }
       ],
-      "generate_write": false,
+      "generate_write": true,
       "evidence": "commands.txt:425",
       "scan_only": true,
       "label_source": "STE-Katalog",

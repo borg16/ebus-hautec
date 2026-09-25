@@ -4,13 +4,23 @@ This is a configuration to read and write observed numeric parameters of the TEM
 
 The preliminary analysis of the protocol is documented in [Protocol-Analysis.md](Protocol-Analysis.md).
 
+Die Zuordnung von Heizkreisen, Pumpen, Warmwasser und Relais sowie die aktuellen
+Betreiberbeobachtungen sind in [Heating-Control-Analysis.md](Heating-Control-Analysis.md)
+dokumentiert. Dort ist auch die funktionierende Einstellung 07-05 = 2/0 gegenüber
+der problematischen Versuchseinstellung 0/3 aus dem älteren Mitschnitt eingeordnet.
+
 The active [controller.tsp](controller.tsp) combines the scan in `commands.txt`
 with the CRC-checked requests in `input/complete.log`. It contains 328 parameter
 read selectors, one per TEM identifier and context, plus `Menueblock`.
 Expanded menus `a3..b2` replace matching aliases in `63..72`; duplicate views
 within each context are consolidated. WP, EH and WE1..WE8 stay separate.
-165 write commands remain on the selected selectors; scan-only selectors
-receive read definitions only.
+261 write commands cover the selected selectors: 205 numeric parameter/context
+pairs from `03-00` upward, including scan-only accesses, plus the 56 existing
+writes below `03-00`. Device acceptance has not been verified for every command.
+Eight short-response accesses (`03-61`, `03-62`, `03-63` in HK1/HK2,
+`05-61` and `05-64`) remain read-only because their write format is unknown.
+The inferred encoding of `03-07` is dimensionless SIN / 10, matching its scan
+and STE limits. See [write definitions](master-output/Parameter.md#schreibdefinitionen-ab-03-00).
 
 Command names use TEM numbers (`Pxx_xx`), with `_HK1`, `_HK2`,
 `_WP`, `_EH` or `_WE1` etc. where needed. HK labels follow the inferred context
@@ -42,6 +52,39 @@ Für Expert-Einsteller muss vor dem Lesen oder Schreiben zunächst die quittiert
 Freischaltung `01 10 06 23 04 00 00 51 00` gesendet werden. Danach werden auch
 Parameter wie `05-05` sichtbar; wiederholte `00 00`-Schreibungen halten die
 Sitzung aktiv.
+
+## Parameter live nach Code auslesen
+
+```sh
+python3 scripts/read_menu_block.py --before-03-00  # Gruppen 00–02, mit Soll/Ist
+python3 scripts/read_menu_block.py --from-03-00    # Parameter ab 03-00
+```
+
+Liest die bekannten Parameter nach TEM-Code sortiert, jeweils in ihren
+relevanten Kontexten. Die Soll-/Ist-Zuordnung folgt `input/soll_und_istwerte.md`.
+Mit `--server HOST` lässt sich ein entfernter ebusd ansprechen.
+
+Eine eigene Parametersammlung lässt sich als Textdatei übergeben:
+
+```sh
+python3 scripts/read_menu_block.py --parameters-file scripts/parameters.example.txt
+```
+
+Pro Zeile steht ein TEM-Code und optional ein Kontext, z. B. `00-01 HK1`.
+Ohne Kontext werden alle bekannten Kontexte gelesen. Leerzeilen und
+Kommentare mit `#` sind erlaubt. Details stehen in [scripts/README.md](scripts/README.md).
+
+## Menüblock live auslesen
+
+```sh
+python3 scripts/read_menu_block.py 14          # Block 14 hex: Menüs a0..a7
+python3 scripts/read_menu_block.py --menu a7   # nur Menü a7
+```
+
+Zeigt Beschreibungen und aktuelle Werte aller angebotenen Parameter, auch im
+beobachteten Zusatzkontext. Benötigt `ebusctl` und ebusd mit `--enablehex`;
+der Expert-Zugang wird einmal freigeschaltet.
+Weitere Optionen und Details stehen in [scripts/README.md](scripts/README.md).
 
 ## Building the ebusd CSV configuration
 

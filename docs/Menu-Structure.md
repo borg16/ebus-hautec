@@ -5,6 +5,23 @@ Auswertung von `input/complete.log`: Das Zusammenspiel von `06 20` und
 Parameter. Die folgende Interpretation ist aus dem Mitschnitt abgeleitet,
 nicht aus einer TEM-Protokollspezifikation.
 
+## Menüauswahl für den STE-Katalog
+
+Die kleinste belegbare Menüauswahl für alle derzeit zuordenbaren Einträge aus
+[ste-output/Parameter.md](ste-output/Parameter.md) umfasst 19 Menüs:
+
+```text
+01 0b 23 a3 a4 a5 a6 a7 a8 a9 aa ab ac ad ae af b0 b1 b2
+```
+
+Damit sind 195 von 217 STE-Datensätzen erreichbar, unter der abgeleiteten
+Kontextzuordnung einschließlich `1000` für HK 2. Acht TEM-Kennungen mit zusammen
+elf Datensätzen fehlen im Scan; weitere elf STE-Einträge haben keine TEM-Kennung.
+Eine vollständige Abdeckung des STE-Katalogs ist daher derzeit nicht belegt.
+[Menüabdeckung und Minimalitätsbeleg](menu-output/STE-Menueabdeckung.md) sowie
+[die Zuordnung je STE-Datensatz](menu-output/STE-Menuezuordnung.tsv) werden mit
+`python3 scripts/analyze_ste_menu_coverage.py` erzeugt.
+
 ## Systematik: Menüplatz, TEM-Kennung und Instanz
 
 **Die Bedienung muss die Liste der angebotenen Parameteradressen wahrscheinlich

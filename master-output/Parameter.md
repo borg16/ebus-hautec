@@ -2,7 +2,7 @@
 
 Generiert durch `scripts/analyze_master_log.py`. Die Namen entsprechen [controller.tsp](../controller.tsp), Circuit `15`.
 
-TEM-Kennungen und Zugriffe stammen aus dem Scan oder den CRC-geprüften Logantworten. Identische untere Menüs 63..72 werden zugunsten ihrer Gegenstücke a3..b2 weggelassen. Namen stammen vorrangig aus input/Checkliste_Regler_Programmierung.CSV und input/soll_und_istwerte.md, ersatzweise aus dem STE-Katalog. Pro TEM-Kennung und Kontext bleibt ein bevorzugter Selektor. Neue Namen und entfallene Aliase stehen in [Umbenennung.md](Umbenennung.md). Neue reine Scan-Zugriffe erhalten keine abgeleiteten Schreibmodelle.
+TEM-Kennungen und Zugriffe stammen aus dem Scan oder den CRC-geprüften Logantworten. Identische untere Menüs 63..72 werden zugunsten ihrer Gegenstücke a3..b2 weggelassen. Namen stammen vorrangig aus input/Checkliste_Regler_Programmierung.CSV und input/soll_und_istwerte.md, ersatzweise aus dem STE-Katalog. Pro TEM-Kennung und Kontext bleibt ein bevorzugter Selektor. Neue Namen und entfallene Aliase stehen in [Umbenennung.md](Umbenennung.md). Numerische Parameter ab 03-00 erhalten auch fuer reine Scan-Zugriffe Schreibmodelle; die Annahme durch den Regler ist damit nicht bestaetigt.
 
 Der Suffix im Modellnamen ist die vollständige Anfrage in Hex. Verschiedene Zugriffe auf dieselbe TEM-Kennung bleiben getrennt. Die zusätzliche Instanz mit `10 00` wird nicht ohne Nachweis als HK 2 bezeichnet.
 
@@ -131,8 +131,8 @@ Der Suffix im Modellnamen ist die vollständige Anfrage in Hex. Verschiedene Zug
 | `P03_02_HK2` | 03-02 | Heizgrenze Absenkbetrieb | `0621 / 23821000` | `Zahlenantwort<Celsius10>` | commands.txt:190 | Checkliste_Regler_Programmierung.CSV |
 | `P03_06_HK1` | 03-06 | Startoptimierung Vorhaltezeit | `0621 / 2303` | `Zahlenantwort<Minuten10>` | commands.txt:179 | Checkliste_Regler_Programmierung.CSV |
 | `P03_06_HK2` | 03-06 | Startoptimierung Vorhaltezeit | `0621 / 23831000` | `Zahlenantwort<Minuten10>` | commands.txt:191 | Checkliste_Regler_Programmierung.CSV |
-| `P03_07_HK1` | 03-07 | Raumtemperatur - Kompensation | `0621 / 2304` | `Sonderantwort` | commands.txt:180 | Checkliste_Regler_Programmierung.CSV |
-| `P03_07_HK2` | 03-07 | Raumtemperatur - Kompensation | `0621 / 23841000` | `Sonderantwort` | commands.txt:192 | Checkliste_Regler_Programmierung.CSV |
+| `P03_07_HK1` | 03-07 | Raumtemperatur - Kompensation | `0621 / 2304` | `Zahlenantwort<Faktor10>` | commands.txt:180 | Checkliste_Regler_Programmierung.CSV |
+| `P03_07_HK2` | 03-07 | Raumtemperatur - Kompensation | `0621 / 23841000` | `Zahlenantwort<Faktor10>` | commands.txt:192 | Checkliste_Regler_Programmierung.CSV |
 | `P03_08_HK1` | 03-08 | Vorlauf Sollwert Heizgrenze | `0621 / 2305` | `Zahlenantwort<Kelvin10>` | commands.txt:181 | Checkliste_Regler_Programmierung.CSV |
 | `P03_08_HK2` | 03-08 | Vorlauf Sollwert Heizgrenze | `0621 / 23851000` | `Zahlenantwort<Kelvin10>` | commands.txt:193 | Checkliste_Regler_Programmierung.CSV |
 | `P03_10_HK1` | 03-10 | Steilheit Kennlinie | `0621 / 0b04` | `Zahlenantwort<Steilheit100>` | commands.txt:124; input/complete.log:1237 | STE-Katalog |
@@ -232,7 +232,7 @@ Der Suffix im Modellnamen ist die vollständige Anfrage in Hex. Verschiedene Zug
 | `P07_06_HK2` | 07-06 | Min. Fehlerdauer fuer Vorlauf-Störmeldung | `0621 / a7851000` | `Zahlenantwort<Stunden10>` | commands.txt:380; input/complete.log:9176 | Checkliste_Regler_Programmierung.CSV |
 | `P07_08_HK1` | 07-08 | Vorlauf Maximaltemperatur TV | `0621 / 0b05` | `Zahlenantwort<Celsius10>` | commands.txt:125; input/complete.log:1238 | STE-Katalog |
 | `P07_08_HK2` | 07-08 | Vorlauf Maximaltemperatur TV | `0621 / 0b851000` | `Zahlenantwort<Celsius10>` | commands.txt:131; input/complete.log:2060 | STE-Katalog |
-| `P07_09` | 07-09 | TEM 07-09; Bezeichnung nicht im STE-Katalog | `0621 / 0200` | `Zahlenantwort<Celsius10>` | commands.txt:22 | unbekannt |
+| `P07_09` | 07-09 | Solltemperatur Handbetrieb | `0621 / 0200` | `Zahlenantwort<Celsius10>` | commands.txt:22 | Benutzerbestaetigung |
 | `P07_14_HK1` | 07-14 | Heizkreisfunktion im Kühlbetrieb | `0621 / a706` | `RohgrenzenAntwort<UIN>` | commands.txt:373; input/complete.log:2800 | Checkliste_Regler_Programmierung.CSV |
 | `P07_14_HK2` | 07-14 | Heizkreisfunktion im Kühlbetrieb | `0621 / a7861000` | `RohgrenzenAntwort<UIN>` | commands.txt:381; input/complete.log:9221 | Checkliste_Regler_Programmierung.CSV |
 | `P07_31_HK1` | 07-31 | Heizkreisüberhöhung Niedertarif | `0621 / a707` | `Zahlenantwort<Kelvin10>` | commands.txt:374; input/complete.log:2807 | Checkliste_Regler_Programmierung.CSV |
@@ -364,6 +364,23 @@ Der Suffix im Modellnamen ist die vollständige Anfrage in Hex. Verschiedene Zug
 | `Menueblock` | — | 8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md | `0620 / 19` | `MenueAnzahl / MenueZusatzflag` |  | — |
 | `Menueblock` | — | 8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md | `0620 / 1a` | `MenueAnzahl / MenueZusatzflag` |  | — |
 | `Menueblock` | — | 8 Menues: je 7 Bit Eintragsanzahl und 1 Bit Zusatzflag; siehe Menu-Structure.md | `0620 / 1b` | `MenueAnzahl / MenueZusatzflag` |  | — |
+
+## Schreibdefinitionen ab 03-00
+
+Alle numerisch dekodierbaren Parameter ab 03-00 besitzen ein `_set`-Modell mit gleichem Selektor, Dienst `06 23` und Ziel `10`. Vorhandene Schreibmodelle unterhalb 03-00 bleiben erhalten. Die Definitionen belegen keine Annahme durch den Regler; insbesondere reine Scan-Zugriffe wurden nicht live schreibend geprüft.
+
+Folgende Zugriffe bleiben wegen unbekannter Schreibstruktur ausgenommen:
+
+| Modell | TEM | Selektor | Grund |
+|---|---|---|---|
+| `P03_61_HK1` | 03-61 | `0c00` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P03_61_HK2` | 03-61 | `0c801000` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P03_62_HK1` | 03-62 | `0c01` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P03_62_HK2` | 03-62 | `0c811000` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P03_63_HK1` | 03-63 | `0c02` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P03_63_HK2` | 03-63 | `0c821000` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P05_61` | 05-61 | `0d00` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
+| `P05_64` | 05-64 | `0e00` | Kurz-/Sonderantwort: Schreibformat nicht bekannt |
 
 ## STE-Kennungen ohne beobachtete Antwort
 

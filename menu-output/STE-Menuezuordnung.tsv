@@ -1,0 +1,218 @@
+ste_index	tem	name	context	menu	selector	status
+1	03-50	Betriebswahl Heizung und Brauchwasser	Heizkreis 1 (abgeleitet)	01	0100	zugeordnet
+2	03-50	Betriebswahl Heizung und Brauchwasser	Heizkreis 2 (abgeleitet)	01	01801000	zugeordnet
+3		Automatikprogramm	Heizkreis 1 (abgeleitet)			keine TEM-Kennung
+4		Automatikprogramm	Heizkreis 2 (abgeleitet)			keine TEM-Kennung
+5	03-58	Behaglichkeit	Heizkreis 1 (abgeleitet)	01	0102	zugeordnet
+6	03-58	Behaglichkeit	Heizkreis 2 (abgeleitet)	01	01821000	zugeordnet
+7	03-60	Partydauer HB	Heizkreis 1 (abgeleitet)			kein Selektor belegt
+8	03-60	Partydauer HB	Heizkreis 2 (abgeleitet)			kein Selektor belegt
+9	03-51	Sollwert Raumtemperatur Heizen Tag normal	Heizkreis 1 (abgeleitet)	0b	0b00	zugeordnet
+10	03-51	Sollwert Raumtemperatur Heizen Tag normal	Heizkreis 2 (abgeleitet)	0b	0b801000	zugeordnet
+11	03-53	Sollwert Raumteperatur Heizen Nacht	Heizkreis 1 (abgeleitet)	0b	0b02	zugeordnet
+12	03-53	Sollwert Raumteperatur Heizen Nacht	Heizkreis 2 (abgeleitet)	0b	0b821000	zugeordnet
+13	05-51	Sollwert Warmwassertemperatur	Heizkreis 1 (abgeleitet)	0b	0b03	zugeordnet
+14	05-51	Sollwert Warmwassertemperatur	Heizkreis 2 (abgeleitet)	0b	0b831000	zugeordnet
+15	03-10	Steilheit Kennlinie	Heizkreis 1 (abgeleitet)	0b	0b04	zugeordnet
+16	03-10	Steilheit Kennlinie	Heizkreis 2 (abgeleitet)	0b	0b841000	zugeordnet
+17	07-08	Vorlauf Maximaltemperatur TV	Heizkreis 1 (abgeleitet)	0b	0b05	zugeordnet
+18	07-08	Vorlauf Maximaltemperatur TV	Heizkreis 2 (abgeleitet)	0b	0b851000	zugeordnet
+19	03-21	Heizgrenze bei Tagbetrieb	Heizkreis 1 (abgeleitet)	0b	0b06	zugeordnet
+20	03-21	Heizgrenze bei Tagbetrieb	Heizkreis 2 (abgeleitet)	0b	0b861000	zugeordnet
+21	04-45	Kommandobefehle	Einstellebene 2	23	2308	zugeordnet
+22	05-60	Partydauer WWB	Heizkreis 1 (abgeleitet)			kein Selektor belegt
+23	05-60	Partydauer WWB	Heizkreis 2 (abgeleitet)			kein Selektor belegt
+24		BW Zeitprog mit Heizkreisprogramm 1	Heizkreis 1 (abgeleitet)			keine TEM-Kennung
+25		BW Zeitprog mit Heizkreisprogramm 1	Heizkreis 2 (abgeleitet)			keine TEM-Kennung
+26		BW Zeitprog mit Heizkreisprogramm 2	Heizkreis 1 (abgeleitet)			keine TEM-Kennung
+27		BW Zeitprog mit Heizkreisprogramm 2	Heizkreis 2 (abgeleitet)			keine TEM-Kennung
+28		BW Zeitprog mit Heizkreisprogramm 3	Heizkreis 1 (abgeleitet)			keine TEM-Kennung
+29		BW Zeitprog mit Heizkreisprogramm 3	Heizkreis 2 (abgeleitet)			keine TEM-Kennung
+30		Störung quittieren	Einstellebene 2			keine TEM-Kennung
+31		Betriebsdaten zurückstellen	Einstellebene 2			keine TEM-Kennung
+32	03-00	Raumschutztemperatur	Heizkreis 1 (abgeleitet)	23	2300	zugeordnet
+33	03-00	Raumschutztemperatur	Heizkreis 2 (abgeleitet)	23	23801000	zugeordnet
+34	03-01	Fusspunkttemperatur	Heizkreis 1 (abgeleitet)	23	2301	zugeordnet
+35	03-01	Fusspunkttemperatur	Heizkreis 2 (abgeleitet)	23	23811000	zugeordnet
+36	03-02	Heizgrenze Absenkbetrieb	Heizkreis 1 (abgeleitet)	23	2302	zugeordnet
+37	03-02	Heizgrenze Absenkbetrieb	Heizkreis 2 (abgeleitet)	23	23821000	zugeordnet
+38	03-06	Startoptimierung Vorhaltezeit	Heizkreis 1 (abgeleitet)	23	2303	zugeordnet
+39	03-06	Startoptimierung Vorhaltezeit	Heizkreis 2 (abgeleitet)	23	23831000	zugeordnet
+40	03-07	Raumtemperatur - Kompensation	Heizkreis 1 (abgeleitet)	23	2304	zugeordnet
+41	03-07	Raumtemperatur - Kompensation	Heizkreis 2 (abgeleitet)	23	23841000	zugeordnet
+42	03-08	Vorlauf Sollwert  Heizgrenze	Heizkreis 1 (abgeleitet)	23	2305	zugeordnet
+43	03-08	Vorlauf Sollwert  Heizgrenze	Heizkreis 2 (abgeleitet)	23	23851000	zugeordnet
+44	03-11	Fusspunkt Vorlaufkennlinie: TA	Heizkreis 1 (abgeleitet)	a3	a300	zugeordnet
+45	03-11	Fusspunkt Vorlaufkennlinie: TA	Heizkreis 2 (abgeleitet)	a3	a3801000	zugeordnet
+46	03-20	Zeitkonstante für Aussentemperaturmittelung	Einstellebene 3, Raumtemperaturregelung	a3	a301	zugeordnet
+47	03-23	Frostgrenze	Heizkreis 1 (abgeleitet)	a3	a302	zugeordnet
+48	03-23	Frostgrenze	Heizkreis 2 (abgeleitet)	a3	a3821000	zugeordnet
+49	03-30	Nachstellzeit Raumregler	Heizkreis 1 (abgeleitet)	a3	a303	zugeordnet
+50	03-30	Nachstellzeit Raumregler	Heizkreis 2 (abgeleitet)	a3	a3831000	zugeordnet
+51	03-35	Kühlgrenzenabstand	Heizkreis 1 (abgeleitet)	23	2306	zugeordnet
+52	03-35	Kühlgrenzenabstand	Heizkreis 2 (abgeleitet)	23	23861000	zugeordnet
+53	03-43	Kühltemperatur	Heizkreis 1 (abgeleitet)	23	2307	zugeordnet
+54	03-43	Kühltemperatur	Heizkreis 2 (abgeleitet)	23	23871000	zugeordnet
+55	05-14	Legionellenschutzfunktion	Einstellebene 3, Raumtemperaturregelung	23	230a	zugeordnet
+56	09-08	Wärmeerzeuger Sperre	Einstellebene 3, Raumtemperaturregelung	23	230b	zugeordnet
+57	09-20	Solltemperatur Handbetrieb	Heizkreis 1 (abgeleitet)			kein Selektor belegt
+58	09-20	Solltemperatur Handbetrieb	Heizkreis 2 (abgeleitet)			kein Selektor belegt
+59	04-00	Fühlerkonfiguration speichern	Einstellebene 4, Globale Einstellungen	a4	a400	zugeordnet
+60	04-02	Funktion Sollwerteingang	Einstellebene 4, Globale Einstellungen	a4	a401	zugeordnet
+61	04-08	Handbetrieb Konfiguration	Einstellebene 4, Globale Einstellungen	a4	a402	zugeordnet
+62	04-20	Anlage-Hauptregler / Folgeregler	Einstellebene 4, Globale Einstellungen	a4	a403	zugeordnet
+63	04-30	Multifunktionsusgang 1	Einstellebene 4, Globale Einstellungen	a4	a404	zugeordnet
+64	04-31	Multifunktionsusgang 2	Einstellebene 4, Globale Einstellungen	a4	a405	zugeordnet
+65	04-36	eBUS Speisung Abschaltung	Einstellebene 4, Globale Einstellungen	a4	a406	zugeordnet
+66	04-40	Service Passwort	Einstellebene 4, Globale Einstellungen	a4	a407	zugeordnet
+67	04-60	Mode Austrocknungsprogramm	Einstellebene 4, Globale Einstellungen	23	2309	zugeordnet
+68	04-61	Vorlaufsollwert-Steigung in der Aufheizphase	Einstellebene 4, Globale Einstellungen			kein Selektor belegt
+69	04-62	Vorlaufsollwert-Abfall in der Abkühlphase	Einstellebene 4, Globale Einstellungen			kein Selektor belegt
+70	04-63	Vorlaufsollwert in der Beharrungsphase	Einstellebene 4, Globale Einstellungen			kein Selektor belegt
+71	04-64	Dauer der Beharrungsphase	Einstellebene 4, Globale Einstellungen			kein Selektor belegt
+72	05-00	Schaltdifferenz Brauchwasserbereitung	Einstellebene 5, Brauchwasserbereitung	a5	a500	zugeordnet
+73	05-01	Temperaturüberhoehung Brauchwasserbereitung	Einstellebene 5, Brauchwasserbereitung	a5	a501	zugeordnet
+74	05-02	Brauchwasser-Vorrang	Einstellebene 5, Brauchwasserbereitung	a5	a502	zugeordnet
+75	05-03	Nachlaufzeit Brauchwasserbereitung	Einstellebene 5, Brauchwasserbereitung	a5	a503	zugeordnet
+76	05-04	Legionellenschutztemperatur	Einstellebene 5, Brauchwasserbereitung	a5	a504	zugeordnet
+77	05-05	Funktionsweise Ladepumpennachlauf	Einstellebene 5, Brauchwasserbereitung	a5	a505	zugeordnet
+78	05-06	Zirkulationspumpe aktiv	Einstellebene 5, Brauchwasserbereitung	a5	a506	zugeordnet
+79	05-07	Stellglied Brauchwasserbereitung	Einstellebene 5, Brauchwasserbereitung	a5	a507	zugeordnet
+80	05-13	Reduktion Sollwert TBO	Einstellebene 5, Brauchwasserbereitung	a5	a508	zugeordnet
+81	05-40	Min. Fehlerdauer fuer Brauchwasser Störmeldung	Einstellebene 5, Brauchwasserbereitung	a5	a509	zugeordnet
+82	15-23	Frostschutztemperatur TVD	Einstellebene 5, Brauchwasserbereitung	a5	a50a	zugeordnet
+83	06-00	Brauchwasser Ladeleistung	Einstellebene 6, WM-Einstellungen	a6	a600	zugeordnet
+84	06-01	Puffer, Heiz-  Ladeleistung	Einstellebene 6, WM-Einstellungen	a6	a601	zugeordnet
+85	06-02	Kühlleistung	Einstellebene 6, WM-Einstellungen	a6	a602	zugeordnet
+86	06-04	WEZ Überhöhung	Einstellebene 6, WM-Einstellungen	a6	a603	zugeordnet
+87	06-05	Puffer Offset TPM aus	Einstellebene 6, WM-Einstellungen	a6	a604	zugeordnet
+88	06-08	TBVsoll Überhöhung	Einstellebene 6, WM-Einstellungen	a6	a605	zugeordnet
+89	06-10	Xp WEZ Manager	Einstellebene 6, WM-Einstellungen	a6	a606	zugeordnet
+90	06-11	Tn WEZ Manager	Einstellebene 6, WM-Einstellungen	a6	a607	zugeordnet
+91	06-12	Tv WEZ Manager	Einstellebene 6, WM-Einstellungen	a6	a608	zugeordnet
+92	06-13	Reduktion Sollwert TKX	Einstellebene 6, WM-Einstellungen	a6	a609	zugeordnet
+93	06-20	Sequenzwechsel Flag	Einstellebene 6, WM-Einstellungen	a6	a60a	zugeordnet
+94	07-00	Proportional-Bereich Mischer	Heizkreis 1 (abgeleitet)	a7	a700	zugeordnet
+95	07-00	Proportional-Bereich Mischer	Heizkreis 2 (abgeleitet)	a7	a7801000	zugeordnet
+96	07-01	Überhöhung WE-Temperatur	Heizkreis 1 (abgeleitet)	a7	a701	zugeordnet
+97	07-01	Überhöhung WE-Temperatur	Heizkreis 2 (abgeleitet)	a7	a7811000	zugeordnet
+98	07-02	Minimale Vorlauftemperatur	Heizkreis 1 (abgeleitet)	a7	a702	zugeordnet
+99	07-02	Minimale Vorlauftemperatur	Heizkreis 2 (abgeleitet)	a7	a7821000	zugeordnet
+100	07-03	Pumpennachlauf Heizkreis	Heizkreis 1 (abgeleitet)	a7	a703	zugeordnet
+101	07-03	Pumpennachlauf Heizkreis	Heizkreis 2 (abgeleitet)	a7	a7831000	zugeordnet
+102	07-05	Heizkreistyp	Heizkreis 1 (abgeleitet)	a7	a704	zugeordnet
+103	07-05	Heizkreistyp	Heizkreis 2 (abgeleitet)	a7	a7841000	zugeordnet
+104	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Heizkreis 1 (abgeleitet)	a7	a705	zugeordnet
+105	07-06	Min. Fehlerdauer fuer Vorlauf-Störmeldung	Heizkreis 2 (abgeleitet)	a7	a7851000	zugeordnet
+106	07-14	Heizkreisfunktion im Kühlbetrieb	Heizkreis 1 (abgeleitet)	a7	a706	zugeordnet
+107	07-14	Heizkreisfunktion im Kühlbetrieb	Heizkreis 2 (abgeleitet)	a7	a7861000	zugeordnet
+108	07-31	Heizkreisüberhöhung Niedertarif	Heizkreis 1 (abgeleitet)	a7	a707	zugeordnet
+109	07-31	Heizkreisüberhöhung Niedertarif	Heizkreis 2 (abgeleitet)	a7	a7871000	zugeordnet
+110	08-55	Puffer aktiv	Einstellebene 8, Solar- und Speicherfunktionen	a8	a800	zugeordnet
+111	08-58	Puffer Minimaltemperatur	Einstellebene 8, Solar- und Speicherfunktionen	a8	a801	zugeordnet
+112	08-59	Puffer Maximaltemperatur	Einstellebene 8, Solar- und Speicherfunktionen	a8	a802	zugeordnet
+113	08-72	Delta Puffer bei Solar aktiv	Einstellebene 8, Solar- und Speicherfunktionen	a8	a803	zugeordnet
+114	08-79	WW Minimaltemperatur bei Solar aktiv	Einstellebene 8, Solar- und Speicherfunktionen	a8	a804	zugeordnet
+115	04-27	eBUS Adresse WEZ	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a900	zugeordnet
+116	09-00	Nachlaufzeit Schutzfunktion	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a901	zugeordnet
+117	09-04	Vorlaufzeit Quellenpumpe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a902	zugeordnet
+118	09-07	WEZ Typ	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a903	zugeordnet
+119	09-11	Bedingte WEZ Freigabe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a904	zugeordnet
+120	09-12	Aussentemperatursperre TAW	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a905	zugeordnet
+121	09-13	Energiezwang Funktion	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a906	zugeordnet
+122	09-14	Diff. Leistungszwang Tkmax	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a907	zugeordnet
+123	09-21	WE Abschaltdifferenz	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a908	zugeordnet
+124	09-23	Minimale Stillstandszeit	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a909	zugeordnet
+125	09-26	Vorhaltezeit 2. Stufe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90a	zugeordnet
+126	09-31	Minimale WE Laufzeit	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90b	zugeordnet
+127	09-32	TWVmin Kühlbetrieb	Einstellebene 9, WE Einstellungen Wärmepumpe			kein Selektor belegt
+128	09-34	Einschaltverzögerung 2. Stufe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90c	zugeordnet
+129	09-35	Schaltdifferenz 2. Stufe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90d	zugeordnet
+130	10-31	WE Maximaltemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90e	zugeordnet
+131	15-10	Heissgas Maximaltemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a90f	zugeordnet
+132	15-11	TWVmax Abschalthysterese	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a910	zugeordnet
+133	15-12	Kondensator Austritt Störung	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a911	zugeordnet
+134	15-13	Kondensator Austritt Abschaltoffset	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a912	zugeordnet
+135	15-21	Nachlaufzeit Quellenpumpe	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a913	zugeordnet
+136	15-22	Wärmequelle Frostschutztemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a914	zugeordnet
+137	15-24	Wärmequelle Eintrittsschutztemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a915	zugeordnet
+138	15-25	Abschaltoffset Frostschutz	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a916	zugeordnet
+139	15-26	TWE-Temperaturpunkt TWVmax Reduktion	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a917	zugeordnet
+140	15-27	TWVmax bei TWE Grenztemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a918	zugeordnet
+141	15-28	TWE Grenztemperatur	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a919	zugeordnet
+142	15-40	Abtautyp	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91a	zugeordnet
+143	15-41	Abtaudifferenz (TWE - TVD)	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91b	zugeordnet
+144	15-42	Freigabe Abtauung (TVD)	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91c	zugeordnet
+145	15-43	Abtauendetemperatur (TVD)	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91d	zugeordnet
+146	15-44	Abtaudauer	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91e	zugeordnet
+147	15-45	Abtausperrzeit	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a91f	zugeordnet
+148	15-46	Verzögerung Niederdruck	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a920	zugeordnet
+149	15-47	Abtropfzeit	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a921	zugeordnet
+150	15-48	Verzögerung Druckdifferenzeingang	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a922	zugeordnet
+151	15-49	Abtau Frostschutzstörung	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a923	zugeordnet
+152	15-50	Abtau Frostschutz Offset Zusatzheizung	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a924	zugeordnet
+153	15-60	Anpassen TWA Messwert	Einstellebene 9, WE Einstellungen Wärmepumpe	a9	a925	zugeordnet
+154		TWA Maximalwert	Einstellebene 9, WE Einstellungen Wärmepumpe			keine TEM-Kennung
+155	04-27	eBUS Adresse WEZ	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa00	zugeordnet
+156	09-00	Nachlaufzeit Schutzfunktion	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa01	zugeordnet
+157	09-04	Einschaltverzögerung	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa02	zugeordnet
+158	09-07	WEZ Typ	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa03	zugeordnet
+159	09-11	Bedingte WEZ Freigabe	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa04	zugeordnet
+160	09-12	Aussentemperatursperre TAW	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa05	zugeordnet
+161	09-13	Energiezwang Funktion	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa06	zugeordnet
+162	09-14	Diff. Leistungszwang Tkmax	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa07	zugeordnet
+163	09-21	WE Abschaltdifferenz	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa08	zugeordnet
+164	09-23	Minimale Stillstandszeit	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa09	zugeordnet
+165	09-26	Vorhaltezeit 2. Stufe	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa0a	zugeordnet
+166	09-31	Minimale WE Laufzeit	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa0b	zugeordnet
+167	09-34	Einschaltverzögerung 2. Stufe	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa0c	zugeordnet
+168	09-35	Schaltdifferenz 2. Stufe	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa0d	zugeordnet
+169	10-31	WE Maximaltemperatur	Einstellebene 10, WE Einstellungen Elektro Zusatzheizung	aa	aa0e	zugeordnet
+170	04-22	WE 1 Zieladresse	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab02	zugeordnet
+171	11-01	WE Steuerbefehl	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab03	zugeordnet
+172	11-02	WE Nennleistung	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab04	zugeordnet
+173	11-03	minimale WE-Leistung	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab05	zugeordnet
+174	11-04	Einschaltleistung Folge WE	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab06	zugeordnet
+175	11-05	WE Folgewechsel	Einstellebene 11, WE 1 Kaskadenfunktionen	ab	ab07	zugeordnet
+176	04-22	WE 1 Zieladresse	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac02	zugeordnet
+177	11-01	WE Steuerbefehl	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac03	zugeordnet
+178	11-02	WE Nennleistung	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac04	zugeordnet
+179	11-03	minimale WE-Leistung	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac05	zugeordnet
+180	11-04	Einschaltleistung Folge WE	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac06	zugeordnet
+181	11-05	WE Folgewechsel	Einstellebene 12, WE 2 Kaskadenfunktionen	ac	ac07	zugeordnet
+182	04-22	WE 1 Zieladresse	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad02	zugeordnet
+183	11-01	WE Steuerbefehl	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad03	zugeordnet
+184	11-02	WE Nennleistung	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad04	zugeordnet
+185	11-03	minimale WE-Leistung	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad05	zugeordnet
+186	11-04	Einschaltleistung Folge WE	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad06	zugeordnet
+187	11-05	WE Folgewechsel	Einstellebene 13, WE 3 Kaskadenfunktionen	ad	ad07	zugeordnet
+188	04-22	WE 1 Zieladresse	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae02	zugeordnet
+189	11-01	WE Steuerbefehl	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae03	zugeordnet
+190	11-02	WE Nennleistung	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae04	zugeordnet
+191	11-03	minimale WE-Leistung	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae05	zugeordnet
+192	11-04	Einschaltleistung Folge WE	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae06	zugeordnet
+193	11-05	WE Folgewechsel	Einstellebene 14, WE 4 Kaskadenfunktionen	ae	ae07	zugeordnet
+194	04-22	WE 1 Zieladresse	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af02	zugeordnet
+195	11-01	WE Steuerbefehl	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af03	zugeordnet
+196	11-02	WE Nennleistung	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af04	zugeordnet
+197	11-03	minimale WE-Leistung	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af05	zugeordnet
+198	11-04	Einschaltleistung Folge WE	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af06	zugeordnet
+199	11-05	WE Folgewechsel	Einstellebene 15, WE 5 Kaskadenfunktionen	af	af07	zugeordnet
+200	04-22	WE 1 Zieladresse	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b002	zugeordnet
+201	11-01	WE Steuerbefehl	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b003	zugeordnet
+202	11-02	WE Nennleistung	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b004	zugeordnet
+203	11-03	minimale WE-Leistung	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b005	zugeordnet
+204	11-04	Einschaltleistung Folge WE	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b006	zugeordnet
+205	11-05	WE Folgewechsel	Einstellebene 16, WE 6 Kaskadenfunktionen	b0	b007	zugeordnet
+206	04-22	WE 1 Zieladresse	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b102	zugeordnet
+207	11-01	WE Steuerbefehl	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b103	zugeordnet
+208	11-02	WE Nennleistung	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b104	zugeordnet
+209	11-03	minimale WE-Leistung	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b105	zugeordnet
+210	11-04	Einschaltleistung Folge WE	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b106	zugeordnet
+211	11-05	WE Folgewechsel	Einstellebene 17, WE 7 Kaskadenfunktionen	b1	b107	zugeordnet
+212	04-22	WE 1 Zieladresse	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b202	zugeordnet
+213	11-01	WE Steuerbefehl	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b203	zugeordnet
+214	11-02	WE Nennleistung	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b204	zugeordnet
+215	11-03	minimale WE-Leistung	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b205	zugeordnet
+216	11-04	Einschaltleistung Folge WE	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b206	zugeordnet
+217	11-05	WE Folgewechsel	Einstellebene 18, WE 8 Kaskadenfunktionen	b2	b207	zugeordnet

@@ -31,13 +31,8 @@ model w {
 model DateTimeBroadcast {
 /** Outside temperature */
 @unit("°C")
-
 ta: D2B,
-
-
 time: BTI,
-
-
 date: BDA,
 }
 // r;b,id,identification,0704,manufacturer,UCH,0x06=Dungs;0x0f=FH Ostfalia;0x10=TEM;0x11=Lamberti;0x14=CEB;0x15=Landis-Staefa;0x16=FERRO;0x17=MONDIAL;0x18=Wikon;0x19=Wolf;0x20=RAWE;0x30=Satronic;0x40=ENCON;0x50=Kromschröder;0x60=Eberle;0x65=EBV;0x75=Grässlin;0x85=ebm-papst;0x95=SIG;0xa5=Theben;0xa7=Thermowatt;0xb5=Vaillant;0xc0=Toby;0xc5=Weishaupt;0xfd=ebusd.eu,device manufacturer,id,STR:5,device id,software,PIN,software version,hardware,PIN,hardware versionr
@@ -51,7 +46,6 @@ model Identification {
 
 manufacturer: UCH,
 /** device id */
-
 id: UCH,
 }
 
@@ -83,7 +77,6 @@ model SignOfLife {
 model ErrorMessage {
 
 @maxLength(10) 
-
 error: STR,
 }
 
@@ -113,8 +106,6 @@ model FailureMessageNM {
 @zz(BROADCAST)
 @id(0x5, 0xd)
 model ToFAxSub {
-
-
   daten: RaumtemperaturdatenReglerAnFeuerungsautomat,
 }
 
@@ -123,42 +114,17 @@ model ToFAxSub {
 @zz(BROADCAST)
 @id(0x8, 1)
 model OperationalData {
-
-@unit("°C")
-
-tr_hp: D2B,
-
-@unit("°C")
-
-tb: D2B,
-
-
+@unit("°C") tr_hp: D2B,
+@unit("°C") tb: D2B,
 Emissionstest: UCH,
-
-
 BWR_Aktiv: BI0,
-
-
 PumpenFreigabeSperre: BI1,
-
-
 Kessel1InBetrieb: BI2,
-
-
 Kessel2InBetrieb: BI3,
-
-
 Ladepumpe: BI4,
-
-
 BW_Ladung: BI5,
-
-
 TBF_Connect: BI6,
-
-@unit("°C")
-
-tr_hp2: D2B,
+@unit("°C") tr_hp2: D2B,
 }
 
 /** Control Commands: Master-Regler an Slave-Regler (eBUS service 08 02) */
@@ -166,53 +132,21 @@ tr_hp2: D2B,
 @zz(BROADCAST)
 @id(0x8, 0x2)
 model ControlCommands {
-
-
 Bit0: BI0,
-
-
 Bit1: BI1,
-
-
 Bit2: BI2,
-
-
 Bit3: BI3,
-
-
 Bit4: BI4,
-
-
 Bit5: BI5,
-
-
 Bit6: BI6,
-
-
 Bit7: BI7,
-
-
-Bit8: BI0,
-
-
-Bit9: BI1,
-
-
+BWR_Aktiv: BI0,
+Cooling: BI1,
 Bit10: BI2,
-
-
-Bit11: BI3,
-
-
-Bit12: BI4,
-
-
+WP2_ohne_BWR: BI3,
+Cooling2: BI4,
 Bit13: BI5,
-
-
-Bit14: BI6,
-
-
+BWR_Aktiv_ohne_HK2: BI6,
 Bit15: BI7,
 }
 
@@ -221,53 +155,21 @@ Bit15: BI7,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0)
 model Status0a {
-
-
 ta: Temp,
-
-
 Bit0: BI0,
-
-
 Bit1: BI1,
-
-
 Bit2: BI2,
-
-
 Bit3: BI3,
-
-
 Bit4: BI4,
-
-
 Bit5: BI5,
-
-
 Bit6: BI6,
-
-
-Bit7: BI7,
-
-
-Bit8: BI0,
-
-
-Bit9: BI1,
-
-
+Running: BI7,
+BWR_Ventil: BI0,
+BWR_Ventil2: BI1,
 Bit10: BI2,
-
-
 Bit11: BI3,
-
-
 Bit12: BI4,
-
-
 Bit13: BI5,
-
-
 Bit14: BI6,
 }
 
@@ -277,26 +179,14 @@ Bit14: BI6,
 @id(0x10, 0xa, 0x10, 0)
 model Status0b {
 /** Heat pump flow temperature */
-@unit("°C")
-
-tf_hp: Temp,
+@unit("°C") tf_hp: Temp,
 /** Heat pump return temperature */
-@unit("°C")
-
-tr_hp: Temp,
+@unit("°C") tr_hp: Temp,
 /** Heating circuit flow temperature */
-@unit("°C")
-
-tf_hc: Temp,
-
-
+@unit("°C") tf_hc: Temp,
 b1: Byte,
-
-
 b2: Byte,
-
-
-tb: Temp,
+@unit("°C") tb: Temp,
 }
 
 /** xxx */
@@ -304,11 +194,7 @@ tb: Temp,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 1)
 model Status1a {
-
-
-ta: Temp,
-
-
+@unit("°C") ta: Temp,
 Flag0: BI0,
 Flag1: BI1,
 Flag2: BI2,
@@ -317,36 +203,17 @@ Flag4: BI4,
 Flag5: BI5,
 Flag6: BI6,
 Flag7: BI7,
-
-
-Bit0: BI0,
-
-
+BWR_Aktiv: BI0,
 Bit1: BI1,
-
-
 Bit2: BI2,
-
-
 Bit3: BI3,
-
-
 Bit4: BI4,
-
-
 Bit5: BI5,
-
-
 Bit6: BI6,
-
 Bit7: BI7,
-
 b2: Byte,
-
 b3: Byte,
-
 b4: Byte,
-
 b5: Byte,
 }
 
@@ -356,22 +223,12 @@ b5: Byte,
 @id(0x10, 0xa, 0x10, 1)
 model Status1b {
 /** Heat pump flow temperature */
-@unit("°C")
-
-tf_hp: Temp,
-
-
+@unit("°C") tf_hp: Temp,
 n1: Zehntel,
-
-
 tr: Temp,
-
-
 n2: Zehntel,
 /** software water temperature */
-@unit("°C")
-
-tb: Temp,
+@unit("°C") tb: Temp,
 }
 
 /** xxx */
@@ -379,26 +236,12 @@ tb: Temp,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0x2)
 model Status2a {
-
-
 b1: Byte,
-
-
 b2: Byte,
-
-
 Mins: UIN,
-
-
 b3: Byte,
-
-
 b4: Byte,
-
-
 b5: Byte,
-
-
 b6: Byte,
 }
 
@@ -407,53 +250,21 @@ b6: Byte,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 0x2)
 model Status2b {
-
-
 Bit0: BI0,
-
-
 Bit1: BI1,
-
-
 Bit2: BI2,
-
-
 Bit3: BI3,
-
-
 Bit4: BI4,
-
-
 Bit5: BI5,
-
-
 Bit6: BI6,
-
-
-Bit7: BI7,
-
-
+BWR_Aktiv: BI7,
 Bit8: BI0,
-
-
-Bit9: BI1,
-
-
+BWR_Aktiv_not_Cooling: BI1,
 Bit10: BI2,
-
-
 Bit11: BI3,
-
-
 Bit12: BI4,
-
-
 Bit13: BI5,
-
-
 Bit14: BI6,
-
-
 Bit15: BI7,
 }
 
@@ -462,26 +273,13 @@ Bit15: BI7,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x11, 0x3)
 model Status3a {
-
-
 b1: Byte,
-
-
 b2: Byte,
 /** Minutes since Tuesday 00:00 */
-
 Mins: UIN,
-
-
 b5: Byte,
-
-
 b6: Byte,
-
-
 qB3: Byte,
-
-
 b4: Byte,
 }
 
@@ -490,22 +288,12 @@ b4: Byte,
 @zz(BROADCAST)
 @id(0x10, 0xa, 0x10, 0x3)
 model Status3b {
-
-
 n1: Zehntel,
-
-
 n2: Zehntel,
-
-
 TF_HC_target: Temp,
-
-
 n3: Zehntel,
 /** Service water target temperature */
-@unit("°C")
-
-TB_target: Temp,
+@unit("°C")TB_target: Temp,
 }
 
 enum Values_manufacturer {
@@ -535,4 +323,5 @@ enum Values_manufacturer {
   Weishaupt: 0xc5,
   ebusd_eu: 0xfd,
 }
+
 }
