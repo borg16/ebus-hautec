@@ -8,22 +8,22 @@ namespace hautec;
 
 @zz(0x90)
 namespace Remote1 {
-  /** Gesamt Anlaufzähler 1 lesen WP */
+  /** Read total start counter of operating unit 1 (heat pump) */
   @zz(0x90)
   @id(0x3, 0x4)
-  model Anlaufzaehler_WP1 {
-    @out anlaufzaehler: HCD3;
-    @out number: UCH;
+  model StartCounterUnit1 {
+    @out startCounter: HCD3;
+    @out heatingId: UCH;
   }
 
-  // [anlauftyp2=1]r,ehp,anlaufzaehler_HS2,Gesamt Anlaufzähler 2 lesen HS,10,91,0304,anlaufzaehler,m,HCD:3,number,m,UCH
+  // [anlauftyp2=1]r,ehp,StartCounterUnit2,Read total start counter of operating unit 2,10,91,0304,startCounter,m,HCD:3,number,m,UCH
 
-  /** Gesamt Betriebsstunden 1 Stufe 1 lesen */
+  /** Read total operating hours of operating unit 1 (stage 1) */
   @qq(0x10)
   @zz(0x90)
   @id(0x3, 0x5)
-  model BetriebsstundenBedienteil1 {
-    @out betriebsstunden: Betriebsstunden;
+  model OperatingHoursUnit1 {
+    @out operatingHours: OperatingHours;
   }
 
   /** Konfigurationsdatenanforderung des Reglers an Slave 1 */
@@ -99,10 +99,14 @@ namespace Remote1 {
     @in data: HeizgrenzenParameter200D;
   }
 
+  /** Observe controller time synchronization to remote 1 (30 00, empty reply). */
+  @write
+  @passive
+  @qq(0x10)
   @zz(0x90)
   @id(0x10, 0xa, 0x30, 0)
   model ZeitstatusBedienteil1 {
-    @out data: Zeitstatusdaten;
+    @out data: RemoteTimeSyncData;
   }
 
   @zz(0x90)

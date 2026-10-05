@@ -1,0 +1,214 @@
+TEM    Kontext  Beschreibung | Aktueller Wert
+03-00  HK1     Raumschutztemperatur | 10 °C
+03-00  HK2     Raumschutztemperatur | 10 °C
+03-01  HK1     Fusspunkttemperatur | 22 °C
+03-01  HK2     Fusspunkttemperatur | 22 °C
+03-02  HK1     Heizgrenze Absenkbetrieb | 16 °C
+03-02  HK2     Heizgrenze Absenkbetrieb | 16 °C
+03-06  HK1     Startoptimierung Vorhaltezeit | 0 min
+03-06  HK2     Startoptimierung Vorhaltezeit | 0 min
+03-07  HK1     Raumtemperatur - Kompensation | 0
+03-07  HK2     Raumtemperatur - Kompensation | 0
+03-08  HK1     Vorlauf Sollwert Heizgrenze | -10 K
+03-08  HK2     Vorlauf Sollwert Heizgrenze | -10 K
+03-10  HK1     Steilheit Kennlinie | 0.3
+03-10  HK2     Steilheit Kennlinie | 0.3
+03-11  HK1     Fusspunkt Vorlaufkennlinie TA | 20 °C
+03-11  HK2     Fusspunkt Vorlaufkennlinie TA | 20 °C
+03-20  HK1     Zeitkonst. für Aussentemp.rmittelung | 10 h
+03-20  HK2     Zeitkonst. für Aussentemp.rmittelung | 10 h
+03-21  HK1     Heizgrenze bei Tagbetrieb | 16 °C
+03-21  HK2     Heizgrenze bei Tagbetrieb | 16 °C
+03-23  HK1     Frostgrenze | 2 °C
+03-23  HK2     Frostgrenze | 2 °C
+03-30  HK1     Nachstellzeit Raumregler | 0 min
+03-30  HK2     Nachstellzeit Raumregler | 0 min
+03-35  HK1     Kühlgrenzenabstand | 10 K
+03-35  HK2     Kühlgrenzenabstand | 10 K
+03-43  HK1     Kühltemperatur | 22 °C
+03-43  HK2     Kühltemperatur | 22 °C
+03-50  HK1     Betriebswahl Heizung und Brauchwasser | 1
+03-50  HK2     Betriebswahl Heizung und Brauchwasser | 1
+03-51  HK1     Sollwert Raumtemperatur Heizen Tag normal | 22 °C
+03-51  HK2     Sollwert Raumtemperatur Heizen Tag normal | 23 °C
+03-53  HK1     Sollwert Raumteperatur Heizen Nacht | 18 °C
+03-53  HK2     Sollwert Raumteperatur Heizen Nacht | 10 °C
+03-58  HK1     Behaglichkeit | 0 K
+03-58  HK2     Behaglichkeit | 0 K
+03-61  HK1     Beschreibung unbekannt | Sonderformat; roh: bd 01 1e 00 01 00
+03-61  HK2     Beschreibung unbekannt | Sonderformat; roh: bd 01 1e 00 01 00
+03-62  HK1     Beschreibung unbekannt | Sonderformat; roh: be 01 1e 00 01 00
+03-62  HK2     Beschreibung unbekannt | Sonderformat; roh: be 01 1e 00 01 00
+03-63  HK1     Beschreibung unbekannt | Sonderformat; roh: bf 01 1e 00 01 00
+03-63  HK2     Beschreibung unbekannt | Sonderformat; roh: bf 01 1e 00 01 00
+03-78  HK1     Beschreibung unbekannt | 46297 [Einheit 0x28]
+03-78  HK2     Beschreibung unbekannt | 46297 [Einheit 0x28]
+04-00  Global  Fühlerkonfiguration speichern | Aus (0)
+04-02  Global  Funktion Sollwerteingang | 0
+04-08  Global  Handbetrieb Konfiguration | 2
+04-20  Global  Anlage-Hauptregler / Folgeregler | 2
+04-22  WE1     WE 1 Zieladresse | 11
+04-22  WE2     WE 1 Zieladresse | 12
+04-22  WE3     WE 1 Zieladresse | 0
+04-22  WE4     WE 1 Zieladresse | 0
+04-22  WE5     WE 1 Zieladresse | 0
+04-22  WE6     WE 1 Zieladresse | 0
+04-22  WE7     WE 1 Zieladresse | 0
+04-22  WE8     WE 1 Zieladresse | 0
+04-27  EH      eBUS Adresse WEZ | 12
+04-27  WP      eBUS Adresse WEZ | 11
+04-30  Global  Multifunktionsausgang 1 | Ein (1)
+04-31  Global  Multifunktionsausgang 2 | Aus (0)
+04-36  Global  eBUS Speisung Abschaltung | Ein (1)
+04-40  Global  Service Passwort | 0 [Einheit 0x22]
+04-42  Global  Beschreibung unbekannt | 1
+04-43  Global  Expert-Modus | 1
+04-45  HK1     Kommandobefehle | 0
+04-45  HK2     Kommandobefehle | 0
+04-60  HK1     Mode Austrocknungsprogramm | 0
+04-60  HK2     Mode Austrocknungsprogramm | 0
+05-00  Global  Schaltdifferenz Brauchwasserbereitung | 5 K
+05-01  Global  Temperaturüberhoehung Brauchwasserbereitung | 6 K
+05-02  Global  Brauchwasser-Vorrang | 0.1 h
+05-03  Global  Nachlaufzeit Brauchwasserbereitung | 3 min
+05-04  Global  Legionellenschutztemperatur | 60 °C
+05-05  Global  Funktionsweise Ladepumpennachlauf | 0
+05-06  Global  Zirkulationspumpe aktiv | Ein (1)
+05-07  Global  Stellglied Brauchwasserbereitung | Ein (1)
+05-13  Global  Reduktion Sollwert TBO | 15 K
+05-14  HK1     Legionellenschutzfunktion | 0
+05-14  HK2     Legionellenschutzfunktion | 0
+05-40  Global  Min. Fehlerdauer fuer Brauchwasser Störmeldung | 0 h
+05-51  HK1     Sollwert Warmwassertemperatur | 50 °C
+05-51  HK2     Sollwert Warmwassertemperatur | 50 °C
+05-61  Global  Beschreibung unbekannt | Sonderformat; roh: bd 02 1e 00 03 00
+05-64  Global  Beschreibung unbekannt | Sonderformat; roh: c0 02 1e 00 03 00
+06-00  Global  Brauchwasser Ladeleistung | 100 kW
+06-01  Global  Puffer, Heiz- Ladeleistung | 100 kW
+06-02  Global  Kühlleistung | 100 kW
+06-04  Global  WEZ Überhöhung | 10 K
+06-05  Global  Puffer Offset TPM aus | 0 K
+06-08  Global  TBVsoll Überhöhung | 10 K
+06-10  Global  Xp WEZ Manager | 6 K
+06-11  Global  Tn WEZ Manager | 20 min
+06-12  Global  Tv WEZ Manager | 0 min
+06-13  Global  Reduktion Sollwert TKX | 5 K
+06-20  Global  Sequenzwechsel Flag | 0
+07-00  HK1     Proportional-Bereich Mischer | 15 K
+07-00  HK2     Proportional-Bereich Mischer | 15 K
+07-01  HK1     Überhöhung WE-Temperatur | 0 K
+07-01  HK2     Überhöhung WE-Temperatur | 3 K
+07-02  HK1     Minimale Vorlauftemperatur | 0 °C
+07-02  HK2     Minimale Vorlauftemperatur | 0 °C
+07-03  HK1     Pumpennachlauf Heizkreis | 15 min
+07-03  HK2     Pumpennachlauf Heizkreis | 15 min
+07-05  HK1     Heizkreistyp | 2
+07-05  HK2     Heizkreistyp | 0
+07-06  HK1     Min. Fehlerdauer fuer Vorlauf-Störmeldung | 2 h
+07-06  HK2     Min. Fehlerdauer fuer Vorlauf-Störmeldung | 0 h
+07-08  HK1     Vorlauf Maximaltemperatur TV | 55 °C
+07-08  HK2     Vorlauf Maximaltemperatur TV | 45 °C
+07-09  Global  Beschreibung unbekannt | 48 °C
+07-14  HK1     Heizkreisfunktion im Kühlbetrieb | 2
+07-14  HK2     Heizkreisfunktion im Kühlbetrieb | 2
+07-31  HK1     Heizkreisüberhöhung Niedertarif | 0 K
+07-31  HK2     Heizkreisüberhöhung Niedertarif | 0 K
+08-55  Global  Puffer aktiv | 0
+08-58  Global  Puffer Minimaltemperatur | 0 °C
+08-59  Global  Puffer Maximaltemperatur | 90 °C
+08-72  Global  Delta Puffer bei Solar aktiv | 10 K
+08-79  Global  WW Minimaltemperatur bei Solar aktiv | 40 °C
+09-00  EH      Nachlaufzeit Schutzfunktion | 1 min
+09-00  WP      Nachlaufzeit Schutzfunktion | 1 min
+09-04  EH      Vorlaufzeit Quellenpumpe | 0.5 min
+09-04  WP      Vorlaufzeit Quellenpumpe | 0.5 min
+09-07  EH      WEZ Typ | 1
+09-07  WP      WEZ Typ | 6
+09-08  HK1     Wärmeerzeuger Sperre | 0
+09-08  HK2     Wärmeerzeuger Sperre | 0
+09-11  EH      Bedingte WEZ Freigabe | 10
+09-11  WP      Bedingte WEZ Freigabe | 0
+09-12  EH      Aussentemperatursperre TAW | -5 °C
+09-12  WP      Aussentemperatursperre TAW | -50 °C
+09-13  EH      Energiezwang Funktion | 2
+09-13  WP      Energiezwang Funktion | 2
+09-14  EH      Diff. Leistungszwang Tkmax | 0 K
+09-14  WP      Diff. Leistungszwang Tkmax | 0 K
+09-21  EH      WE Abschaltdifferenz | 3 K
+09-21  WP      WE Abschaltdifferenz | 5 K
+09-23  EH      Minimale Stillstandszeit | 60 min
+09-23  WP      Minimale Stillstandszeit | 12 min
+09-26  EH      Vorhaltezeit 2. Stufe | 0 s
+09-26  WP      Vorhaltezeit 2. Stufe | 10 s
+09-31  EH      Minimale WE Laufzeit | 0 min
+09-31  WP      Minimale WE Laufzeit | 9 min
+09-34  EH      Einschaltverzögerung 2. Stufe | 0 min
+09-34  WP      Einschaltverzögerung 2. Stufe | 9 min
+09-35  EH      Schaltdifferenz 2. Stufe | 0 K
+09-35  WP      Schaltdifferenz 2. Stufe | -3 K
+10-31  EH      WE Maximaltemperatur | 68 °C
+10-31  WP      WE Maximaltemperatur | 70 °C
+11-01  WE1     WE Steuerbefehl | 2
+11-01  WE2     WE Steuerbefehl | 2
+11-01  WE3     WE Steuerbefehl | 2
+11-01  WE4     WE Steuerbefehl | 2
+11-01  WE5     WE Steuerbefehl | 2
+11-01  WE6     WE Steuerbefehl | 2
+11-01  WE7     WE Steuerbefehl | 2
+11-01  WE8     WE Steuerbefehl | 2
+11-02  WE1     WE Nennleistung | 100 kW
+11-02  WE2     WE Nennleistung | 100 kW
+11-02  WE3     WE Nennleistung | 100 kW
+11-02  WE4     WE Nennleistung | 100 kW
+11-02  WE5     WE Nennleistung | 100 kW
+11-02  WE6     WE Nennleistung | 100 kW
+11-02  WE7     WE Nennleistung | 100 kW
+11-02  WE8     WE Nennleistung | 100 kW
+11-03  WE1     minimale WE-Leistung | 70 %
+11-03  WE2     minimale WE-Leistung | 100 %
+11-03  WE3     minimale WE-Leistung | 100 %
+11-03  WE4     minimale WE-Leistung | 100 %
+11-03  WE5     minimale WE-Leistung | 100 %
+11-03  WE6     minimale WE-Leistung | 100 %
+11-03  WE7     minimale WE-Leistung | 100 %
+11-03  WE8     minimale WE-Leistung | 100 %
+11-04  WE1     Einschaltleistung Folge WE | 80 %
+11-04  WE2     Einschaltleistung Folge WE | 80 %
+11-04  WE3     Einschaltleistung Folge WE | 80 %
+11-04  WE4     Einschaltleistung Folge WE | 80 %
+11-04  WE5     Einschaltleistung Folge WE | 80 %
+11-04  WE6     Einschaltleistung Folge WE | 80 %
+11-04  WE7     Einschaltleistung Folge WE | 80 %
+11-04  WE8     Einschaltleistung Folge WE | 80 %
+11-05  WE1     WE Folgewechsel | Aus (0)
+11-05  WE2     WE Folgewechsel | Aus (0)
+11-05  WE3     WE Folgewechsel | Aus (0)
+11-05  WE4     WE Folgewechsel | Aus (0)
+11-05  WE5     WE Folgewechsel | Aus (0)
+11-05  WE6     WE Folgewechsel | Aus (0)
+11-05  WE7     WE Folgewechsel | Aus (0)
+11-05  WE8     WE Folgewechsel | Aus (0)
+15-10  WP      Heissgas Maximaltemperatur | 125 °C
+15-11  WP      TWVmax Abschalthysterese | 7 K
+15-12  WP      Kondensator Austritt Störung | -5 °C
+15-13  WP      Kondensator Austritt Abschaltoffset | 2 K
+15-21  WP      Nachlaufzeit Quellenpumpe | 0.5 min
+15-22  WP      Wärmequelle Frostschutztemperatur | -12 °C
+15-23  Global  Frostschutztemperatur TVD | 4 °C
+15-24  WP      Wärmequelle Eintrittsschutztemperatur | 40 °C
+15-25  WP      Abschaltoffset Frostschutz | 2 K
+15-26  WP      TWE-Temp rpunkt TWVmax Reduktion | -20 °C
+15-27  WP      TWVmax bei TWE Grenztenperatur | 40 °C
+15-28  WP      TWE Grenztenperatur | -30 °C
+15-40  WP      Abtautyp | 0
+15-41  WP      Abtaudifferenz (TWE - TVD) | 10 K
+15-42  WP      Freigabe Abtauung (TVD) | -6 °C
+15-43  WP      Abtauendetemperatur (TVD) | 9 °C
+15-44  WP      Abtaudauer | 10 min
+15-45  WP      Abtausperrzeit | 45 min
+15-46  WP      Verzögerung Niederdruck | 250 s
+15-47  WP      Abtropfzeit | 0 min
+15-48  WP      Verzögerung Druckdifferenzeingang | 120 s
+15-49  WP      Abtau Frostschutzstörung | 12 °C
+15-50  WP      Abtau Frostschutz Offset Zusatzheizung | 2 K
+15-60  WP      Anpassen TWA Messwert | 0 K

@@ -177,12 +177,14 @@ class MenuBlockTests(unittest.TestCase):
                     self.assertIn("WP", out)
                     self.assertIn("EH", out)
 
-    def test_table_assignment_preserves_missing_and_ambiguous_roles(self):
+    def test_table_assignment_uses_context_and_preserves_missing_roles(self):
         descriptions = Descriptions()
         role, label = descriptions.assignment("00-07", "HK1")
         self.assertEqual(role, "Ist")
         self.assertIn("WP-Vorlauftemperatur", label)
-        self.assertIn("EH-Vorlauftemperatur", label)
+        self.assertNotIn("EH-Vorlauftemperatur", label)
+        self.assertEqual(descriptions.assignment("00-07", "HK2"),
+                         ("Ist", "EH-Vorlauftemperatur (Ist; TEV)"))
         self.assertEqual(descriptions.assignment("00-09", "WE4"), ("—", ""))
         role, label = descriptions.assignment("01-09", "WE8")
         self.assertEqual(role, "Soll")
@@ -295,6 +297,49 @@ class MenuBlockTests(unittest.TestCase):
         for payload in ("0c811e000500", "50c11d00010026000000", "8543fe00000000000000"):
             self.assertIn("Sonderformat; roh:", display_value("02-12", bytes.fromhex(payload)))
         self.assertIn("Unbekanntes Antwortformat", display_value("02-12", b"\0" * 8))
+
+    def test_description_pairs_follow_file_order_per_source(self):
+        descriptions = Descriptions()
+        descriptions.names["03-00"] = [
+            ("Erster Kreis", "checklist.csv", None),
+            ("Zweiter Kreis", "checklist.csv", None),
+            ("Gemeinsamer Name", "table.md", "2"),
+        ]
+        self.assertEqual(descriptions.lookup("03-00", 0xa3),
+                         "Erster Kreis / Gemeinsamer Name")
+        self.assertEqual(descriptions.lookup("03-00", 0x63, "1000"),
+                         "Zweiter Kreis / Gemeinsamer Name")
+        descriptions.names["03-00"].append(("Zweiter Tabellenname", "table.md", "2"))
+        self.assertEqual(descriptions.lookup("03-00", 0xa3, "1000"),
+                         "Zweiter Kreis / Zweiter Tabellenname")
+        self.assertEqual(descriptions.lookup("03-00", 0xa3, "2000"),
+                         "Erster Kreis / Zweiter Kreis / Gemeinsamer Name / Zweiter Tabellenname")
+        for menu, expected in [(0xa9, "WP"), (0x69, "WP"), (0xaa, "EH"), (0x6a, "EH")]:
+            self.assertEqual(descriptions.lookup("00-07", menu),
+                             f"{expected}-Vorlauftemperatur (Ist; T{expected[0]}V)")
+        self.assertEqual(descriptions.lookup("00-04", 0x08, "1000"),
+                         descriptions.lookup("00-04", 0x08))
+
+    def test_description_pairs_in_menu_and_collection_output(self):
+        replies = {"1506200101": "088100000000000000", "1006230400005100": "done",
+                   "150621020800": "0a01000d02f4010cfe6400",
+                   "1506210408801000": "0a01000d02f4010cfe6400"}
+        status, out, err, commands = self.run_cli(["--menu", "08"], replies)
+        self.assertEqual(status, 0, err)
+        for context, expected, excluded in [("HK1", "Raumtemperatur 1", "Raumtemperatur 2"),
+                                             ("HK2", "Raumtemperatur 2", "Raumtemperatur 1")]:
+            row = next(line for line in out.splitlines() if context in line)
+            self.assertIn(expected, row)
+            self.assertNotIn(excluded, row)
+        path = self.collection_file("00-01 HK2")
+        entry = parameter_collection(path, parameter_catalog(None, [b"\x10\x00"]))[0]
+        selector, response = entry["request"], entry["sample_response"]
+        replies = {"1006230400005100": "done",
+                   f"150621{len(selector) // 2:02x}{selector}": f"{len(response) // 2:02x}{response}"}
+        status, out, err, commands = self.run_cli(["--parameters-file", str(path)], replies)
+        self.assertEqual(status, 0, err)
+        self.assertIn("Raumtemperatur 2", out)
+        self.assertNotIn("Raumtemperatur 1", out)
 
     def test_descriptions_and_all_scan_payloads(self):
         descriptions = Descriptions()

@@ -1,0 +1,202 @@
+{
+  "input": "ebusd.cool5.log",
+  "sha256": "ce73f87f12aa53f368d2a9dd0d2f5fc47b9bbc6c7abe30341b6185c47a05465f",
+  "bytes": 114252,
+  "leading_nul_bytes": 0,
+  "lines": 1800,
+  "first": "2026-10-01 00:09:24.020000",
+  "last": "2026-10-01 00:32:15.627000",
+  "duration_s": 1371.607,
+  "valid_master_telegrams": 1781,
+  "excluded_lines": 19,
+  "errors": {
+    "short fragment, no complete master header": 19
+  },
+  "transport": {
+    "broadcast": 291,
+    "master ACK": 626,
+    "slave response CRC and ACK valid": 845,
+    "master valid, response/ACK incomplete or unusual": 19
+  },
+  "longest_log_gap": [
+    5.49,
+    "2026-10-01 00:21:03.667000",
+    "2026-10-01 00:21:09.157000"
+  ],
+  "read_counts": {
+    "read_requests": 561,
+    "valid_02-20": 3,
+    "valid_04-43": 6,
+    "valid_01-96": 153,
+    "valid_01-07": 152,
+    "valid_00-02": 76,
+    "valid_01-21": 76,
+    "valid_01-09": 75
+  },
+  "invalid_reads": [
+    {
+      "line": 218,
+      "time": "2026-10-01 00:13:16.255",
+      "selector": "ab01",
+      "reason": "ff1f"
+    },
+    {
+      "line": 308,
+      "time": "2026-10-01 00:14:16.255",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 326,
+      "time": "2026-10-01 00:14:31.099",
+      "selector": "0914",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 494,
+      "time": "2026-10-01 00:16:31.100",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 519,
+      "time": "2026-10-01 00:16:46.272",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 538,
+      "time": "2026-10-01 00:17:01.272",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 657,
+      "time": "2026-10-01 00:18:30.882",
+      "selector": "0914",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 825,
+      "time": "2026-10-01 00:20:31.087",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 851,
+      "time": "2026-10-01 00:20:46.259",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 871,
+      "time": "2026-10-01 00:21:01.259",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 989,
+      "time": "2026-10-01 00:22:30.963",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1138,
+      "time": "2026-10-01 00:24:16.370",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1158,
+      "time": "2026-10-01 00:24:31.141",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1185,
+      "time": "2026-10-01 00:24:46.277",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1206,
+      "time": "2026-10-01 00:25:01.277",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1325,
+      "time": "2026-10-01 00:26:30.997",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1489,
+      "time": "2026-10-01 00:28:31.076",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1515,
+      "time": "2026-10-01 00:28:46.248",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1535,
+      "time": "2026-10-01 00:29:01.264",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1654,
+      "time": "2026-10-01 00:30:31.015",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    }
+  ],
+  "writes": [
+    {
+      "line": 234,
+      "time": "2026-10-01 00:13:30.460",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 450,
+      "time": "2026-10-01 00:16:00.303",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 780,
+      "time": "2026-10-01 00:20:00.291",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1111,
+      "time": "2026-10-01 00:24:00.308",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1446,
+      "time": "2026-10-01 00:28:00.312",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1779,
+      "time": "2026-10-01 00:32:00.283",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    }
+  ]
+}

@@ -35,3 +35,12 @@
 | | 00-09 | Wärmeleistung WE 1 | PWE1 | | 11 |
 | | 00-09 | Wärmeleistung WE 2 | PWE2 | | 12 |
 | | 00-09 | Wärmeleistung WE 3 | PWE3 | | 13 |
+
+Die Bezeichnungen in der Tabelle sind Reglerfunktionen, keine vollständige
+Beschreibung der tatsächlichen Einbaustellen. Die am 30.09.2026 vom Betreiber
+geprüften Positionen und nicht angeschlossenen Eingänge sind in der
+[Kühlversuch-Auswertung](../docs/Cooling-Test-2026-09-30.md#vor-ort-geprüfte-sensorpositionen-und-erneuertes-reglerfoto)
+dokumentiert. Insbesondere liegt Eingang 43 am Eingang der Solewärmepumpe;
+bei 47 ist die Zuordnung zu R3 noch unsicher, die Lage von 48 ist offen.
+Der beigefügte Fühlerbelegungsplan aus der Anleitung trifft auf diese Anlage
+laut Betreiberprüfung nicht zu.

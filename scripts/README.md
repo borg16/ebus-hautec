@@ -63,10 +63,12 @@ Der erste Modus zeigt die Spalten `TEM`, `Kontext`, `Art`, `Beschreibung` und
 `Aktueller Wert`. `Art` ist `Soll` oder `Ist` gemäß der jeweiligen Spalte in
 [input/soll_und_istwerte.md](../input/soll_und_istwerte.md), nicht allein anhand
 der TEM-Gruppe. Beispielsweise ist `02-20` dort als Soll eingetragen.
-Tabellenzeilen für WE1–WE8 und ausdrücklich nummerierte Raum-/Vorlauftemperaturen
-werden dem jeweiligen Kontext zugeordnet. Andere mehrdeutige Bezeichnungen
-bleiben als Alternativen erhalten; etwa beweisen WP-/EH-Namen in der Tabelle
-keine neue Zuordnung der HK-Selektoren. Ohne passende Tabellenzuordnung steht
+Tabellenzeilen für WE1–WE8 werden über die Spalte `Ebene` zugeordnet.
+Bei genau zwei Beschreibungen eines TEM-Codes in derselben Eingabedatei gilt
+die Dateireihenfolge: die erste für HK1/WP, die zweite für HK2/EH.
+Im Kontext `Global` wird die erste verwendet. Einzelne Beschreibungen gelten
+für beide Kontexte. Unbekannte Kontexte und andere Mehrfachbelegungen bleiben
+als Alternativen erhalten. Ohne passende Tabellenzuordnung steht
 `—` in der Spalte `Art`; der Parameter wird trotzdem gelesen und angezeigt.
 Der zweite Modus zeigt dieselben Spalten ohne `Art`.
 
@@ -141,6 +143,8 @@ Menügruppe, keine bewiesene gemeinsame Speicherinstanz.
 Beschreibungen stammen vorrangig
 aus den Eingabetabellen unter `input/`, ersatzweise aus
 `ste-output/parameter.json`; fehlende Namen bleiben ausdrücklich unbekannt.
+Die Auswahl nach Dateireihenfolge bei zwei Beschreibungen gilt auch für
+Menüabfragen und Parametersammlungen, jeweils getrennt pro Eingabedatei.
 Werte werden ausschließlich aus den neuen Busantworten übernommen. Die
 Dekodierung folgt den bestehenden Regeln für `controller.tsp`, einschließlich
 03-10 mit Skalierung 1/100, vorzeichenbehafteten Byte-Werten und Wochenminuten.

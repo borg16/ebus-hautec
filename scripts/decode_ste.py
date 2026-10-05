@@ -157,8 +157,9 @@ def markdown(archive):
         "Die Tabelle ist nach der TEM-Kennung sortiert. Mehrfach vorkommende Kennungen "
         "bleiben getrennt. Die Datensatznummer (#) verweist auf die ursprüngliche Dateireihenfolge.", "",
         "**Wert** bezeichnet das gespeicherte Zahlenfeld, keinen bestätigten aktuellen "
-        "Anlagenwert. Ob die Datei eine Anlagenaufnahme oder eine bearbeitete Vorlage ist, "
-        "lässt sich daraus nicht entscheiden. HK 1/2 sind aus den Datensatzpaaren abgeleitet. "
+        "Anlagenwert. Zur betrieblichen Herkunft der im Projekt untersuchten Datei siehe "
+        "[Heating-Control-Analysis.md](../docs/Heating-Control-Analysis.md#herkunft-und-zeitliche-einordnung-der-einstellungen). "
+        "HK 1/2 sind aus den Datensatzpaaren abgeleitet. "
         "Einheiten sind aus den Metadaten erschlossen; `s?` bleibt eine Vermutung. "
         "`—` bedeutet, dass kein Einheitenname hinterlegt ist, nicht zwingend dimensionslos.", "",
         "**TEM-Kennung, Einstellebene und FB-Menüposition sind getrennte Nummerierungen.** "

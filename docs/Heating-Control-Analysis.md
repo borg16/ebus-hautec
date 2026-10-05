@@ -1,6 +1,36 @@
 # Heizkreise, Warmwasser und Pumpensteuerung der Hautec-HWM-Anlage
 
-Stand: 25.09.2026. Auswertung der bereitgestellten Anlagenpläne, der
+**Vor-Ort-Klärung vom 03.10.2026 zu TEM 7/8:** Der Betreiber bestätigt nach
+Prüfung, dass die geschalteten Ausgänge 7 und 8 nicht beschaltet sind. Lediglich
+der N-Anschluss des Anschlussblocks 8 wird verwendet. Der zuvor anhand des
+Fotos entstandene Verdacht zusätzlicher Ausgangsfunktionen ist damit ausgeräumt.
+Der Schaltplan bleibt nach Betreiberangabe die Grundlage für die reale Anlage;
+die Nutzung des N-Anschlusses ist keine Pumpenansteuerung durch HK2.
+Siehe [aktuelle Klemmenanalyse](Heating-Terminal-Analysis-2026-10-03.md).
+
+**Nachbeobachtungen vom 30.09.2026:** Der Betreiber bestätigt nach erneuter
+Prüfung beide Zustände: Beim Kühlen ohne Warmwasserbereitung läuft
+**M4.1 durchgehend**, auch während der Pausen der Solewärmepumpe. Beim Kühlen
+während Warmwasserbereitung laufen **M5 und M4.2**; **M4.2 läuft auch während
+der Kühlverdichterpausen weiter**. Damit ist die unterschiedliche Pumpenauswahl
+zwischen den Betriebsarten bestätigt. Volumenstrom, genauer Umschaltzeitpunkt
+und eine fehlerhafte Pumpenauswahl sind damit nicht nachgewiesen.
+Diese Nachbeobachtungen ersetzen keine synchronen Pumpenmessungen der früheren
+Mitschnitte. Einordnung in der [Auswertung vom 30.09.](Cooling-Test-2026-09-30.md).
+
+**Nachtrag vom 28.09.2026:** Der Kühlbetrieb wurde inzwischen mit der aktuellen
+Konfiguration geprüft. Der Mitschnitt zeigt vier Abschnitte mit 100 % gemeldetem
+Stellgrad, dazwischen 50 %, und wiederkehrende Rückschaltungen bei etwa
+17–17,5 °C. 07-14 ist im Versuch für beide Heizkreise auf 3 zurückgelesen.
+Der Betreiber bestätigt anhand einer Leistungsmessung mit etwa 5 s Auflösung
+und 1,25-kW-Stufen den Soleverdichterlauf; der Abluftverdichter war während
+des gesamten Versuchs aus. 50 % Bus-Stellgrad belegt hier daher keinen
+laufenden Abluftverdichter. M4.1 wird aufgrund einer früheren Prüfung
+vermutet, wurde in diesem Versuch aber nicht kontrolliert.
+Die [Auswertung des Kühlversuchs](Cooling-Log-Analysis.md) ergänzt die unten
+historisch festgehaltene Aussage, dass der erneute Kühltest noch ausstand.
+
+Stand: 26.09.2026. Auswertung der bereitgestellten Anlagenpläne, der
 Parameterbeschreibungen und der im Gespräch mitgeteilten Betriebsbeobachtungen.
 Es wurden dafür keine Einstellungen an der Anlage verändert.
 
@@ -25,11 +55,59 @@ die TEM-Reglerfunktionen HK1/HK2 und die Bediengeräte FB1/FB2 sind zu untersche
 - **Vom Betreiber am Gerät abgelesen:** KT15 ist ein ABB CT-MFE mit
   Ausschaltverzögerung von **1000 s (16 min 40 s)** für den Steuereingang Y1.
   Die Versorgung an A1/A2 muss während des Zeitablaufs bestehen bleiben.
+- **Vom Betreiber synchron bestätigt (26.09.2026):** Bit 6 in Broadcast
+  `10 0A / 11 01` entspricht der Anzeige „Mischventil Heizkreis zu“ auf FB2
+  (`OperatingStatus_1101.Mixer_Close`, zuvor `Flag6`).
 - **Offen:** Die genaue Firmware-Zuordnung aller HK-/FB-Statusfelder zu den
   Ausgängen und die Ursache des früheren Warmwasserabbruchs.
 
 „Aus dem Schaltplan abgelesen“ bezeichnet die dokumentierte Verdrahtung, nicht
 eine durch Messung bestätigte Übereinstimmung mit der heute eingebauten Anlage.
+
+## Herkunft und zeitliche Einordnung der Einstellungen
+
+Der Betreiber hat am 26.09.2026 die Herkunft der Unterlagen klargestellt:
+
+Die Dateien in `ste-output/` wurden aus einer `.ste`-Datei eines ansonsten
+unbekannten Konfigurationsprogramms extrahiert. Die Programmiercheckliste
+war ursprünglich eine Excel-Datei. Vom Betreiber berichtete gemeinsame
+Rechtschreibfehler deuten auf eine gemeinsame Textgrundlage hin; sie belegen
+keine identische Firmware oder Konfiguration. Das Beispiel
+„Multifunktionsusgang“ ist im STE-Export vorhanden, war in der originalen Excel-Datei genauso geschrieben. Die Herkunft und
+Beleggrenzen sind in [STE-Format.md](STE-Format.md#herkunft-und-beziehung-zur-programmiercheckliste)
+festgehalten.
+
+- **[Parameter.md](../ste-output/Parameter.md)** enthält die tatsächlichen
+  Einstellungen dieser Anlage **vor der Nachrüstung der Kühlfunktion**.
+  Darin können spezielle lokale Anpassungen enthalten sein. Die Werte sind
+  daher als historischer Anlagenstand und nicht als bloße Standardvorlage zu lesen.
+- **[Programmiercheckliste](../input/Checkliste_Regler_Programmierung.CSV)**
+  beschreibt die üblichen Einstellungen des Werkskundendienstes. Die letzte
+  beschriftete Variantenspalte „Mono heiz-kühl“ enthält die normalerweise dafür
+  vorgesehene Konfiguration. Der Werkskundendienst kennt nach Betreiberangabe
+  den eventuell besonderen Anlagenaufbau nicht; die Checkliste belegt daher
+  weder die individuelle Sollkonfiguration noch die tatsächlich gesetzten Werte.
+- Der vollständige Einstellungsstand **nach der Kühlnachrüstung und vor dem
+  späteren Konfigurationsverlust ist unbekannt**. Einzelne Mitschnittwerte
+  bleiben eigenständige Belege und keine vollständige Momentaufnahme.
+- **Aktueller Stand nach Betreiberangabe vom 26.09.2026:** Vor einigen Tagen
+  gingen alle Einstellungen verloren; ein Werksreset ist eine vermutete,
+  nicht bestätigte Ursache. Der Betreiber hat alle Einstellungen aus
+  `Parameter.md` wiederhergestellt und zusätzlich **09-07 im Wärmepumpen-Kontext
+  auf 6 (mit Kühlfunktion)** gesetzt. Diese Angabe beschreibt den derzeitigen
+  Stand; eine vollständige Rücklesung wurde hier noch nicht ausgewertet.
+  Das bisher beobachtete Verhalten erscheint dem Betreiber wie vor dem
+  Konfigurationsverlust. Aus dem bisher ähnlichen
+  Verhalten folgt keine bewiesene Gleichheit aller früheren und heutigen
+  Parameterwerte.
+
+Für die Regelungsanalyse ist insbesondere **09-11 im Wärmepumpen-Kontext**
+zu unterscheiden: Vor der Kühlnachrüstung war tatsächlich **0** eingestellt.
+Die Checkliste nennt **5 für Mono** und **6 für Mono heiz-kühl**. Diese
+Abweichung darf nicht als nachgewiesener Fehler oder als Beleg einer späteren
+Umstellung auf 6 gewertet werden. Die Vermutung, dass gerade Modus 5/6 die
+besondere Aufteilung von Warmwasser- und Heizbetrieb erklärt, ist damit für
+den historischen Anlagenstand nicht belegt. Der genaue Algorithmus bleibt offen.
 
 ## Quellen
 
@@ -42,7 +120,7 @@ eine durch Messung bestätigte Übereinstimmung mit der heute eingebauten Anlage
 | [Legende 2](input/schaltplan_legende2.jpg) | Heizstab, Ventile und Schalter |
 | [Controllerfoto](input/tem_se_6000_wpc.png) | Anschlussbeschriftungen |
 | [KT15-Foto](../input/kt15.jpg) und Betreiberangabe zur Einstellung | ABB CT-MFE; Y1; Ausschaltverzögerung 1000 s |
-| [STE-Parameterkatalog](ste-output/Parameter.md) | Parametertexte und gespeicherte Dateifelder |
+| [STE-Parameterkatalog](../ste-output/Parameter.md) | Tatsächliche Einstellungen vor der Kühlnachrüstung sowie Parametertexte |
 | [Sitzungsvergleich](Session-Comparison.md) | Historische Mitschnittwerte, insbesondere 07-05 = 0/3 |
 | Betreiberangaben im Gespräch vom 25.09.2026 | Aktuelle Einstellung 2/0, Warmwasserproblem mit 0/3 und Änderung von 01-21 HK2 |
 
@@ -83,8 +161,8 @@ Elektroheizstab bezeichnet; Y2 als Magnetventil Heizen/Kühlen.
 | TEM-Klemme | Beschriftung am Controller | Im Steuerschaltplan erkennbarer Anschluss |
 |---|---|---|
 | 6 | Heizkreispumpe 1 | Gemeinsame Versorgung der Pumpenauswahl über K11 |
-| 7 | Kondensatorpumpe | Im gezeigten Plan nicht angeschlossen |
-| 8 | Heizkreispumpe 2 / Mischer | Im gezeigten Plan nicht angeschlossen |
+| 7 | Kondensatorpumpe | Geschalteter Ausgang unbeschaltet; Plan und Betreiberprüfung vom 03.10.2026 stimmen überein |
+| 8 | Heizkreispumpe 2 / Mischer | Geschalteter Ausgang unbeschaltet, vor Ort bestätigt; nur der zugehörige N-Anschluss wird verwendet |
 | 9 | Magnetventil Heizen/Kühlen | K4 und Y2 |
 | 10 | Beschriftung im Foto teilweise verdeckt | K2, laut Legende Heizstabschütz |
 | 11 | Separate Warmwasser-Wärmepumpe | Unter anderem K11; zusätzlich Verknüpfung über einen K4-Kontakt |
@@ -173,7 +251,7 @@ WE steht hier für Wärmeerzeuger.
 
 | Herkunft | HK1 | HK2 | Einordnung |
 |---|---:|---:|---|
-| STE-Datei | 2 | 0 | Gespeicherte Dateifelder; für sich allein kein aktueller Anlagenzustand |
+| STE-Datei | 2 | 0 | Tatsächlicher Anlagenstand vor der Kühlnachrüstung, vom Betreiber bestätigt |
 | Mitschnitt in `input/complete.log` | 0 | 3 | Vom Betreiber als problematische Versuchseinstellung eingeordnet |
 | Aktuelle Betreiberangabe vom 25.09.2026 | 2 | 0 | Das unten beschriebene Warmwasserproblem tritt damit nicht auf |
 
@@ -233,9 +311,60 @@ Relevante Parameter aus dem [STE-Katalog](ste-output/Parameter.md):
 | 05-05 | Trotz des Namens „Funktionsweise Ladepumpennachlauf“ nennt Wert 2 eine separate Warmwasser-Wärmepumpe; die Klemmennummer fehlt im Hilfetext |
 | 05-07 | Stellglied: 0 = Ladepumpe; 1 = Umlenkventil; Übertragung auf diese Sonderbeschaltung nicht abschließend geklärt |
 
-Die STE-Datei enthält für 05-02 den Wert 0,1. Das ist kein bestätigter aktueller
-Anlagenwert. „Parallel“ bei 05-02 meint Warmwasser gleichzeitig mit Raumheizung;
+Vor der Kühlnachrüstung war 05-02 laut STE-Datei auf 0,1 eingestellt.
+Nach der berichteten Wiederherstellung gilt dieser Wert auch aktuell;
+eine unabhängige Rücklesung wurde hier noch nicht ausgewertet. „Parallel“ bei 05-02 meint Warmwasser gleichzeitig mit Raumheizung;
 gleichzeitiger Betrieb beider Wärmeerzeuger für die Raumheizung ist ein anderer Fall.
+
+## Kühlproblem und wiederhergestellte Konfiguration
+
+**Betreiberbericht vom 26.09.2026:** Schon vor dem Konfigurationsverlust
+funktionierte Kühlen bei gleichzeitiger Warmwasserbereitung. Ohne
+Warmwasserbedarf floss das Kühlwasser dagegen durch beide Wärmepumpen;
+nach etwa einer Minute wurde der Kühlbetrieb abgeschaltet. Unerwartete
+Sensorwerte als Ursache sind eine Vermutung. Ob dabei der HWAL-Verdichter
+lief oder nur dessen Wärmetauscher durchströmt wurde, ist noch offen.
+Auch der konkrete Abschaltstatus bzw. Fehlercode fehlt. Seit der
+Wiederherstellung wurde Kühlen laut ausdrücklicher Klarstellung des Betreibers
+noch nicht getestet. Diese historischen Beobachtungen sind daher kein Befund
+über das Kühlverhalten der aktuellen Konfiguration.
+
+Die Wiederherstellung von `Parameter.md` mit alleiniger Änderung von 09-07
+auf 6 ergibt nach Betreiberangabe folgende für Kühlen relevante Kombination:
+
+| Parameter | Wiederhergestellter Stand | Vergleich mit Werkscheckliste |
+|---|---|---|
+| 09-07, Wärmepumpe | 6, ausdrücklich zusätzlich eingestellt | Wärmepumpe mit Kühlfunktion |
+| 07-14, HK1/HK2 | 0/0 aus dem historischen Anlagenstand | Fußnote der Checkliste fordert für Mono heizen-kühlen beide Kreise auf 3 |
+| 09-11, Wärmepumpe | 0 aus dem historischen Anlagenstand | Checkliste nennt für Mono heiz-kühl 6; genaue Bedeutung dieses Sonderwertes fehlt im STE-Hilfetext |
+
+Diese Abweichungen sind Diagnosehinweise, keine bestätigte Sollkonfiguration
+für die individuell beschaltete Anlage. Insbesondere beeinflusst eine Änderung
+von 07-14 bei HK2 den für KT15 genutzten Mischerausgang. 09-07 allein beschreibt
+den Wärmeerzeugertyp und belegt keine vollständige Kühlkonfiguration.
+
+**Präzisierung der Pumpenauswahl:** Im bereitgestellten Steuerschaltplan ist
+zusätzlich zum direkten Zweig zur K11-Spule ein Kontakt **K4, 21–24** zu
+sehen. K4 ist laut Legende ein Hilfsrelais für Kühlbetrieb und wird im Plan
+zusammen mit Y2 über TEM 9 angesteuert. Deshalb ist nicht belegt, dass K11
+und damit die Auswahl M4.1/M4.2 ausschließlich dem Warmwasserstatus folgen
+müssen. Der zusätzliche Kontakt kann einen weiteren Ansteuerweg bereitstellen;
+seine Einspeisung, die Ausgangszustände im Kühlbetrieb und die tatsächliche
+Verdrahtung nach der Nachrüstung sind noch abzugleichen. Die bisherige
+Interpretation eines unvermeidlichen Wegs durch beide Wärmepumpen ohne
+Warmwasserbedarf wäre zu weitgehend.
+
+Ein abgeschalteter HWAL-Verdichter verändert für sich allein keinen
+hydraulischen Leitungsweg. Ob sein Abschalten genügt, hängt unter anderem
+davon ab, ob er während des fehlerhaften Kühlbetriebs tatsächlich Wärme
+zuführt und was die Abschaltung auslöst. Das ist noch nicht nachgewiesen.
+
+Die Untersuchung des Kühlbetriebs ist zurückgestellt: Der Betreiber möchte
+zunächst die Heizlogik vollständig verstehen. Für einen späteren Vergleich
+der beiden Kühlzustände wären Pumpenlauf M4.1/M4.2/M5,
+HWAL-Verdichterbetrieb, K4-/K11-Zustand, HK2-Stellbefehl und KT15 sowie die
+Temperaturen und der Status unmittelbar vor und bei der Abschaltung relevant.
+Schutzgrenzen werden zur Diagnose nicht verändert.
 
 ## Beobachtung von 01-21 HK2
 
@@ -271,7 +400,7 @@ anzuzeigenden Daten per Broadcast oder direkter Nachricht.
 | Anzeige laut Bedienungsanleitung des Betreibers | Bedeutungskandidat für diese Anlage |
 |---|---|
 | Mischventil Heizkreis auf | Wenn das Symbol Ausgang 15 abbildet: Ansteuerung von KT15, kein tatsächlicher Mischermotor |
-| Mischventil Heizkreis zu | Wenn Ausgang 16 gemeint ist: logischer Schließbefehl ohne angeschlossenen Aktor |
+| Mischventil Heizkreis zu | Anzeige auf FB2 synchron zu `OperatingStatus_1101.Mixer_Close` bestätigt; Zuordnung zum physischen Ausgang 16 weiterhin ungemessen |
 | Umwälzpumpe Heizkreis oder Wärmepumpenkreis | Bei Abbildung von Ausgang 6 gemeinsame Heizungs-Pumpenfreigabe; M4.1/M4.2 erst durch K11 ausgewählt |
 | Funktion Warmwasserbereitung | Warmwasserstatus; noch nicht geklärt, ob Anforderung, aktive Ladung oder konkreter Ausgang gemeldet wird |
 | Wärmeerzeuger | Zugeordneter oder gemeinsamer Wärmeerzeugerstatus; genaue Zuordnung und Aussage über tatsächlichen Verdichterlauf offen |
@@ -286,7 +415,138 @@ Die vorhandenen Statusdefinitionen in [broadcast.tsp](broadcast.tsp) und
 Zuordnung der fünf Symbole zu Telegrammbits ist nicht belegt. Aus der
 Symbolreihenfolge wird keine Bitnummer abgeleitet.
 
+### Mitschnitt vom 26.09.2026: Symbol „Mischventil zu“ auf FB2
+
+**Betreiberbeobachtung:** Das Symbol war spätestens seit 11:40 sichtbar und
+verschwand um 11:42. Der Betreiber bestätigt, dass beide Angaben die Uhrzeit
+außerhalb der Bedieneinheit bzw. die Log-Zeit meinen.
+
+Quelle: [`ebusd.log`](../ebusd.log), 11:31:00.563–11:44:40.569. Die Datei
+enthält 699 vollständige Telegramme mit gültiger Master-CRC: 174 Broadcasts,
+370 quittierte Master-Master-Telegramme und 155 Master-Slave-Transaktionen
+mit gültiger Antwort-CRC und Quittierungen. Drei zusätzliche Zeilen enthalten
+nur das einzelne Byte `20` (Zeilen 171, 373 und 476); sie wurden nicht als
+Telegramme interpretiert.
+
+Die im Broadcast `07 00` übertragene Reglerzeit liegt etwa zwei Minuten hinter
+der Log-Zeit: Um 11:42:06.138 wird beispielsweise 11:40:03 übertragen.
+Für den folgenden Abgleich wird ausschließlich die bestätigte Log-Zeit verwendet.
+
+**Ergebnis der ersten Mitschnittauswertung, vor der späteren Bestätigung:**
+In `10 FE 10 0A`, Nutzdatenkennung
+`11 01`, wechselt Bit 6 des ersten Statusbytes. Das ist das fünfte Nutzdatenbyte
+(Index 4, einschließlich der Kennung `11 01`) und entspricht
+dem damaligen Feld `Broadcast.Status1a.Flag6`, inzwischen
+`Broadcast.OperatingStatus_1101.Mixer_Close` in `broadcast.tsp`.
+
+| Log-Zeit | Zeile | Erstes Statusbyte | Flag6 |
+|---|---:|---|---:|
+| 11:31:40.423 | 36 | `80` | 0 |
+| 11:33:00.533 | 104 | `C0` | 1 |
+| 11:34:20.550 | 170 | `80` | 0 |
+| 11:35:40.426 | 238 | `80` | 0 |
+| 11:37:00.428 | 306 | `80` | 0 |
+| 11:38:20.538 | 372 | `80` | 0 |
+| 11:39:40.555 | 440 | `C0` | 1 |
+| 11:41:00.431 | 513 | `80` | 0 |
+| 11:42:20.573 | 583 | `80` | 0 |
+| 11:43:40.449 | 650 | `80` | 0 |
+
+Die beiden relevanten Telegramme einschließlich CRC lauten:
+
+```text
+11:39:40.555  10 fe 10 0a 0c  11 01 dc 00 c0 07 06 00 00 00 74 00  b4
+11:41:00.431  10 fe 10 0a 0c  11 01 dc 00 80 07 06 00 00 00 74 00  38
+```
+
+Der Statusblock kommt etwa alle 80 Sekunden. Zwischen diesen beiden
+Nutzdatenfolgen ändert sich ausschließlich die Maske `0x40`. Der gesetzte
+Wert um 11:39:40 passt zeitlich zum sichtbaren Symbol um 11:40; der bereits
+um 11:41:00 gelöschte Wert passt jedoch nicht unmittelbar zum berichteten
+Verschwinden um 11:42. Diese erste Beobachtung ließ die Zuordnung zunächst
+offen. Die unten dokumentierte spätere synchrone Beobachtung bestätigt das
+Anzeigebit; die frühere Zeitabweichung belegt keine Anzeigeverzögerung.
+Die 80 Sekunden sind das Abtastintervall dieses Blocks im Mitschnitt, keine
+nachgewiesene Dauer eines Stellbefehls. Die Zuordnung des gesamten Blocks zu
+HK2 und seiner übrigen Felder folgt daraus nicht.
+
+Weitere Befunde über den gesamten Mitschnitt:
+
+- Beide `05 03`-Rückmeldungen behalten Statusnummer `00`, Statusbits `48`
+  (`flame=1`, `uwp=1` nach aktuellem Modell) und Stellgrad `64` = 100 %.
+  Nur das Kesseltemperaturbyte wechselt um 11:37 von `59` auf `5A`
+  (44,5 auf 45,0 °C nach aktueller Dekodierung).
+- In `05 01` bleiben die Anforderungen an `03` bei 100 % und an `13` bei
+  0 %, beide mit Status `EE`. Die Zusatzbytes bleiben ebenfalls konstant.
+  Das Verschwinden des Symbols fällt somit mit keinem beobachteten Wechsel
+  dieser Wärmeerzeuger-Statusbits oder Stellgrade zusammen.
+- Die direkten Statusantworten von `91` auf `00 04` und `00 05` sowie die
+  Änderungsabfragen `D0 15` liefern keinen passenden Wechsel.
+- Im Broadcast `08 01` bleibt das Statusbyte bei `08`. Bei `08 02` wechselt
+  das letzte, bisher nicht modellierte Byte mehrfach zwischen `00`, `90`,
+  `3F` und `27`; daraus ergibt sich keine eindeutige Symbolzuordnung.
+
+### Nachbeobachtung: Anzeigebit bestätigt, wiederkehrende Zu-Impulse
+
+Der Betreiber hat anschließend das synchrone Erscheinen der Anzeige
+„Mischventil Heizkreis zu“ auf FB2 mit `Flag6` bestätigt. Das Feld heißt nun
+`Broadcast.OperatingStatus_1101.Mixer_Close` (`BI6`, unveränderte Bitposition).
+Damit ist die Zuordnung **Bit → Anzeige** durch Betriebsbeobachtung bestätigt;
+eine Messung des physischen Ausgangs 16 oder eine Ventilpositionsmeldung ist
+damit nicht verbunden.
+
+Der zusätzlich berichtete Ablauf lautet:
+
+| Beobachteter Abschnitt | Verhalten von Bit und Anzeige |
+|---|---|
+| Anfangs beobachteter Betriebsmodus, nicht näher bestimmt | Ungefähr alle 6,5 Minuten für etwa 1 Minute aktiv |
+| Erdwärmepumpe wird eingeschaltet | Wiederkehrende Folge setzt aus |
+| Danach Raumheizung nur durch Abluft-Wärmepumpe | Bit/Anzeige bleiben aus |
+| Anschließend Warmwasserbereitung aktiviert | Wiederkehrende Folge setzt wieder ein |
+
+Diese Angaben stammen aus der weiteren Betreiberbeobachtung, nicht aus einer
+zusätzlichen Auswertung von `ebusd.log`. Die erste Phase wird nicht rückwirkend
+als nachgewiesene Warmwasserphase bezeichnet. Im älteren Mitschnitt liegen die
+beiden gesetzten Stichproben um 11:33:00.533 und 11:39:40.555 rund 6 Minuten
+40 Sekunden auseinander; das ist mit der ungefähren Periodenangabe vereinbar.
+Die Einschaltdauer von etwa einer Minute lässt sich bei 80 Sekunden
+Abtastintervall aus diesem Mitschnitt allein nicht bestätigen.
+
+**Arbeitsinterpretation:** Das Muster passt zu einem betriebszustandsabhängig
+wiederholten Zu-Befehl der Mischerfunktion. Denkbar ist ein wiederholtes
+Anfahren bzw. Halten der logischen Zu-Endlage; der konkrete Firmwarezweck
+und ein dafür verantwortlicher Zeitparameter sind nicht belegt. Die
+Wiederaufnahme bei Warmwasserbeginn deutet auf eine Kopplung an die
+Warmwasser-/Heizungsumschaltung hin, belegt aber weder eine allgemeine
+Warmwasservorrangsperre noch eine direkte Erdwärmepumpen-Abschaltung.
+
+Das Bit ist insbesondere kein allgemeines Gegenstück zu „Erdwärmepumpe ein“:
+Es bleibt auch in der anschließenden Phase mit alleiniger Abluftheizung aus.
+`Mixer_Close=0` bedeutet zunächst nur, dass dieses Zu-Symbol nicht aktiv ist;
+ein Auf-Befehl oder eine Wärmeanforderung folgt daraus nicht.
+
+Nach dokumentierter Verdrahtung ist Ausgang 16 unbeschaltet; KT15 wird über
+den Auf-Ausgang 15 und die Versorgung an 26 beeinflusst. Selbst wenn das
+Anzeigebit Ausgang 16 abbildet, würden die Zu-Impulse KT15 daher nicht direkt
+ansteuern oder dessen Ausschaltverzögerung neu starten. Dafür sind die
+Auf-Impulse und der Versorgungszustand maßgeblich, deren zeitlicher Verlauf
+noch nicht aufgezeichnet ist.
+
+**Weiter offen:** Der synchrone Zusammenhang mit `01-21 HK2`, dem Auf-Symbol,
+KT15/K3 und dem tatsächlichen Verdichterlauf. Die frühere Einzelbeobachtung
+von `01-21 HK2 = −100 %` wird nicht nachträglich mit diesen neuen Symbolfolgen
+gleichgesetzt. Auch die Zuordnung von `03`/`13` zu realen Wärmeerzeugern oder
+HK1/HK2 bleibt offen.
+
 ## Nächste belegbare Abgleiche
+
+**Aktueller Untersuchungsfokus:** Heizlogik einschließlich paralleler
+Warmwasserbereitung. Zu klären ist die Kette von HK1-/HK2-Sollwerten über
+Anlagensollwert und Wärmeerzeugeranforderung bis zu den Ausgängen 15/26,
+KT15 und K3 sowie die Änderung dieser Kette bei Beginn und Ende der
+Warmwasserbereitung. Die Maximalwertbildung des verwandten Reglers bleibt
+bis zum Abgleich ein Vergleichsmodell. Kühlversuche und Änderungen der
+Kühlparameter sind derzeit nicht Gegenstand der Untersuchung.
 
 1. Bei einem normalen Warmwasser-/Heizungswechsel zeitgleich 01-21 HK2,
    die Pumpenbefehle, die Symbole beider FB und den tatsächlichen Betrieb der

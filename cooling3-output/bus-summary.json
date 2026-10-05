@@ -1,0 +1,43 @@
+{
+  "input": "ebusd.cool3.log",
+  "sha256": "9ce084d5545435db6c8c7f731706523181bf497e0909a1799cf5442b44c7fe4f",
+  "bytes": 457332,
+  "leading_nul_bytes": 0,
+  "lines": 7316,
+  "first": "2026-09-30 14:40:06.106000",
+  "last": "2026-09-30 16:15:45.510000",
+  "duration_s": 5739.404,
+  "valid_master_telegrams": 7299,
+  "excluded_lines": 17,
+  "errors": {
+    "short fragment, no complete master header": 17
+  },
+  "transport": {
+    "master ACK": 2583,
+    "broadcast": 1217,
+    "slave response CRC and ACK valid": 3172,
+    "master valid, response/ACK incomplete or unusual": 327
+  },
+  "longest_log_gap": [
+    5.533,
+    "2026-09-30 14:58:36.245000",
+    "2026-09-30 14:58:41.778000"
+  ],
+  "rejected_01_09": {
+    "count": 346,
+    "first": [
+      [
+        711,
+        "2026-09-30 14:49:16.302",
+        "ff1f0000000000000000"
+      ]
+    ],
+    "last": [
+      [
+        7301,
+        "2026-09-30 16:15:31.322",
+        "ff1f0000000000000000"
+      ]
+    ]
+  }
+}

@@ -5,7 +5,161 @@ using Ebus.Str;
 
 namespace hautec;
 
-scalar Zweistellen extends UCH;
+/** Standard identification payload (07 04), shared by replies and broadcasts. */
+model IdentificationData {
+  /** Device manufacturer. */
+  manufacturer: Ebus.Id.manufacturer;
+  /** Five-character device identifier. */
+  @maxLength(5)
+  id: STR;
+  /** Software version and revision, four BCD digits in wire order. */
+  softwareVersion: PIN;
+  /** Hardware version and revision, four BCD digits in wire order. */
+  hardwareVersion: PIN;
+}
+
+// 05 01 / 05 03 use 0x3f for unavailable outside temperature (OSI 7 pp. 17, 19).
+// ebusd cannot override SCH's replacement byte in CSV. Its value-list fallback
+// returns unsigned wire values, so explicitly map every valid negative SCH byte.
+// Normal reads show signed temperatures or "unavailable"; numeric enum reads (-n)
+// expose wire codes. JSON encodes mapped values as strings. See the coverage audit.
+enum OutsideTemperatureSpecialValues {
+  unavailable: 0x3f,
+  "-127": 0x81,
+  "-126": 0x82,
+  "-125": 0x83,
+  "-124": 0x84,
+  "-123": 0x85,
+  "-122": 0x86,
+  "-121": 0x87,
+  "-120": 0x88,
+  "-119": 0x89,
+  "-118": 0x8a,
+  "-117": 0x8b,
+  "-116": 0x8c,
+  "-115": 0x8d,
+  "-114": 0x8e,
+  "-113": 0x8f,
+  "-112": 0x90,
+  "-111": 0x91,
+  "-110": 0x92,
+  "-109": 0x93,
+  "-108": 0x94,
+  "-107": 0x95,
+  "-106": 0x96,
+  "-105": 0x97,
+  "-104": 0x98,
+  "-103": 0x99,
+  "-102": 0x9a,
+  "-101": 0x9b,
+  "-100": 0x9c,
+  "-99": 0x9d,
+  "-98": 0x9e,
+  "-97": 0x9f,
+  "-96": 0xa0,
+  "-95": 0xa1,
+  "-94": 0xa2,
+  "-93": 0xa3,
+  "-92": 0xa4,
+  "-91": 0xa5,
+  "-90": 0xa6,
+  "-89": 0xa7,
+  "-88": 0xa8,
+  "-87": 0xa9,
+  "-86": 0xaa,
+  "-85": 0xab,
+  "-84": 0xac,
+  "-83": 0xad,
+  "-82": 0xae,
+  "-81": 0xaf,
+  "-80": 0xb0,
+  "-79": 0xb1,
+  "-78": 0xb2,
+  "-77": 0xb3,
+  "-76": 0xb4,
+  "-75": 0xb5,
+  "-74": 0xb6,
+  "-73": 0xb7,
+  "-72": 0xb8,
+  "-71": 0xb9,
+  "-70": 0xba,
+  "-69": 0xbb,
+  "-68": 0xbc,
+  "-67": 0xbd,
+  "-66": 0xbe,
+  "-65": 0xbf,
+  "-64": 0xc0,
+  "-63": 0xc1,
+  "-62": 0xc2,
+  "-61": 0xc3,
+  "-60": 0xc4,
+  "-59": 0xc5,
+  "-58": 0xc6,
+  "-57": 0xc7,
+  "-56": 0xc8,
+  "-55": 0xc9,
+  "-54": 0xca,
+  "-53": 0xcb,
+  "-52": 0xcc,
+  "-51": 0xcd,
+  "-50": 0xce,
+  "-49": 0xcf,
+  "-48": 0xd0,
+  "-47": 0xd1,
+  "-46": 0xd2,
+  "-45": 0xd3,
+  "-44": 0xd4,
+  "-43": 0xd5,
+  "-42": 0xd6,
+  "-41": 0xd7,
+  "-40": 0xd8,
+  "-39": 0xd9,
+  "-38": 0xda,
+  "-37": 0xdb,
+  "-36": 0xdc,
+  "-35": 0xdd,
+  "-34": 0xde,
+  "-33": 0xdf,
+  "-32": 0xe0,
+  "-31": 0xe1,
+  "-30": 0xe2,
+  "-29": 0xe3,
+  "-28": 0xe4,
+  "-27": 0xe5,
+  "-26": 0xe6,
+  "-25": 0xe7,
+  "-24": 0xe8,
+  "-23": 0xe9,
+  "-22": 0xea,
+  "-21": 0xeb,
+  "-20": 0xec,
+  "-19": 0xed,
+  "-18": 0xee,
+  "-17": 0xef,
+  "-16": 0xf0,
+  "-15": 0xf1,
+  "-14": 0xf2,
+  "-13": 0xf3,
+  "-12": 0xf4,
+  "-11": 0xf5,
+  "-10": 0xf6,
+  "-9": 0xf7,
+  "-8": 0xf8,
+  "-7": 0xf9,
+  "-6": 0xfa,
+  "-5": 0xfb,
+  "-4": 0xfc,
+  "-3": 0xfd,
+  "-2": 0xfe,
+  "-1": 0xff,
+}
+
+/** Signed outside temperature; 0x3f unavailable, 0x80 SCH replacement. */
+@values(OutsideTemperatureSpecialValues)
+@unit("°C")
+scalar OutsideTemperature1Byte extends SCH;
+
+scalar TwoDigits extends UCH;
 
 scalar Byte extends UCH;
 
@@ -13,32 +167,32 @@ scalar Byte extends UCH;
 scalar Temp1Byte extends D1C;
 // 0304
 
-model Anlaufzaehler {
-  Zweistellen: Zweistellen;
-  Zweistellen_1: Zweistellen;
-  Zweistellen_2: Zweistellen;
-  Zweistellen_3: Zweistellen;
+model StartCounter {
+  digits: TwoDigits;
+  digits_1: TwoDigits;
+  digits_2: TwoDigits;
+  digits_3: TwoDigits;
 }
 
 @unit("min")
-scalar Minuten extends UCH;
+scalar Minutes extends UCH;
 
 @unit("h")
-scalar Stunden extends HCD3;
+scalar Hours extends HCD3;
 
-@values(Values_HeizungsTyp)
-scalar HeizungsTyp extends UCH;
+@values(Values_HeatingType)
+scalar HeatingType extends UCH;
 // 0305
 
-model Betriebsstunden {
+model OperatingHours {
   @out
-  Minuten: Minuten;
+  minutes: Minutes;
 
   @out
-  Stunden: Stunden;
+  hours: Hours;
 
   @out
-  HeizungsTyp: HeizungsTyp;
+  heatingId: UCH;
 }
 
 @values(Values_Blocknummer)
@@ -74,7 +228,7 @@ scalar Ruecklauftemperatur extends UCH;
 scalar Boilertemperatur extends UCH;
 
 @unit("°C")
-scalar Aussentemperatur extends SCH;
+scalar Aussentemperatur extends OutsideTemperature1Byte;
 
 @values(Values_StatusWaermeAnforderung)
 scalar StatusWaermeAnforderung extends UCH;
@@ -89,7 +243,7 @@ scalar BrauchSollT extends UCH;
 
 /** Aussentemp. Istwert */
 @unit("°C")
-scalar TAussenIst extends SCH;
+scalar TAussenIst extends OutsideTemperature1Byte;
 // 0501
 
 scalar LDW extends BI7;
@@ -105,6 +259,8 @@ model BetriebsdatenRegler {
   KesselSollT: KesselSollT;
   BrauchSollT: BrauchSollT;
   TAussenIst: TAussenIst;
+  /** Controller performance demand, not a measured terminal or M17 command.
+   * Do not equate this with the returned SettingLevel in 05 03. */
   Stellgrad: Stellgrad;
 }
 // 0503
@@ -114,16 +270,30 @@ model BetriebsdatenAutomat {
   ldw: BI0;
   gdw: BI1;
   ws: BI2;
+  /** Standard burner label. On this heat-pump controller it is not an
+   * independently validated compressor-current or M17 fan indication. */
   flame: BI3;
   valve1: BI4;
   valve2: BI5;
+  /** Standard pump-status bit. For FA1 (03 -> 10), correlates with
+   * Broadcast.Status0a.Bit3 (1250/1257 next-message pairs on 2026-10-03).
+   * Candidate for source/heat-pump pump enable, possibly TEM 3; physical
+   * output unverified. Not the long-run-on heating pump candidate Running.
+   * M17 additionally requires closed K1 contact 31-34, behind K4/K7 interlocks.
+   * uwp alone proves neither fan voltage/current nor a direct fan command.
+   * This shared model also serves FA2; the FA1 evidence does not map FA2. */
   uwp: BI6;
   Alarm: BI7;
+  /** FA1 reports 0/50/100 stage levels; 50% does not prove a running air-source
+   * compressor (it was reported while that compressor was off during cooling).
+   * 100% can persist during an inferred ground-source compressor pause in DHW.
+   * Not a measured fan speed, M17 state, or one-to-one physical compressor ID.
+   * See docs/Heating-Terminal-Analysis-2026-10-03.md. */
   @unit("%") SettingLevel: UCH;
   @unit("°C") BoilerTemperature: D1C;
   @unit("°C") ReturnWaterTemperature: UCH;
   @unit("°C") BoilerTemperature2: UCH;
-  @unit("°C") OutsideTemperature: UCH;
+  OutsideTemperature: OutsideTemperature1Byte;
 }
 // 050d
 
@@ -138,12 +308,11 @@ scalar T_Room extends D2C;
 model RaumtemperaturdatenReglerAnFeuerungsautomat {
   T_Room_target: T_Room_target;
   T_Room: T_Room;
-  b: Byte;
-  b_1: Byte;
-  b_2: Byte;
-  b_3: Byte;
-  b_4: Byte;
-  b_5: Byte;
+  /** Status byte: bit 0 indicates hot-water preparation in the standard; observed as zero. */
+  hotWaterPreparationActive: BI0;
+  /** Reserved payload bytes 4..9, including the final byte; observed as 00 80 00 80 FF FF. */
+  @maxLength(6)
+  reserved: IGN;
 }
 
 @maxLength(4)
@@ -213,22 +382,25 @@ model TemperaturSollwerte {
   Key: Key;
 }
 
-/** Zeitstatusdaten */
-model Zeitstatusdaten {
-  @out
-  CommandCode: CommandCode;
+/** Controller time synchronization payload after the 30 00 selector (12 bytes).
+ * See docs/FB-Initialization.md for capture evidence and the unresolved date epoch.
+ */
+model RemoteTimeSyncData {
+  /** Minutes since Monday 00:00, inferred from Tuesday, Wednesday and Sunday captures. */
+  @unit("min")
+  minutesSinceMonday: UIN;
 
-  @out
-  MinutenSeit: MinutenSeit;
+  /** Raw TEM day counter; interpreting it as days since 1900-01-01 is one day ahead. */
+  @unit("days")
+  dayCounter: UIN;
 
-  @out
-  DaysInEpoch: DaysInEpoch;
+  /** Unknown bytes, observed as EF EF EF EF EF EF; retained for analysis. */
+  @maxLength(6)
+  unknownData: HEX;
 
-  @out
-  Six: Six;
-
-  @out
-  Key: Key;
+  /** Opaque synchronization key, also seen in the D0 14 payload; semantics unconfirmed. */
+  @maxLength(2)
+  syncKey: HEX;
 }
 
 /** Abfrage, ob ein Bedienteil geänderte Daten bereitstellt */
@@ -525,7 +697,7 @@ model Parameterdaten3003 {
   Key: Key;
 }
 
-enum Values_HeizungsTyp {
+enum Values_HeatingType {
   WP: 0,
   HS: 1,
 }

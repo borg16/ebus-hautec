@@ -7,18 +7,12 @@ using Ebus.Str;
 namespace hautec;
 
 namespace Signals {
-/** Geräteidentifikation */
+/** Identification reply from burner slave 08 (eBUS service 07 04). */
 @qq(0x10)
 @zz(0x8)
 @id(0x7, 0x4)
-model Geraeteidentifikation {
-/** device manufacturer */
-@values(Values_manufacturer)
-
-manufacturer: UCH,
-/** device id */
-
-id: UCH,
+model Identification {
+  data: IdentificationData;
 }
 
 enum Values_manufacturer {

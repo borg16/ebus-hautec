@@ -146,3 +146,96 @@ Im Normalbetrieb meldet eine durch die FB ausgelöste Änderung dagegen mit
 `40 nn` den geänderten Bereich; der Regler liest ihn über `20 nn` und
 `21 nn` wieder aus. Das legt nahe, dass die FB einen lokalen, vom Regler
 abgleichbaren Parameterspiegel besitzt.
+
+
+## Korrektur des Zeitabgleichs `30 00`
+
+Geprüft am 28.09.2026. `30 00` ist der Zwei-Byte-Selektor im
+Mastertelegramm `10 -> 90`, Dienst `10 0A`. Er ist bereits durch `@id`
+abgedeckt und darf im ausgehenden Datenmodell nicht erneut als
+`CommandCode` auftauchen. Die alte Definition verlangte nach dem Selektor
+14 statt 12 Bytes und verschob sämtliche Felder um zwei Bytes.
+`obsolete/StartLog.txt:14` protokolliert dafür bereits `ERR: invalid position`.
+
+Beispiel aus `obsolete/StartRaw.txt:14`, Master- und Slave-CRC sowie beide
+Quittierungen geprüft; hier ohne Transport-CRC und ACK dargestellt:
+
+```text
+10 90 10 0a 0e  30 00  f0 08  c0 b4  ef ef ef ef ef ef  26 90 / 00
+               ID     Minuten Tag    unbekannt          Schlüssel
+```
+
+Die Länge `0e` zählt den Selektor und die folgenden zwölf Nutzdatenbytes.
+Die Slave-Antwort hat Länge null; sie enthält weder den Selektor noch Zeitdaten.
+
+| Offset nach `30 00` (nullbasiert) | Neues Feld | Typ | Befund |
+|---|---|---|---|
+| 0–1 | `minutesSinceMonday` | `UIN`, min | Little-Endian-Wochenminuten; `f0 08` = 2288 = Dienstag 14:08 |
+| 2–3 | `dayCounter` | `UIN`, days | Rohwert des TEM-Tageszählers; `c0 b4` = 46272 |
+| 4–9 | `unknownData` | `HEX:6` | In allen geprüften Telegrammen `ef ef ef ef ef ef`; Bedeutung offen |
+| 10–11 | `syncKey` | `HEX:2` | Opaques Schlüsselwort, hier `26 90`; auch am Anfang der Daten nach `D0 14` sichtbar |
+
+Das Schlüsselwort wird nicht als Prüfsumme oder gesicherter Zähler interpretiert.
+Die beobachteten Endungen umfassen sowohl `xx 90` als auch `xx 03`.
+
+### Umfang und Zeitbasis
+
+| Mitschnitt | CRC-geprüfte `30 00`-Transaktionen | Ziel |
+|---|---:|---|
+| `obsolete/StartRaw.txt` | 1 | `90` |
+| `input/complete.log` | 10 | `90` |
+| `input/ebusd-rawdata.log` | 10, dieselben wie in `complete.log` | `90` |
+| `input/master.log` | 0 | — |
+| `ebusd.log` (27.09.2026) | 3 | `90` |
+
+Das sind 14 unterschiedliche rohe Transaktionen. Alle haben 14 Master-Nutzdatenbytes
+und eine leere quittierte Slave-Antwort. Der oben in diesem Dokument enthaltene
+Startblock vom angezeigten 09.09.2026 ist ein zusätzliches Beispiel ohne
+Transport-CRC und wird nicht zu diesen 14 gezählt.
+
+Die Wochenminuten passen zum Montag als Anfang:
+
+- 08.09.2026: 2288 = Dienstag 14:08; der unmittelbar vorherige `07 00`-Broadcast
+  zeigt 08.09.2026, Dienstag, 14:08:08.
+- 23.09.2026: 3446 = Mittwoch 09:26; der Log-Zeitstempel lautet 09:29:12.
+- 27.09.2026: 9531 = Sonntag 14:51; der Log-Zeitstempel lautet 14:53:39.
+
+Die Regleruhr weicht also von der Log-Uhr ab. Auch `11 03` enthält passende
+Wochenminuten: `1f 0d` = 3359 = Mittwoch 07:59 am 23.09.2026; der vorherige
+`07 00`-Broadcast zeigt Mittwoch 07:59:52. Der frühere Kommentar
+„Minutes since Tuesday 00:00“ in `broadcast.tsp` wurde entsprechend korrigiert.
+Ein Wochenwechsel selbst ist mit diesen Beispielen nicht geprüft.
+
+Die Datumsepoche bleibt bewusst offen: `1900-01-01 + 46272 Tage` ergibt
+09.09.2026, während der zugehörige `07 00`-Broadcast den 08.09.2026 nennt.
+Auch `c1 b4` im dokumentierten Startblock sowie `cf b4` und `d3 b4` in den
+späteren Mitschnitten liegen bei dieser Rechnung jeweils einen Tag voraus.
+Eine Zählung ab 31.12.1899 würde zu diesen Beispielen passen; die Ursache des
+Versatzes ist damit noch nicht bewiesen. Deshalb bleibt `dayCounter` numerisch
+und wird nicht voreilig in ein Kalenderdatum umgewandelt. Die separate
+Antwortdefinition für `20 0A` wurde nicht verändert.
+
+### Definition und Migration
+
+`RemoteTimeSyncData` enthält nur die zwölf Bytes nach dem Selektor. Die
+vorhandenen Nachrichtennamen `ZeitstatusBedienteil1` und `ZeitstatusBedienteil2`
+bleiben erhalten. Beide sind nun passive Schreibbeobachtungen (`uw` in CSV)
+mit Quelle `10`, weil der Controller die Zeitdaten sendet. Sie sind keine aktiven
+Leseabfragen. Für Ziel `91` wird das bisher gemeinsam verwendete Layout
+beibehalten; ein reales `30 00`-Telegramm an dieses Ziel liegt hier nicht vor.
+
+Die ausgegebenen CSV-Feldnamen sind jetzt `minutessincemonday`, `daycounter`,
+`unknowndata`, `synckey`; die alten Felder `commandcode`, `minutenseit`,
+`daysinepoch`, `six`, `key` dieser beiden Nachrichten entfallen.
+Für den Startblock oben lautet das dekodierte Ergebnis:
+
+```text
+2288;46272;ef ef ef ef ef ef;26 90
+```
+
+Offline-Regression mit echten Telegrammbeispielen und einem ausdrücklich
+synthetischen Ziel-91-Beispiel, ohne Verbindung zum Heizungsbus:
+
+```sh
+python3 -m unittest discover -s scripts -p test_remote_time_sync.py
+```

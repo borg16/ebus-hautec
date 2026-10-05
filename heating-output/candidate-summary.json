@@ -1,0 +1,208 @@
+{
+  "ebusd.2.log": {
+    "sha256": "864ccc2f280fd2cf51580cec8921a5eb83c0a00d53f8b574683b55bcbaa59e17",
+    "errors": {
+      "short header": 71,
+      "invalid HK2 answer": 19
+    },
+    "stage_comparison": {
+      "pairs": 6,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 6,
+      "mismatches": 0,
+      "mask_40_value_-100": 6
+    }
+  },
+  "ebusd.cool.log": {
+    "sha256": "9c8f0f1aa884c0afea32f89eb7bfa2c287fd4659077d5eb23af24d812e6591f6",
+    "errors": {
+      "short header": 139
+    },
+    "stage_comparison": {
+      "pairs": 249,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 3,
+      "bit7_vs_uwp_mismatch": 18
+    },
+    "mixer_comparison": {
+      "pairs": 1,
+      "mismatches": 0,
+      "mask_00_value_0": 1
+    }
+  },
+  "ebusd.cool10.log": {
+    "sha256": "3622978a529edab078990afd091ad2639dfb813b2700ed7d7fbed10813061ac8",
+    "errors": {
+      "short header": 40,
+      "invalid HK2 answer": 11
+    },
+    "stage_comparison": {
+      "pairs": 14,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 3,
+      "mismatches": 0,
+      "mask_20_value_100": 3
+    }
+  },
+  "ebusd.cool3.log": {
+    "sha256": "9ce084d5545435db6c8c7f731706523181bf497e0909a1799cf5442b44c7fe4f",
+    "errors": {
+      "short header": 17
+    },
+    "stage_comparison": {
+      "pairs": 72,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {}
+  },
+  "ebusd.cool4.log": {
+    "sha256": "7daffb6bc1b3c28959dc3ae16438c47676c591cde534ea465c5bd028474a88c9",
+    "errors": {
+      "short header": 41,
+      "invalid HK2 answer": 1
+    },
+    "stage_comparison": {
+      "pairs": 20,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 1,
+      "bit7_vs_uwp_mismatch": 1
+    },
+    "mixer_comparison": {
+      "pairs": 20,
+      "mismatches": 7,
+      "mask_00_value_0": 13,
+      "mask_00_value_100": 3,
+      "mask_20_value_0": 4
+    }
+  },
+  "ebusd.cool5.log": {
+    "sha256": "ce73f87f12aa53f368d2a9dd0d2f5fc47b9bbc6c7abe30341b6185c47a05465f",
+    "errors": {
+      "short header": 19
+    },
+    "stage_comparison": {
+      "pairs": 17,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 14,
+      "mismatches": 4,
+      "mask_00_value_0": 10,
+      "mask_20_value_0": 2,
+      "mask_00_value_100": 2
+    }
+  },
+  "ebusd.cool6.log": {
+    "sha256": "ed83b0fb4191fd388e70f522dcc6a47974c1960bce79a66f68494b32f9492620",
+    "errors": {
+      "short header": 670,
+      "invalid HK2 answer": 146
+    },
+    "stage_comparison": {
+      "pairs": 67,
+      "bit2_vs_level100_mismatch": 1,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 1
+    },
+    "mixer_comparison": {
+      "pairs": 67,
+      "mismatches": 0,
+      "mask_00_value_0": 2,
+      "mask_40_value_-100": 1,
+      "mask_20_value_100": 64
+    }
+  },
+  "ebusd.cool8.log": {
+    "sha256": "d6db355d0557e474ef23718b6c00ef38264eeaa480fb386e7c4f534f6083b4e0",
+    "errors": {
+      "short header": 140,
+      "invalid HK2 answer": 42
+    },
+    "stage_comparison": {
+      "pairs": 24,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 24,
+      "mismatches": 0,
+      "mask_20_value_100": 24
+    }
+  },
+  "ebusd.cool9.log": {
+    "sha256": "af6ba9ee5b15fbfc9b3cfdd4d08cdf5b70374c84d8b16703d0a1183889404ea6",
+    "errors": {
+      "short header": 38,
+      "invalid HK2 answer": 4
+    },
+    "stage_comparison": {
+      "pairs": 11,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 11,
+      "mismatches": 0,
+      "mask_20_value_100": 11
+    }
+  },
+  "ebusd.cooltest.log": {
+    "sha256": "f08be6cc2efc01124dca89ac21d3d91ca14cdb57535ae7faa0f025ec38e1fd7f",
+    "errors": {
+      "short header": 30
+    },
+    "stage_comparison": {
+      "pairs": 18,
+      "bit2_vs_level100_mismatch": 0,
+      "bit1_vs_positive_level_mismatch": 5,
+      "bit3_vs_uwp_mismatch": 0,
+      "bit7_vs_uwp_mismatch": 0
+    },
+    "mixer_comparison": {
+      "pairs": 1,
+      "mismatches": 0,
+      "mask_00_value_0": 1
+    }
+  },
+  "ebusd.log": {
+    "sha256": "c75b682075b05290c306ff51d34909c51ddb8cd26bac1c0995e9fc972bbfaffb",
+    "errors": {
+      "short header": 277
+    },
+    "stage_comparison": {
+      "pairs": 759,
+      "bit2_vs_level100_mismatch": 1,
+      "bit1_vs_positive_level_mismatch": 0,
+      "bit3_vs_uwp_mismatch": 3,
+      "bit7_vs_uwp_mismatch": 19
+    },
+    "mixer_comparison": {
+      "pairs": 1,
+      "mismatches": 0,
+      "mask_00_value_0": 1
+    }
+  }
+}

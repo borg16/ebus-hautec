@@ -79,7 +79,7 @@ Einstellebene 9, WE Einstellungen Wärmepumpe;;;;;;;;;;;;;;;;;;;;
 09-07 WEZ Typ;9-0;P1;5;;;;;5;6;;;;;;;;;;;
 09-11 Bedingte WEZ Freigabe;11-0;P1;0;;;;;;;;;;;;;;;5;6;
 09-12 Aussentemperatursperre TAW;11-1;P1;-50;;;;;;;;;;;;;;;;;
-09-13 Energiezweig Funktion;11-2;P1;2;;;;;;;;;;;;;;;;;
+09-13 Energiezwang Funktion;11-2;P1;2;;;;;;;;;;;;;;;;;
 09-14 Diff. Leistungszwang Tkmax;11-3;P1;0;;;;;;;;;;;;;;;;;
 09-21 WE Abschaltdifferenz;10-1;P1;5;;;;;;;;;;;;;;;;;
 09-23 Minimale Stillstandszeit;9-5;P1;15;15;15;15;15;15;15;15;15;15;15;15;15;15;15;15;15;15

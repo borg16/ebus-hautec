@@ -1,0 +1,14 @@
+{
+  "request": {
+    "url": "http://raspi:9090/api/v1/query_range?query=senec_ENERGY_GUI_HOUSE_POW&start=2026-09-30T12%3A38%3A00Z&end=2026-09-30T14%3A18%3A00Z&step=5s",
+    "timezone": "Europe/Berlin",
+    "step_seconds": 5
+  },
+  "response": {
+    "status": "success",
+    "data": {
+      "resultType": "matrix",
+      "result": []
+    }
+  }
+}

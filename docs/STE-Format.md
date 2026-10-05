@@ -1,5 +1,31 @@
 # Analyse der TEM-STE-Datei
 
+## Herkunft und Beziehung zur Programmiercheckliste
+
+Nach Betreiberangabe vom 26.09.2026 wurden die Dokumente in `ste-output/`
+aus einer Datei mit der Endung **`.ste`** eines Konfigurationsprogramms
+extrahiert. Über dieses Programm ist sonst nichts bekannt. Aussagen zum
+Dateiformat in dieser Analyse identifizieren daher weder das Programm noch
+seinen Hersteller oder seine Version.
+
+Die [Programmiercheckliste](../input/Checkliste_Regler_Programmierung.CSV)
+lag ursprünglich als **Excel-Datei** vor. Sie beschreibt die üblichen
+Werkskundendienst-Einstellungen; die STE-Werte dagegen den tatsächlichen
+Anlagenstand vor der Kühlnachrüstung, gegebenenfalls mit lokalen Anpassungen.
+
+Der Betreiber berichtet gleiche Rechtschreibfehler in beiden ursprünglichen
+Quellen, etwa „Multifunktionsusgang“. Das spricht als Indiz für eine gemeinsame
+Textgrundlage oder die Übernahme von Texten. Es beweist keine identische
+Firmwareversion, keine identischen Einstellwerte und keine vollständige
+Übereinstimmung der unterstützten Funktionen.
+
+**Abgleich der vorliegenden Exporte:** `ste-output/Parameter.md` enthält bei
+04-30 und 04-31 „Multifunktionsusgang“. In der derzeitigen CSV-Checkliste steht
+an beiden Stellen dagegen „Multifunktionsausgang“. Das konkrete Beispiel ist
+somit in diesen beiden Exporten nicht übereinstimmend belegt; die Aussage zu
+den ursprünglichen Quellen bleibt als Betreiberhinweis festgehalten.
+Originaltexte werden im STE-Export nicht stillschweigend korrigiert.
+
 ## Ergebnis und lesbare Ausgaben
 
 Die Datei lässt sich vollständig strukturell dekodieren: **217 Datensätze auf
@@ -30,8 +56,9 @@ Quelle: `Datapacks v 1.1  über V 52  9.02.09.ste`
 SHA-256: `1ba1f84ba2f481f9ed235e3231edb4b100484159b44efaaa765124a888deeebe`
 
 **Bedeutung von „gespeicherter Wert“:** Die Datei enthält Parameterdefinitionen
-und pro Datensatz ein plausibles Wertefeld. Die Werte sind die Auslieferungswerte
-der betrachteten Heizungsanlage. Einige Parameter sind über die angeschlossenen
+und pro Datensatz ein plausibles Wertefeld. Die Werte beschreiben laut Betreiber den tatsächlichen Stand
+der betrachteten Heizungsanlage vor der Kühlnachrüstung und können lokale
+Anpassungen enthalten; sie sind keine nachgewiesenen allgemeinen Werksvorgaben. Einige Parameter sind über die angeschlossenen
 Fernbedienungen HFB 5811 durch den Endanwender einstellbar. Es gibt auch Parameter,
 die nur über eine Master-Bedienung (oder ebusd) verändert werden können und deren
 Werte dem Aufbau der Anlage entsprechen sollten. Diese sind insbesondere ab 07-xx.

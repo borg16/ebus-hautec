@@ -254,8 +254,8 @@ Der Suffix im Modellnamen ist die vollständige Anfrage in Hex. Verschiedene Zug
 | `P09_11_WP` | 09-11 | Bedingte WEZ Freigabe | `0621 / a904` | `RohgrenzenAntwort<UIN>` | commands.txt:392; input/complete.log:7590 | Checkliste_Regler_Programmierung.CSV |
 | `P09_12_EH` | 09-12 | Aussentemperatursperre TAW | `0621 / aa05` | `Zahlenantwort<Celsius10>` | commands.txt:431; input/complete.log:4261 | Checkliste_Regler_Programmierung.CSV |
 | `P09_12_WP` | 09-12 | Aussentemperatursperre TAW | `0621 / a905` | `Zahlenantwort<Celsius10>` | commands.txt:393; input/complete.log:7594 | Checkliste_Regler_Programmierung.CSV |
-| `P09_13_EH` | 09-13 | Energiezweig Funktion | `0621 / aa06` | `RohgrenzenAntwort<UIN>` | commands.txt:432; input/complete.log:4265 | Checkliste_Regler_Programmierung.CSV |
-| `P09_13_WP` | 09-13 | Energiezweig Funktion | `0621 / a906` | `RohgrenzenAntwort<UIN>` | commands.txt:394; input/complete.log:7602 | Checkliste_Regler_Programmierung.CSV |
+| `P09_13_EH` | 09-13 | Energiezwang Funktion | `0621 / aa06` | `RohgrenzenAntwort<UIN>` | commands.txt:432; input/complete.log:4265 | Checkliste_Regler_Programmierung.CSV |
+| `P09_13_WP` | 09-13 | Energiezwang Funktion | `0621 / a906` | `RohgrenzenAntwort<UIN>` | commands.txt:394; input/complete.log:7602 | Checkliste_Regler_Programmierung.CSV |
 | `P09_14_EH` | 09-14 | Diff. Leistungszwang Tkmax | `0621 / aa07` | `Zahlenantwort<Kelvin10>` | commands.txt:433; input/complete.log:4266 | Checkliste_Regler_Programmierung.CSV |
 | `P09_14_WP` | 09-14 | Diff. Leistungszwang Tkmax | `0621 / a907` | `Zahlenantwort<Kelvin10>` | commands.txt:395; input/complete.log:7609 | Checkliste_Regler_Programmierung.CSV |
 | `P09_21_EH` | 09-21 | WE Abschaltdifferenz | `0621 / aa08` | `Zahlenantwort<Kelvin10>` | commands.txt:434; input/complete.log:4269 | Checkliste_Regler_Programmierung.CSV |

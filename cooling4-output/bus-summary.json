@@ -1,0 +1,327 @@
+{
+  "input": "ebusd.cool4.log",
+  "sha256": "7daffb6bc1b3c28959dc3ae16438c47676c591cde534ea465c5bd028474a88c9",
+  "bytes": 146644,
+  "leading_nul_bytes": 0,
+  "lines": 2300,
+  "first": "2026-09-30 23:28:01.475000",
+  "last": "2026-09-30 23:54:49.053000",
+  "duration_s": 1607.578,
+  "valid_master_telegrams": 2259,
+  "excluded_lines": 41,
+  "errors": {
+    "short fragment, no complete master header": 41
+  },
+  "transport": {
+    "slave response CRC and ACK valid": 1145,
+    "master ACK": 732,
+    "broadcast": 341,
+    "master valid, response/ACK incomplete or unusual": 41
+  },
+  "longest_log_gap": [
+    5.499,
+    "2026-09-30 23:49:03.633000",
+    "2026-09-30 23:49:09.132000"
+  ],
+  "read_counts": {
+    "read_requests": 794,
+    "valid_01-21": 108,
+    "valid_01-96": 214,
+    "valid_01-07": 214,
+    "valid_01-09": 107,
+    "valid_00-02": 107,
+    "valid_02-20": 3
+  },
+  "invalid_reads": [
+    {
+      "line": 41,
+      "time": "2026-09-30 23:28:31.278",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 74,
+      "time": "2026-09-30 23:28:46.293",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 77,
+      "time": "2026-09-30 23:28:46.653",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 104,
+      "time": "2026-09-30 23:29:01.153",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 188,
+      "time": "2026-09-30 23:30:01.372",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 233,
+      "time": "2026-09-30 23:30:31.091",
+      "selector": "0909",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 276,
+      "time": "2026-09-30 23:31:02.201",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 399,
+      "time": "2026-09-30 23:32:31.170",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 432,
+      "time": "2026-09-30 23:32:46.280",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 454,
+      "time": "2026-09-30 23:33:01.155",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 563,
+      "time": "2026-09-30 23:34:16.249",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 581,
+      "time": "2026-09-30 23:34:31.046",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 628,
+      "time": "2026-09-30 23:35:02.202",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 753,
+      "time": "2026-09-30 23:36:31.313",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 779,
+      "time": "2026-09-30 23:36:46.156",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 798,
+      "time": "2026-09-30 23:37:01.172",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 920,
+      "time": "2026-09-30 23:38:31.235",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 961,
+      "time": "2026-09-30 23:39:01.157",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1087,
+      "time": "2026-09-30 23:40:31.127",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1112,
+      "time": "2026-09-30 23:40:46.127",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1131,
+      "time": "2026-09-30 23:41:01.127",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1252,
+      "time": "2026-09-30 23:42:31.206",
+      "selector": "09891000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1271,
+      "time": "2026-09-30 23:42:46.222",
+      "selector": "0914",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1294,
+      "time": "2026-09-30 23:43:01.144",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1403,
+      "time": "2026-09-30 23:44:16.285",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1426,
+      "time": "2026-09-30 23:44:31.301",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1452,
+      "time": "2026-09-30 23:44:46.145",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1473,
+      "time": "2026-09-30 23:45:01.160",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1591,
+      "time": "2026-09-30 23:46:31.099",
+      "selector": "0909",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1633,
+      "time": "2026-09-30 23:47:01.146",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1759,
+      "time": "2026-09-30 23:48:31.256",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1783,
+      "time": "2026-09-30 23:48:46.163",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1803,
+      "time": "2026-09-30 23:49:01.131",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1885,
+      "time": "2026-09-30 23:50:01.288",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1912,
+      "time": "2026-09-30 23:50:15.648",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1973,
+      "time": "2026-09-30 23:51:01.132",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 2102,
+      "time": "2026-09-30 23:52:31.321",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 2125,
+      "time": "2026-09-30 23:52:46.165",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 2145,
+      "time": "2026-09-30 23:53:01.149",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 2253,
+      "time": "2026-09-30 23:54:16.290",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 2270,
+      "time": "2026-09-30 23:54:31.025",
+      "selector": "09941000",
+      "reason": "invalid/incomplete transport"
+    }
+  ],
+  "writes": [
+    {
+      "line": 354,
+      "time": "2026-09-30 23:32:00.264",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 707,
+      "time": "2026-09-30 23:36:00.266",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1041,
+      "time": "2026-09-30 23:40:00.283",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1376,
+      "time": "2026-09-30 23:44:00.254",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1713,
+      "time": "2026-09-30 23:48:00.287",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 2057,
+      "time": "2026-09-30 23:52:00.290",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    }
+  ]
+}

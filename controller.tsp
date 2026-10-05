@@ -7,6 +7,12 @@
 // One selector per TEM/context; TEM-number names, migration table in master-output/Umbenennung.md.
 // Numeric parameters from 03-00 also receive inferred writes on scan-only selectors.
 // Short/special responses without a known value encoding remain read-only; device acceptance is unverified.
+// Bediennummern der Fernbedienung unterscheiden sich von TEM-Kennungen:
+// 03-04 Kuehltemperatur -> P03_43_HK1/HK2, Selektoren 23 07 / 23 87 10 00.
+// 03-05 Kuehlgrenzenabstand -> P03_35_HK1/HK2, Selektoren 23 06 / 23 86 10 00.
+// Beleg: input/Checkliste_Regler_Programmierung.CSV:15-16; commands.txt:182-183,194-195.
+// Lesen: Ziel 15, Dienst 06 21; Schreiben (_set): Ziel 10, Dienst 06 23.
+// Beide Werte: SIN / 10, Little-Endian; Kuehltemperatur in Grad Celsius, Abstand in Kelvin.
 
 import "@ebusd/ebus-typespec";
 using Ebus;
@@ -136,13 +142,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-01: Raumtemperatur HK1 (Ist; TI1). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x01)
   model P00_01_HK1 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-01: Raumtemperatur HK1 (Ist; TI1). Kontext: HK1. commands.txt:42; input/complete.log:1356. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x01)
@@ -150,13 +156,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-01: Raumtemperatur HK2 (Ist; TI1). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x81, 0x10, 0x00)
   model P00_01_HK2 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-01: Raumtemperatur 1 (Ist; TI1) / Raumtemperatur 2 (Ist; TI2). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-01: Raumtemperatur HK2 (Ist; TI1). Kontext: HK2. commands.txt:57; input/complete.log:2007. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x81, 0x10, 0x00)
@@ -164,13 +170,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-02: Vorlauftemperatur HK1 (Ist; THV1) Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x02)
   model P00_02_HK1 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-02: Vorlauftemperatur HK1 (Ist; THV1) Kontext: HK1. commands.txt:43; input/complete.log:1360. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x02)
@@ -178,13 +184,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-02: Vorlauftemperatur HK2 (Ist; THV1) Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x82, 0x10, 0x00)
   model P00_02_HK2 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-02: Vorlauftemperatur1 (Ist; THV1) / Vorlauftemperatur2 (Ist; THV2). Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-02: Vorlauftemperatur HK2 (Ist; THV1) Kontext: HK2. commands.txt:58; input/complete.log:2008. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x82, 0x10, 0x00)
@@ -220,31 +226,31 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK1. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) Kontext: WP. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x04)
-  model P00_07_HK1 {
+  model P00_07_WP {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK1. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) Kontext: WP. commands.txt:45; input/complete.log:1376. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x04)
-  model P00_07_HK1_set {
+  model P00_07_WP_set {
     wert: Celsius10;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK2. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
+  /** 00-07: EH-Vorlauftemperatur (Ist; TEV). Kontext: EH. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  */
   @id(0x06, 0x21, 0x08, 0x84, 0x10, 0x00)
-  model P00_07_HK2 {
+  model P00_07_EH {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 00-07: WP-Vorlauftemperatur (Ist; TWV) / EH-Vorlauftemperatur (Ist; TEV). Kontext: HK2. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 00-07: EH-Vorlauftemperatur (Ist; TEV). Kontext: EH. commands.txt:60; input/complete.log:2013. Namensquelle: soll_und_istwerte.md. SIN / 10; Einheit aus Antwort.  Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x08, 0x84, 0x10, 0x00)
-  model P00_07_HK2_set {
+  model P00_07_EH_set {
     wert: Celsius10;
   }
 
@@ -728,6 +734,9 @@ namespace _15 {
     antwort: Zahlenantwort<Prozent10>;
   }
 
+  // Unconfirmed heating-pump on/off candidate; compare Status0a.Running and TEM 6.
+  // Per schematic TEM 6 feeds M4.1/M4.2 through K11, not M17. No electrical
+  // mapping or direct actuator-write semantics established by this parameter.
   /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:144; input/complete.log:5453. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  */
   @id(0x06, 0x21, 0x21, 0x00)
   model P01_20_HK1 {
@@ -742,6 +751,9 @@ namespace _15 {
     wert: Schalter;
   }
 
+  // Unconfirmed HK2 pump-status candidate; not a measured M4.2 state.
+  // Operator verified switched TEM 8 is unused; only its N connection is used.
+  // M4.2 is selected by K11 from TEM 6 in the schematic, not by TEM 8.
   /** 01-20: TEM 01-20; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:160; input/complete.log:7267. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  */
   @id(0x06, 0x21, 0x21, 0x80, 0x10, 0x00)
   model P01_20_HK2 {
@@ -770,12 +782,21 @@ namespace _15 {
     wert: ByteMitVorzeichen;
   }
 
+  // Observed HK2 mixer command: +100 = open, 0 = no command, -100 = close.
+  // Compare Status1a.Flag5 / Mixer_Close: 105/105 close-time pairs match in
+  // cool6/8/9/10; pulsed cool4/5 have 11/34 mismatches at larger time gaps.
+  // TEM 15 drives KT15 Y1, not a mixer motor. K3 follows KT15's 1000 s
+  // off-delay only while TEM 26 supplies it; TEM 16 is unused in the plan.
+  // Not valve position, compressor current or M17 state. See
+  // docs/Heating-Terminal-Analysis-2026-10-03.md; physical output unverified.
   /** 01-21: TEM 01-21; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:161. Namensquelle: unbekannt. SCH plus ein Byte Padding; kein vorzeichenbehaftetes 16-Bit-Wort.  */
   @id(0x06, 0x21, 0x21, 0x81, 0x10, 0x00)
   model P01_21_HK2 {
     antwort: RohgrenzenAntwort<ByteMitVorzeichen>;
   }
 
+  // Unassigned on/off value retained for output-state comparisons.
+  // No evidence yet for a specific pump, TEM terminal or M17 control function.
   /** 01-22: TEM 01-22; Bezeichnung nicht im STE-Katalog. Kontext: HK1. commands.txt:146; input/complete.log:5498. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  */
   @id(0x06, 0x21, 0x21, 0x02)
   model P01_22_HK1 {
@@ -790,6 +811,8 @@ namespace _15 {
     wert: Schalter;
   }
 
+  // Unassigned on/off value retained for output-state comparisons.
+  // No evidence yet for a specific pump, TEM terminal or M17 control function.
   /** 01-22: TEM 01-22; Bezeichnung nicht im STE-Katalog. Kontext: HK2. commands.txt:162. Namensquelle: unbekannt. UIN: 0=Aus, 1=Ein.  */
   @id(0x06, 0x21, 0x21, 0x82, 0x10, 0x00)
   model P01_22_HK2 {
@@ -1582,13 +1605,13 @@ namespace _15 {
     wert: Minuten10;
   }
 
-  /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-05 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
   @id(0x06, 0x21, 0x23, 0x06)
   model P03_35_HK1 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK1. commands.txt:182. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-05 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x06)
@@ -1596,13 +1619,13 @@ namespace _15 {
     wert: Kelvin10;
   }
 
-  /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-05 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. */
   @id(0x06, 0x21, 0x23, 0x86, 0x10, 0x00)
   model P03_35_HK2 {
     antwort: Zahlenantwort<Kelvin10>;
   }
 
-  /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 03-35: Kühlgrenzenabstand. Kontext: HK2. commands.txt:194. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-05 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 51: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 10.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. STE 52: Einstellebene 3, Raumtemperaturregelung Grenzen 2.0..10.0, gespeichert 5.0. Der Kühlgrenzenabstand plus die aktuelle Heizgrenze ergibt die Kühlgrenze. Der Kühlbetrieb wird gestartet,  sobald die gemittelte Aussentemperatur die Kühlgrenze überschritten hat und 1K unter der Kühlgrenze beendet. Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x86, 0x10, 0x00)
@@ -1610,13 +1633,13 @@ namespace _15 {
     wert: Kelvin10;
   }
 
-  /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
+  /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-04 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
   @id(0x06, 0x21, 0x23, 0x07)
   model P03_43_HK1 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 03-43: Kühltemperatur. Kontext: HK1. commands.txt:183. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-04 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x07)
@@ -1624,13 +1647,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
+  /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-04 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb */
   @id(0x06, 0x21, 0x23, 0x87, 0x10, 0x00)
   model P03_43_HK2 {
     antwort: Zahlenantwort<Celsius10>;
   }
 
-  /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 03-43: Kühltemperatur. Kontext: HK2. commands.txt:195. Namensquelle: Checkliste_Regler_Programmierung.CSV. SIN / 10; Einheit aus Antwort. Bedienteil-Einsteller 03-04 (zweite Spalte der Checkliste; abweichend von der TEM-Kennung). STE 53: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb STE 54: Einstellebene 3, Raumtemperaturregelung Grenzen 10.0..30.0, gespeichert 22.0. Die Kühltemperatur ist der Sollwert für die Heizkreistemperatur im Kühlbetrieb Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0x23, 0x87, 0x10, 0x00)
@@ -3016,13 +3039,13 @@ namespace _15 {
     wert: Celsius10;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur */
+  /** 09-13: Energiezwang Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur */
   @id(0x06, 0x21, 0xa9, 0x06)
   model P09_13_WP {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 09-13: Energiezwang Funktion. Kontext: WP. commands.txt:394; input/complete.log:7602. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 121: Einstellebene 9, WE Einstellungen Wärmepumpe Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xa9, 0x06)
@@ -3030,13 +3053,13 @@ namespace _15 {
     wert: UIN;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur */
+  /** 09-13: Energiezwang Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur */
   @id(0x06, 0x21, 0xaa, 0x06)
   model P09_13_EH {
     antwort: RohgrenzenAntwort<UIN>;
   }
 
-  /** 09-13: Energiezweig Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
+  /** 09-13: Energiezwang Funktion. Kontext: EH. commands.txt:432; input/complete.log:4265. Namensquelle: Checkliste_Regler_Programmierung.CSV. UIN; Auswahl/Integer, Grenzen als Rohbytes (Typ 09: Masken möglich). STE 161: Einstellebene 10, WE Einstellungen Elektro Zusatzheizung Grenzen 0.0..3.0, gespeichert 2.0. 0 = Kein Energiezwang  1 = Energiezwang auf Schutztemperatur  2 = Energiezwang auf Maximaltemperatur  3 = Energiezwang auf Schutztemperatur und Maximaltemperatur Schreibwert; derselbe Selektor wird als 06 23 an 10 verwendet. Annahme des Schreibbefehls durch den Regler nicht fuer jeden Parameter bestaetigt. */
   @write
   @zz(0x10)
   @id(0x06, 0x23, 0xaa, 0x06)

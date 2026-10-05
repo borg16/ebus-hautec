@@ -6,7 +6,7 @@ Quelle: `Datapacks v 1.1  über V 52  9.02.09.ste` · 64974 Bytes · Controllerk
 
 Die Tabelle ist nach der TEM-Kennung sortiert. Mehrfach vorkommende Kennungen bleiben getrennt. Die Datensatznummer (#) verweist auf die ursprüngliche Dateireihenfolge.
 
-**Wert** bezeichnet das gespeicherte Zahlenfeld, keinen bestätigten aktuellen Anlagenwert. Ob die Datei eine Anlagenaufnahme oder eine bearbeitete Vorlage ist, lässt sich daraus nicht entscheiden. HK 1/2 sind aus den Datensatzpaaren abgeleitet. Einheiten sind aus den Metadaten erschlossen; `s?` bleibt eine Vermutung. `—` bedeutet, dass kein Einheitenname hinterlegt ist, nicht zwingend dimensionslos.
+**Wert** bezeichnet das gespeicherte Zahlenfeld, keinen bestätigten aktuellen Anlagenwert. Die vom Betreiber bestätigte Herkunft der hier untersuchten Datei als Anlagenstand vor der Kühlnachrüstung ist in [Heating-Control-Analysis.md](../docs/Heating-Control-Analysis.md#herkunft-und-zeitliche-einordnung-der-einstellungen) dokumentiert; mögliche lokale Anpassungen sind von den Werksvorgaben zu unterscheiden. HK 1/2 sind aus den Datensatzpaaren abgeleitet. Einheiten sind aus den Metadaten erschlossen; `s?` bleibt eine Vermutung. `—` bedeutet, dass kein Einheitenname hinterlegt ist, nicht zwingend dimensionslos.
 
 **TEM-Kennung, Einstellebene und FB-Menüposition sind getrennte Nummerierungen.** Die Datei nennt Kühltemperatur `03-43` und Kühlgrenzenabstand `03-35`. Kaskadeneinträge behalten auch für WE 2–8 ihre im Titel gespeicherten Kennungen `04-22` bzw. `11-01` bis `11-05`.
 

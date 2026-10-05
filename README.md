@@ -22,6 +22,9 @@ Eight short-response accesses (`03-61`, `03-62`, `03-63` in HK1/HK2,
 The inferred encoding of `03-07` is dimensionless SIN / 10, matching its scan
 and STE limits. See [write definitions](master-output/Parameter.md#schreibdefinitionen-ab-03-00).
 
+New and revised command definitions use English names, field names and descriptions.
+Original manufacturer terminology in source documents is retained.
+
 Command names use TEM numbers (`Pxx_xx`), with `_HK1`, `_HK2`,
 `_WP`, `_EH` or `_WE1` etc. where needed. HK labels follow the inferred context
 mapping, not proof of separate physical sensors. Old names have been removed;
@@ -85,6 +88,50 @@ Zeigt Beschreibungen und aktuelle Werte aller angebotenen Parameter, auch im
 beobachteten Zusatzkontext. Benötigt `ebusctl` und ebusd mit `--enablehex`;
 der Expert-Zugang wird einmal freigeschaltet.
 Weitere Optionen und Details stehen in [scripts/README.md](scripts/README.md).
+
+The eight TEM broadcasts retain `Status0a` through `Status3b` for existing MQTT
+consumers. Their planned English names remain in the model comments until a
+coordinated migration. See the [broadcast naming table](docs/Broadcast-Messages.md).
+
+The [eBUS standard coverage audit](docs/eBUS-Standard-Coverage.md) records
+missing standard services, incomplete fields, and observed TEM deviations.
+
+Identification now exposes the full five-character `id`, `softwareversion`, and
+`hardwareversion`, alongside `manufacturer`. The slave-reply command is
+`Signals.Identification` (formerly `Signals.Geraeteidentifikation`).
+Outside temperature in `05 01` and `05 03` reports signed values and the explicit
+state `unavailable` for `3F`. Mapped negative values are strings in JSON;
+`read -n` exposes raw enum codes. See the audit for consumer handling and tests.
+
+## ControlCommands broadcast (08 02)
+
+`Broadcast.ControlCommands` follows the seven-byte layout in the
+[eBUS Application Layer V1.6.1, section 3.4.3, page 46](https://www.stroimdom.com.ua/applications/core/interface/file/attachment.php?id=418507):
+
+| Payload bytes (zero-based) | Field | Type |
+| --- | --- | --- |
+| 0–1 | `boilerTargetTemperature` | D2B, °C |
+| 2–3 | `hotWaterTargetTemperature` | D2B, °C |
+| 4 | `expectedPerformance` | D1B, signed % |
+| 5 | `errorDevice` | UCH |
+| 6 | `errorCode` | UCH |
+
+The former bit fields incorrectly interpreted temperature bytes as flags.
+Existing consumers must switch to the new fields; the CSV emitter lowercases
+field names. `expectedPerformance` is a demand, not measured compressor output:
+-100 means no performance deficiency, 0 means no target, and 100 means maximum demand.
+
+All 2,030 CRC-checked `10 fe 08 02` telegrams in `ebusd.log` (2026-09-27)
+contain eight payload bytes. Byte 7 takes values `00`, `27`, `3f`, `90`, `91`;
+its meaning is unknown. It remains undecoded so seven-byte standard telegrams
+also work. The standard field labels do not establish their mapping to physical
+TEM sensors or terminals.
+
+Run the offline decoding regression check with:
+
+```sh
+python3 -m unittest discover -s scripts -p test_broadcast.py
+```
 
 ## Building the ebusd CSV configuration
 

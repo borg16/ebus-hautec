@@ -54,14 +54,24 @@ class Descriptions:
         for record in archive["records"]:
             self.ste[record["tem_id"]].append(record)
 
-    def lookup(self, ident, menu):
-        candidates = self.names.get(ident, [])
-        # The lower menu aliases refer to the same WE groups.
-        if 0x6b <= menu <= 0x72:
-            menu += 0x40
-        if 0xab <= menu <= 0xb2:
-            level = str(menu - 0xab + 11)
-            candidates = [c for c in candidates if c[2] in (None, level)]
+    def candidates(self, ident, context):
+        """Resolve pairs in file order, independently for each input file."""
+        sources = defaultdict(list)
+        for candidate in self.names.get(ident, []):
+            sources[candidate[1]].append(candidate)
+        selected = []
+        index = {"HK1": 0, "HK2": 1, "WP": 0, "EH": 1, "Global": 0}.get(context)
+        for candidates in sources.values():
+            if re.fullmatch(r"WE[1-8]", context):
+                level = str(int(context[2:]) + 10)
+                candidates = [c for c in candidates if c[2] in (None, level)]
+            elif len(candidates) == 2 and index is not None:
+                candidates = [candidates[index]]
+            selected.extend(candidates)
+        return selected
+
+    def lookup(self, ident, menu, context="base"):
+        candidates = self.candidates(ident, display_context(menu, context))
         if ident == "04-43":
             return "Expert-Modus"
         if candidates:
@@ -72,14 +82,8 @@ class Descriptions:
 
     def assignment(self, ident, context):
         """Use table columns, not TEM group numbers, to identify Soll/Ist."""
-        candidates = [c for c in self.names.get(ident, []) if c[1] == "soll_und_istwerte.md"]
-        if re.fullmatch(r"WE[1-8]", context):
-            candidates = [c for c in candidates if c[2] == str(int(context[2:]) + 10)]
-        if context in ("HK1", "HK2"):
-            # Only the explicitly numbered room/flow-temperature pairs distinguish HKs.
-            candidates = [c for c in candidates if not (
-                (match := re.match(r"(?:Raumtemperatur|Vorlauftemperatur)\s*([12])\b", c[0]))
-                and match[1] != context[-1])]
+        candidates = [c for c in self.candidates(ident, context)
+                      if c[1] == "soll_und_istwerte.md"]
         roles = list(dict.fromkeys(re.search(r"\((Soll|Ist);", c[0])[1] for c in candidates))
         labels = " / ".join(dict.fromkeys(c[0] for c in candidates))
         return "/".join(roles) or "—", labels
@@ -155,7 +159,8 @@ def read_parameters(reader, entries, descriptions, before, raw):
         ident, context = entry["tem_id"], entry["context"]
         selector = bytes.fromhex(entry["request"])
         role, label = descriptions.assignment(ident, context) if before else ("", "")
-        label = " ".join((label or descriptions.lookup(ident, selector[0])).split())
+        label = " ".join((label or descriptions.lookup(
+            ident, selector[0], selector[2:].hex() or "base")).split())
         response = None
         try:
             response = reader.read("0621", selector)
@@ -279,7 +284,7 @@ def main(argv=None):
                 return
             if args.before_03_00 and ident >= (3, 0):
                 return
-            description = descriptions.lookup(row["tem"], int(row["menu"], 16))
+            description = descriptions.lookup(row["tem"], int(row["menu"], 16), row["context"])
             description = " ".join(description.split())
             value = display_value(row["tem"], bytes.fromhex(row["response"]))
             context = display_context(int(row["menu"], 16), row["context"])

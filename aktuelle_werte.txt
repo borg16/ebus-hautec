@@ -1,0 +1,116 @@
+TEM    Kontext  Art   Beschreibung | Aktueller Wert
+00-00  HK1     Ist   Aussentemperatur (Ist; TA) | 20.6 °C
+00-00  HK2     Ist   Aussentemperatur (Ist; TA) | 20.6 °C
+00-01  HK1     Ist   Raumtemperatur 1 (Ist; TI1) | 23.6 °C
+00-01  HK2     Ist   Raumtemperatur 2 (Ist; TI2) | 23.8 °C
+00-02  HK1     Ist   Vorlauftemperatur1 (Ist; THV1) | 24.2 °C
+00-02  HK2     Ist   Vorlauftemperatur2 (Ist; THV2) | 23.6 °C
+00-04  HK1     Ist   Warmwassertemperatur (Ist; TBO) | 49.2 °C
+00-04  HK2     Ist   Warmwassertemperatur (Ist; TBO) | 49.2 °C
+00-07  HK1     Ist   WP-Vorlauftemperatur (Ist; TWV) | 24.2 °C
+00-07  HK2     Ist   EH-Vorlauftemperatur (Ist; TEV) | 24.2 °C
+00-08  HK1     Ist   WP-Rücklauftemperatur (Ist; TWR) | 23.1 °C
+00-08  HK2     Ist   WP-Rücklauftemperatur (Ist; TWR) | 23.1 °C
+00-09  WE1     Ist   Wärmeleistung WE 1 (Ist; PWE1) | 0 %
+00-09  WE2     Ist   Wärmeleistung WE 2 (Ist; PWE2) | -100 %
+00-09  WE3     Ist   Wärmeleistung WE 3 (Ist; PWE3) | 0 %
+00-09  WE4     —     Beschreibung unbekannt | 0 %
+00-09  WE5     —     Beschreibung unbekannt | 0 %
+00-09  WE6     —     Beschreibung unbekannt | 0 %
+00-09  WE7     —     Beschreibung unbekannt | 0 %
+00-09  WE8     —     Beschreibung unbekannt | 0 %
+00-70  HK1     Ist   Wärmequelle-Austrittstemperatur (Ist; TWA) | 36.3 °C
+00-70  HK2     Ist   Wärmequelle-Austrittstemperatur (Ist; TWA) | 36.3 °C
+00-71  HK1     Ist   Wärmequelle-Eintrittstemperatur (Ist; TWE) | -25 °C
+00-71  HK2     Ist   Wärmequelle-Eintrittstemperatur (Ist; TWE) | -25 °C
+00-72  HK1     Ist   Heissgastemperatur (Ist; THG) | 22.2 °C
+00-72  HK2     Ist   Heissgastemperatur (Ist; THG) | 22.2 °C
+00-73  HK1     Ist   Kondensatortemperatur (Ist; TKA) | 22.4 °C
+00-73  HK2     Ist   Kondensatortemperatur (Ist; TKA) | 22.4 °C
+00-74  HK1     Ist   Verdampfertemperatur (Ist; TVD) | -25 °C
+00-74  HK2     Ist   Verdampfertemperatur (Ist; TVD) | -25 °C
+00-75  HK1     Ist   Sauggastemperatur (Ist; TSG) | -25 °C
+00-75  HK2     Ist   Sauggastemperatur (Ist; TSG) | -25 °C
+00-81  HK1     Ist   Warmwasser WP Verdampfertemperatur (Ist; WW-TVD) | 120 °C
+00-81  HK2     Ist   Warmwasser WP Verdampfertemperatur (Ist; WW-TVD) | 120 °C
+00-95  HK1     Ist   Externer Sollwert 0-10V (Ist; SWin) | 0 °C
+00-95  HK2     Ist   Externer Sollwert 0-10V (Ist; SWin) | 0 °C
+00-96  HK1     Ist   Anlage Vorlaufsollwert (Ist; TKx/TWR) | 23.1 °C
+00-96  HK2     Ist   Anlage Vorlaufsollwert (Ist; TKx/TWR) | 23.1 °C
+01-01  HK1     Soll  Raumtemperatur 1 (Soll; TI1) | 18 °C
+01-01  HK2     Soll  Raumtemperatur 2 (Soll; TI2) | 10 °C
+01-02  HK1     Soll  Vorlauftemperatur1 (Soll; THV1) | 20.5 °C
+01-02  HK2     Soll  Vorlauftemperatur2 (Soll; THV2) | 21 °C
+01-04  HK1     Soll  Warmwassertemperatur (Soll; TBO) | 51 °C
+01-04  HK2     Soll  Warmwassertemperatur (Soll; TBO) | 51 °C
+01-07  HK1     Soll  WP-Vorlauftemperatur (Soll; TWV) | 19 °C
+01-07  HK2     Soll  EH-Vorlauftemperatur (Soll; TEV) | 19 °C
+01-09  WE1     Soll  Wärmeleistungsanforderung WE 1 (Soll; PSollWE1) | 100 %
+01-09  WE2     Soll  Wärmeleistungsanforderung WE 2 (Soll; PSollWE2) | -127 %
+01-09  WE3     Soll  Wärmeleistungsanforderung WE 3 (Soll; PSollWE3) | -127 %
+01-09  WE4     Soll  Wärmeleistungsanforderung WE 4 (Soll; PSollWE4) | -127 %
+01-09  WE5     Soll  Wärmeleistungsanforderung WE 5 (Soll; PSollWE5) | -127 %
+01-09  WE6     Soll  Wärmeleistungsanforderung WE 6 (Soll; PSollWE6) | -127 %
+01-09  WE7     Soll  Wärmeleistungsanforderung WE 7 (Soll; PSollWE7) | -127 %
+01-09  WE8     Soll  Wärmeleistungsanforderung WE 8 (Soll; PSollWE8) | -127 %
+01-20  HK1     —     Beschreibung unbekannt | Ein (1)
+01-20  HK2     —     Beschreibung unbekannt | Ein (1)
+01-21  HK1     —     Beschreibung unbekannt | 0 %
+01-21  HK2     —     Beschreibung unbekannt | 0 %
+01-22  HK1     —     Beschreibung unbekannt | Ein (1)
+01-22  HK2     —     Beschreibung unbekannt | Ein (1)
+01-40  HK1     —     Beschreibung unbekannt | Aus (0)
+01-40  HK2     —     Beschreibung unbekannt | Aus (0)
+01-53  HK1     —     Beschreibung unbekannt | Aus (0)
+01-53  HK2     —     Beschreibung unbekannt | Aus (0)
+01-54  HK1     —     Beschreibung unbekannt | Aus (0)
+01-54  HK2     —     Beschreibung unbekannt | Aus (0)
+01-63  HK1     —     Beschreibung unbekannt | Ein (1)
+01-63  HK2     —     Beschreibung unbekannt | Ein (1)
+01-64  HK1     —     Beschreibung unbekannt | Aus (0)
+01-64  HK2     —     Beschreibung unbekannt | Aus (0)
+01-65  HK1     —     Beschreibung unbekannt | Aus (0)
+01-65  HK2     —     Beschreibung unbekannt | Aus (0)
+01-66  HK1     —     Beschreibung unbekannt | Aus (0)
+01-66  HK2     —     Beschreibung unbekannt | Aus (0)
+01-76  HK1     —     Beschreibung unbekannt | 1
+01-76  HK2     —     Beschreibung unbekannt | 1
+01-77  HK1     —     Beschreibung unbekannt | Ein (1)
+01-77  HK2     —     Beschreibung unbekannt | Ein (1)
+01-78  HK1     —     Beschreibung unbekannt | Ein (1)
+01-78  HK2     —     Beschreibung unbekannt | Ein (1)
+01-82  HK1     —     Beschreibung unbekannt | Aus (0)
+01-82  HK2     —     Beschreibung unbekannt | Aus (0)
+01-94  HK1     —     Beschreibung unbekannt | Ein (1)
+01-94  HK2     —     Beschreibung unbekannt | Ein (1)
+01-96  HK1     Soll  Anlage Vorlaufsollwert (Soll; TKx/TWR) | 20 °C
+01-96  HK2     Soll  Anlage Vorlaufsollwert (Soll; TKx/TWR) | 20 °C
+01-97  HK1     Soll  Anlage Vorlaufsollwert (Soll; TBx) | 0 °C
+01-97  HK2     Soll  Anlage Vorlaufsollwert (Soll; TBx) | 0 °C
+01-99  HK1     —     Beschreibung unbekannt | Aus (0)
+01-99  HK2     —     Beschreibung unbekannt | Aus (0)
+02-00  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 00 81 1d 00 0b 00 ff ff 00 00
+02-00  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 00 81 1d 00 0b 00 ff ff 00 00
+02-02  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 02 81 1d 00 00 00 82 8a 00 00
+02-02  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 02 81 1d 00 00 00 82 8a 00 00
+02-03  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 03 81 1d 00 05 00 01 41 00 00
+02-03  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 03 81 1d 00 05 00 01 41 00 00
+02-10  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 0a 01 80 0c b4 00 00 00 00 00
+02-10  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 0a 01 80 0c b4 00 00 00 00 00
+02-12  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 0c 81 1e 00 05 00
+02-12  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 0c 81 1e 00 05 00
+02-20  HK1     Soll  Aussentemperatur Mittelwert (Soll; TAavg) | 22.5 °C
+02-20  HK2     Soll  Aussentemperatur Mittelwert (Soll; TAavg) | 22.5 °C
+02-40  HK1     Soll  Wärmeleistung (Soll; PH) | 100 kW
+02-40  HK2     Soll  Wärmeleistung (Soll; PH) | 100 kW
+02-41  HK1     Soll  Wärmeleistung (Soll; PBW) | -100 kW
+02-41  HK2     Soll  Wärmeleistung (Soll; PBW) | -100 kW
+02-50  HK1     —     Beschreibung unbekannt | Sonderformat; roh: 32 c1 1d 00 0c 00 00 00 00 00
+02-50  HK2     —     Beschreibung unbekannt | Sonderformat; roh: 32 c1 1d 00 0c 00 00 00 00 00
+02-70  Global  —     Beschreibung unbekannt | 2026-09-30
+02-71  HK1     —     Beschreibung unbekannt | 2772 min (Wochenminuten)
+02-71  HK2     —     Beschreibung unbekannt | 2772 min (Wochenminuten)
+02-80  Menue29 —     Beschreibung unbekannt | Sonderformat; roh: 50 c1 1d 00 01 00 39 00 00 00
+02-80  Menue2A —     Beschreibung unbekannt | Sonderformat; roh: 50 c1 1d 00 01 00 0a 00 00 00
+02-81  Menue29 —     Beschreibung unbekannt | Sonderformat; roh: 51 c1 1d 00 01 00 23 28 01 00
+02-81  Menue2A —     Beschreibung unbekannt | Sonderformat; roh: 51 c1 1d 00 01 00 2c 17 00 00

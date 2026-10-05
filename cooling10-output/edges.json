@@ -1,0 +1,1049 @@
+[
+  {
+    "line": 5,
+    "time": "2026-10-02 21:10:03.401",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322e16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": null,
+      "FA1_request": null,
+      "FA1_extra_byte5": null,
+      "FA1_flow_coarse": {
+        "line": 5,
+        "time": "2026-10-02 21:10:03.401",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 23.0,
+        "payload": "010048322e16ff3f4000"
+      },
+      "flow_1000": null
+    }
+  },
+  {
+    "line": 117,
+    "time": "2026-10-02 21:12:03.387",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642e16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 105,
+        "time": "2026-10-02 21:11:49.889",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 22.3984375,
+        "payload": "66164d2f00086616"
+      },
+      "FA1_request": {
+        "line": 112,
+        "time": "2026-10-02 21:11:59.137",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 112,
+        "time": "2026-10-02 21:11:59.137",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 117,
+        "time": "2026-10-02 21:12:03.387",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 23.0,
+        "payload": "010048642e16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 92,
+        "time": "2026-10-02 21:11:35.899",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 23.3,
+        "payload": "1000e900e000e9000000d901e300"
+      }
+    }
+  },
+  {
+    "line": 172,
+    "time": "2026-10-02 21:13:07.388",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322a15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 158,
+        "time": "2026-10-02 21:12:49.875",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.80078125,
+        "payload": "cd154d2f0008cd15"
+      },
+      "FA1_request": {
+        "line": 165,
+        "time": "2026-10-02 21:12:59.138",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 10.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 165,
+        "time": "2026-10-02 21:12:59.138",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 73.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 172,
+        "time": "2026-10-02 21:13:07.388",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048322a15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 163,
+        "time": "2026-10-02 21:12:55.994",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 22.0,
+        "payload": "1000dc00da00dd000000d901e300"
+      }
+    }
+  },
+  {
+    "line": 291,
+    "time": "2026-10-02 21:15:23.374",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642d16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 290,
+        "time": "2026-10-02 21:15:20.330",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 22.30078125,
+        "payload": "4d16332f00084d16"
+      },
+      "FA1_request": {
+        "line": 288,
+        "time": "2026-10-02 21:15:19.124",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 288,
+        "time": "2026-10-02 21:15:19.124",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 291,
+        "time": "2026-10-02 21:15:23.374",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 22.5,
+        "payload": "010048642d16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 234,
+        "time": "2026-10-02 21:14:15.948",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 20.8,
+        "payload": "1000d000de00cd000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 328,
+    "time": "2026-10-02 21:16:03.405",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322d15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 316,
+        "time": "2026-10-02 21:15:49.861",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.80078125,
+        "payload": "cd15332f0008cd15"
+      },
+      "FA1_request": {
+        "line": 323,
+        "time": "2026-10-02 21:15:59.140",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 20.0,
+        "payload": "000b320e144c010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 323,
+        "time": "2026-10-02 21:15:59.140",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 76.0,
+        "payload": "000b320e144c010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 328,
+        "time": "2026-10-02 21:16:03.405",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 22.5,
+        "payload": "010048322d15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 304,
+        "time": "2026-10-02 21:15:36.027",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 22.7,
+        "payload": "1000e300dc00e3000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 398,
+    "time": "2026-10-02 21:17:23.375",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642b16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 396,
+        "time": "2026-10-02 21:17:20.362",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 22.19921875,
+        "payload": "3316332f00083316"
+      },
+      "FA1_request": {
+        "line": 394,
+        "time": "2026-10-02 21:17:19.157",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 394,
+        "time": "2026-10-02 21:17:19.157",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 398,
+        "time": "2026-10-02 21:17:23.375",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.5,
+        "payload": "010048642b16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 375,
+        "time": "2026-10-02 21:16:55.903",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 20.6,
+        "payload": "1000ce00dd00cd000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 433,
+    "time": "2026-10-02 21:18:03.407",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322c15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 424,
+        "time": "2026-10-02 21:17:50.253",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.69921875,
+        "payload": "b315332f0008b315"
+      },
+      "FA1_request": {
+        "line": 430,
+        "time": "2026-10-02 21:17:59.157",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 20.0,
+        "payload": "000b320e144c010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 430,
+        "time": "2026-10-02 21:17:59.157",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 76.0,
+        "payload": "000b320e144c010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 433,
+        "time": "2026-10-02 21:18:03.407",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 22.0,
+        "payload": "010048322c15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 375,
+        "time": "2026-10-02 21:16:55.903",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 20.6,
+        "payload": "1000ce00dd00cd000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 500,
+    "time": "2026-10-02 21:19:16.033",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642a16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 477,
+        "time": "2026-10-02 21:18:50.254",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 22.0,
+        "payload": "0016332f00080016"
+      },
+      "FA1_request": {
+        "line": 483,
+        "time": "2026-10-02 21:18:59.142",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 483,
+        "time": "2026-10-02 21:18:59.142",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 500,
+        "time": "2026-10-02 21:19:16.033",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048642a16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 447,
+        "time": "2026-10-02 21:18:15.983",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.4,
+        "payload": "1000d600d900d9000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 548,
+    "time": "2026-10-02 21:20:03.393",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322a15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 533,
+        "time": "2026-10-02 21:19:49.864",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.3984375,
+        "payload": "6615332f00086615"
+      },
+      "FA1_request": {
+        "line": 540,
+        "time": "2026-10-02 21:19:59.127",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 10.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 540,
+        "time": "2026-10-02 21:19:59.127",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 73.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 548,
+        "time": "2026-10-02 21:20:03.393",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048322a15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 518,
+        "time": "2026-10-02 21:19:35.874",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.8,
+        "payload": "1000da00d800da000000d801e300"
+      }
+    }
+  },
+  {
+    "line": 624,
+    "time": "2026-10-02 21:21:23.410",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642a16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 622,
+        "time": "2026-10-02 21:21:20.350",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 22.0,
+        "payload": "0016192f00080016"
+      },
+      "FA1_request": {
+        "line": 620,
+        "time": "2026-10-02 21:21:19.144",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 620,
+        "time": "2026-10-02 21:21:19.144",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 624,
+        "time": "2026-10-02 21:21:23.410",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048642a16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 601,
+        "time": "2026-10-02 21:20:56.016",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 19.9,
+        "payload": "1000c700dc00c7000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 658,
+    "time": "2026-10-02 21:22:03.379",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322b15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 649,
+        "time": "2026-10-02 21:21:50.241",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.3984375,
+        "payload": "6615192f00086615"
+      },
+      "FA1_request": {
+        "line": 655,
+        "time": "2026-10-02 21:21:59.129",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 0.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 655,
+        "time": "2026-10-02 21:21:59.129",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 70.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 658,
+        "time": "2026-10-02 21:22:03.379",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.5,
+        "payload": "010048322b15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 601,
+        "time": "2026-10-02 21:20:56.016",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 19.9,
+        "payload": "1000c700dc00c7000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 725,
+    "time": "2026-10-02 21:23:15.974",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642a16ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 702,
+        "time": "2026-10-02 21:22:50.257",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.8984375,
+        "payload": "e615192f0008e615"
+      },
+      "FA1_request": {
+        "line": 708,
+        "time": "2026-10-02 21:22:59.130",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 86.0,
+        "payload": "000b320e5660010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 708,
+        "time": "2026-10-02 21:22:59.130",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 96.0,
+        "payload": "000b320e5660010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 725,
+        "time": "2026-10-02 21:23:15.974",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048642a16ff3f4000"
+      },
+      "flow_1000": {
+        "line": 672,
+        "time": "2026-10-02 21:22:16.001",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.1,
+        "payload": "1000d300d700d6000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 768,
+    "time": "2026-10-02 21:24:03.396",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322b15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": null,
+      "TEM_00-08_HK1": null,
+      "TEM_00-02_HK2": null,
+      "TEM_01-09_WE1": null,
+      "TEM_01-21_HK2": null,
+      "return_0801": {
+        "line": 757,
+        "time": "2026-10-02 21:23:49.899",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.30078125,
+        "payload": "4d15192f00084d15"
+      },
+      "FA1_request": {
+        "line": 763,
+        "time": "2026-10-02 21:23:59.146",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 0.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 763,
+        "time": "2026-10-02 21:23:59.146",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 70.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 768,
+        "time": "2026-10-02 21:24:03.396",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.5,
+        "payload": "010048322b15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 743,
+        "time": "2026-10-02 21:23:36.018",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.7,
+        "payload": "1000d900d700d8000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 996,
+    "time": "2026-10-02 21:25:23.397",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642a15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": {
+        "line": 992,
+        "time": "2026-10-02 21:25:21.695",
+        "telegram": "31150621",
+        "field": "TEM_00-07_WP",
+        "value": 21.0,
+        "payload": "0804"
+      },
+      "TEM_00-08_HK1": {
+        "line": 993,
+        "time": "2026-10-02 21:25:21.852",
+        "telegram": "31150621",
+        "field": "TEM_00-08_HK1",
+        "value": 21.9,
+        "payload": "0805"
+      },
+      "TEM_00-02_HK2": {
+        "line": 990,
+        "time": "2026-10-02 21:25:21.360",
+        "telegram": "31150621",
+        "field": "TEM_00-02_HK2",
+        "value": 22.4,
+        "payload": "08821000"
+      },
+      "TEM_01-09_WE1": {
+        "line": 989,
+        "time": "2026-10-02 21:25:21.195",
+        "telegram": "31150621",
+        "field": "TEM_01-09_WE1",
+        "value": 93.0,
+        "payload": "ab01"
+      },
+      "TEM_01-21_HK2": {
+        "line": 991,
+        "time": "2026-10-02 21:25:21.531",
+        "telegram": "31150621",
+        "field": "TEM_01-21_HK2",
+        "value": 100.0,
+        "payload": "21811000"
+      },
+      "return_0801": {
+        "line": 984,
+        "time": "2026-10-02 21:25:20.337",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.8984375,
+        "payload": "e615192f0008e615"
+      },
+      "FA1_request": {
+        "line": 982,
+        "time": "2026-10-02 21:25:19.131",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 982,
+        "time": "2026-10-02 21:25:19.131",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 996,
+        "time": "2026-10-02 21:25:23.397",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048642a15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 912,
+        "time": "2026-10-02 21:24:56.269",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 19.9,
+        "payload": "1000c700da00c7000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 1120,
+    "time": "2026-10-02 21:26:03.398",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322b15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": {
+        "line": 1117,
+        "time": "2026-10-02 21:26:01.618",
+        "telegram": "31150621",
+        "field": "TEM_00-07_WP",
+        "value": 21.8,
+        "payload": "0804"
+      },
+      "TEM_00-08_HK1": {
+        "line": 1118,
+        "time": "2026-10-02 21:26:01.774",
+        "telegram": "31150621",
+        "field": "TEM_00-08_HK1",
+        "value": 21.2,
+        "payload": "0805"
+      },
+      "TEM_00-02_HK2": {
+        "line": 1115,
+        "time": "2026-10-02 21:26:01.282",
+        "telegram": "31150621",
+        "field": "TEM_00-02_HK2",
+        "value": 22.4,
+        "payload": "08821000"
+      },
+      "TEM_01-09_WE1": {
+        "line": 1114,
+        "time": "2026-10-02 21:26:01.118",
+        "telegram": "31150621",
+        "field": "TEM_01-09_WE1",
+        "value": 73.0,
+        "payload": "ab01"
+      },
+      "TEM_01-21_HK2": {
+        "line": 1116,
+        "time": "2026-10-02 21:26:01.456",
+        "telegram": "31150621",
+        "field": "TEM_01-21_HK2",
+        "value": 100.0,
+        "payload": "21811000"
+      },
+      "return_0801": {
+        "line": 1080,
+        "time": "2026-10-02 21:25:50.244",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.30078125,
+        "payload": "4d15192f00084d15"
+      },
+      "FA1_request": {
+        "line": 1107,
+        "time": "2026-10-02 21:25:59.163",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 10.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 1107,
+        "time": "2026-10-02 21:25:59.163",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 73.0,
+        "payload": "000b320e0a49010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 1120,
+        "time": "2026-10-02 21:26:03.398",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.5,
+        "payload": "010048322b15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 912,
+        "time": "2026-10-02 21:24:56.269",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 19.9,
+        "payload": "1000c700da00c7000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 1374,
+    "time": "2026-10-02 21:27:23.383",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 100.0,
+    "payload": "010048642a15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": {
+        "line": 1370,
+        "time": "2026-10-02 21:27:21.603",
+        "telegram": "31150621",
+        "field": "TEM_00-07_WP",
+        "value": 21.1,
+        "payload": "0804"
+      },
+      "TEM_00-08_HK1": {
+        "line": 1371,
+        "time": "2026-10-02 21:27:21.759",
+        "telegram": "31150621",
+        "field": "TEM_00-08_HK1",
+        "value": 21.8,
+        "payload": "0805"
+      },
+      "TEM_00-02_HK2": {
+        "line": 1368,
+        "time": "2026-10-02 21:27:21.268",
+        "telegram": "31150621",
+        "field": "TEM_00-02_HK2",
+        "value": 22.3,
+        "payload": "08821000"
+      },
+      "TEM_01-09_WE1": {
+        "line": 1367,
+        "time": "2026-10-02 21:27:21.103",
+        "telegram": "31150621",
+        "field": "TEM_01-09_WE1",
+        "value": 93.0,
+        "payload": "ab01"
+      },
+      "TEM_01-21_HK2": {
+        "line": 1369,
+        "time": "2026-10-02 21:27:21.440",
+        "telegram": "31150621",
+        "field": "TEM_01-21_HK2",
+        "value": 100.0,
+        "payload": "21811000"
+      },
+      "return_0801": {
+        "line": 1362,
+        "time": "2026-10-02 21:27:20.355",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.80078125,
+        "payload": "cd15192f0008cd15"
+      },
+      "FA1_request": {
+        "line": 1360,
+        "time": "2026-10-02 21:27:19.149",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 76.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 1360,
+        "time": "2026-10-02 21:27:19.149",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 93.0,
+        "payload": "000b320e4c5d010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 1374,
+        "time": "2026-10-02 21:27:23.383",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.0,
+        "payload": "010048642a15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 1166,
+        "time": "2026-10-02 21:26:16.801",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.1,
+        "payload": "1000d300d600d6000000d701e300"
+      }
+    }
+  },
+  {
+    "line": 1501,
+    "time": "2026-10-02 21:28:03.415",
+    "telegram": "03100503",
+    "field": "FA1_level",
+    "value": 50.0,
+    "payload": "010048322b15ff3f4000",
+    "preceding": {
+      "TEM_00-07_WP": {
+        "line": 1498,
+        "time": "2026-10-02 21:28:01.728",
+        "telegram": "31150621",
+        "field": "TEM_00-07_WP",
+        "value": 21.6,
+        "payload": "0804"
+      },
+      "TEM_00-08_HK1": {
+        "line": 1499,
+        "time": "2026-10-02 21:28:01.885",
+        "telegram": "31150621",
+        "field": "TEM_00-08_HK1",
+        "value": 21.1,
+        "payload": "0805"
+      },
+      "TEM_00-02_HK2": {
+        "line": 1496,
+        "time": "2026-10-02 21:28:01.394",
+        "telegram": "31150621",
+        "field": "TEM_00-02_HK2",
+        "value": 22.2,
+        "payload": "08821000"
+      },
+      "TEM_01-09_WE1": {
+        "line": 1495,
+        "time": "2026-10-02 21:28:01.229",
+        "telegram": "31150621",
+        "field": "TEM_01-09_WE1",
+        "value": 70.0,
+        "payload": "ab01"
+      },
+      "TEM_01-21_HK2": {
+        "line": 1497,
+        "time": "2026-10-02 21:28:01.565",
+        "telegram": "31150621",
+        "field": "TEM_01-21_HK2",
+        "value": 100.0,
+        "payload": "21811000"
+      },
+      "return_0801": {
+        "line": 1459,
+        "time": "2026-10-02 21:27:49.902",
+        "telegram": "10fe0801",
+        "field": "return_0801",
+        "value": 21.19921875,
+        "payload": "3315192f00083315"
+      },
+      "FA1_request": {
+        "line": 1487,
+        "time": "2026-10-02 21:27:59.165",
+        "telegram": "10030501",
+        "field": "FA1_request",
+        "value": 0.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_extra_byte5": {
+        "line": 1487,
+        "time": "2026-10-02 21:27:59.165",
+        "telegram": "10030501",
+        "field": "FA1_extra_byte5",
+        "value": 70.0,
+        "payload": "000b320e0046010000e0"
+      },
+      "FA1_flow_coarse": {
+        "line": 1501,
+        "time": "2026-10-02 21:28:03.415",
+        "telegram": "03100503",
+        "field": "FA1_flow_coarse",
+        "value": 21.5,
+        "payload": "010048322b15ff3f4000"
+      },
+      "flow_1000": {
+        "line": 1412,
+        "time": "2026-10-02 21:27:36.255",
+        "telegram": "10fe100a",
+        "field": "flow_1000",
+        "value": 21.5,
+        "payload": "1000d700d700d7000000d701e300"
+      }
+    }
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "input": "ebusd.log",
+  "sha256": "c75b682075b05290c306ff51d34909c51ddb8cd26bac1c0995e9fc972bbfaffb",
+  "bytes": 5624823,
+  "leading_nul_bytes": 2474361,
+  "lines": 53070,
+  "first": "2026-09-27 00:54:44.942000",
+  "last": "2026-09-27 17:51:26.799000",
+  "duration_s": 61001.857,
+  "valid_master_telegrams": 52793,
+  "excluded_lines": 277,
+  "errors": {
+    "short fragment, no complete master header": 277
+  },
+  "transport": {
+    "master ACK": 27493,
+    "slave response CRC and ACK valid": 12328,
+    "broadcast": 12930,
+    "master valid, response/ACK incomplete or unusual": 42
+  },
+  "longest_log_gap": [
+    79.338,
+    "2026-09-27 14:52:07.937000",
+    "2026-09-27 14:53:27.275000"
+  ]
+}

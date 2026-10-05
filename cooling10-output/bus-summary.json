@@ -1,0 +1,388 @@
+{
+  "input": "ebusd.cool10.log",
+  "sha256": "3622978a529edab078990afd091ad2639dfb813b2700ed7d7fbed10813061ac8",
+  "bytes": 94789,
+  "leading_nul_bytes": 0,
+  "lines": 1515,
+  "first": "2026-10-02 21:10:00.277000",
+  "last": "2026-10-02 21:28:07.768000",
+  "duration_s": 1087.491,
+  "valid_master_telegrams": 1475,
+  "excluded_lines": 40,
+  "errors": {
+    "short fragment, no complete master header": 40
+  },
+  "transport": {
+    "slave response CRC and ACK valid": 699,
+    "broadcast": 231,
+    "master ACK": 493,
+    "master valid, response/ACK incomplete or unusual": 52
+  },
+  "longest_log_gap": [
+    5.565,
+    "2026-10-02 21:22:29.883000",
+    "2026-10-02 21:22:35.448000"
+  ],
+  "read_counts": {
+    "read_requests": 519,
+    "valid_02-20": 2,
+    "valid_01-96": 94,
+    "valid_01-07": 94,
+    "valid_01-09": 45,
+    "valid_00-02": 45,
+    "valid_01-21": 46,
+    "valid_00-07": 47,
+    "valid_00-08": 94
+  },
+  "invalid_reads": [
+    {
+      "line": 542,
+      "time": "2026-10-02 21:20:00.315",
+      "selector": "0901",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 785,
+      "time": "2026-10-02 21:24:16.194",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 813,
+      "time": "2026-10-02 21:24:26.147",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 844,
+      "time": "2026-10-02 21:24:36.272",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 856,
+      "time": "2026-10-02 21:24:40.491",
+      "selector": "0914",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 892,
+      "time": "2026-10-02 21:24:51.491",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 894,
+      "time": "2026-10-02 21:24:51.632",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 896,
+      "time": "2026-10-02 21:24:51.772",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 898,
+      "time": "2026-10-02 21:24:51.913",
+      "selector": "0804",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 900,
+      "time": "2026-10-02 21:24:52.053",
+      "selector": "0804",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 911,
+      "time": "2026-10-02 21:24:56.178",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 928,
+      "time": "2026-10-02 21:25:01.288",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 942,
+      "time": "2026-10-02 21:25:06.179",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 971,
+      "time": "2026-10-02 21:25:16.179",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 978,
+      "time": "2026-10-02 21:25:17.210",
+      "selector": "08851000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1020,
+      "time": "2026-10-02 21:25:31.507",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1034,
+      "time": "2026-10-02 21:25:36.319",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1062,
+      "time": "2026-10-02 21:25:46.289",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1064,
+      "time": "2026-10-02 21:25:46.429",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1066,
+      "time": "2026-10-02 21:25:46.570",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1068,
+      "time": "2026-10-02 21:25:46.711",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1070,
+      "time": "2026-10-02 21:25:46.851",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1098,
+      "time": "2026-10-02 21:25:56.335",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1145,
+      "time": "2026-10-02 21:26:11.476",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1157,
+      "time": "2026-10-02 21:26:16.148",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1159,
+      "time": "2026-10-02 21:26:16.289",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1161,
+      "time": "2026-10-02 21:26:16.430",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1163,
+      "time": "2026-10-02 21:26:16.570",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1165,
+      "time": "2026-10-02 21:26:16.711",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1180,
+      "time": "2026-10-02 21:26:21.273",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1194,
+      "time": "2026-10-02 21:26:26.180",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1222,
+      "time": "2026-10-02 21:26:36.164",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1229,
+      "time": "2026-10-02 21:26:37.195",
+      "selector": "08851000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1237,
+      "time": "2026-10-02 21:26:40.539",
+      "selector": "0914",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1273,
+      "time": "2026-10-02 21:26:51.477",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1287,
+      "time": "2026-10-02 21:26:56.305",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1315,
+      "time": "2026-10-02 21:27:06.149",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1344,
+      "time": "2026-10-02 21:27:16.180",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1346,
+      "time": "2026-10-02 21:27:16.321",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1348,
+      "time": "2026-10-02 21:27:16.462",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1350,
+      "time": "2026-10-02 21:27:16.618",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1352,
+      "time": "2026-10-02 21:27:16.758",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1398,
+      "time": "2026-10-02 21:27:31.493",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1411,
+      "time": "2026-10-02 21:27:36.165",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1428,
+      "time": "2026-10-02 21:27:41.337",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1442,
+      "time": "2026-10-02 21:27:46.306",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1444,
+      "time": "2026-10-02 21:27:46.447",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1446,
+      "time": "2026-10-02 21:27:46.587",
+      "selector": "08821000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1448,
+      "time": "2026-10-02 21:27:46.728",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1450,
+      "time": "2026-10-02 21:27:46.868",
+      "selector": "21811000",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1476,
+      "time": "2026-10-02 21:27:56.150",
+      "selector": "ab01",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 1483,
+      "time": "2026-10-02 21:27:57.196",
+      "selector": "08851000",
+      "reason": "invalid/incomplete transport"
+    }
+  ],
+  "writes": [
+    {
+      "line": 115,
+      "time": "2026-10-02 21:12:00.390",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 326,
+      "time": "2026-10-02 21:16:00.395",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 545,
+      "time": "2026-10-02 21:20:00.581",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 766,
+      "time": "2026-10-02 21:24:00.399",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    },
+    {
+      "line": 1490,
+      "time": "2026-10-02 21:28:00.418",
+      "telegram": "31100623",
+      "payload": "00005100",
+      "ack": "00"
+    }
+  ]
+}

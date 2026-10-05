@@ -1,0 +1,181 @@
+{
+  "input": "ebusd.test2.log",
+  "sha256": "f5faba2575eec51b34ae0b36220d3db8e8a5d138e10098515f30ebf9d67cfdb5",
+  "bytes": 2133811,
+  "leading_nul_bytes": 0,
+  "lines": 35824,
+  "first": "2026-10-03 22:30:00.154000",
+  "last": "2026-10-04 09:46:23.166000",
+  "duration_s": 40583.012,
+  "valid_master_telegrams": 35678,
+  "excluded_lines": 146,
+  "errors": {
+    "short fragment, no complete master header": 146
+  },
+  "transport": {
+    "broadcast": 8619,
+    "slave response CRC and ACK valid": 8762,
+    "master ACK": 18280,
+    "master valid, response/ACK incomplete or unusual": 17
+  },
+  "longest_log_gap": [
+    5.542,
+    "2026-10-04 09:44:00.361000",
+    "2026-10-04 09:44:05.903000"
+  ],
+  "invalid_reads": [
+    {
+      "line": 25308,
+      "time": "2026-10-04 06:30:00.634",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 26357,
+      "time": "2026-10-04 06:50:00.651",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 27406,
+      "time": "2026-10-04 07:10:00.637",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 28453,
+      "time": "2026-10-04 07:30:00.577",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 29499,
+      "time": "2026-10-04 07:50:00.578",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 30546,
+      "time": "2026-10-04 08:10:00.597",
+      "telegram": "31150621",
+      "payload": "0901",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35370,
+      "time": "2026-10-04 09:41:45.251",
+      "telegram": "31150621",
+      "payload": "2306",
+      "response": null,
+      "tail": "0aa3414d046400140064008600",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35419,
+      "time": "2026-10-04 09:41:55.825",
+      "telegram": "31150621",
+      "payload": "0001",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35423,
+      "time": "2026-10-04 09:41:56.591",
+      "telegram": "31150621",
+      "payload": "23881000",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35434,
+      "time": "2026-10-04 09:41:58.841",
+      "telegram": "31150621",
+      "payload": "a505",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35442,
+      "time": "2026-10-04 09:42:00.341",
+      "telegram": "31150621",
+      "payload": "238a1000",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35468,
+      "time": "2026-10-04 09:42:05.950",
+      "telegram": "31150621",
+      "payload": "a702",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35509,
+      "time": "2026-10-04 09:42:14.825",
+      "telegram": "31150621",
+      "payload": "a905",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35531,
+      "time": "2026-10-04 09:42:19.669",
+      "telegram": "31150621",
+      "payload": "a90d",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35545,
+      "time": "2026-10-04 09:42:21.919",
+      "telegram": "31150621",
+      "payload": "af03",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35580,
+      "time": "2026-10-04 09:42:29.685",
+      "telegram": "31150621",
+      "payload": "ab07",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    },
+    {
+      "line": 35584,
+      "time": "2026-10-04 09:42:30.451",
+      "telegram": "31150621",
+      "payload": "ad07",
+      "response": null,
+      "tail": "",
+      "reason": "invalid/incomplete transport"
+    }
+  ]
+}
