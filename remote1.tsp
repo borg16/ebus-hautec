@@ -8,6 +8,8 @@ namespace hautec;
 
 @zz(0x90)
 namespace Remote1 {
+  // No automatic polling for Remote1. Use MQTT filter-seen=1 to prevent
+  // HA discovery from enabling it; see docs/Polling.md.
   /** Read total start counter of operating unit 1 (heat pump) */
   @zz(0x90)
   @id(0x3, 0x4)
@@ -182,7 +184,10 @@ namespace Remote1 {
     T_Room_target_Day: Temp10;
     T_Room_target_Night: Temp10;
     T_Water_target: Temp10;
-    @maxLength(6) Reserviert2: HEX;
+    /** Betriebsart des Heizkreises 1: 0 = Standby, 1 = Uhrenprogramm 1 (beobachtet). */
+    Betriebsart: UCH;
+    @maxLength(3) Reserviert2: HEX;
+    @maxLength(2) Key: HEX;
   }
 
   /** Heizgrenzen, Menü 03, aus Bedienteil 1 */

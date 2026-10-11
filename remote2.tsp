@@ -8,6 +8,7 @@ namespace hautec;
 
 @zz(0x91)
 namespace Remote2 {
+// No automatic polling for Remote2. Use MQTT filter-seen=1; see docs/Polling.md.
 
 /** Read total start counter of operating unit 2 (heat pump) */
 @zz(0x91)
@@ -270,4 +271,3 @@ data: FachmannMatrix,
 
 
 }
-

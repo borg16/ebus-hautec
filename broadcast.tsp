@@ -329,7 +329,10 @@ model Status2a {
 b1: Byte,
 b2: Byte,
 Mins: UIN,
+/** HK1 operating state in the controller (2026-10-11 test3): 04 = standby, 01 = clock program 1.
+ * Updated within one 80 s cycle after the FB1 change; other modes not yet measured. */
 b3: Byte,
+/** HK1 companion byte: 00 = standby, 01 = clock program 1. Matches the mode byte of FB1 block 20 01. */
 b4: Byte,
 b5: Byte,
 b6: Byte,
@@ -370,7 +373,10 @@ b1: Byte,
 b2: Byte,
 /** Minutes since Monday 00:00; checked against 07 00 and 30 00 captures (docs/FB-Initialization.md). */
 Mins: UIN,
+/** HK2 operating state in the controller (2026-10-11 test3): 04 = standby, 01 = clock program 1.
+ * Same layout as Status2a.b3; other modes not yet measured. */
 b5: Byte,
+/** HK2 companion byte: 00 = standby, 01 = clock program 1. Matches the mode byte of FB2 block 20 0B. */
 b6: Byte,
 qB3: Byte,
 b4: Byte,

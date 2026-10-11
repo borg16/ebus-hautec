@@ -378,7 +378,10 @@ model TemperaturSollwerte {
   DayTemp: Temp;
   NightTemp: Temp;
   WaterTemp: Temp;
-  Four: Four;
+  /** Betriebsart der Bedieneinheit: 0 = Standby, 1 = Uhrenprogramm 1 (beobachtet 2026-10-11, docs/Heating-Mode-2026-10-11-test3.md). */
+  Betriebsart: UCH;
+  @maxLength(3)
+  Reserviert: HEX;
   Key: Key;
 }
 
@@ -427,8 +430,9 @@ model DatenAenderungsantwort {
   @in
   DataUnchanged: DataUnchanged;
 
+  /** Binary block selector, e.g. 0x0b or 0x0d for remote 2; not BCD. */
   @in
-  Block: BCD;
+  Block: UCH;
 }
 
 @divisor(10)

@@ -347,3 +347,15 @@ Strg+C beendet den Scan mit Exitcode 130 und zeigt eine Startkombination zum
 Fortsetzen an. Mit `--start XXXX` und einem neuen Ausgabeverzeichnis fortsetzen;
 im Modus mit festem Anfang auch denselben `--code` angeben. Die zuletzt
 begonnene Anfrage wird dabei gegebenenfalls wiederholt.
+
+## analyze_operation.py
+
+Leitet aus VictoriaMetrics Betriebsphasen ab (Warmwasser, Heizen, Anforderung
+Stufe 1/2, Verdichter-Indiz über Vorlauf-Rücklauf-Spreizung) und gibt Summen in
+Stunden aus. Die Betriebsstundenzähler zählen nur die Anforderung, nicht den
+Verdichterlauf.
+
+```sh
+python3 scripts/analyze_operation.py 2026-10-11T00:00 now --segments
+python3 scripts/analyze_operation.py -- -24h now --spread 3
+```

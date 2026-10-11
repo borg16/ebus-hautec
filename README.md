@@ -133,7 +133,20 @@ Run the offline decoding regression check with:
 python3 -m unittest discover -s scripts -p test_broadcast.py
 ```
 
+## Analysing recorded data
+
+All ebus messages are stored in VictoriaMetrics (`http://raspi:8428`). See
+[VictoriaMetrics access](docs/VictoriaMetrics-Zugriff.md) for queries, metric
+naming and interpretation notes, and `scripts/vm_query.py` for a helper.
+
 ## Building the ebusd CSV configuration
+
+Keep `--pollinterval=5` and add `filter-seen=1` to `--mqttvar` to support
+explicit polling of future values. No messages currently have a poll priority;
+Remote1 and Remote2 are updated by listening to bus traffic. Future requests
+can be selected with `@poll(5)`. The default HA integration (`filter-seen=5`)
+would also poll unsuitable controller transfers and unsupported requests. See
+[Polling configuration and start command](docs/Polling.md).
 
 The message definitions are written in [TypeSpec](https://typespec.io/) (`.tsp` files) using the [`@ebusd/ebus-typespec`](https://www.npmjs.com/package/@ebusd/ebus-typespec) library, with `main.tsp` as the entry point importing all circuit files. To compile them into the ebusd CSV configuration:
 
