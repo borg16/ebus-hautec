@@ -45,6 +45,11 @@ may contain the temporarily used English names; the table above maps them to
 the active names. Regenerated [frequency reports](../status-output/Status-Statistik.md)
 use the active definitions.
 
+Cross-message properties that can share a name in Home Assistant or another
+evaluation are collected in [Broadcast-Property-Groups.md](Broadcast-Property-Groups.md).
+That mapping distinguishes well-supported aliases from still-unverified
+temperature correspondences and does not rename the active ebusd fields.
+
 Rebuild and regenerate the report with:
 
 ```sh
