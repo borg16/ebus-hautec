@@ -69,7 +69,11 @@ DataQ: DatenAenderungsabfrage,
 Answer: DatenAenderungsantwort,
 }
 
-/** Datum und Uhrzeit aus Bedienteil 2 */
+/** Leseantwort für den geänderten Block 20 0A von Bedienteil 2.
+ * In test7, the preceding D0 15 change query returns 02 40 0A; this response
+ * contains timeOfDay=4A 05 (22:34). It is the value forwarded by the following
+ * 07 00 controller broadcast, not the write operation itself.
+ */
 @zz(0x91)
 @id(0x10, 0xa, 0x20, 0xa)
 model DatumUhrzeitBedienteil2 {

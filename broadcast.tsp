@@ -24,7 +24,15 @@ model b {
 model w {
 }
 
-/** Date/Time Broadcast (eBUS service 07 00) */
+/** Date/Time Broadcast (eBUS service 07 00).
+ * Payload uses D2B outside temperature, then BTI time (BCD seconds, minutes,
+ * hours) and BDA date (BCD day, month, weekday, year). In test6,
+ * 22:18:40 carries 22:18:18; 22:19:09 carries 22:17:47; and
+ * 22:19:39 carries 22:18:17. In test7, 22:34:40 carries 22:24:18, while
+ * 22:35:09 carries 22:34:47. This second capture shows the new time reaching
+ * the controller after the setting on Remote2; the other terminal displayed
+ * it at about 22:34:57. The write itself is not present in the raw capture.
+ */
 @passive 
 @zz(BROADCAST)
 @id(0x7, 0)
@@ -32,7 +40,9 @@ model DateTimeBroadcast {
 /** Outside temperature */
 @unit("°C")
 ta: D2B,
+/** BCD seconds, minutes, hours (seconds first on the wire). */
 time: BTI,
+/** BCD day, month, weekday (Monday=01), year. */
 date: BDA,
 }
 /** Identification (eBUS service 07 04). */
@@ -107,22 +117,28 @@ model ToFAxSub {
 @zz(BROADCAST)
 @id(0x8, 1)
 model OperationalData {
-@unit("°C") tr_hp: D2B,
-@unit("°C") tb: D2B,
+@unit("°C")
+tr_hp: D2B,
+@unit("°C")
+tb: D2B,
 Emissionstest: UCH,
+/** Always false on observed captures. */
 BWR_Aktiv: BI0,
 PumpenFreigabeSperre: BI1,
+/** Standard label. Always false on observed captures. */
 Kessel1InBetrieb: BI2,
-/** Standard label only: status byte is 00 or 08 in the eleven ebusd*.log
- * captures examined on 2026-10-03. No physical compressor/terminal assignment. */
+/** Standard label. Indicates if system is active. */
 Kessel2InBetrieb: BI3,
-/** Standard label; remains clear in those captures, including DHW phases.
+/** Standard label; Always false on observed captures.
  * Use Status0a.BWR_Ventil / Status1a.BWR_Aktiv as DHW output candidates. */
 Ladepumpe: BI4,
-/** Standard label; not a validated TEM 13 / M5 indication. */
+/** Standard label; Always false on observed captures. */
 BW_Ladung: BI5,
+/** Standard label; Always false on observed captures. */
 TBF_Connect: BI6,
-@unit("°C") tr_hp2: D2B,
+/** Same as tr_hp. */
+@unit("°C")
+tr_hp2: D2B,
 }
 
 /** Control commands from the master controller to other controllers (eBUS service 08 02). */
@@ -166,6 +182,7 @@ model ControlCommands {
 @id(0x10, 0xa, 0x11, 0)
 model Status0a {
 ta: Temp,
+/** Always false on observed captures. */
 Bit0: BI0,
 /** Candidate: first-stage enable, possibly TEM 24 ("Verdichter 1").
  * Matches next FA1 05 03 SettingLevel > 0 in 1252/1257 pairs across eleven logs
@@ -173,6 +190,7 @@ Bit0: BI0,
  * set while FA1 reports 0%. Not a measured K1 contact or compressor current.
  * M17 relevance: TEM 24 reaches K1 through K4/K7; this bit cannot establish
  * that K1 is energized, especially when the cooling interlock inhibits K1. */
+// Same as OperationalData.Kessel2InBetrieb
 // test1: 207/207 next-FA1 pairs agree; still no physical contact measurement.
 Bit1: BI1,
 /** Candidate: second-stage enable, possibly TEM 26 ("WEZ 1-2", contact 25-26).
@@ -198,8 +216,11 @@ Bit2: BI2,
 // test1: this bit and all 2073 FA1 uwp samples stay set, including the
 // 12:33-12:45 FA1 level-0 pause. This capture cannot identify M17 current.
 Bit3: BI3,
+/** Always false on observed captures. */
 Bit4: BI4,
+/** Always false on observed captures. */
 Bit5: BI5,
+/** Always false on observed captures. */
 Bit6: BI6,
 /** Candidate: heating-circuit pump enable, possibly TEM 6 (not compressor run).
  * On 2026-09-27, FA1 level falls to 0 at 07:02:53 and uwp clears at 07:03:49;
@@ -329,12 +350,12 @@ model Status2a {
 b1: Byte,
 b2: Byte,
 Mins: UIN,
-/** HK1 operating state in the controller (2026-10-11 test3): 04 = standby, 01 = clock program 1.
- * Updated within one 80 s cycle after the FB1 change; other modes not yet measured. */
+/** HK1 effective state (test3-5): 01 = heating/day, 00 = setback/night, 04 = off (standby, summer, manual). */
 b3: Byte,
-/** HK1 companion byte: 00 = standby, 01 = clock program 1. Matches the mode byte of FB1 block 20 01. */
+/** HK1 operating mode as 03-50: 0 standby, 1 automatic, 2 heating, 3 setback, 4 summer, 5 manual. */
 b4: Byte,
 b5: Byte,
+/** HK1 clock program coding: 1 + 2 * program (program 1/2/3 -> 01/03/05); 01 in other modes. */
 b6: Byte,
 }
 
@@ -373,12 +394,12 @@ b1: Byte,
 b2: Byte,
 /** Minutes since Monday 00:00; checked against 07 00 and 30 00 captures (docs/FB-Initialization.md). */
 Mins: UIN,
-/** HK2 operating state in the controller (2026-10-11 test3): 04 = standby, 01 = clock program 1.
- * Same layout as Status2a.b3; other modes not yet measured. */
+/** HK2 effective state, as Status2a.b3: 01 = heating/day, 00 = setback/night, 04 = off. */
 b5: Byte,
-/** HK2 companion byte: 00 = standby, 01 = clock program 1. Matches the mode byte of FB2 block 20 0B. */
+/** HK2 operating mode as 03-50 (see Status2a.b4). */
 b6: Byte,
 qB3: Byte,
+/** HK2 clock program coding: 1 + 2 * program (see Status2a.b6). */
 b4: Byte,
 }
 

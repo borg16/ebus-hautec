@@ -1,5 +1,6 @@
 import "@ebusd/ebus-typespec";
 using Ebus;
+using Ebus.Dtm;
 using Ebus.Num;
 using Ebus.Str;
 
@@ -362,14 +363,20 @@ scalar Val3 extends HEX;
 
 scalar MyAddress extends HEX;
 
-/** Zeitangaben und Warmwassertemperatur aus Menü 0A */
+/** Daten aus Remote-Block 20 0A.
+ * In the captured change response, 07 00 0E 30 0A is followed by a 2-byte
+ * little-endian minute-of-day value: 4A 05 = 1354 min = 22:34. Other captures
+ * show 39 05 = 22:17 and 3B 05 = 22:19. Keep the remaining bytes opaque.
+ */
 model ZeitUndWarmwassertemperatur {
   CommandCode: CommandCode;
-  MinutenSeit: MinutenSeit;
-  DaysInEpoch: DaysInEpoch;
-  WaterTemp: Temp;
-  Four: Four;
-  Key: Key;
+  recordPrefix: Zwei;
+  timeMarker: UCH;
+  /** Minutes since midnight; little-endian on the wire. */
+  @unit("min")
+  timeOfDay: MIN;
+  @maxLength(8)
+  remainingData: HEX;
 }
 
 /** Tag-, Nacht- und Warmwasser-Solltemperatur aus Menü 0B */
@@ -378,9 +385,11 @@ model TemperaturSollwerte {
   DayTemp: Temp;
   NightTemp: Temp;
   WaterTemp: Temp;
-  /** Betriebsart der Bedieneinheit: 0 = Standby, 1 = Uhrenprogramm 1 (beobachtet 2026-10-11, docs/Heating-Mode-2026-10-11-test3.md). */
+  /** Betriebsart (03-50): 0 = Standby, 1 = Automatik (Uhrenprogramm), 2 = Heizbetrieb (Sonne), 3 = Absenkbetrieb (Mond), 4 = Sommer, 5 = Hand/Notbetrieb. Siehe docs/Heating-Mode-2026-10-11-test3.md. */
   Betriebsart: UCH;
-  @maxLength(3)
+  /** Gewähltes Uhrenprogramm, 0-basiert (0 = Programm 1 ... 2 = Programm 3); nur bei Betriebsart 1 relevant. */
+  Uhrenprogramm: UCH;
+  @maxLength(2)
   Reserviert: HEX;
   Key: Key;
 }
@@ -504,7 +513,8 @@ model HeizkennlinienParameter200C {
 /** Teilweise entschlüsselte Kühlparameter aus Block 21 0B */
 model KuehlParameter210B {
   CommandCode: CommandCode;
-  VorhaltX: Zehntel;
+  /** Vorzeichenbehaftet; hier ändert sich die Behaglichkeit (-1,5 K -> +1,0 K: f1 ff -> 0a 00, 2026-10-12). */
+  VorhaltX: Hgr;
   Kuehl: Zehntel;
   a: Zwei;
   b: Zehntel;

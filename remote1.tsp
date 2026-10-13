@@ -184,9 +184,11 @@ namespace Remote1 {
     T_Room_target_Day: Temp10;
     T_Room_target_Night: Temp10;
     T_Water_target: Temp10;
-    /** Betriebsart des Heizkreises 1: 0 = Standby, 1 = Uhrenprogramm 1 (beobachtet). */
+    /** Betriebsart (03-50): 0 = Standby, 1 = Automatik, 2 = Heizen, 3 = Absenken, 4 = Sommer, 5 = Hand. */
     Betriebsart: UCH;
-    @maxLength(3) Reserviert2: HEX;
+    /** Gewähltes Uhrenprogramm, 0-basiert. */
+    Uhrenprogramm: UCH;
+    @maxLength(2) Reserviert2: HEX;
     @maxLength(2) Key: HEX;
   }
 
